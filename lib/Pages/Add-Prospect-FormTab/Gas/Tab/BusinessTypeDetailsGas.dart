@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:pozitive/Core/ViewModel/GasAddProspectViewModel/GasBusinessViewModel.dart';
+import 'package:pozitive/Widget/GasAddress/LLCAdress.dart';
+import 'package:pozitive/Widget/GasAddress/PartnerShipAddress.dart';
+import 'package:pozitive/Widget/GasAddress/charityAddress.dart';
+import 'package:pozitive/Widget/GasAddress/emptyBusinessTypeAddress.dart';
+import 'package:pozitive/Widget/GasAddress/llpAddress.dart';
+import 'package:pozitive/Widget/GasAddress/ltdAddress.dart';
+import 'package:pozitive/Widget/GasAddress/solePartnerAddress.dart';
+import 'package:pozitive/Core/baseview.dart';
+import 'package:pozitive/Core/Model/user.dart';
+import 'package:provider/provider.dart';
+
+class GasBusinessTypeDetails extends StatefulWidget {
+  @override
+  _GasBusinessTypeDetailsState createState() => _GasBusinessTypeDetailsState();
+}
+
+class _GasBusinessTypeDetailsState extends State<GasBusinessTypeDetails> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+
+    return user.accountId != null
+        ? BaseView<GasBusinessAddProspectViewModel>(
+            onModelReady: (model) => model.initialData(() {}),
+            builder: (context, model, child) {
+              return Scaffold(
+                backgroundColor: Colors.white,
+                body: Padding(
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.03,
+                      right: MediaQuery.of(context).size.width * 0.03),
+                  child: Form(
+                    key: _formKey,
+                    child: ListView(
+                      children: [
+                        model.gasbusinessTypeController.text == 'Other'
+                            ? Container(
+                                child: emptyAddresses(),
+                              )
+                            : Container(),
+                        model.gasbusinessTypeController.text == 'Ltd'
+                            ? Container(
+                                child: ltdAddresses(),
+                              )
+                            : Container(),
+                        model.gasbusinessTypeController.text ==
+                                'Sole Proprietor'
+                            ? Container(child: SoleAddresses())
+                            : Container(),
+                        model.gasbusinessTypeController.text == 'Partnership'
+                            ? Container(child: PartnerShipAddresses())
+                            : Container(),
+                        model.gasbusinessTypeController.text == 'Charity'
+                            ? Container(child: CharityAddresses())
+                            : Container(),
+                        model.gasbusinessTypeController.text == 'LLP'
+                            ? Container(child: llpAddresses())
+                            : Container(),
+                        model.gasbusinessTypeController.text == 'LLC'
+                            ? Container(child: llcAddresses())
+                            : Container(),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            })
+        : Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+  }
+}
