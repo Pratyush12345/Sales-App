@@ -42,7 +42,7 @@ import 'package:pozitive/Core/Model/ApiResponse/GroupRefreshReqQuoteModel.dart';
 import 'package:pozitive/Core/Model/Api/PartnerSavePriceWithUpliftCredential.dart';
 import 'package:pozitive/Core/Model/Api/view_group_button_credentials.dart';
 import 'package:pozitive/Core/Model/ApiResponse/add_quote_response.dart';
-import 'package:pozitive/Core/Model/ApiResponse/refreshReqQuoteModel.dart';
+import 'package:pozitive/Core/Model/ApiResponse/RefreshReqQuoteModel.dart';
 import 'package:pozitive/Core/Model/ApiResponse/save_button_response.dart';
 import 'package:pozitive/Core/AppConstact/appConstant.dart';
 import 'package:pozitive/Core/Model/ApiResponse/send_email_tender_response.dart';

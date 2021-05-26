@@ -1,5 +1,5 @@
 import 'package:pozitive/Core/Model/Api/export_tender_price_group_credential.dart';
-import 'package:pozitive/Core/Model/export_tender_price_group_Model.dart';
+import 'package:pozitive/Core/Model/export_tender_price_group_model.dart';
 import 'package:pozitive/Core/Services/database.dart';
 import 'package:pozitive/Core/Services/DownloadService.dart';
 import 'package:pozitive/Core/ViewModel/baseModel.dart';

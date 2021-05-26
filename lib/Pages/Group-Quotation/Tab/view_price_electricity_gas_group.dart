@@ -24,7 +24,8 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
   ThemeApp themeApp = ThemeApp();
 
   List viewlist = [];
-
+  double gasUniVar1;
+  double eleUniVar1;
   @override
   void initState() {
     super.initState();
@@ -68,15 +69,41 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftElectricity,
                             controller: model.elecCommonUnit,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftElectricity),
+                            // validator: (value) => AppConstant.numberValidator1(
+                            //     value, model.elecCommonUnit.text),
+                            onChanged: (text) {
+                              setState(() {
+                                eleUniVar1 = double.tryParse(text.toString());
+                                // if (double.tryParse(text) > 3) {
+                                //   //hideKeyboard();
+                                //   return 'max value 3';
+                                // }
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                              RegExp regexp = new RegExp(
+                                r"^|\-|\,|\ ",
+                                caseSensitive: false,
+                                multiLine: false,
+                              );
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 3) {
+                                  return 'max value 3';
+                                }
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         Container(
@@ -86,15 +113,40 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             // title: AppString.commonUpLiftElectricity,
                             controller: model.elecCommonSc,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftElectricity),
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (eleUniVar1 != null) {
+                                  if (eleUniVar1 > 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    } else {}
+                                  }
+                                  if (eleUniVar1 == 0) {
+                                    if (double.tryParse(value) > 100) {
+                                      return 'Max value is 100';
+                                    }
+                                  }
+                                } else {
+                                  if (double.tryParse(value) > 100) {
+                                    return 'Max value is 100';
+                                  }
+                                }
+                              }
+                            },
+                            // validator: (value) => AppConstant.numberValidator2(
+                            //     value, model.elecCommonSc.text ,model.elecCommonUnit.text)
                           ),
                         ),
                       ],
@@ -108,15 +160,43 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftGas,
                             controller: model.gasCommonUnit,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftGas),
+                            onChanged: (text) {
+                              setState(() {
+                                gasUniVar1 =
+                                    double.tryParse(text.toString());
+                                // if (double.tryParse(text) > 1.5) {
+                                //   //hideKeyboard();
+                                //   return 'max value 1.5';
+                                // }
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+
+                              RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                // if (value.length > 9) {
+                                //   return 'Enter 0 or 1';
+                                // } else if (!regExp.hasMatch(value)) {
+                                //   return 'Enter 0 or 1';
+                                // }
+                                if (value.isNotEmpty) {
+                                  if (double.tryParse(value) > 1.5) {
+                                    return 'max value 1.5';
+                                  }
+                                }
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         Container(
@@ -125,15 +205,38 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             // title: AppString.commonUpLiftElectricity,
                             controller: model.gasCommonSc,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftGas),
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (gasUniVar1 != null) {
+                                  if (gasUniVar1 > 0) {
+                                    if (double.tryParse(value) > 25) {
+                                      return 'Max value is 25';
+                                    } else {}
+                                  }
+                                  if (gasUniVar1 == 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    }
+                                  }
+                                } else {
+                                  if (double.tryParse(value) > 50) {
+                                    return 'Max value is 50';
+                                  }
+                                }
+                              }
+                            },
                           ),
                         ),
                       ],
@@ -312,7 +415,12 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                     //Save and Next
                     PurpleFlatButton(
                       text: 'Save and Next',
-                      onTap: () => model.onSaveAndNext(),
+                      onTap: () {
+                        if(_formKey.currentState.validate()){
+                          model.onSaveAndNext();
+                        }
+                      }
+
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,

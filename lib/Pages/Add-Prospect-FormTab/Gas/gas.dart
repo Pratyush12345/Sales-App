@@ -6,7 +6,7 @@ import 'package:pozitive/Pages/Add-Prospect-FormTab/Gas/Tab/gastab.dart';
 import 'package:provider/provider.dart';
 import 'package:pozitive/Util/theme.dart';
 import 'package:pozitive/Util/global.dart' as globals;
-import 'package:pozitive/Pages/Add-Prospect-FormTab/Gas/Tab/businessDetailstab.dart';
+import 'package:pozitive/Pages/Add-Prospect-FormTab/Gas/Tab/businessDetailsTab.dart';
 import 'package:pozitive/Pages/Add-Prospect-FormTab/Gas/Tab/siteAddressTab.dart';
 import 'package:pozitive/Core/Model/Api/Gas-Insert-AddProspect/Gas_Business_Credential.dart';
 import 'package:pozitive/Pages/Add-Prospect-FormTab/Gas/Tab/billingAddressTab.dart';

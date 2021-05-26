@@ -1,6 +1,6 @@
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:pozitive/Core/Model/Api/Gas-Insert-AddProspect/Gas_Gas_Credential.dart';
-import 'package:pozitive/Util/gas_Pref.dart';
+import 'package:pozitive/Util/gas_pref.dart';
 import 'package:pozitive/Core/Services/database.dart';
 import 'package:pozitive/Core/ViewModel/baseModel.dart';
 import 'package:pozitive/Core/enums/view_state.dart';

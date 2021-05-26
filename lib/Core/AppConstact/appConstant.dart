@@ -37,6 +37,39 @@ class AppConstant {
     }
     return null;
   }
+  static String numberValidator1(String value, String controllerName) {
+    if (value.isEmpty) {
+      return "Please enter $controllerName";
+    }
+    else if(!RegExp(r'^([0-3]|[0-3])$').hasMatch(controllerName)){
+      return 'Number between 0-3';
+    }
+    return null;
+  }
+  static String numberValidator2(String value, String controllerName, String upliftValue) {
+    if (value.isEmpty) {
+      return "Please enter $controllerName";
+    }
+    else if(upliftValue == '0'){
+      if(!RegExp(r'^[0-9][0-9]?$|^100$').hasMatch(controllerName)){
+        return 'Number between 0-100';
+      }
+      return null;
+    }
+    else if(!RegExp(r'^[0-4][0-9]?$|^50$').hasMatch(controllerName)){
+      return 'Number between 0-50';
+    }
+    return null;
+  }
+  static String numberValidator3(String value, String controllerName) {
+    if (value.isEmpty) {
+      return "Please enter $controllerName";
+    }
+    else if(!RegExp(r'^[0-2]\d*(\.\d+)?$').hasMatch(controllerName)){
+      return 'Number between 0-3';
+    }
+    return null;
+  }
 
   static Future checkConnectivity(BuildContext context) async {
     var connectivityResult = await (Connectivity().checkConnectivity());

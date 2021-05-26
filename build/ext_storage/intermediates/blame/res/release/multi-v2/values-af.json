@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/jay/StudioProjects/Sales-App/build/ext_storage/intermediates/incremental/mergeReleaseResources/merged.dir/values-af/values-af.xml",
+            "map": [
+                {
+                    "source": "/home/jay/.gradle/caches/transforms-2/files-2.1/8c39d07c9917e5ca31cd02d2abf72ea5/core-1.1.0/res/values-af/values-af.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/jay/StudioProjects/Sales-App/build/ext_storage/intermediates/res/merged/release/values-af/values-af.xml",
+            "map": [
+                {
+                    "source": "/home/jay/.gradle/caches/transforms-2/files-2.1/8c39d07c9917e5ca31cd02d2abf72ea5/core-1.1.0/res/values-af/values-af.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
