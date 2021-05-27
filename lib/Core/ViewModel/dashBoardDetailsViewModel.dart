@@ -35,7 +35,7 @@ class DashBoardDetailsViewModel extends BaseModel {
       }
       // print(validUpToMsg);
       // print(validUpToMsg.length);
-
+      print(dashBoardDetailDataModel.lstgetdetail[0].validMsg);
       print(response);
     } else {
       print("error");

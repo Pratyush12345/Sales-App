@@ -44,7 +44,19 @@ TabController3Provider tabController3Provider;
     quotationDetailsProviderData =
         Provider.of<GroupQuotaionDetailsProvider>(context);
     return BaseView<GroupQuotationViewModel>(
-      onModelReady: (model) => model.initializeData(context: context),
+      onModelReady: (model) {
+        model.initializeData(context: context,grpid: widget.groupId);
+        // model.askForQuote(
+        //   tabController3Provider: tabController3Provider,
+        //   quotaionDetailsProvider: quotationDetailsProviderData,
+        //   siteListProviderData: siteListProviderData,
+        //   textlist: model.textlist,
+        //   context: context,
+        //   apiCommand: model.groupIdFromPref == null
+        //       ? "Insert"
+        //       : "Update",
+        // );
+      },
       builder: (context, model, child) {
         if (model.state == ViewState.BUSY) {
           return Container(

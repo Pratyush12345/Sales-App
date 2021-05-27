@@ -26,6 +26,9 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
   List viewlist = [];
   double gasUniVar1;
   double eleUniVar1;
+  double eleUniAfi;
+  double gasUniAfi;
+
   @override
   void initState() {
     super.initState();
@@ -62,6 +65,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * .47,
@@ -101,6 +105,9 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 if (double.tryParse(value) > 3) {
                                   return 'max value 3';
                                 }
+                              }
+                              else{
+                                return "please enter Uplift";
                               }
                               return null;
                             },
@@ -144,6 +151,10 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   }
                                 }
                               }
+                              else{
+                                return "please enter SC Uplift";
+                              }
+                              return null;
                             },
                             // validator: (value) => AppConstant.numberValidator2(
                             //     value, model.elecCommonSc.text ,model.elecCommonUnit.text)
@@ -153,6 +164,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * .47,
@@ -195,6 +207,9 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   }
                                 }
                               }
+                              else{
+                                return "please enter Uplift";
+                              }
                               return null;
                             },
                           ),
@@ -236,6 +251,10 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   }
                                 }
                               }
+                              else{
+                                return "please enter SC Uplift";
+                              }
+                              return null;
                             },
                           ),
                         ),
@@ -243,6 +262,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * .47,
@@ -250,16 +270,44 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftElectricityAffiliate,
                             controller: model.elecAffiliateUnit,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value,
-                                AppString.commonUpLiftElectricityAffiliate),
+                            // validator: (value) => AppConstant.numberValidator1(
+                            //     value, model.elecCommonUnit.text),
+                            onChanged: (text) {
+                              setState(() {
+                                eleUniAfi= double.tryParse(text.toString());
+                                // if (double.tryParse(text) > 3) {
+                                //   //hideKeyboard();
+                                //   return 'max value 3';
+                                // }
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                              RegExp regexp = new RegExp(
+                                r"^|\-|\,|\ ",
+                                caseSensitive: false,
+                                multiLine: false,
+                              );
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 3) {
+                                  return 'max value 3';
+                                }
+                              }
+                              else{
+                                return "please enter Uplift";
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         Container(
@@ -268,22 +316,50 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: '\n',
                             controller: model.elecAffiliateSc,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value,
-                                AppString.commonUpLiftElectricityAffiliate),
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (eleUniAfi != null) {
+                                  if (eleUniAfi > 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    } else {}
+                                  }
+                                  if (eleUniAfi == 0) {
+                                    if (double.tryParse(value) > 100) {
+                                      return 'Max value is 100';
+                                    }
+                                  }
+                                } else {
+                                  if (double.tryParse(value) > 100) {
+                                    return 'Max value is 100';
+                                  }
+                                }
+                              }
+                              else{
+                                return "please enter SC Uplift";
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ],
                     ),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * .47,
@@ -291,31 +367,90 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftGasAffiliate,
                             controller: model.gasAffiliateUnit,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftGasAffiliate),
+                            onChanged: (text) {
+                              setState(() {
+                                gasUniAfi =
+                                    double.tryParse(text.toString());
+                                // if (double.tryParse(text) > 1.5) {
+                                //   //hideKeyboard();
+                                //   return 'max value 1.5';
+                                // }
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+
+                              RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                // if (value.length > 9) {
+                                //   return 'Enter 0 or 1';
+                                // } else if (!regExp.hasMatch(value)) {
+                                //   return 'Enter 0 or 1';
+                                // }
+                                if (value.isNotEmpty) {
+                                  if (double.tryParse(value) > 1.5) {
+                                    return 'max value 1.5';
+                                  }
+                                }
+                              }
+                              else{
+                                return "please enter Uplift";
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width * .47,
                           padding: EdgeInsets.all(8),
                           child: AppTextField(
+                            title: '\n',
                             controller: model.gasAffiliateSc,
-                            autoValidation: model.autovalidation,
+                            autoValidation: true,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
-                              new WhitelistingTextInputFormatter(
-                                  RegExp("[0-9]")),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
                             ],
-                            validator: (value) => AppConstant.stringValidator(
-                                value, AppString.commonUpLiftGasAffiliate),
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (gasUniAfi != null) {
+                                  if (gasUniAfi > 0) {
+                                    if (double.tryParse(value) > 25) {
+                                      return 'Max value is 25';
+                                    } else {}
+                                  }
+                                  if (gasUniAfi == 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    }
+                                  }
+                                } else {
+                                  if (double.tryParse(value) > 50) {
+                                    return 'Max value is 50';
+                                  }
+                                }
+                              }
+                              else{
+                                return "please enter SC Uplift";
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ],
@@ -418,7 +553,9 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                       onTap: () {
                         if(_formKey.currentState.validate()){
                           model.onSaveAndNext();
+                          globals.tabController8.animateTo(3);
                         }
+
                       }
 
                     ),

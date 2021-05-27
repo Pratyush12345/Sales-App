@@ -31,6 +31,8 @@ import 'package:pozitive/Core/Services/DownloadService.dart';
 class GasPriceOneViewModel extends BaseModel {
   Database database = getIt<DatabaseImplementation>();
   TextEditingController baseStandingChargeController = TextEditingController();
+  TextEditingController commonuplift = TextEditingController();
+  TextEditingController sclift = TextEditingController();
   TextEditingController requiredStandingChargeController =
       TextEditingController();
   TextEditingController finalStandingChargeController = TextEditingController();
@@ -47,6 +49,7 @@ class GasPriceOneViewModel extends BaseModel {
   QuotationGasModel gasModel;
   QuotationIndividualModel individualModel;
   QuotationPriceElectricityGasModel priceElectricityGasModel;
+  GroupQuotationPriceElectricityGasModel GroupPriceElectricityGasModel;
   DateTime selectedDate = DateTime.now();
   DateFormat dateFormat = DateFormat("dd/MM/yyyy");
   DateFormat dateRFormat = DateFormat("dd/MM/yyyy hh:mm");
@@ -64,7 +67,7 @@ class GasPriceOneViewModel extends BaseModel {
     gasModel = await Prefs.getQuotationGasDetails();
     individualModel = await Prefs.getQuotationInvidualDetails();
     priceElectricityGasModel = await Prefs.getQuotationGasElectricityDetails();
-
+GroupPriceElectricityGasModel = await Prefs.getGroupQuotationGasElectricityDetails();
     if (termType == '1') {
       if (priceElectricityGasModel.gasUplift != null) {
         gasStandingVar = double.tryParse(priceElectricityGasModel.gasUplift);
@@ -76,7 +79,7 @@ class GasPriceOneViewModel extends BaseModel {
       requiredBaseUniteChargeController.text =
           priceElectricityGasModel?.gasUplift ?? '';
       requiredStandingChargeController.text =
-          priceElectricityGasModel?.gasScUplift ?? '';
+          priceElectricityGasModel?.gasUplift ?? '';
       affiliateBaseUniteChargeController.text =
           priceElectricityGasModel?.gAUplift ?? '';
       affiliateStandingChargeController.text =
@@ -85,6 +88,9 @@ class GasPriceOneViewModel extends BaseModel {
           requestQuote?.finalSatandingChargeGas1F ?? '';
       finalBaseUniteChargeController.text =
           requestQuote?.finalUnitPriceGas1F.toString() ?? '';
+
+      commonuplift.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+      sclift.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
       finalBase = priceElectricityGasModel?.gasUplift ?? '';
       finalSc = priceElectricityGasModel?.gasScUplift ?? '0.0000';
     } else if (termType == '2') {

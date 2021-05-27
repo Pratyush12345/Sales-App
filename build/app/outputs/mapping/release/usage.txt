@@ -2698,9 +2698,9 @@ kotlin.sequences.GeneratorSequence
 kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.customview.widget.ExploreByTouchHelper
 androidx.annotation.CheckResult
-io.flutter.embedding.engine.systemchannels.PlatformChannel:
-    private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
+    private static final java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformChannel:
     private static final java.lang.String TAG
 kotlin.Suppress
 com.google.common.collect.Multisets$FilteredMultiset$1
@@ -5189,8 +5189,8 @@ androidx.activity.OnBackPressedDispatcher:
     final java.util.ArrayDeque mOnBackPressedCallbacks
 com.google.common.eventbus.Dispatcher$LegacyAsyncDispatcher
 com.google.common.graph.MutableNetwork
-com.baseflow.permissionhandler.PermissionConstants$PermissionStatus
 com.baseflow.permissionhandler.PermissionConstants
+com.baseflow.permissionhandler.PermissionConstants$PermissionStatus
 com.google.common.graph.MapIteratorCache$1$1
 com.google.common.hash.AbstractNonStreamingHashFunction
 androidx.annotation.IntDef

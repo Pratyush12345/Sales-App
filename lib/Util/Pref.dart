@@ -20,7 +20,6 @@ import 'package:pozitive/Core/Model/Api/quotation_invidual/save_button_credentia
 import 'package:pozitive/Core/Model/site_list_model.dart';
 
 class Prefs {
-
   static Future<User> getUser() async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
     String AccountId = preferences.getString("AccountId");
@@ -277,6 +276,7 @@ class Prefs {
   static void setQuotationGasElectricityDetails(
       QuotationPriceElectricityGasModel model) async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
+
     preferences.setString("electricityUplift", model.electricityUplift);
     preferences.setString("electricityScUplift", model.electricityScUplift);
     preferences.setString("gasUplift", model.gasUplift);
@@ -287,6 +287,24 @@ class Prefs {
     preferences.setString("gAScUplift", model.gAScUplift);
     preferences.setString("selectPartner", model.selectPartner);
     preferences.setString("subUserID", model.subUserID);
+    preferences.commit();
+  }
+
+  static void setGroupQuotationGasElectricityDetails(
+      GroupQuotationPriceElectricityGasModel model) async {
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+
+
+    preferences.setString("elecCommonUnit", model.elecCommonUnit);
+    preferences.setString("elecCommonSc", model.elecCommonSc);
+    preferences.setString("elecAffiliateUnit", model.elecAffiliateUnit);
+    preferences.setString("elecAffiliateSc", model.elecAffiliateSc);
+    preferences.setString("gasCommonUnit", model.gasCommonUnit);
+    preferences.setString("gasCommonSc", model.gasCommonSc);
+    preferences.setString("gasAffiliateUnit", model.gasAffiliateUnit);
+    preferences.setString("gasAffiliateSc", model.gasAffiliateSc);
+    preferences.setString("getGroupVolumeDataModel", model.getGroupVolumeDataModel);
+
     preferences.commit();
   }
 
@@ -316,6 +334,36 @@ class Prefs {
         gAScUplift: gAScUplift,
         selectPartner: selectPartner,
         subUserID: subUserID);
+    // } else {
+    //   return null;
+    // }
+  }
+  static Future<GroupQuotationPriceElectricityGasModel>
+  getGroupQuotationGasElectricityDetails() async {
+
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    String elecCommonUnit = preferences.getString("elecCommonUnit");
+    String elecCommonSc = preferences.getString("elecCommonSc");
+    String elecAffiliateUnit = preferences.getString("elecAffiliateUnit");
+    String elecAffiliateSc = preferences.getString("elecAffiliateSc");
+    String gasCommonUnit = preferences.getString("gasCommonUnit");
+    String gasCommonSc = preferences.getString("gasCommonSc");
+    String gasAffiliateUnit = preferences.getString("gasAffiliateUnit");
+    String gasAffiliateSc = preferences.getString("gasAffiliateSc");
+    String getGroupVolumeDataModel = preferences.getString("getGroupVolumeDataModel");
+
+
+//    if (selectPartner != null) {
+    return GroupQuotationPriceElectricityGasModel(
+        elecCommonUnit: elecCommonUnit,
+        elecCommonSc: elecCommonSc,
+        elecAffiliateUnit: elecAffiliateUnit,
+        elecAffiliateSc: elecAffiliateSc,
+        gasCommonUnit: gasCommonUnit,
+        gasCommonSc: gasCommonSc,
+        gasAffiliateUnit: gasAffiliateUnit,
+        gasAffiliateSc: gasAffiliateSc,
+        getGroupVolumeDataModel: getGroupVolumeDataModel,);
     // } else {
     //   return null;
     // }

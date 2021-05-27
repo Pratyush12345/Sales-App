@@ -87,7 +87,10 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                           Expanded(
                             flex: 1,
                             child: InkWell(
-                              child: Text("${widget.lstDetail.strBrokername}",
+                              child: Text(widget.type == 'Individual' ?
+                              ( widget.lstDetail.businessName==null ? widget.lstDetail.strGroupname : widget.lstDetail.businessName) :
+                              (widget.lstDetail.businessName==null ? widget.lstDetail.businessName : widget.lstDetail.strGroupname ),
+
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize:
@@ -146,6 +149,7 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                                     groupID: widget
                                                         .lstDetail.intGroupId
                                                         .toString(),
+                                                    quoteId: widget.quoteId,
                                                     title: widget.title,
                                                   )));
                                       print(widget.lstDetail.intGroupId);

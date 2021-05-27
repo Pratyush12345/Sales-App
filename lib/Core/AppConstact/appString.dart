@@ -159,6 +159,10 @@ class AppString {
   static const REFRESH = 'REFRESH';
   static const contractEndDate = 'Contract End Date';
   static const standingCharge = 'Standing Charge';
+  static const Day = 'Day';
+  static const Night = 'Night';
+  static const EWE = 'EWE';
+  static const SC = 'SC';
   static const unitCharge = 'Unit Charge';
   static const accountId = 'accountId';
   static const intBrokerCommBillMstId = 0;

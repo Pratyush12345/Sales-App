@@ -39,3 +39,49 @@ class QuotationPriceElectricityGasModel {
 
 
 }
+
+class GroupQuotationPriceElectricityGasModel {
+   var elecCommonUnit ;
+   var elecCommonSc ;
+   var elecAffiliateUnit ;
+   var elecAffiliateSc ;
+   var gasCommonUnit;
+   var gasCommonSc ;
+   var gasAffiliateUnit ;
+   var gasAffiliateSc;
+   var getGroupVolumeDataModel;
+
+
+
+
+  GroupQuotationPriceElectricityGasModel(
+      {this.elecCommonUnit,
+        this.elecCommonSc,
+        this.elecAffiliateUnit,
+        this.elecAffiliateSc,
+        this.gasCommonUnit,
+        this.gasCommonSc,
+        this.gasAffiliateUnit,
+        this.gasAffiliateSc,
+        this.getGroupVolumeDataModel,
+        });
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['elecCommonUnit'] = this.elecCommonUnit;
+    data['elecCommonSc'] = this.elecCommonSc;
+    data['elecAffiliateUnit'] = this.elecAffiliateUnit;
+    data['elecAffiliateSc'] = this.elecAffiliateSc;
+    data['gasCommonUnit'] = this.gasCommonUnit;
+    data['gasCommonSc'] = this.gasCommonSc;
+    data['gasAffiliateUnit'] = this.gasAffiliateUnit;
+    data['gasAffiliateSc'] = this.gasAffiliateSc;
+    data['getGroupVolumeDataModel']=this.getGroupVolumeDataModel;
+
+
+
+    return data;
+  }
+
+
+}
+

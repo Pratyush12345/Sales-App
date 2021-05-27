@@ -49,6 +49,7 @@ class _ViewGasPricePerYearState extends State<ViewGasPricePerYear> {
 
   @override
   void initState() {
+    print(widget.requestQuote.contractstartdate.toString());
     contractEndDate = DateTime.parse(
             widget.requestQuote.contractstartdate.split('/').reversed.join())
         .add(new Duration(days: 364))

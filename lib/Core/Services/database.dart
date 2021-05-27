@@ -296,6 +296,8 @@ class DatabaseImplementation extends Database {
       (r) {
         AppConstant.printWrapped(r.body);
         var res = jsonDecode(r.body);
+        print('kkkkkkkkkkkkkkkkkkkkkk');
+        print(r.body);
         return GetPartnerQuoteGroupPriceModel.fromJson(res);
       },
       credentials.toJson(),
@@ -320,6 +322,7 @@ class DatabaseImplementation extends Database {
     return _databaseService.postRequest(
       ApiPath.groupDetailsTab,
       (r) {
+        print('aaaaaaaaaaaaaaaaaaaa');
         AppConstant.printWrapped(r.body);
         var res = jsonDecode(r.body);
         return GroupDetailsTabModel.fromJson(res);
@@ -780,6 +783,7 @@ class DatabaseImplementation extends Database {
   Future getRequestQuoteViewButtonDetails(
       RequestQuoteViewButtonCredential requestQuoteViewButtonCredential) {
     return _databaseService.postRequest(ApiPath.requestQuoteViewButton, (r) {
+      print("jjjjjjjjjjjjjjjjjjjjjjjjjj");
       print(r.body);
       var res = jsonDecode(r.body);
       return RequestQuoteViewButtonModel.fromJson(res['data']);
