@@ -220,11 +220,11 @@ class GroupQuotationViewModel extends BaseModel {
 
   Future askForQuote(
       {@required TabController3Provider tabController3Provider,
-      @required GroupQuotaionDetailsProvider quotaionDetailsProvider,
-      @required SiteListProvider siteListProviderData,
-      @required BuildContext context,
-      @required String apiCommand,
-      @required List<TextContollerList> textlist}) async {
+        @required GroupQuotaionDetailsProvider quotaionDetailsProvider,
+        @required SiteListProvider siteListProviderData,
+        @required BuildContext context,
+        @required String apiCommand,
+        @required List<TextContollerList> textlist}) async {
     setState(ViewState.BUSY);
     if (requireByDateController.text == '') {
       requireByDateController.text =
@@ -260,25 +260,50 @@ class GroupQuotationViewModel extends BaseModel {
     //     lstFormSiteList: getAllSites(textlist: textlist),
     //   ),
     // );
-    
-     GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
-        accountId: _user.accountId,
-        command: apiCommand,
-        intCompanyUserId: _user.accountId,
+
+    // GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
+    //   accountId: _user.accountId,
+    //   command: apiCommand,
+    //   intCompanyUserId: _user.accountId,
+    //   intCompanyId: "1",
+    //   groupId: groupIdFromPref == null ? '0' : groupIdFromPref.toString(),
+    //   groupname: groupNameController.text ?? "",
+    //   basketName: businessNameController.text ?? "",
+    //   thirdPartyMOP: "$mop",
+    //   thirdPartyDADC: "$daDc",
+    //   bteIsStarkDADC: "$starkDaDc",
+    //   isforFirstyearGroup: "$oneYear",
+    //   isforSecondyearGroup: "$twoYear",
+    //   isforThirdyearGroup: "$threeYear",
+    //   isforFouryearGroup: "$fourYear",
+    //   isforFiveyearGroup: "$fiveYear",
+    //   isforOtheryearGroup: "$other",
+    //   isCommonEnddate: "$setCommonEndDate",
+    //   requiredByDate: requireByDateController.text ?? "",
+    //   contractEndDateGroup: "",
+    //   requestedDateGroup: requireByDateController.text ?? "",
+    //   companyName: companyNameController.text ?? "",
+    //   cRN: companyRegNoController.text ?? "",
+    //   lstFormSiteList: getAllSites(textlist: textlist),
+    // );
+    GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
+        accountId: "7257",
+        command: "Insert",
+        intCompanyUserId: "7257",
         intCompanyId: "1",
-        groupId: groupIdFromPref == null ? '0' : groupIdFromPref.toString(),
-        groupname: groupNameController.text ?? "",
-        basketName: businessNameController.text ?? "",
-        thirdPartyMOP: "$mop",
-        thirdPartyDADC: "$daDc",
-        bteIsStarkDADC: "$starkDaDc",
-        isforFirstyearGroup: "$oneYear",
-        isforSecondyearGroup: "$twoYear",
-        isforThirdyearGroup: "$threeYear",
-        isforFouryearGroup: "$fourYear",
-        isforFiveyearGroup: "$fiveYear",
-        isforOtheryearGroup: "$other",
-        isCommonEnddate: "$setCommonEndDate",
+        groupId: '0',
+        groupname: "",
+        basketName: "testing for api",
+        thirdPartyMOP: "false",
+        thirdPartyDADC: "true",
+        bteIsStarkDADC: "false",
+        isforFirstyearGroup: "true",
+        isforSecondyearGroup: "true",
+        isforThirdyearGroup: "true",
+        isforFouryearGroup: "true",
+        isforFiveyearGroup: "true",
+        isforOtheryearGroup: "false",
+        isCommonEnddate: "false",
         requiredByDate: requireByDateController.text ?? "",
         contractEndDateGroup: "",
         requestedDateGroup: requireByDateController.text ?? "",
@@ -286,26 +311,28 @@ class GroupQuotationViewModel extends BaseModel {
         cRN: companyRegNoController.text ?? "",
         lstFormSiteList: getAllSites(textlist: textlist),
       );
-    
+
     //String json1 = jsonEncode(list.map((e) => e.toJson()).toList());
     //int lstLength = json1.length;
     //print("lst length===================${list.length}");
     // AppConstant.printWrapped(json1.substring(1, lstLength - 1));
     // print(json1.substring(1, lstLength - 1));
-
+    print(textlist.length);
     htp.Response response = await htp.post(
-      Uri.parse(
-          'https://api.boshposh.com/api/Partner/AddPartnerAddQuickLeadQuoteGroup_New'),
-      headers: {"Content-Type": "application/json"},
-     // body: (json1.substring(1, lstLength - 1)),
-      body: json.encode(groupAddPartnerAddQuickLeadNewCredential.toJson())
+        Uri.parse(
+            'https://api.boshposh.com/api/Partner/AddPartnerAddQuickLeadQuoteGroup_New'),
+        headers: {"Content-Type": "application/json"},
+        // body: (json1.substring(1, lstLength - 1)),
+        body: json.encode(groupAddPartnerAddQuickLeadNewCredential.toJson())
     );
     var res = jsonDecode(response.body);
-    prevData = res;
+    print(res);
+    print(res['status']);
     if (res['status'] == '1') {
       siteListReceived.clear();
       print('Api Calling successfull');
       print(res['data']['Sitelist'].length);
+      print(siteControllerModelList.length);
       for (int i = 0; i < res['data']['Sitelist'].length; i++) {
         siteListReceived.add(
           SiteListModel(
@@ -318,16 +345,16 @@ class GroupQuotationViewModel extends BaseModel {
             gasMprn: res['data']['Sitelist'][i]['Gas_Mprn'],
             eACGAS: res['data']['Sitelist'][i]['GAS_EAC'],
             dteContractStartDate: res['data']['Sitelist'][i]
-                ['dteContractStartDate'],
+            ['dteContractStartDate'],
             preferedStartDate: res['data']['Sitelist'][i]['PreferedStartDate'],
             preferedEndDate: res['data']['Sitelist'][i]['PreferedEndDate'],
             bIsSingleRate: res['data']['Sitelist'][i]['bIsSingleRate'] == 'true'
                 ? true
                 : false,
             bisGreenCertificate:
-                res['data']['Sitelist'][i]['bisGreenCertificate'] == 'true'
-                    ? true
-                    : false,
+            res['data']['Sitelist'][i]['bisGreenCertificate'] == 'true'
+                ? true
+                : false,
             businessNameErr: res['data']['Sitelist'][i]['Business_NameErr'],
             postCodeErr: res['data']['Sitelist'][i]['PostCodeErr'],
             mpanErr: res['data']['Sitelist'][i]['MpanErr'],
@@ -345,37 +372,37 @@ class GroupQuotationViewModel extends BaseModel {
       siteListProviderData.siteListProvider = siteListReceived;
       quotaionDetailsProvider.groupQuotaionDetailsProvider =
           QuotationDetailsDataModel(
-        basketName: res['data']['BasketName'],
-        companyName: res['data']['CompanyName'],
-        bteIsStarkDADC: res['data']['bteIsStarkDADC'] == 'true' ? true : false,
-        cRN: res['CRN'],
-        contractEndDateGroup: res['data']['ContractEndDateGroup'],
-        groupId: res['data']['GroupId'].toString(),
-        groupname: res['data']['Groupname'],
-        isCommonEnddate:
+            basketName: res['data']['BasketName'],
+            companyName: res['data']['CompanyName'],
+            bteIsStarkDADC: res['data']['bteIsStarkDADC'] == 'true' ? true : false,
+            cRN: res['CRN'],
+            contractEndDateGroup: res['data']['ContractEndDateGroup'],
+            groupId: res['data']['GroupId'].toString(),
+            groupname: res['data']['Groupname'],
+            isCommonEnddate:
             res['data']['IsCommonEnddate'] == 'true' ? true : false,
-        isforFirstyearGroup:
+            isforFirstyearGroup:
             res['data']['IsforFirstyearGroup'] == 'true' ? true : false,
-        isforFiveyearGroup:
+            isforFiveyearGroup:
             res['data']['IsforFiveyearGroup'] == 'true' ? true : false,
-        isforFouryearGroup:
+            isforFouryearGroup:
             res['data']['IsforFouryearGroup'] == 'true' ? true : false,
-        isforOtheryearGroup:
+            isforOtheryearGroup:
             res['data']['IsforOtheryearGroup'] == 'true' ? true : false,
-        isforSecondyearGroup:
+            isforSecondyearGroup:
             res['data']['IsforSecondyearGroup'] == 'true' ? true : false,
-        isforThirdyearGroup:
+            isforThirdyearGroup:
             res['data']['IsforThirdyearGroup'] == 'true' ? true : false,
-        requestedDateGroup: res['data']['RequestedDateGroup'],
-        requiredByDate: res['data']['RequiredByDate'],
-        thirdPartyDADC: res['data']['ThirdPartyDADC'] == 'true' ? true : false,
-        thirdPartyMOP: res['data']['ThirdPartyMOP '] == 'true' ? true : false,
-      );
+            requestedDateGroup: res['data']['RequestedDateGroup'],
+            requiredByDate: res['data']['RequiredByDate'],
+            thirdPartyDADC: res['data']['ThirdPartyDADC'] == 'true' ? true : false,
+            thirdPartyMOP: res['data']['ThirdPartyMOP '] == 'true' ? true : false,
+          );
       await PrefGroupQuote.gRQsetGroupId(res['data']['GroupId'].toString());
       setState(ViewState.IDLE);
       setPrefData();
       tabController3Provider.setTabListProvider = 1;
-      globals.tabController3.animateTo(1);
+      globals.tabController8.animateTo(1);
     } else {
       setState(ViewState.IDLE);
       print(res['Error']);
@@ -439,10 +466,8 @@ class GroupQuotationViewModel extends BaseModel {
     setState(ViewState.IDLE);
   }
 
-  Future<bool> getDataFromPref(String id) async {
+  Future<void> getDataFromPref() async {
     final data = await PrefGroupQuote.getQuotationGroupDetailsAddQuote();
-
-
     if (data != null) {
       businessNameController.text = data.basketName ?? '';
       groupNameController.text = data.groupname ?? '';
@@ -493,76 +518,182 @@ class GroupQuotationViewModel extends BaseModel {
       }
       preferredEndDateController.text = data.contractEndDateGroup ?? "";
     }
-    else{
-      User _user = await Prefs.getUser();
+  }
+
+  Future<void>getDataPrevQuotes(BuildContext context,String id) async{
+    User _user = await Prefs.getUser();
 
 
-      htp.Response response = await htp.post(
-          Uri.parse(
-              'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
-          headers: {"Content-Type": "application/json"},
-          // body: (json1.substring(1, lstLength - 1)),
-          body: json.encode({
-            "AccountId": _user.accountId,
-            "GroupId": id ,
-            "type": "group"
-          })
-      );
-      var doota  = jsonDecode(response.body);
-      await print(response.body);
+    htp.Response response = await htp.post(
+        Uri.parse(
+            'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
+        headers: {"Content-Type": "application/json"},
+        // body: (json1.substring(1, lstLength - 1)),
+        body: json.encode({
+          "AccountId": _user.accountId,
+          "GroupId": id ,
+          "type": "group"
+        })
+    );
+    var doota  = jsonDecode(response.body);
+    print(response.body);
 
-      print(doota);
-      businessNameController.text = doota['data']['BasketName'];
-      groupNameController.text = doota['data']['Groupname'];
-      companyNameController.text = doota['data']['CompanyName'];
-      companyRegNoController.text = doota['data']['CRN'];
-      if (doota['data']['CRN'] != null) {
-        companyRegNoEnabled = false;
-      } else {
-        companyRegNoEnabled = true;
-      }
-      if (doota['data']['IsforFirstyearGroup'] == true) {
-        oneYear = true;
-      }
-      if (doota['data']['IsforSecondyearGroup'] == true) {
-        twoYear = true;
-      }
-      if (doota['data']['IsforThirdyearGroup'] == true) {
-        threeYear = true;
-      }
-      if (doota['data']['IsforFouryearGroup'] == true) {
-        fourYear = true;
-      }
-      if (doota['data']['IsforFiveyearGroup'] == true) {
-        fiveYear = true;
-      }
+    print(doota);
+    // textlist.clear();
+    // siteControllerModelList.clear();
+    //
+    //
+    //   if (doota['data']['lstGroupMaster'].length > 0) {
+    //     for (int i = 0; i < doota['data']['lstGroupMaster'].length; i++) {
+    //       textlist.add(
+    //         TextContollerList(
+    //           businessNameCont: TextEditingController(
+    //               text: doota['data']['lstGroupMaster'][i]['Business_Name'] ?? ''),
+    //           mpanCoreCont: TextEditingController(
+    //               text: doota['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? ''),
+    //           mprnCont: TextEditingController(
+    //               text: doota['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? ''),
+    //           prefStartDateCont: TextEditingController(
+    //               text: doota['data']['lstGroupMaster'][i]['dteContractStartDate']?? ''),
+    //           index: i,
+    //         ),
+    //       );
+    //
+    //       siteControllerModelList.add(
+    //         SiteControllerModel(
+    //           child: SiteDetailWidget(
+    //             add: () => addSite(
+    //               context: context,
+    //               index: siteControllerModelList.length,
+    //             ),
+    //             remove: () {
+    //               removeSiteDetail(context: context, index: textlist[i].index);
+    //             },
+    //             addButtonEnable:
+    //             siteControllerModelList.length == maxSites - 1 ? false : true,
+    //             removeButtonEnable:
+    //             siteControllerModelList.length == 0 ? false : true,
+    //             mprnController: textlist[i].mprnCont,
+    //             mpanCoreController: textlist[i].mpanCoreCont,
+    //             businessNameController: textlist[i].businessNameCont,
+    //             startDateController: textlist[i].prefStartDateCont,
+    //             autoValidation: autovalidation,
+    //             selectDate: () {
+    //               FocusScope.of(context).unfocus();
+    //               dateSelect(
+    //                   context: context,
+    //                   controller: textlist[i].prefStartDateCont);
+    //             },
+    //             fieldsEnabled: true,
+    //           ),
+    //         ),
+    //       );
+    //     }
+    //   }
+    //   else{
+    //
+    //     textlist.add(
+    //       TextContollerList(
+    //         businessNameCont: TextEditingController(
+    //             text: doota['data']['BasketName'] ?? ''),
+    //         mpanCoreCont: TextEditingController(
+    //             text: '123456789'?? ''),
+    //         mprnCont: TextEditingController(
+    //             text: '987456321'?? ''),
+    //         prefStartDateCont: TextEditingController(
+    //             text: '12/05/21'?? ''),
+    //         index: 0,
+    //       ),
+    //     );
+    //
+    //     siteControllerModelList.add(
+    //       SiteControllerModel(
+    //         child: SiteDetailWidget(
+    //           add: () => addSite(
+    //             context: context,
+    //             index: siteControllerModelList.length,
+    //           ),
+    //           remove: () {
+    //             removeSiteDetail(context: context, index: textlist[0].index);
+    //           },
+    //           addButtonEnable:
+    //           siteControllerModelList.length == maxSites - 1 ? false : true,
+    //           removeButtonEnable:
+    //           siteControllerModelList.length == 0 ? false : true,
+    //           mprnController: textlist[0].mprnCont,
+    //           mpanCoreController: textlist[0].mpanCoreCont,
+    //           businessNameController: textlist[0].businessNameCont,
+    //           startDateController: textlist[0].prefStartDateCont,
+    //           autoValidation: autovalidation,
+    //           selectDate: () {
+    //             FocusScope.of(context).unfocus();
+    //             dateSelect(
+    //                 context: context,
+    //                 controller: textlist[0].prefStartDateCont);
+    //           },
+    //           fieldsEnabled: true,
+    //         ),
+    //       ),
+    //     );
+    //   }
 
-      if (doota['data']['IsforOtheryearGroup']  == true) {
-        other = true;
-      }
 
-      if (doota['data']['ThirdPartyDADC'] == true) {
-        daDc = true;
-      }
 
-      if (doota['data']['ThirdPartyMOP'] == true) {
-        mop = true;
-      }
 
-      if (doota['data']['bteIsStarkDADC']== 'true') {
-        starkDaDc = true;
-      }
-      requireByDateController.text = doota['data']['RequiredByDate'] ??
-          dateFormat.format(
-            DateTime.now(),
-          );
-      if (doota['data']['IsCommonEnddate']== 'true') {
-        setCommonEndDate = true;
-      }
-      preferredEndDateController.text = doota['data']['ContractEndDateGroup']?? "";
 
+
+
+    // print(doota['data']['Sitelist'].length);
+    businessNameController.text = doota['data']['BasketName'];
+    groupNameController.text = doota['data']['Groupname'];
+    companyNameController.text = doota['data']['CompanyName'];
+    companyRegNoController.text = doota['data']['CRN'];
+    if (doota['data']['CRN'] != null) {
+      companyRegNoEnabled = false;
+    } else {
+      companyRegNoEnabled = true;
     }
-    return true;
+    if (doota['data']['IsforFirstyearGroup'] == true) {
+      oneYear = true;
+    }
+    if (doota['data']['IsforSecondyearGroup'] == true) {
+      twoYear = true;
+    }
+    if (doota['data']['IsforThirdyearGroup'] == true) {
+      threeYear = true;
+    }
+    if (doota['data']['IsforFouryearGroup'] == true) {
+      fourYear = true;
+    }
+    if (doota['data']['IsforFiveyearGroup'] == true) {
+      fiveYear = true;
+    }
+
+    if (doota['data']['IsforOtheryearGroup']  == true) {
+      other = true;
+    }
+
+    if (doota['data']['ThirdPartyDADC'] == true) {
+      daDc = true;
+    }
+
+    if (doota['data']['ThirdPartyMOP'] == true) {
+      mop = true;
+    }
+
+    if (doota['data']['bteIsStarkDADC']== 'true') {
+      starkDaDc = true;
+    }
+    requireByDateController.text = doota['data']['RequiredByDate'] ??
+        dateFormat.format(
+          DateTime.now(),
+        );
+    if (doota['data']['IsCommonEnddate']== 'true') {
+      setCommonEndDate = true;
+    }
+    preferredEndDateController.text = doota['data']['ContractEndDateGroup']?? "";
+
+
   }
 
   Future<void> getSiteBusinessNames(
@@ -625,21 +756,36 @@ class GroupQuotationViewModel extends BaseModel {
     groupIdFromPref = await PrefGroupQuote.gRQgetGroupId() ?? null;
     await getMaxSiteCount();
     sharedPrefDataModel = await PrefGroupQuote.getSiteBusinessNames();
-
+    //sharedPrefDataModel = null;
+    // siteControllerModelList.clear();
+    // textlist.clear();
+    if(grpid != null){
+      siteControllerModelList.clear();
+      textlist.clear();
+      sharedPrefDataModel = null;
+    }
+    else{
+      await getDataFromPref();
+    }
+    // else{
+    //   await getDataPrevQuotes(context,grpid);
+    // }
     if (sharedPrefDataModel != null) {
       await getSiteBusinessNames(
           context: context, sharedPrefDataModel: sharedPrefDataModel);
     } else {
+      // siteControllerModelList.clear();
+      // textlist.clear();
+
       if (siteControllerModelList.isEmpty) {
         initializeSite(context: context);
       }
     }
-
+  print(grpid);
+   // await getDataPrevQuotes(context,grpid);
     await getCompanyName();
-    bool a = await getDataFromPref(grpid);
-    if(a){
-      setState(ViewState.IDLE);
-    }
+
+
 
   }
 

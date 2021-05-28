@@ -38,8 +38,8 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
   @override
   void initState() {
     clearGroupId();
-    globals.tabController3 = new TabController(length: 2, vsync: this);
-    globals.tabController3.addListener(_handleTabSelection);
+    globals.tabController8 = new TabController(length: 2, vsync: this);
+    globals.tabController8.addListener(_handleTabSelection);
     super.initState();
   }
 
@@ -48,19 +48,19 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
     setState(() {});
   }
 
-  // void _handleTabSelection() {
-  //   setState(() {
-  //     globals.tabController3.index;
-  //   });
-  // }
   void _handleTabSelection() {
-    int index = globals.tabController3.index;
     setState(() {
-      if (tabController3Provider.tabList[index] == false) {
-        globals.tabController3.animateTo(index - 1);
-      }
+      globals.tabController8.index;
     });
   }
+  // void _handleTabSelection() {
+  //   int index = globals.tabController3.index;
+  //   setState(() {
+  //     if (tabController3Provider.tabList[index] == false) {
+  //       globals.tabController3.animateTo(index - 1);
+  //     }
+  //   });
+  // }
 
   SiteListProvider siteListProviderData;
   GroupQuotaionDetailsProvider quotationDetailsProviderData;
@@ -111,7 +111,7 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
                       child: Text(
                         "Quotation Details",
                         style: TextStyle(
-                            color: globals.tabController3.index == 0
+                            color: globals.tabController8.index == 0
                                 ? ThemeApp().purplecolor
                                 : Colors.grey,
                             fontWeight: FontWeight.bold),
@@ -121,7 +121,7 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
                       child: Text(
                         "Preview Detail",
                         style: TextStyle(
-                            color: globals.tabController3.index == 1
+                            color: globals.tabController8.index == 1
                                 ? ThemeApp().purplecolor
                                 : Colors.grey,
                             fontWeight: FontWeight.bold),
@@ -188,7 +188,7 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
                     //   ),
                     // ),
                   ],
-                  controller: globals.tabController3,
+                  controller: globals.tabController8,
                 ),
               ),
               Expanded(
@@ -207,7 +207,7 @@ class _AddGroupQuotationPagesTabState extends State<AddGroupQuotationPagesTab>
                     // TemplateQuoteGroupScreen(),
                     // GroupQuoteHistoryScreen(),
                   ],
-                  controller: globals.tabController3,
+                  controller: globals.tabController8,
                 ),
               )
             ],

@@ -409,7 +409,7 @@ class ViewGroupQuotationViewModel extends BaseModel {
     setState(ViewState.IDLE);
   }
 
-  Future<void> getDataFromPref(String id) async {
+  Future<void> getDataFromPref() async {
     final data = await PrefGroupQuote.getQuotationGroupDetailsAddQuote();
 
 
@@ -463,75 +463,7 @@ class ViewGroupQuotationViewModel extends BaseModel {
       }
       preferredEndDateController.text = data.contractEndDateGroup ?? "";
     }
-    else{
-      User _user = await Prefs.getUser();
 
-
-      htp.Response response = await htp.post(
-          Uri.parse(
-              'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
-          headers: {"Content-Type": "application/json"},
-          // body: (json1.substring(1, lstLength - 1)),
-          body: json.encode({
-            "AccountId": _user.accountId,
-            "GroupId": id ,
-            "type": "group"
-          })
-      );
-      var doota  = jsonDecode(response.body);
-      await print(response.body);
-
-      print(doota);
-      businessNameController.text = doota['data']['BasketName'];
-      groupNameController.text = doota['data']['Groupname'];
-      companyNameController.text = doota['data']['CompanyName'];
-      companyRegNoController.text = doota['data']['CRN'];
-      if (doota['data']['CRN'] != null) {
-        companyRegNoEnabled = false;
-      } else {
-        companyRegNoEnabled = true;
-      }
-      if (doota['data']['IsforFirstyearGroup'] == true) {
-        oneYear = true;
-      }
-      if (doota['data']['IsforSecondyearGroup'] == true) {
-        twoYear = true;
-      }
-      if (doota['data']['IsforThirdyearGroup'] == true) {
-        threeYear = true;
-      }
-      if (doota['data']['IsforFouryearGroup'] == true) {
-        fourYear = true;
-      }
-      if (doota['data']['IsforFiveyearGroup'] == true) {
-        fiveYear = true;
-      }
-
-      if (doota['data']['IsforOtheryearGroup']  == true) {
-        other = true;
-      }
-
-      if (doota['data']['ThirdPartyDADC'] == true) {
-        daDc = true;
-      }
-
-      if (doota['data']['ThirdPartyMOP'] == true) {
-        mop = true;
-      }
-
-      if (doota['data']['bteIsStarkDADC']== 'true') {
-        starkDaDc = true;
-      }
-      requireByDateController.text = doota['data']['RequiredByDate'] ??
-          dateFormat.format(
-            DateTime.now(),
-          );
-      if (doota['data']['IsCommonEnddate']== 'true') {
-        setCommonEndDate = true;
-      }
-      preferredEndDateController.text = doota['data']['ContractEndDateGroup']?? "";
-
-    }
   }
 
   Future<void> getSiteBusinessNames(
@@ -605,7 +537,7 @@ class ViewGroupQuotationViewModel extends BaseModel {
     }
 
     await getCompanyName();
-   // await getDataFromPref(grpid);
+   await getDataFromPref();
 
     setState(ViewState.IDLE);
   }

@@ -56,6 +56,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
   void initState() {
     //onCallApi();
 
+
     if(widget.requestQuote.contractstartdate==null)
       widget.requestQuote.contractstartdate =  '12/05/2021';
     print(widget.requestQuote.contractstartdate.toString());

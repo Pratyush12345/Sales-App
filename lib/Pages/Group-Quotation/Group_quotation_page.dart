@@ -18,6 +18,7 @@ import 'package:pozitive/Core/Model/request_quote_viewbutton_model.dart';
 import 'package:pozitive/Core/Model/Api/ask_for_requote_credential..dart';
 import 'package:pozitive/Core/enums/view_state.dart';
 import 'package:pozitive/Core/AppConstact/appConstant.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price(1_Year)_Electricity.dart';
 
 class GroupQuotationPagesTab extends StatefulWidget {
   final String groupID;
@@ -39,7 +40,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
   RequestQuoteViewButtonModel();
   @override
   void initState() {
-    globals.tabController8 = new TabController(length: 4, vsync: this);
+    globals.tabController8 = new TabController(length: 5, vsync: this);
     globals.tabController8.addListener(_handleTabSelection);
     onCallApi();
 
@@ -76,7 +77,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double tabWidth = width / 4;
+    double tabWidth = width / 5;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -153,6 +154,17 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                         ),
                       ),
                     ),
+                    new Tab(
+                      child: Text(
+                        "Price(1_Year)_Electricity",
+                        style: TextStyle(
+                          color: globals.tabController8.index == 4
+                              ? ThemeApp().purplecolor
+                              : Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ],
                   controller: globals.tabController8,
                 ),
@@ -177,6 +189,10 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                       quoteId: widget.quoteId,
                       requestQuote: requestQuoteViewButtonModel,
                       title: widget.title,
+                    ),
+                    oneYearPage(
+                      // groupId: '19781',
+                      groupId: widget.groupID,
                     ),
                   ],
                   controller: globals.tabController8,
