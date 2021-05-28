@@ -372,7 +372,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Day,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -402,7 +402,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Night,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -439,7 +439,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.EWE,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -469,7 +469,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.SC,
                           controller: model
                               .sclift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -522,7 +522,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Day,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -552,7 +552,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Night,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -589,7 +589,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.EWE,
                           controller: model
                               .commonuplift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -619,7 +619,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.SC,
                           controller: model
                               .sclift,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -672,7 +672,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Day,
                           controller: model
                               .requiredStandingChargeController,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -702,7 +702,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.Night,
                           controller: model
                               .requiredStandingChargeController,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -739,7 +739,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.EWE,
                           controller: model
                               .requiredStandingChargeController,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -769,7 +769,7 @@ class _ViewGasELEPricePerYearState extends State<ViewGasELEPricePerYear> {
                           title: AppString.SC,
                           controller: model
                               .requiredStandingChargeController,
-                          autoValidation: true,
+                          autoValidation: false,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [

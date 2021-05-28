@@ -118,7 +118,7 @@ class AppString {
       'Common UpLift(Electricity/Affiliate)';
   static const commonSC_UpLiftElectricityAffiliate =
       'Common SC UpLift(Electricity/Affiliate)';
-  static const commonUpLiftGasAffiliate = 'Common UpLift(Gas/Affiliate)';
+  static const commonUpLiftGasAffiliate = 'Common UpLift  (Gas /Affiliate)';
   static const commonSC_UpLiftGasAffiliate = 'Common SC UpLift(Gas/Affiliate)';
   static const affiliate = 'Affiliate';
   static const downloadAll = 'Download All';

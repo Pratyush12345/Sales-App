@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pozitive/Core/AppConstact/appConstant.dart';
@@ -28,6 +30,14 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
   double eleUniVar1;
   double eleUniAfi;
   double gasUniAfi;
+  bool validate1 = false;
+  bool validate2= false;
+  bool validate3 = false;
+  bool validate4= false;
+  bool validate5= false;
+  bool validate6= false;
+  bool validate7= false;
+  bool validate8 = false;
 
   @override
   void initState() {
@@ -73,7 +83,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftElectricity,
                             controller: model.elecCommonUnit,
-                            autoValidation: true,
+                            autoValidation: validate1,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
@@ -89,9 +99,11 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 // if (double.tryParse(text) > 3) {
                                 //   //hideKeyboard();
                                 //   return 'max value 3';
+                                validate1 =true;
                                 // }
                               });
                             },
+
                             validator: (value) {
                               String patttern =
                                   r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
@@ -120,7 +132,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             // title: AppString.commonUpLiftElectricity,
                             controller: model.elecCommonSc,
-                            autoValidation: true,
+                            autoValidation: validate2,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
@@ -128,6 +140,11 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 RegExp(r'^\d+.?\d{0,4}'),
                               ),
                             ],
+                            onChanged: (text){
+                              setState(() {
+                                validate2 = true;
+                              });
+                            },
                             validator: (value) {
                               // String patttern =
                               //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
@@ -172,7 +189,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftGas,
                             controller: model.gasCommonUnit,
-                            autoValidation: true,
+                            autoValidation: validate3,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
@@ -182,6 +199,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                             ],
                             onChanged: (text) {
                               setState(() {
+                                validate3 =true;
                                 gasUniVar1 =
                                     double.tryParse(text.toString());
                                 // if (double.tryParse(text) > 1.5) {
@@ -220,7 +238,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             // title: AppString.commonUpLiftElectricity,
                             controller: model.gasCommonSc,
-                            autoValidation: true,
+                            autoValidation: validate4,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
@@ -228,6 +246,11 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 RegExp(r'^\d+.?\d{0,4}'),
                               ),
                             ],
+                            onChanged: (text){
+                              setState(() {
+                                validate4 = true;
+                              });
+                            },
                             validator: (value) {
                               // String patttern =
                               //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
@@ -270,7 +293,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftElectricityAffiliate,
                             controller: model.elecAffiliateUnit,
-                            autoValidation: true,
+                            autoValidation: validate5,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
@@ -283,6 +306,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                             onChanged: (text) {
                               setState(() {
                                 eleUniAfi= double.tryParse(text.toString());
+                                validate5 =true;
                                 // if (double.tryParse(text) > 3) {
                                 //   //hideKeyboard();
                                 //   return 'max value 3';
@@ -316,7 +340,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: '\n',
                             controller: model.elecAffiliateSc,
-                            autoValidation: true,
+                            autoValidation: validate6,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
@@ -324,6 +348,11 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 RegExp(r'^\d+.?\d{0,4}'),
                               ),
                             ],
+                            onChanged: (text){
+                              setState(() {
+                                validate6 = true;
+                              });
+                            },
                             validator: (value) {
                               // String patttern =
                               //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
@@ -367,7 +396,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: AppString.commonUpLiftGasAffiliate,
                             controller: model.gasAffiliateUnit,
-                            autoValidation: true,
+                            autoValidation: validate7,
                             textInputType: TextInputType.number,
                             hintText: 'Uplift',
                             textInputFormatter: [
@@ -377,6 +406,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                             ],
                             onChanged: (text) {
                               setState(() {
+                                validate7 =true;
                                 gasUniAfi =
                                     double.tryParse(text.toString());
                                 // if (double.tryParse(text) > 1.5) {
@@ -415,7 +445,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                           child: AppTextField(
                             title: '\n',
                             controller: model.gasAffiliateSc,
-                            autoValidation: true,
+                            autoValidation: validate8,
                             textInputType: TextInputType.number,
                             hintText: 'SC Uplift',
                             textInputFormatter: [
@@ -423,6 +453,11 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                 RegExp(r'^\d+.?\d{0,4}'),
                               ),
                             ],
+                            onChanged: (text){
+                              setState(() {
+                                validate8= true;
+                              });
+                            },
                             validator: (value) {
                               // String patttern =
                               //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
