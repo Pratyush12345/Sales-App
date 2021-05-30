@@ -32,7 +32,46 @@ class GasPriceOneViewModel extends BaseModel {
   Database database = getIt<DatabaseImplementation>();
   TextEditingController baseStandingChargeController = TextEditingController();
   TextEditingController commonuplift = TextEditingController();
-  TextEditingController sclift = TextEditingController();
+  TextEditingController baseRateDay = TextEditingController();
+  TextEditingController baseRateNight = TextEditingController();
+  TextEditingController baseRateEWE = TextEditingController();
+  TextEditingController baseRateSc = TextEditingController();
+
+  TextEditingController requiredUpliftDay = TextEditingController();
+  TextEditingController requiredUpliftNight = TextEditingController();
+  TextEditingController requiredUpliftEWE = TextEditingController();
+  TextEditingController requiredUpliftSc = TextEditingController();
+
+  TextEditingController upliftPreminumDay = TextEditingController();
+  TextEditingController upliftPreminumNight = TextEditingController();
+  TextEditingController upliftPreminumEWE = TextEditingController();
+  TextEditingController upliftPreminumSc = TextEditingController();
+
+  TextEditingController affiliateUpliftDay = TextEditingController();
+  TextEditingController affiliateUpliftNight = TextEditingController();
+  TextEditingController affiliateUpliftEWE = TextEditingController();
+  TextEditingController affiliateUpliftSc = TextEditingController();
+
+
+  TextEditingController finalPriceDay = TextEditingController();
+  TextEditingController finalPriceNight = TextEditingController();
+  TextEditingController finalPriceEWE = TextEditingController();
+  TextEditingController finalPriceSc = TextEditingController();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   TextEditingController requiredStandingChargeController =
       TextEditingController();
   TextEditingController finalStandingChargeController = TextEditingController();
@@ -68,6 +107,21 @@ class GasPriceOneViewModel extends BaseModel {
     individualModel = await Prefs.getQuotationInvidualDetails();
     priceElectricityGasModel = await Prefs.getQuotationGasElectricityDetails();
 GroupPriceElectricityGasModel = await Prefs.getGroupQuotationGasElectricityDetails();
+
+    commonuplift.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    requiredUpliftDay.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    requiredUpliftNight.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    requiredUpliftEWE.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    requiredUpliftSc.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
+
+    upliftPreminumDay.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    upliftPreminumNight.text =GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    upliftPreminumEWE.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+    upliftPreminumSc.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
+
+
+
+   // sclift.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
     if (termType == '1') {
       if (priceElectricityGasModel.gasUplift != null) {
         gasStandingVar = double.tryParse(priceElectricityGasModel.gasUplift);
@@ -89,8 +143,7 @@ GroupPriceElectricityGasModel = await Prefs.getGroupQuotationGasElectricityDetai
       finalBaseUniteChargeController.text =
           requestQuote?.finalUnitPriceGas1F.toString() ?? '';
 
-      commonuplift.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-      sclift.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
+
       finalBase = priceElectricityGasModel?.gasUplift ?? '';
       finalSc = priceElectricityGasModel?.gasScUplift ?? '0.0000';
     } else if (termType == '2') {

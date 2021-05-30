@@ -44,6 +44,7 @@ class _ViewGroupDetailsPageState extends State<ViewGroupDetailsPage> {
         onModelReady: (model) => model.initializeData(
           groupId: widget.groupId,
           context: context,
+          check: true,
         ),
         builder: (context, model, child) {
           if (model.state == ViewState.BUSY) {
@@ -133,10 +134,10 @@ class _ViewGroupDetailsPageState extends State<ViewGroupDetailsPage> {
                           child: ListView.builder(
                               padding: EdgeInsets.all(0),
                               shrinkWrap: true,
-                              itemCount: model.groupDetailslst.length,
+                              itemCount: groupDetailslst.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return GroupQuoteDetailList(
-                                  groupDetailslst: model.groupDetailslst,
+                                  groupDetailslst: groupDetailslst,
                                   index: index,
                                   viewlist: viewlist,
                                 );

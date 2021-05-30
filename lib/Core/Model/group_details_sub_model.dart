@@ -20,3 +20,27 @@ class GroupDetailsSubModel {
     this.relatedMeter,
   });
 }
+
+class EachyYearList {
+  String tremtype;
+  String mpan;
+  String mprn;
+  String baserateday;
+  String baseratenight;
+  String baserateEwe;
+  String baserateSC;
+  String contractStartDate;
+  String contractEndDate;
+
+  EachyYearList({
+    this.tremtype,
+    this.mpan,
+    this.mprn,
+    this.baserateday,
+    this.baseratenight,
+    this.baserateEwe,
+    this.baserateSC,
+    this.contractStartDate,
+    this.contractEndDate,
+  });
+}

@@ -97,6 +97,7 @@ import 'package:pozitive/Core/ViewModel/Group-Quotation/price_elec_gas_group_rq_
 import 'package:pozitive/Core/ViewModel/view_group_quotation_viewmodels/view_group_quotation_viewmodel.dart';
 import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/view_group_details_viewmodel.dart';
 import 'package:pozitive/Core/ViewModel/Group-Quotation/view_price_elec_gas_viewmodel.dart';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/group_final_Qutation_viewmodel.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -146,6 +147,7 @@ void setupGetIt() {
   getIt.registerFactory(() => QuotationGasViewModel());
   getIt.registerFactory(() => PriceElectricityGasViewModel());
   getIt.registerFactory(() => GasPriceOneViewModel());
+  getIt.registerFactory(() => finalQuotationpPriceModel());
   getIt.registerFactory(() => AskForRequoteGroupViewModel());
   getIt.registerFactory(() => EmailTenderPriceGroupViewModel());
   getIt.registerFactory(() => RequestQuoteHistoryGroupViewModel());

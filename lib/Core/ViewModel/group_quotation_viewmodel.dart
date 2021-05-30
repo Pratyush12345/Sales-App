@@ -539,103 +539,103 @@ class GroupQuotationViewModel extends BaseModel {
     print(response.body);
 
     print(doota);
-    // textlist.clear();
-    // siteControllerModelList.clear();
-    //
-    //
-    //   if (doota['data']['lstGroupMaster'].length > 0) {
-    //     for (int i = 0; i < doota['data']['lstGroupMaster'].length; i++) {
-    //       textlist.add(
-    //         TextContollerList(
-    //           businessNameCont: TextEditingController(
-    //               text: doota['data']['lstGroupMaster'][i]['Business_Name'] ?? ''),
-    //           mpanCoreCont: TextEditingController(
-    //               text: doota['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? ''),
-    //           mprnCont: TextEditingController(
-    //               text: doota['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? ''),
-    //           prefStartDateCont: TextEditingController(
-    //               text: doota['data']['lstGroupMaster'][i]['dteContractStartDate']?? ''),
-    //           index: i,
-    //         ),
-    //       );
-    //
-    //       siteControllerModelList.add(
-    //         SiteControllerModel(
-    //           child: SiteDetailWidget(
-    //             add: () => addSite(
-    //               context: context,
-    //               index: siteControllerModelList.length,
-    //             ),
-    //             remove: () {
-    //               removeSiteDetail(context: context, index: textlist[i].index);
-    //             },
-    //             addButtonEnable:
-    //             siteControllerModelList.length == maxSites - 1 ? false : true,
-    //             removeButtonEnable:
-    //             siteControllerModelList.length == 0 ? false : true,
-    //             mprnController: textlist[i].mprnCont,
-    //             mpanCoreController: textlist[i].mpanCoreCont,
-    //             businessNameController: textlist[i].businessNameCont,
-    //             startDateController: textlist[i].prefStartDateCont,
-    //             autoValidation: autovalidation,
-    //             selectDate: () {
-    //               FocusScope.of(context).unfocus();
-    //               dateSelect(
-    //                   context: context,
-    //                   controller: textlist[i].prefStartDateCont);
-    //             },
-    //             fieldsEnabled: true,
-    //           ),
-    //         ),
-    //       );
-    //     }
-    //   }
-    //   else{
-    //
-    //     textlist.add(
-    //       TextContollerList(
-    //         businessNameCont: TextEditingController(
-    //             text: doota['data']['BasketName'] ?? ''),
-    //         mpanCoreCont: TextEditingController(
-    //             text: '123456789'?? ''),
-    //         mprnCont: TextEditingController(
-    //             text: '987456321'?? ''),
-    //         prefStartDateCont: TextEditingController(
-    //             text: '12/05/21'?? ''),
-    //         index: 0,
-    //       ),
-    //     );
-    //
-    //     siteControllerModelList.add(
-    //       SiteControllerModel(
-    //         child: SiteDetailWidget(
-    //           add: () => addSite(
-    //             context: context,
-    //             index: siteControllerModelList.length,
-    //           ),
-    //           remove: () {
-    //             removeSiteDetail(context: context, index: textlist[0].index);
-    //           },
-    //           addButtonEnable:
-    //           siteControllerModelList.length == maxSites - 1 ? false : true,
-    //           removeButtonEnable:
-    //           siteControllerModelList.length == 0 ? false : true,
-    //           mprnController: textlist[0].mprnCont,
-    //           mpanCoreController: textlist[0].mpanCoreCont,
-    //           businessNameController: textlist[0].businessNameCont,
-    //           startDateController: textlist[0].prefStartDateCont,
-    //           autoValidation: autovalidation,
-    //           selectDate: () {
-    //             FocusScope.of(context).unfocus();
-    //             dateSelect(
-    //                 context: context,
-    //                 controller: textlist[0].prefStartDateCont);
-    //           },
-    //           fieldsEnabled: true,
-    //         ),
-    //       ),
-    //     );
-    //   }
+    textlist.clear();
+    siteControllerModelList.clear();
+
+
+      if (doota['data']['lstGroupMaster'].length > 0) {
+        for (int i = 0; i < doota['data']['lstGroupMaster'].length; i++) {
+          textlist.add(
+            TextContollerList(
+              businessNameCont: TextEditingController(
+                  text: doota['data']['lstGroupMaster'][i]['Business_Name'] ?? ''),
+              mpanCoreCont: TextEditingController(
+                  text: doota['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? ''),
+              mprnCont: TextEditingController(
+                  text: doota['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? ''),
+              prefStartDateCont: TextEditingController(
+                  text: doota['data']['lstGroupMaster'][i]['dteContractStartDate']?? ''),
+              index: i,
+            ),
+          );
+
+          siteControllerModelList.add(
+            SiteControllerModel(
+              child: SiteDetailWidget(
+                add: () => addSite(
+                  context: context,
+                  index: siteControllerModelList.length,
+                ),
+                remove: () {
+                  removeSiteDetail(context: context, index: textlist[i].index);
+                },
+                addButtonEnable:
+                siteControllerModelList.length == maxSites - 1 ? false : true,
+                removeButtonEnable:
+                siteControllerModelList.length == 0 ? false : true,
+                mprnController: textlist[i].mprnCont,
+                mpanCoreController: textlist[i].mpanCoreCont,
+                businessNameController: textlist[i].businessNameCont,
+                startDateController: textlist[i].prefStartDateCont,
+                autoValidation: autovalidation,
+                selectDate: () {
+                  FocusScope.of(context).unfocus();
+                  dateSelect(
+                      context: context,
+                      controller: textlist[i].prefStartDateCont);
+                },
+                fieldsEnabled: true,
+              ),
+            ),
+          );
+        }
+      }
+      else{
+
+        textlist.add(
+          TextContollerList(
+            businessNameCont: TextEditingController(
+                text: doota['data']['BasketName'] ?? ''),
+            mpanCoreCont: TextEditingController(
+                text: '123456789'?? ''),
+            mprnCont: TextEditingController(
+                text: '987456321'?? ''),
+            prefStartDateCont: TextEditingController(
+                text: '12/05/21'?? ''),
+            index: 0,
+          ),
+        );
+
+        siteControllerModelList.add(
+          SiteControllerModel(
+            child: SiteDetailWidget(
+              add: () => addSite(
+                context: context,
+                index: siteControllerModelList.length,
+              ),
+              remove: () {
+                removeSiteDetail(context: context, index: textlist[0].index);
+              },
+              addButtonEnable:
+              siteControllerModelList.length == maxSites - 1 ? false : true,
+              removeButtonEnable:
+              siteControllerModelList.length == 0 ? false : true,
+              mprnController: textlist[0].mprnCont,
+              mpanCoreController: textlist[0].mpanCoreCont,
+              businessNameController: textlist[0].businessNameCont,
+              startDateController: textlist[0].prefStartDateCont,
+              autoValidation: autovalidation,
+              selectDate: () {
+                FocusScope.of(context).unfocus();
+                dateSelect(
+                    context: context,
+                    controller: textlist[0].prefStartDateCont);
+              },
+              fieldsEnabled: true,
+            ),
+          ),
+        );
+      }
 
 
 
@@ -763,6 +763,7 @@ class GroupQuotationViewModel extends BaseModel {
       siteControllerModelList.clear();
       textlist.clear();
       sharedPrefDataModel = null;
+      await getDataPrevQuotes(context,grpid);
     }
     else{
       await getDataFromPref();

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pozitive/Core/ViewModel/view_group_quotation_viewmodels/view_group_quotation_viewmodel.dart';
 import 'package:pozitive/Core/baseview.dart' as bs;
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price_2_Year/Price(2_year)_Electricity.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price_3_Year/Price(3_year)_Electricity.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price_4_Year/Price(4_year)_Electricity.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/group_quotation.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/view_group_details.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/view_price_electricity_gas_group.dart';
@@ -18,7 +21,7 @@ import 'package:pozitive/Core/Model/request_quote_viewbutton_model.dart';
 import 'package:pozitive/Core/Model/Api/ask_for_requote_credential..dart';
 import 'package:pozitive/Core/enums/view_state.dart';
 import 'package:pozitive/Core/AppConstact/appConstant.dart';
-import 'package:pozitive/Pages/Group-Quotation/Tab/Price(1_Year)_Electricity.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price_1_Year/Price(1_Year)_Electricity.dart';
 
 class GroupQuotationPagesTab extends StatefulWidget {
   final String groupID;
@@ -40,7 +43,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
   RequestQuoteViewButtonModel();
   @override
   void initState() {
-    globals.tabController8 = new TabController(length: 5, vsync: this);
+    globals.tabController8 = new TabController(length: 7, vsync: this);
     globals.tabController8.addListener(_handleTabSelection);
     onCallApi();
 
@@ -77,7 +80,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double tabWidth = width / 5;
+    double tabWidth = width / 7;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -143,9 +146,20 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                         ),
                       ),
                     ),
+                    // new Tab(
+                    //   child: Text(
+                    //     "Price(1year)",
+                    //     style: TextStyle(
+                    //       color: globals.tabController8.index == 3
+                    //           ? ThemeApp().purplecolor
+                    //           : Colors.grey,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //   ),
+                    // ),
                     new Tab(
                       child: Text(
-                        "Price(1year)",
+                        "Price(1_Year)_Electricity",
                         style: TextStyle(
                           color: globals.tabController8.index == 3
                               ? ThemeApp().purplecolor
@@ -156,9 +170,31 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                     ),
                     new Tab(
                       child: Text(
-                        "Price(1_Year)_Electricity",
+                        "Price(2_Year)_Electricity",
                         style: TextStyle(
                           color: globals.tabController8.index == 4
+                              ? ThemeApp().purplecolor
+                              : Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    new Tab(
+                      child: Text(
+                        "Price(3_Year)_Electricity",
+                        style: TextStyle(
+                          color: globals.tabController8.index == 5
+                              ? ThemeApp().purplecolor
+                              : Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    new Tab(
+                      child: Text(
+                        "Price(4_Year)_Electricity",
+                        style: TextStyle(
+                          color: globals.tabController8.index == 6
                               ? ThemeApp().purplecolor
                               : Colors.grey,
                           fontWeight: FontWeight.bold,
@@ -185,12 +221,24 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                       // groupId: '19781',
                       groupId: widget.groupID,
                     ),
-                    ViewGasELEPricePerYear(
-                      quoteId: widget.quoteId,
-                      requestQuote: requestQuoteViewButtonModel,
-                      title: widget.title,
-                    ),
+                    // ViewGasELEPricePerYear(
+                    //   quoteId: widget.quoteId,
+                    //   requestQuote: requestQuoteViewButtonModel,
+                    //   title: widget.title,
+                    // ),
                     oneYearPage(
+                      // groupId: '19781',
+                      groupId: widget.groupID,
+                    ),
+                    twoYearPage(
+                      // groupId: '19781',
+                      groupId: widget.groupID,
+                    ),
+                    threeYearPage(
+                      // groupId: '19781',
+                      groupId: widget.groupID,
+                    ),
+                    fourYearPage(
                       // groupId: '19781',
                       groupId: widget.groupID,
                     ),

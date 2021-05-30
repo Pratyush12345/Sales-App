@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "get_it",
       "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-5.0.6",
       "packageUri": "lib/",
@@ -566,7 +572,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2021-05-22T10:32:25.432544Z",
+  "generated": "2021-05-29T08:26:28.186898Z",
   "generator": "pub",
   "generatorVersion": "2.13.0"
 }
