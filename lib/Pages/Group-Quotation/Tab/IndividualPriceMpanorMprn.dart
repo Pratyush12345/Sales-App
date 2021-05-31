@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/view_group_details_viewmodel.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/yearvisedetails.dart';
 import 'package:pozitive/Util/theme.dart';
 import 'package:pozitive/Core/Model/group_details_sub_model.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/view_price_ele_gas_1year.dart';
 import 'package:pozitive/Core/Model/request_quote_viewbutton_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:http/http.dart' as htp;
+import 'dart:convert';
+import 'package:pozitive/Core/Model/user.dart';
+import 'package:pozitive/Util/Pref.dart';
 class GroupQuotePriceList extends StatefulWidget {
   final int index;
   final List viewlist;
@@ -25,28 +29,77 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
   RequestQuoteViewButtonModel requestQuoteViewButtonModel =
       RequestQuoteViewButtonModel();
   bool check = false;
-  String getMpanOrMprn() {
-    // if (widget.groupDetailslst[widget.index].mpan == '') {
-    //   mpanOrMprn = 'MPRN : ' + widget.groupDetailslst[widget.index].mprn;
-    // } else if (widget.groupDetailslst[widget.index].mprn == '') {
-    //   mpanOrMprn = 'MPAN : ' + widget.groupDetailslst[widget.index].mpan;
-    // } else {
-    //   mpanOrMprn =
-    //       '${widget.groupDetailslst[widget.index].mpan} / ${widget.groupDetailslst[widget.index].mprn}';
-    // }
-    print(widget.index);
-    return 'MPAN : ' + widget.groupDetailslst[widget.index].mpan;
+  String title ='';
+  Future <void>Editsite({String grpId,BuildContext context,String Year}) async{
+    // setState(ViewState.BUSY);
+
+    User _user = await Prefs.getUser();
+    htp.Response response = await htp.post(
+        Uri.parse(
+            'https://api.boshposh.com/api/Partner/GroupContractEditSite'),
+        headers: {"Content-Type": "application/json"},
+        // body: (json1.substring(1, lstLength - 1)),
+        body: json.encode(
+            {
+              "AccountId": _user.accountId,
+              "GroupId": widget.groupDetailslst[widget.index].grpId,
+              "QuoteId": widget.groupDetailslst[widget.index].QuoteId,
+              "type":"group",
+              "strfullMpan": widget.groupDetailslst[widget.index].mpan,
+              "strDayEAC":"",
+              "strNightEAC":"",
+              "strEweEAC":"",
+              "strMPRN": widget.groupDetailslst[widget.index].mprn,
+              "strAQ":"",
+              "dteContractStartDate": widget.groupDetailslst[widget.index].contractStartDate,
+              "dteContractEndDate": widget.groupDetailslst[widget.index].contractEndDate,
+            }
+        )
+    );
+    var res = jsonDecode(response.body);
+    print(response.body);
+
+
   }
-  bool mprn = false;
-  String getmprn(){
-    if(widget.groupDetailslst[widget.index].mprn != '')
+
+  String getMpanOrMprn() {
+    //print(widget.groupDetailslst[widget.index].mprn);
+    if (widget.groupDetailslst[widget.index].mpan == '') {
       {
-        setState(() {
-          mprn = true;
-        });
+        mpanOrMprn =  widget.groupDetailslst[widget.index].mprn;
 
       }
-    return 'MPRN : '+widget.groupDetailslst[widget.index].mprn;
+    } else if (widget.groupDetailslst[widget.index].mprn == '') {
+      {
+        mpanOrMprn =  widget.groupDetailslst[widget.index].mpan;
+
+      }
+    } else {
+      mpanOrMprn =
+          '${widget.groupDetailslst[widget.index].mpan} / ${widget.groupDetailslst[widget.index].mprn}';
+
+    }
+
+    return mpanOrMprn; //'MPAN : ' + widget.groupDetailslst[widget.index].mpan;
+  }
+  bool mprn = false;
+  String titlestring(){
+    if (widget.groupDetailslst[widget.index].mpan == '') {
+      {
+
+        title = 'MPRN : ';
+      }
+    } else if (widget.groupDetailslst[widget.index].mprn == '') {
+      {
+
+        title = 'MPAN : ';
+      }
+    } else {
+
+      title = "MPAN/MPRN : ";
+    }
+
+    return title;
   }
 
   @override
@@ -84,8 +137,20 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         onTap: () {
                           setState(() {
                             check = false;
-
+                            if(widget.groupDetailslst[widget.index].tremtype == '1'){
+                              oneYear[widget.index].checkItem =false;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '2'){
+                              twoYear[widget.index].checkItem =false;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '3'){
+                              threeYear[widget.index].checkItem =false;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '4'){
+                              fourYear[widget.index].checkItem =false;
+                            }
                             print(check);
+                            print(widget.index);
                           });
                         },
                         child: Icon(
@@ -103,7 +168,18 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         onTap: () {
                           setState(() {
                             check = true;
-
+                            if(widget.groupDetailslst[widget.index].tremtype == '1'){
+                              oneYear[widget.index].checkItem =true;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '2'){
+                              twoYear[widget.index].checkItem =true;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '3'){
+                              threeYear[widget.index].checkItem =true;
+                            }
+                            else if(widget.groupDetailslst[widget.index].tremtype == '4'){
+                              fourYear[widget.index].checkItem =true;
+                            }
                             print(check);
                           });
                         },
@@ -114,29 +190,74 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                 Padding(
                   padding: const EdgeInsets.only(left: 5.0),
                   child: Text(
-                    widget.type == 'MPAN' ? getMpanOrMprn() : getmprn(),
+                    titlestring(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize:15,
+                      color: Colors.black,
+                      fontSize:15,
+                    ),
+                  ),
+                ),
+                title == 'MPAN/MPRN : ' ? Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(),
+                    child: Text(
+                      getMpanOrMprn(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize:15,
+                      ),
+                    ),
+                  ),
+                ) : Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Text(
+                    getMpanOrMprn(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize:15,
                     ),
                   ),
                 ),
                 // SizedBox(
                 //   width: MediaQuery.of(context).size.width * .02,
                 // ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .08,
+                title == 'MPRN : ' ? SizedBox(
+                  width: MediaQuery.of(context).size.width * .33,
+                ) : SizedBox(
+                  width: MediaQuery.of(context).size.width * .06,
                 ),
                 Container(
                   padding: EdgeInsets.only(left:5),
                   child: CupertinoButton(
-                    // onPressed: () {
-                    //   setState(() {
-                    //     widget.viewlist[widget.index]["click"] =
-                    //     !widget.viewlist[widget.index]["click"];
-                    //   });
-                    // },
+                    onPressed: () async {
+                      await Editsite();
+                      showDialog(
+                          context: context,
+                          builder: (ctx) {
+                            return AlertDialog(
+                              title: Text(
+                                "Successfully edited site",
+
+                              ),
+                              actions: <Widget>[
+                                FlatButton(
+                                  child: Text("ok"),
+                                  onPressed: () {
+                                    Navigator.of(ctx).pop();
+                                  },
+                                ),
+
+                              ],
+                            );
+                          });
+                      // setState(() {
+                      //   widget.viewlist[widget.index]["click"] =
+                      //   !widget.viewlist[widget.index]["click"];
+                      // });
+                    },
                     minSize: double.minPositive,
                     padding: EdgeInsets.zero,
                     //color: Colors.green,
@@ -171,6 +292,7 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                     ),
 
                   ),
+
                   // IconButton(
                   //   //minSize: double.minPositive,
                   //   padding: EdgeInsets.zero,
@@ -184,6 +306,9 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                   //   icon: FaIcon(FontAwesomeIcons.plus),
                   //   iconSize: 16.0,
                   // ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .01,
                 ),
                 // InkWell(
                 //   child: Container(

@@ -159,7 +159,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                     // ),
                     new Tab(
                       child: Text(
-                        "Price(1_Year)_Electricity",
+                        "Price(1_Year)_Electricity/Gas",
                         style: TextStyle(
                           color: globals.tabController8.index == 3
                               ? ThemeApp().purplecolor
@@ -170,7 +170,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                     ),
                     new Tab(
                       child: Text(
-                        "Price(2_Year)_Electricity",
+                        "Price(2_Year)_Electricity/Gas",
                         style: TextStyle(
                           color: globals.tabController8.index == 4
                               ? ThemeApp().purplecolor
@@ -181,7 +181,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                     ),
                     new Tab(
                       child: Text(
-                        "Price(3_Year)_Electricity",
+                        "Price(3_Year)_Electricity/Gas",
                         style: TextStyle(
                           color: globals.tabController8.index == 5
                               ? ThemeApp().purplecolor
@@ -192,7 +192,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
                     ),
                     new Tab(
                       child: Text(
-                        "Price(4_Year)_Electricity",
+                        "Price(4_Year)_Electricity/Gas",
                         style: TextStyle(
                           color: globals.tabController8.index == 6
                               ? ThemeApp().purplecolor

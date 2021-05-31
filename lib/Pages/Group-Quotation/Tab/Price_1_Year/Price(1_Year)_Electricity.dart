@@ -135,7 +135,7 @@ class _oneYearPageState extends State<oneYearPage> {
                           child: ListView.builder(
                               padding: EdgeInsets.all(0),
                               shrinkWrap: true,
-                              itemCount: groupDetailslst.length,
+                              itemCount: oneYear.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return GroupQuotePriceList(
                                   groupDetailslst: oneYear,
@@ -173,14 +173,21 @@ class _oneYearPageState extends State<oneYearPage> {
 
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.058,
-                            child: Center(
-                              child: Text(
-                                "Remove Site",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height * 0.019,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                            child: TextButton(
+                            child: Text(
+                              "Remove Site",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height * 0.019,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                              onPressed: (){
+                                model.RemoveSite(
+                                  grpId: widget.groupId,
+                                  context: context,
+                                  Year: '1',
+                                );
+                              },
                             ),
                             decoration: BoxDecoration(
                                 color: Color.fromRGBO(155, 119, 217, 1),
