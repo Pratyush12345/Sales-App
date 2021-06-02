@@ -187,6 +187,7 @@ class _DeshbordDetailsPageState extends State<DeshbordDetails> {
                               model.dashBoardDetailDataModel,
                           title: widget.title,
                           validUpToMsg: model.validUpToMsg,
+
                         ),
                       ),
                       SizedBox(

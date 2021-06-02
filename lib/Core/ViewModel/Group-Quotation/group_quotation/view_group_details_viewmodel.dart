@@ -13,6 +13,7 @@ import 'package:pozitive/providers/tabcontroller3_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as htp;
 import 'dart:convert';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/group_final_Qutation_viewmodel.dart';
 
 GetIt getIt = GetIt.instance;
 GroupDetailsTabModel groupDetailsTabModel;
@@ -22,6 +23,7 @@ List<EachyYearList> oneYearmprn = [];
 List<EachyYearList> twoYear = [];
 List<EachyYearList> threeYear = [];
 List<EachyYearList> fourYear = [];
+finalQuotationpPriceModel tempmodel ;
 class ViewGroupDetailViewModel extends BaseModel {
 
   void initializeData({BuildContext context, String groupId,bool check}) async {
@@ -36,6 +38,7 @@ class ViewGroupDetailViewModel extends BaseModel {
        );
      }
     }
+
     print(oneYear.length);
 
     setState(ViewState.IDLE);
@@ -51,13 +54,13 @@ class ViewGroupDetailViewModel extends BaseModel {
   Future<void> onCallApi({BuildContext context, String groupId}) async {
     setState(ViewState.BUSY);
     User _user = await Prefs.getUser();
-    groupDetailsTabModel = await database.getGroupDetails(
-      GroupDetailsTabCredential(
-        accountID: _user.accountId,
-        groupId: groupId,
-        type: 'group',
-      ),
-    );
+    // groupDetailsTabModel = await database.getGroupDetails(
+    //   GroupDetailsTabCredential(
+    //     accountID: _user.accountId,
+    //     groupId: groupId,
+    //     type: 'group',
+    //   ),
+    // );
     htp.Response response = await htp.post(
         Uri.parse(
             'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
@@ -72,73 +75,55 @@ class ViewGroupDetailViewModel extends BaseModel {
     var res  = jsonDecode(response.body);
    // print(res['data']['status']);
     if (res['status'] == '1') {
-      print(res['data']['lstPriceValues'][0]['intTermType']);
+      //print(res['data']['lstPriceValues'][0]['intTermType']);
       oneYear.clear();
       twoYear.clear();
       threeYear.clear();
       fourYear.clear();
-      for (int i = 0;
-      i < res['data']['lstPriceValues'].length;
-      i++) {
-        if(res['data']['lstPriceValues'][i]['intTermType'] == '1'){
-         if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
-           oneYear.add(
-               EachyYearList(
-                 tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                 mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
-                 mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                 baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                 baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                 baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                 baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                 contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                 contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                 QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                 grpId: res['data']['GroupId'] ?? "",
-                 checkItem: false,
-               )
-           );
-         }
-          // if(true){
-          //   oneYearmprn.add(
-          //       EachyYearList(
-          //         tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-          //         mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
-          //         mprn: '1123456789',
-          //         baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-          //         baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-          //         baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-          //         baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-          //         contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-          //         contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-          //       )
-          //   );
-          // }
-        }
-        else if(res['data']['lstPriceValues'][i]['intTermType'] == '2'){
-          if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
-            twoYear.add(
-              EachyYearList(
-                tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
-                mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
-                baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                checkItem: false,
-                grpId: res['data']['GroupId'] ?? "",
-              ),
-            );
+      if(res['data']['lstPriceValues'] != null){
+        for (int i = 0;
+        i < res['data']['lstPriceValues'].length;
+        i++) {
+          if(res['data']['lstPriceValues'][i]['intTermType'] == '1'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              oneYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+                  )
+              );
+            }
+            // if(true){
+            //   oneYearmprn.add(
+            //       EachyYearList(
+            //         tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+            //         mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
+            //         mprn: '1123456789',
+            //         baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+            //         baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+            //         baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+            //         baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+            //         contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+            //         contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+            //       )
+            //   );
+            // }
           }
-
-        }
-        else if(res['data']['lstPriceValues'][i]['intTermType'] == '3'){
-          if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
-            threeYear.add(
+          else if(res['data']['lstPriceValues'][i]['intTermType'] == '2'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              twoYear.add(
                 EachyYearList(
                   tremtype: res['data']['lstPriceValues'][i]['intTermType'],
                   mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
@@ -152,33 +137,61 @@ class ViewGroupDetailViewModel extends BaseModel {
                   QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
                   checkItem: false,
                   grpId: res['data']['GroupId'] ?? "",
-                )
-            );
+                  intCompId: res['data']['IntCompanyId'] ?? "",
+                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                ),
+              );
+            }
+
+          }
+          else if(res['data']['lstPriceValues'][i]['intTermType'] == '3'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              threeYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    checkItem: false,
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                  )
+              );
+            }
+
+          }
+          else if(res['data']['lstPriceValues'][i]['intTermType'] == '4'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              fourYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    checkItem: false,
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                  )
+              );
+            }
+
           }
 
         }
-        else if(res['data']['lstPriceValues'][i]['intTermType'] == '4'){
-          if((res['data']['lstPriceValues'][i]['strMPAN'] != null) || (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
-            fourYear.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "",
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  checkItem: false,
-                  grpId: res['data']['GroupId'] ?? "",
-                )
-            );
-          }
-
-        }
-
       }
 
       // print(oneYear.length);
@@ -196,37 +209,37 @@ class ViewGroupDetailViewModel extends BaseModel {
 
 
 
-    if (groupDetailsTabModel.status == '1') {
+    if (res['status'] == '1') {
     //  print(groupDetailsTabModel.data.lstGroupMaster.length);
       groupDetailslst.clear();
-      for (int i = 0;
-          i < groupDetailsTabModel.data.lstGroupMaster.length;
-          i++) {
-        groupDetailslst.add(
-          GroupDetailsSubModel(
-              businessName:
-                  groupDetailsTabModel.data.lstGroupMaster[i].businessName ??
-                      "",
-              mpan: groupDetailsTabModel.data.lstGroupMaster[i].fullMpanNumber ??
-                  "",
-              mprn: groupDetailsTabModel.data.lstGroupMaster[i].gasMprn ?? "",
-              industryEacAq:
-                  groupDetailsTabModel.data.lstGroupMaster[i].decIndustryEACAQ ??
-                      "",
-              currentSupplierName: groupDetailsTabModel
-                      .data.lstGroupMaster[i].strCurrentSupplierName ??
-                  "",
-              currentSupplierStartDate: groupDetailsTabModel
-                      .data.lstGroupMaster[i].strCurrentSupplierStartDate ??
-                  "",
-              siteAddress:
-                  groupDetailsTabModel.data.lstGroupMaster[i].strSiteAddress ??
-                      "",
-              meterType: groupDetailsTabModel.data.lstGroupMaster[i].strMeterType ??
-                  "",
-              relatedMeter:
-                  groupDetailsTabModel.data.lstGroupMaster[i].strRelatedMeter.toString() ?? ""),
-        );
+      if(res['data']['lstGroupMaster'] != null){
+        for (int i = 0;
+        i < res['data']['lstGroupMaster'].length;
+        i++) {
+          groupDetailslst.add(
+            GroupDetailsSubModel(
+                businessName:
+                res['data']['lstGroupMaster'][i]['Business_Name']  ??
+                    "",
+                mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ??
+                    "",
+                mprn: res['data']['lstGroupMaster'][i]['Gas_Mprn']?? "",
+                industryEacAq:
+                res['data']['lstGroupMaster'][i]['decIndustryEACAQ'] ??
+                    "",
+                currentSupplierName: res['data']['lstGroupMaster'][i]['strCurrentSupplierName'] ??
+                    "",
+                currentSupplierStartDate: res['data']['lstGroupMaster'][i]['strCurrentSupplierStartDate'] ??
+                    "",
+                siteAddress:
+                res['data']['lstGroupMaster'][i]['strSiteAddress'] ??
+                    "",
+                meterType: res['data']['lstGroupMaster'][i]['strMeterType']??
+                    "",
+                relatedMeter:
+                res['data']['lstGroupMaster'][i]['strRelatedMeter'] ?? ""),
+          );
+        }
       }
       setState(ViewState.IDLE);
 
@@ -245,6 +258,7 @@ Future<void>Getyearviseprice(BuildContext context,String groupId) async{
 
 
 }
+
 
 Future <void>RemoveSite({String grpId,BuildContext context,String Year}) async{
    setState(ViewState.BUSY);

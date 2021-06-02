@@ -22,6 +22,7 @@ import 'package:pozitive/Core/Model/Api/ask_for_requote_credential..dart';
 import 'package:pozitive/Core/enums/view_state.dart';
 import 'package:pozitive/Core/AppConstact/appConstant.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/Price_1_Year/Price(1_Year)_Electricity.dart';
+import 'package:pozitive/Core/ViewModel/group_quotation_viewmodel.dart';
 
 class GroupQuotationPagesTab extends StatefulWidget {
   final String groupID;
@@ -38,7 +39,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
     with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   GetPartnerQuoteGroupPriceModel getPartnerQuoteGroupPriceModel;
-  Database database = getIt<DatabaseImplementation>();
+  //Database database = getIt<DatabaseImplementation>();
   RequestQuoteViewButtonModel requestQuoteViewButtonModel =
   RequestQuoteViewButtonModel();
   @override
@@ -58,13 +59,13 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
 
   void onCallApi() async {
     User _user = await Prefs.getUser();
-    getPartnerQuoteGroupPriceModel = await database.getPartnerGroupQuotePrice(
-      GetPartnerQuoteGroupPriceCredentials(
-        accountId: _user.accountId,
-        groupId: widget.groupID,
-        type: 'group',
-      ),
-    );
+    // getPartnerQuoteGroupPriceModel = await database.getPartnerGroupQuotePrice(
+    //   GetPartnerQuoteGroupPriceCredentials(
+    //     accountId: _user.accountId,
+    //     groupId: widget.groupID,
+    //     type: 'group',
+    //   ),
+    // );
     // requestQuoteViewButtonModel = await database.getRequestQuoteViewButtonDetails(
     //   RequestQuoteViewButtonCredential(
     //     accountId: _user.accountId,
@@ -88,18 +89,18 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
       appBar: appbar("Group-Quotation", context, _scaffoldKey, true, true),
       drawer: DrawerWidget(),
       body: bs.BaseView<ViewGroupQuotationViewModel>(
-        onModelReady: (model) => model.initializeData(context: context,grpid: widget.groupID),
+        //onModelReady: (model) => model.initializeData(context: context,grpid: widget.groupID),
         builder: (context, model, child) {
-          if (model.state == ViewState.BUSY) {
-            return Container(
-              height: MediaQuery.of(context).size.height,
-              child: Scaffold(
-                body: Center(
-                  child: AppConstant.circularProgressIndicator(),
-                ),
-              ),
-            );
-          }
+          // if (model.state == ViewState.BUSY) {
+          //   return Container(
+          //     height: MediaQuery.of(context).size.height,
+          //     child: Scaffold(
+          //       body: Center(
+          //         child: AppConstant.circularProgressIndicator(),
+          //       ),
+          //     ),
+          //   );
+          // }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,

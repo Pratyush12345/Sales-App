@@ -98,7 +98,7 @@ class GroupQuotationViewModel extends BaseModel {
   bool fourYear = false;
   bool fiveYear = false;
   bool all = false;
-
+  bool load = false;
   CompanyListModel model;
   List<CompanyListData> suggestions = <CompanyListData>[];
 
@@ -261,56 +261,56 @@ class GroupQuotationViewModel extends BaseModel {
     //   ),
     // );
 
-    // GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
-    //   accountId: _user.accountId,
-    //   command: apiCommand,
-    //   intCompanyUserId: _user.accountId,
-    //   intCompanyId: "1",
-    //   groupId: groupIdFromPref == null ? '0' : groupIdFromPref.toString(),
-    //   groupname: groupNameController.text ?? "",
-    //   basketName: businessNameController.text ?? "",
-    //   thirdPartyMOP: "$mop",
-    //   thirdPartyDADC: "$daDc",
-    //   bteIsStarkDADC: "$starkDaDc",
-    //   isforFirstyearGroup: "$oneYear",
-    //   isforSecondyearGroup: "$twoYear",
-    //   isforThirdyearGroup: "$threeYear",
-    //   isforFouryearGroup: "$fourYear",
-    //   isforFiveyearGroup: "$fiveYear",
-    //   isforOtheryearGroup: "$other",
-    //   isCommonEnddate: "$setCommonEndDate",
-    //   requiredByDate: requireByDateController.text ?? "",
-    //   contractEndDateGroup: "",
-    //   requestedDateGroup: requireByDateController.text ?? "",
-    //   companyName: companyNameController.text ?? "",
-    //   cRN: companyRegNoController.text ?? "",
-    //   lstFormSiteList: getAllSites(textlist: textlist),
-    // );
     GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
-        accountId: "7257",
-        command: "Insert",
-        intCompanyUserId: "7257",
-        intCompanyId: "1",
-        groupId: '0',
-        groupname: "",
-        basketName: "testing for api",
-        thirdPartyMOP: "false",
-        thirdPartyDADC: "true",
-        bteIsStarkDADC: "false",
-        isforFirstyearGroup: "true",
-        isforSecondyearGroup: "true",
-        isforThirdyearGroup: "true",
-        isforFouryearGroup: "true",
-        isforFiveyearGroup: "true",
-        isforOtheryearGroup: "false",
-        isCommonEnddate: "false",
-        requiredByDate: requireByDateController.text ?? "",
-        contractEndDateGroup: "",
-        requestedDateGroup: requireByDateController.text ?? "",
-        companyName: companyNameController.text ?? "",
-        cRN: companyRegNoController.text ?? "",
-        lstFormSiteList: getAllSites(textlist: textlist),
-      );
+      accountId: _user.accountId,
+      command: apiCommand,
+      intCompanyUserId: _user.accountId,
+      intCompanyId: "1",
+      groupId: groupIdFromPref == null ? '0' : groupIdFromPref.toString(),
+      groupname: groupNameController.text ?? "",
+      basketName: businessNameController.text ?? "",
+      thirdPartyMOP: "$mop",
+      thirdPartyDADC: "$daDc",
+      bteIsStarkDADC: "$starkDaDc",
+      isforFirstyearGroup: "$oneYear",
+      isforSecondyearGroup: "$twoYear",
+      isforThirdyearGroup: "$threeYear",
+      isforFouryearGroup: "$fourYear",
+      isforFiveyearGroup: "$fiveYear",
+      isforOtheryearGroup: "$other",
+      isCommonEnddate: "$setCommonEndDate",
+      requiredByDate: requireByDateController.text ?? "",
+      contractEndDateGroup: "",
+      requestedDateGroup: requireByDateController.text ?? "",
+      companyName: companyNameController.text ?? "",
+      cRN: companyRegNoController.text ?? "",
+      lstFormSiteList: getAllSites(textlist: textlist),
+    );
+    // GroupAddPartnerAddQuickLeadNewCredential groupAddPartnerAddQuickLeadNewCredential =   GroupAddPartnerAddQuickLeadNewCredential(
+    //     accountId: "7257",
+    //     command: "Insert",
+    //     intCompanyUserId: "7257",
+    //     intCompanyId: "1",
+    //     groupId: '0',
+    //     groupname: "",
+    //     basketName: "testing for api",
+    //     thirdPartyMOP: "false",
+    //     thirdPartyDADC: "true",
+    //     bteIsStarkDADC: "false",
+    //     isforFirstyearGroup: "true",
+    //     isforSecondyearGroup: "true",
+    //     isforThirdyearGroup: "true",
+    //     isforFouryearGroup: "true",
+    //     isforFiveyearGroup: "true",
+    //     isforOtheryearGroup: "false",
+    //     isCommonEnddate: "false",
+    //     requiredByDate: requireByDateController.text ?? "",
+    //     contractEndDateGroup: "",
+    //     requestedDateGroup: requireByDateController.text ?? "",
+    //     companyName: companyNameController.text ?? "",
+    //     cRN: companyRegNoController.text ?? "",
+    //     lstFormSiteList: getAllSites(textlist: textlist),
+    //   );
 
     //String json1 = jsonEncode(list.map((e) => e.toJson()).toList());
     //int lstLength = json1.length;
@@ -536,14 +536,14 @@ class GroupQuotationViewModel extends BaseModel {
         })
     );
     var doota  = jsonDecode(response.body);
-    print(response.body);
+   // print(response.body);
 
-    print(doota);
+   // print(doota);
     textlist.clear();
     siteControllerModelList.clear();
 
-
-      if (doota['data']['lstGroupMaster'].length > 0) {
+    print(doota['data']['lstGroupMaster'] );
+      if (doota['data']['lstGroupMaster'] !=null) {
         for (int i = 0; i < doota['data']['lstGroupMaster'].length; i++) {
           textlist.add(
             TextContollerList(
@@ -595,13 +595,13 @@ class GroupQuotationViewModel extends BaseModel {
         textlist.add(
           TextContollerList(
             businessNameCont: TextEditingController(
-                text: doota['data']['BasketName'] ?? ''),
+                text:  ''),
             mpanCoreCont: TextEditingController(
-                text: '123456789'?? ''),
+                text: ''),
             mprnCont: TextEditingController(
-                text: '987456321'?? ''),
+                text:  ''),
             prefStartDateCont: TextEditingController(
-                text: '12/05/21'?? ''),
+                text:  ''),
             index: 0,
           ),
         );
@@ -752,6 +752,7 @@ class GroupQuotationViewModel extends BaseModel {
 
   void initializeData({BuildContext context,String grpid}) async {
     setState(ViewState.BUSY);
+    load = false;
     SiteSharedPrefDataModel sharedPrefDataModel;
     groupIdFromPref = await PrefGroupQuote.gRQgetGroupId() ?? null;
     await getMaxSiteCount();
@@ -786,8 +787,8 @@ class GroupQuotationViewModel extends BaseModel {
    // await getDataPrevQuotes(context,grpid);
     await getCompanyName();
 
-
-
+    load = true;
+    setState(ViewState.IDLE);
   }
 
   void selectDate1(BuildContext context, String fromField) async {

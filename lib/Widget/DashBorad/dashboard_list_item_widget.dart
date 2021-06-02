@@ -76,9 +76,9 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                               child: Padding(
                                 padding: SizeConfig.innersidepadding,
                                 child: Text(
-                                    "${widget.lstDetail.strManualStatus}",
+                                    widget.lstDetail.intId.toString(),
                                     style: TextStyle(
-                                        color: Colors.amber,
+                                        color: Colors.black,
                                         fontSize:
                                             MediaQuery.of(context).size.width *
                                                 0.029),
@@ -87,7 +87,8 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                           Expanded(
                             flex: 1,
                             child: InkWell(
-                              child: Text(widget.type == 'Individual' ?
+                              child: Text(
+                                  widget.type == 'Individual' ?
                               ( widget.lstDetail.businessName==null ? widget.lstDetail.strGroupname : widget.lstDetail.businessName) :
                               (widget.lstDetail.businessName==null ? widget.lstDetail.businessName : widget.lstDetail.strGroupname ),
 

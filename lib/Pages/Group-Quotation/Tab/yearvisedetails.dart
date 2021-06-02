@@ -355,7 +355,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Day,
-                      controller: model.requiredUpliftDay,
+                      controller: requiredUpliftDay,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -369,7 +369,7 @@ class _playState extends State<play> {
                       ],
                       onChanged: (text){
                         setState(() {
-                          model.finalPriceDay.text = (double.parse(baserateday.text)+double.parse(text)
+                          finalPriceDay.text = (double.parse(baserateday.text)+double.parse(text)
                           ).toString();
                         });
                       },
@@ -388,7 +388,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Night,
-                      controller: model.requiredUpliftNight,
+                      controller: requiredUpliftNight,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -402,7 +402,7 @@ class _playState extends State<play> {
                       ],
                       onChanged: (text){
                         setState(() {
-                          model.finalPriceNight.text = (double.parse(baseratenight.text)+double.parse(text)
+                          finalPriceNight.text = (double.parse(baseratenight.text)+double.parse(text)
                           ).toString();
                         });
                       },
@@ -427,7 +427,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.EWE,
-                      controller: model.requiredUpliftEWE,
+                      controller: requiredUpliftEWE,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -441,7 +441,7 @@ class _playState extends State<play> {
                       ],
                       onChanged: (text){
                         setState(() {
-                          model.finalPriceEWE.text = (double.parse(baserateEwe.text==null ? baserateEwe.text : '0')+double.parse(text)
+                          finalPriceEWE.text = (double.parse(baserateEwe.text==null ? baserateEwe.text : '0')+double.parse(text)
                           ).toString();
                         });
                       },
@@ -460,7 +460,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.SC,
-                      controller: model.requiredUpliftSc,
+                      controller: requiredUpliftSc,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -474,7 +474,7 @@ class _playState extends State<play> {
                       ],
                       onChanged: (text){
                         setState(() {
-                          model.finalPriceSc.text = (double.parse(baserateSC.text)+double.parse(text)
+                          finalPriceSc.text = (double.parse(baserateSC.text)+double.parse(text)
                           ).toString();
                         });
                       },
@@ -516,7 +516,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Day,
-                      controller: model.upliftPreminumDay,
+                      controller: upliftPreminumDay,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -543,7 +543,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Night,
-                      controller: model.upliftPreminumNight,
+                      controller: upliftPreminumNight,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -576,7 +576,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.EWE,
-                      controller: model.upliftPreminumEWE,
+                      controller: upliftPreminumEWE,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -603,7 +603,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.SC,
-                      controller: model.upliftPreminumSc,
+                      controller: upliftPreminumSc,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -653,7 +653,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Day,
-                      controller: model.affiliateUpliftDay,
+                      controller: affiliateUpliftDay,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -680,7 +680,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.Night,
-                      controller: model.affiliateUpliftNight,
+                      controller: affiliateUpliftNight,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -713,7 +713,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.EWE,
-                      controller: model.affiliateUpliftEWE,
+                      controller: affiliateUpliftEWE,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -740,7 +740,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: true,
                       title: AppString.SC,
-                      controller: model.affiliateUpliftSc,
+                      controller: affiliateUpliftSc,
                       autoValidation: false,
                       textInputType: TextInputType.number,
                       hintText: '',
@@ -790,7 +790,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: false,
                       title: AppString.Day,
-                      controller: model.finalPriceDay,
+                      controller: finalPriceDay,
                       textInputType: TextInputType.number,
                       hintText: '',
                       textInputFormatter: [
@@ -814,7 +814,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: false,
                       title: AppString.Night,
-                      controller: model.finalPriceNight,
+                      controller: finalPriceNight,
                       textInputType: TextInputType.number,
                       hintText: '',
                       textInputFormatter: [
@@ -844,7 +844,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: false,
                       title: AppString.EWE,
-                      controller: model.finalPriceEWE,
+                      controller: finalPriceEWE,
                       textInputType: TextInputType.number,
                       hintText: '',
                       textInputFormatter: [
@@ -868,7 +868,7 @@ class _playState extends State<play> {
                     child: AppTextField(
                       enabled: false,
                       title: AppString.SC,
-                      controller: model.finalPriceSc,
+                      controller: finalPriceSc,
                       textInputType: TextInputType.number,
                       hintText: '',
                       textInputFormatter: [

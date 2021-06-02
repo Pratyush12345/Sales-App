@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/group_final_Qutation_viewmodel.dart';
 import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/view_group_details_viewmodel.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/yearvisedetails.dart';
 import 'package:pozitive/Util/theme.dart';
@@ -87,19 +88,19 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
     if (widget.groupDetailslst[widget.index].mpan == '') {
       {
 
-        title = 'MPRN : ';
+        title = 'MPRN';
       }
     } else if (widget.groupDetailslst[widget.index].mprn == '') {
       {
 
-        title = 'MPAN : ';
+        title = 'MPAN';
       }
     } else {
 
-      title = "MPAN/MPRN : ";
+      title = "MPAN/MPRN";
     }
 
-    return title;
+    return title+' : ';
   }
 
   @override
@@ -198,7 +199,7 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                     ),
                   ),
                 ),
-                title == 'MPAN/MPRN : ' ? Expanded(
+                title == 'MPAN/MPRN' ? Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(),
                     child: Text(
@@ -224,7 +225,7 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                 // SizedBox(
                 //   width: MediaQuery.of(context).size.width * .02,
                 // ),
-                title == 'MPRN : ' ? SizedBox(
+                title == 'MPRN' ? SizedBox(
                   width: MediaQuery.of(context).size.width * .33,
                 ) : SizedBox(
                   width: MediaQuery.of(context).size.width * .06,
@@ -371,7 +372,7 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                           title: 'Requested Requote',
                           groupDetailslst: widget.groupDetailslst,
                           index: widget.index,
-                          type: widget.type,
+                          type: title,
                         ),
                         Padding(padding: EdgeInsets.only(bottom: 10, top: 10)),
                       ],
