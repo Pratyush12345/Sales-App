@@ -35,7 +35,7 @@ class play extends StatefulWidget {
       this.requestQuote,
       this.title,
       @required this.groupDetailslst,
-        this.type,
+      this.type,
       this.index});
   @override
   _playState createState() => _playState();
@@ -59,7 +59,7 @@ class _playState extends State<play> {
   QuotationPriceElectricityGasModel priceElectricityGasModel;
   RequestQuoteViewButtonModel requestQuoteViewButtonModel =
       RequestQuoteViewButtonModel();
- // Database database = getIt<DatabaseImplementation>();
+  // Database database = getIt<DatabaseImplementation>();
   TextEditingController baserateday = TextEditingController();
   TextEditingController baseratenight = TextEditingController();
   TextEditingController baserateEwe = TextEditingController();
@@ -67,14 +67,24 @@ class _playState extends State<play> {
   @override
   void initState() {
     //onCallApi();
-    baserateday.text = widget.groupDetailslst[widget.index].baserateday == '' ? '0': widget.groupDetailslst[widget.index].baserateday;
-    baseratenight.text = widget.groupDetailslst[widget.index].baseratenight == '' ? '0':widget.groupDetailslst[widget.index].baseratenight;
-    baserateEwe.text = widget.groupDetailslst[widget.index].baserateEwe == '' ? '0' : widget.groupDetailslst[widget.index].baserateEwe;
-    baserateSC.text = widget.groupDetailslst[widget.index].baserateSC == '' ? '0' : widget.groupDetailslst[widget.index].baserateSC;
+    print(widget.type);
+    baserateday.text = widget.groupDetailslst[widget.index].baserateday == ''
+        ? '0'
+        : widget.groupDetailslst[widget.index].baserateday;
+    baseratenight.text =
+        widget.groupDetailslst[widget.index].baseratenight == ''
+            ? '0'
+            : widget.groupDetailslst[widget.index].baseratenight;
+    baserateEwe.text = widget.groupDetailslst[widget.index].baserateEwe == ''
+        ? '0'
+        : widget.groupDetailslst[widget.index].baserateEwe;
+    baserateSC.text = widget.groupDetailslst[widget.index].baserateSC == ''
+        ? '0'
+        : widget.groupDetailslst[widget.index].baserateSC;
 
     if (widget.requestQuote.contractstartdate == null)
       widget.requestQuote.contractstartdate = '12/05/2021';
-   // print(widget.requestQuote.contractstartdate.toString());
+    // print(widget.requestQuote.contractstartdate.toString());
     contractEndDate = DateTime.parse(
             widget.requestQuote.contractstartdate.split('/').reversed.join())
         .add(new Duration(days: 364))
@@ -104,7 +114,8 @@ class _playState extends State<play> {
   @override
   Widget build(BuildContext context) {
     return BaseView<finalQuotationpPriceModel>(
-        onModelReady: (model) => model.initializeData(widget.requestQuote, '1',widget.groupDetailslst, widget.index,widget.type),
+        onModelReady: (model) => model.initializeData(widget.requestQuote, '1',
+            widget.groupDetailslst, widget.index, widget.type),
         builder: (context, model, child) {
           return Padding(
             padding: EdgeInsets.all(0),
@@ -127,9 +138,6 @@ class _playState extends State<play> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   InkWell(
-// onTap: () {
-//   model.selectDate(context, 'start');
-// },
                     child: Container(
                         width: MediaQuery.of(context).size.width * 0.45,
                         padding: EdgeInsets.all(8),
@@ -208,119 +216,183 @@ class _playState extends State<play> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              widget.type == "MPAN" ? Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.Day,
-                      controller: baserateday,
-                      autoValidation: true,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.Day,
+                          controller: baserateday,
+                          autoValidation: true,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Day),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.Night,
-                      controller: baseratenight,
-                      autoValidation: _autovalidation,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.Night,
+                          controller: baseratenight,
+                          autoValidation: _autovalidation,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.EWE,
+                          controller: baserateEwe,
+                          autoValidation: true,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.EWE),
                         ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Night),
-                    ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.SC,
+                          controller: baserateSC,
+                          autoValidation: _autovalidation,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.SC),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ) : Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.EWE,
-                      controller: baserateEwe,
-                      autoValidation: true,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.Day,
+                          controller: baserateday,
+                          autoValidation: true,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.EWE),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.SC,
-                      controller: baserateSC,
-                      autoValidation: _autovalidation,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: false,
+                          title: AppString.SC,
+                          controller: baserateSC,
+                          autoValidation: _autovalidation,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.SC),
-                    ),
+                      ),
+                    ],
                   ),
+
                 ],
               ),
               SizedBox(
@@ -343,145 +415,236 @@ class _playState extends State<play> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              widget.type == "MPAN" ? Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Day,
-                      controller: requiredUpliftDay,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: requiredUpliftDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceDay.text = (double.parse(baserateday.text) +
+                                  double.parse(text))
+                                  .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      onChanged: (text){
-                        setState(() {
-                          finalPriceDay.text = (double.parse(baserateday.text)+double.parse(text)
-                          ).toString();
-                        });
-                      },
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Day),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Night,
-                      controller: requiredUpliftNight,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Night,
+                          controller: requiredUpliftNight,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceNight.text =
+                                  (double.parse(baseratenight.text) +
+                                      double.parse(text))
+                                      .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.EWE,
+                          controller: requiredUpliftEWE,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceEWE.text = (double.parse(
+                                  baserateEwe.text == null
+                                      ? baserateEwe.text
+                                      : '0') +
+                                  double.parse(text))
+                                  .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.EWE),
                         ),
-                      ],
-                      onChanged: (text){
-                        setState(() {
-                          finalPriceNight.text = (double.parse(baseratenight.text)+double.parse(text)
-                          ).toString();
-                        });
-                      },
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Night),
-                    ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: requiredUpliftSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceSc.text = (double.parse(baserateSC.text) +
+                                  double.parse(text))
+                                  .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.SC),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              ) : Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.EWE,
-                      controller: requiredUpliftEWE,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: requiredUpliftDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceDay.text = (double.parse(baserateday.text) +
+                                  double.parse(text))
+                                  .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      onChanged: (text){
-                        setState(() {
-                          finalPriceEWE.text = (double.parse(baserateEwe.text==null ? baserateEwe.text : '0')+double.parse(text)
-                          ).toString();
-                        });
-                      },
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.EWE),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.SC,
-                      controller: requiredUpliftSc,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: requiredUpliftSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          onChanged: (text) {
+                            setState(() {
+                              finalPriceNight.text =
+                                  (double.parse(baseratenight.text) +
+                                      double.parse(text))
+                                      .toString();
+                            });
+                          },
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      onChanged: (text){
-                        setState(() {
-                          finalPriceSc.text = (double.parse(baserateSC.text)+double.parse(text)
-                          ).toString();
-                        });
-                      },
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.SC),
-                    ),
+                      ),
+                    ],
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+
                 ],
               ),
               SizedBox(
@@ -504,121 +667,189 @@ class _playState extends State<play> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              widget.type == "MPAN" ? Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Day,
-                      controller: upliftPreminumDay,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: upliftPreminumDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Day),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Night,
-                      controller: upliftPreminumNight,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Night,
+                          controller: upliftPreminumNight,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.EWE,
+                          controller: upliftPreminumEWE,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.EWE),
                         ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Night),
-                    ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: upliftPreminumSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.SC),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              ) : Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.EWE,
-                      controller: upliftPreminumEWE,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: upliftPreminumDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.EWE),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.SC,
-                      controller: upliftPreminumSc,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: upliftPreminumSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.SC),
-                    ),
+                      ),
+                    ],
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+
                 ],
               ),
               SizedBox(
@@ -641,121 +872,189 @@ class _playState extends State<play> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              widget.type == "MPAN" ? Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Day,
-                      controller: affiliateUpliftDay,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: affiliateUpliftDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Day),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.Night,
-                      controller: affiliateUpliftNight,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Night,
+                          controller: affiliateUpliftNight,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.EWE,
+                          controller: affiliateUpliftEWE,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.EWE),
                         ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.Night),
-                    ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: affiliateUpliftSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.SC),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              ) : Column(
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.EWE,
-                      controller: affiliateUpliftEWE,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.Day,
+                          controller: affiliateUpliftDay,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Day),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.EWE),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: true,
-                      title: AppString.SC,
-                      controller: affiliateUpliftSc,
-                      autoValidation: false,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
+                        child: AppTextField(
+                          enabled: true,
+                          title: AppString.SC,
+                          controller: affiliateUpliftSc,
+                          autoValidation: false,
+                          textInputType: TextInputType.number,
+                          hintText: '',
+                          textInputFormatter: [
+                            DecimalTextInputFormatter(
+                              decimalRange: 4,
+                            ),
+                            WhitelistingTextInputFormatter(
+                              RegExp(r'^\d+.?\d{0,4}'),
+                            ),
+                          ],
+                          validator: (value) =>
+                              AppConstant.stringValidator(value, AppString.Night),
                         ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                      validator: (value) =>
-                          AppConstant.stringValidator(value, AppString.SC),
-                    ),
+                      ),
+                    ],
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+
                 ],
               ),
               SizedBox(
@@ -778,111 +1077,67 @@ class _playState extends State<play> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+             widget.type == "MPAN" ? Column(
+               children: [],
+             ) : Column(
+               children: [
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.Day,
-                      controller: finalPriceDay,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
-                        ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.Day,
+                         controller: finalPriceDay,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                     SizedBox(
+                       width: 10,
+                     ),
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.Night,
-                      controller: finalPriceNight,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
-                        ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-// padding: EdgeInsets.all(10),
-//height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.EWE,
-                      controller: finalPriceEWE,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
-                        ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                    child: AppTextField(
-                      enabled: false,
-                      title: AppString.SC,
-                      controller: finalPriceSc,
-                      textInputType: TextInputType.number,
-                      hintText: '',
-                      textInputFormatter: [
-                        DecimalTextInputFormatter(
-                          decimalRange: 4,
-                        ),
-                        WhitelistingTextInputFormatter(
-                          RegExp(r'^\d+.?\d{0,4}'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.SC,
+                         controller: finalPriceSc,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                   ],
+                 ),
+                 SizedBox(
+                   height: 15,
+                 ),
+
+               ],
+             ),
               SizedBox(
                 height: 15,
               ),

@@ -20,7 +20,19 @@ class GroupDetailsSubModel {
     this.relatedMeter,
   });
 }
+class EACvalues{
+  String mpan;
+  String EACDay;
+  String EACnight;
+  String strAq;
 
+  EACvalues({
+    this.mpan,
+    this.EACDay,
+    this.EACnight,
+    this.strAq,
+  } );
+}
 class EachyYearList {
   String tremtype;
   String mpan;
@@ -36,6 +48,9 @@ class EachyYearList {
   String visibleGrpName;
   int intCompId;
   bool checkItem;
+  String dayEac;
+  String nightEac;
+  String gasEac;
 
   EachyYearList({
     this.tremtype,
@@ -52,6 +67,9 @@ class EachyYearList {
     this.grpId,
     this.intCompId,
     this.visibleGrpName,
+    this.dayEac,
+    this.nightEac,
+    this.gasEac,
   });
 }
 

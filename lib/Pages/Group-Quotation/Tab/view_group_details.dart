@@ -15,7 +15,8 @@ import 'package:pozitive/Util/global.dart' as globals;
 
 class ViewGroupDetailsPage extends StatefulWidget {
   final String groupId;
-  ViewGroupDetailsPage({@required this.groupId});
+  dynamic loaddata;
+  ViewGroupDetailsPage({@required this.groupId,this.loaddata});
   @override
   _ViewGroupDetailsPageState createState() => _ViewGroupDetailsPageState();
 }
@@ -45,6 +46,7 @@ class _ViewGroupDetailsPageState extends State<ViewGroupDetailsPage> {
           groupId: widget.groupId,
           context: context,
           check: true,
+          loaddata: widget.loaddata,
         ),
         builder: (context, model, child) {
           if (model.state == ViewState.BUSY) {

@@ -12,13 +12,15 @@ import 'package:http/http.dart' as htp;
 import 'dart:convert';
 import 'package:pozitive/Core/Model/user.dart';
 import 'package:pozitive/Util/Pref.dart';
+import 'package:pozitive/Pages/Group-Quotation/EditSite.dart';
+
 class GroupQuotePriceList extends StatefulWidget {
   final int index;
   final List viewlist;
   final List<EachyYearList> groupDetailslst;
   final String type;
   GroupQuotePriceList(
-      {this.index, this.viewlist, @required this.groupDetailslst ,this.type});
+      {this.index, this.viewlist, @required this.groupDetailslst, this.type});
 
   @override
   _GroupQuotePriceListState createState() => _GroupQuotePriceListState();
@@ -30,36 +32,63 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
   RequestQuoteViewButtonModel requestQuoteViewButtonModel =
       RequestQuoteViewButtonModel();
   bool check = false;
-  String title ='';
-  Future <void>Editsite({String grpId,BuildContext context,String Year}) async{
+  String title = '';
+  Future<void> Editsite() async {
     // setState(ViewState.BUSY);
+    var s = widget.groupDetailslst[widget.index].mpan;
+    if(s!=''){
+      mpan1.text='';
+      for(int i=0;i<2;i++){
+        mpan1.text +=  s[i];
+        //print(s[i]);
+      }
+      mpan2.text='';
+      for(int i=2;i<5;i++){
+        mpan2.text += s[i];
+      }
+      mpan3.text='';
+      for(int i=5;i<8;i++){
+        mpan3.text += s[i];
+      }
+      mpan4.text='';
+      for(int i=8;i<10;i++){
+        mpan4.text += s[i];
+      }
+      mpan5.text='';
+      for(int i=10;i<14;i++){
+        mpan5.text += s[i];
+      }
+      mpan6.text='';
+      for(int i=14;i<18;i++){
+        mpan6.text += s[i];
+      }
+      mpan7.text='';
+      for(int i=18;i<=20;i++){
+        mpan7.text += s[i];
+      }
+     // conStartDate.text='';
 
-    User _user = await Prefs.getUser();
-    htp.Response response = await htp.post(
-        Uri.parse(
-            'https://api.boshposh.com/api/Partner/GroupContractEditSite'),
-        headers: {"Content-Type": "application/json"},
-        // body: (json1.substring(1, lstLength - 1)),
-        body: json.encode(
-            {
-              "AccountId": _user.accountId,
-              "GroupId": widget.groupDetailslst[widget.index].grpId,
-              "QuoteId": widget.groupDetailslst[widget.index].QuoteId,
-              "type":"group",
-              "strfullMpan": widget.groupDetailslst[widget.index].mpan,
-              "strDayEAC":"",
-              "strNightEAC":"",
-              "strEweEAC":"",
-              "strMPRN": widget.groupDetailslst[widget.index].mprn,
-              "strAQ":"",
-              "dteContractStartDate": widget.groupDetailslst[widget.index].contractStartDate,
-              "dteContractEndDate": widget.groupDetailslst[widget.index].contractEndDate,
-            }
-        )
-    );
-    var res = jsonDecode(response.body);
-    print(response.body);
+      // if( widget.groupDetailslst[widget.index].mprn == ''){
+      //   dayEAC.text = "0";
+      //   nightEAC.text = "0";
+      //   strAq.text = '0';
+      // }
+      // else{
+      //   strAq.text = eacvalues[ widget.groupDetailslst[widget.index].mprn].strAq;
+      //   // dayEAC.text = eacvalues[ widget.groupDetailslst[widget.index].mpan].EACDay;
+      //   // nightEAC.text = eacvalues[ widget.groupDetailslst[widget.index].mpan].EACnight;
+      // }
+        // dayEAC.text = eacvalues[""].EACDay ?? "";
+        // nightEAC.text = eacvalues[""].EACnight ?? "";
 
+    }
+    conStartDate.text = widget.groupDetailslst[widget.index].contractStartDate;
+
+    dayEAC.text = '0';
+    nightEAC.text = '0';
+    strAq.text = eacvalues[widget.groupDetailslst[widget.index].mprn].strAq;
+    mprnedit.text = widget.groupDetailslst[widget.index].mprn;
+    print(eacvalues[widget.groupDetailslst[widget.index].mprn].strAq);
 
   }
 
@@ -67,40 +96,39 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
     //print(widget.groupDetailslst[widget.index].mprn);
     if (widget.groupDetailslst[widget.index].mpan == '') {
       {
-        mpanOrMprn =  widget.groupDetailslst[widget.index].mprn;
-
+        mpanOrMprn = widget.groupDetailslst[widget.index].mprn;
       }
     } else if (widget.groupDetailslst[widget.index].mprn == '') {
       {
-        mpanOrMprn =  widget.groupDetailslst[widget.index].mpan;
-
+        mpanOrMprn = widget.groupDetailslst[widget.index].mpan;
       }
     } else {
       mpanOrMprn =
           '${widget.groupDetailslst[widget.index].mpan} / ${widget.groupDetailslst[widget.index].mprn}';
-
     }
+    // if(widget.type == "MPAN"){
+    //   mpanOrMprn = widget.groupDetailslst[widget.index].mpan;
+    // }
+    // else{
+    //   mpanOrMprn = widget.groupDetailslst[widget.index].mprn;
+    // }
 
     return mpanOrMprn; //'MPAN : ' + widget.groupDetailslst[widget.index].mpan;
   }
+
   bool mprn = false;
-  String titlestring(){
+  String titlestring() {
     if (widget.groupDetailslst[widget.index].mpan == '') {
       {
-
         title = 'MPRN';
       }
     } else if (widget.groupDetailslst[widget.index].mprn == '') {
       {
-
         title = 'MPAN';
       }
-    } else {
-
-      title = "MPAN/MPRN";
     }
 
-    return title+' : ';
+    return title + ' : ';
   }
 
   @override
@@ -110,10 +138,9 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
         Container(
           child: Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.01,
-                bottom: MediaQuery.of(context).size.height * 0.01,
+              top: MediaQuery.of(context).size.height * 0.01,
+              bottom: MediaQuery.of(context).size.height * 0.01,
             ),
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -138,17 +165,21 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         onTap: () {
                           setState(() {
                             check = false;
-                            if(widget.groupDetailslst[widget.index].tremtype == '1'){
-                              oneYear[widget.index].checkItem =false;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '2'){
-                              twoYear[widget.index].checkItem =false;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '3'){
-                              threeYear[widget.index].checkItem =false;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '4'){
-                              fourYear[widget.index].checkItem =false;
+                            if (widget.groupDetailslst[widget.index].tremtype ==
+                                '1') {
+                              oneYear[widget.index].checkItem = false;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '2') {
+                              twoYear[widget.index].checkItem = false;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '3') {
+                              threeYear[widget.index].checkItem = false;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '4') {
+                              fourYear[widget.index].checkItem = false;
                             }
                             print(check);
                             print(widget.index);
@@ -169,17 +200,21 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         onTap: () {
                           setState(() {
                             check = true;
-                            if(widget.groupDetailslst[widget.index].tremtype == '1'){
-                              oneYear[widget.index].checkItem =true;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '2'){
-                              twoYear[widget.index].checkItem =true;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '3'){
-                              threeYear[widget.index].checkItem =true;
-                            }
-                            else if(widget.groupDetailslst[widget.index].tremtype == '4'){
-                              fourYear[widget.index].checkItem =true;
+                            if (widget.groupDetailslst[widget.index].tremtype ==
+                                '1') {
+                              oneYear[widget.index].checkItem = true;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '2') {
+                              twoYear[widget.index].checkItem = true;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '3') {
+                              threeYear[widget.index].checkItem = true;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '4') {
+                              fourYear[widget.index].checkItem = true;
                             }
                             print(check);
                           });
@@ -195,63 +230,40 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize:15,
+                      fontSize: 15,
                     ),
                   ),
                 ),
-                title == 'MPAN/MPRN' ? Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(),
-                    child: Text(
-                      getMpanOrMprn(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize:15,
-                      ),
-                    ),
-                  ),
-                ) : Padding(
+                Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: Text(
                     getMpanOrMprn(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize:15,
+                      fontSize: 15,
                     ),
                   ),
                 ),
-                // SizedBox(
-                //   width: MediaQuery.of(context).size.width * .02,
-                // ),
-                title == 'MPRN' ? SizedBox(
-                  width: MediaQuery.of(context).size.width * .33,
-                ) : SizedBox(
+                title == "MPRN" ?
+                SizedBox(
+                        width: MediaQuery.of(context).size.width * .33,
+                      ) :
+                SizedBox(
                   width: MediaQuery.of(context).size.width * .06,
-                ),
+                )
+                ,
                 Container(
-                  padding: EdgeInsets.only(left:5),
+                  padding: EdgeInsets.only(left: 5),
                   child: CupertinoButton(
                     onPressed: () async {
+                      print(eacvalues[widget.groupDetailslst[widget.index].mprn].strAq);
                       await Editsite();
                       showDialog(
                           context: context,
                           builder: (ctx) {
-                            return AlertDialog(
-                              title: Text(
-                                "Successfully edited site",
-
-                              ),
-                              actions: <Widget>[
-                                FlatButton(
-                                  child: Text("ok"),
-                                  onPressed: () {
-                                    Navigator.of(ctx).pop();
-                                  },
-                                ),
-
-                              ],
+                            return Dialog(
+                              child: dialogcontainer(context, ctx, widget.groupDetailslst,widget.index,title),
                             );
                           });
                       // setState(() {
@@ -263,35 +275,32 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                     padding: EdgeInsets.zero,
                     //color: Colors.green,
                     child: Icon(
-                        FontAwesomeIcons.pencilAlt,
-                      color:  Colors.green,
+                      FontAwesomeIcons.pencilAlt,
+                      color: Colors.green,
                       size: 18,
                     ),
-
                   ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .01,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left:5),
-                  child:
-                  CupertinoButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.viewlist[widget.index]["click"] =
-                              !widget.viewlist[widget.index]["click"];
-                        });
-                      },
+                  padding: EdgeInsets.only(left: 5),
+                  child: CupertinoButton(
+                    onPressed: () {
+                      setState(() {
+                        widget.viewlist[widget.index]["click"] =
+                            !widget.viewlist[widget.index]["click"];
+                      });
+                    },
                     minSize: 16,
                     padding: EdgeInsets.zero,
-                   // color: Colors.green,
+                    // color: Colors.green,
                     child: Icon(
                       FontAwesomeIcons.plus,
-                      color:  Colors.green,
+                      color: Colors.green,
                       size: 18,
                     ),
-
                   ),
 
                   // IconButton(
@@ -358,13 +367,8 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
         Padding(padding: EdgeInsets.only(bottom: 10, top: 10)),
         widget.viewlist[widget.index]["click"]
             ? Container(
-                height: 500,
                 padding: EdgeInsets.only(bottom: 20),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 1, //widget.groupDetailslst.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Column(
+                child: Column(
                       children: [
                         play(
                           quoteId: '1',
@@ -376,14 +380,16 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         ),
                         Padding(padding: EdgeInsets.only(bottom: 10, top: 10)),
                       ],
-                    );
-                  },
-                ),
+                    ),
+
+
               )
             : Container()
       ],
     );
   }
+
+
 }
 // ListView(
 //   shrinkWrap: true,

@@ -30,6 +30,7 @@ class DashBoardListItemWidget extends StatefulWidget {
   final String quoteId;
   final String title;
   final List<String> validUpToMsg;
+  final String status;
 
   DashBoardListItemWidget(
       {this.lstDetail,
@@ -37,7 +38,9 @@ class DashBoardListItemWidget extends StatefulWidget {
       this.type,
       this.quoteId,
       this.title,
-      this.validUpToMsg});
+      this.validUpToMsg,
+        this.status,
+      });
 
   @override
   _DashBoardListItemWidgetState createState() =>
@@ -76,7 +79,7 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                               child: Padding(
                                 padding: SizeConfig.innersidepadding,
                                 child: Text(
-                                    widget.lstDetail.intId.toString(),
+                                    widget.lstDetail.intGroupId.toString(),
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize:
@@ -152,6 +155,7 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                                         .toString(),
                                                     quoteId: widget.quoteId,
                                                     title: widget.title,
+                                                    status: widget.status,
                                                   )));
                                       print(widget.lstDetail.intGroupId);
                                     }

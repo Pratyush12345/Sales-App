@@ -19,9 +19,10 @@ import 'package:pozitive/providers/quotation_detail_provider.dart';
 
 class ViewGroupQuotationWidget extends StatefulWidget {
   final String groupId;
-
+  dynamic loaddata;
   ViewGroupQuotationWidget({
     this.groupId,
+    this.loaddata,
   });
 
   @override
@@ -45,8 +46,7 @@ TabController3Provider tabController3Provider;
         Provider.of<GroupQuotaionDetailsProvider>(context);
     return BaseView<GroupQuotationViewModel>(
       onModelReady: (model) {
-        model.initializeData(context: context,grpid: widget.groupId);
-
+        model.initializeData(context: context,grpid: widget.groupId,loaddata: widget.loaddata);
       },
       builder: (context, model, child) {
         if (model.state == ViewState.BUSY) {
@@ -59,8 +59,7 @@ TabController3Provider tabController3Provider;
             ),
           );
         }
-        if(model.load ==  true){
-          return Padding(
+        return Padding(
             padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * 0.035,
               right: MediaQuery.of(context).size.width * 0.035,
@@ -570,7 +569,7 @@ TabController3Provider tabController3Provider;
               ),
             ),
           );
-        }
+
         return Container(
           height: MediaQuery.of(context).size.height,
           child: Scaffold(

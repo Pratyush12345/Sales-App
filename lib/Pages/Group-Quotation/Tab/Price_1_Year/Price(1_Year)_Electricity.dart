@@ -31,6 +31,7 @@ class _oneYearPageState extends State<oneYearPage> {
 
   @override
   void initState() {
+    prevIndex=null;
     super.initState();
     if(m != null)
       {m.clear();}
@@ -135,10 +136,11 @@ class _oneYearPageState extends State<oneYearPage> {
 //                           ),
 //                         ),
                         Expanded(
+
                           child: ListView.builder(
                               padding: EdgeInsets.all(0),
                               shrinkWrap: true,
-                              itemCount: oneYear.length,
+                              itemCount: oneYear != null ? oneYear.length : 0,
                               itemBuilder: (BuildContext context, int index) {
                                 return GroupQuotePriceList(
                                   groupDetailslst: oneYear,
@@ -148,6 +150,21 @@ class _oneYearPageState extends State<oneYearPage> {
                                 );
                               }),
                         ),
+                        // Flexible(
+                        //   flex : 5,
+                        //   child: ListView.builder(
+                        //       padding: EdgeInsets.all(0),
+                        //       shrinkWrap: true,
+                        //       itemCount: oneYearGas != null ? oneYearGas.length : 0,
+                        //       itemBuilder: (BuildContext context, int index) {
+                        //         return GroupQuotePriceList(
+                        //           groupDetailslst: oneYearGas,
+                        //           index: index,
+                        //           viewlist: viewlist,
+                        //           type: "MPRN",
+                        //         );
+                        //       }),
+                        // ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: Container(

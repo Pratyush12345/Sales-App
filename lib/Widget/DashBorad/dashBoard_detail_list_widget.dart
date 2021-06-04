@@ -90,6 +90,7 @@ class _DashBoardListWidgetState extends State<DashBoardListWidget> {
                 quoteId: widget.Qid.toString(),
                 title: widget.title,
                 validUpToMsg: widget.validUpToMsg,
+                status: widget.dashBoardDetailDataModel.strstatus,
               );
             })
       ],

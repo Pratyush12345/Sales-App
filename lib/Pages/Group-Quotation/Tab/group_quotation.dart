@@ -13,7 +13,8 @@ import 'package:pozitive/Core/ViewModel/Group-Quotation/GroupAskForQuoteNewViewM
 class GroupQuotation extends StatefulWidget {
   String groupId;
   String title;
-  GroupQuotation({this.groupId, this.title});
+  dynamic loaddata;
+  GroupQuotation({this.groupId, this.title,this.loaddata});
 
   @override
   _GroupQuotationState createState() => _GroupQuotationState();
@@ -33,6 +34,7 @@ class _GroupQuotationState extends State<GroupQuotation> {
           key: _scaffoldKey,
           body: ViewGroupQuotationWidget(
             groupId: widget.groupId.toString(),
+            loaddata: widget.loaddata,
           ),
         );
       },

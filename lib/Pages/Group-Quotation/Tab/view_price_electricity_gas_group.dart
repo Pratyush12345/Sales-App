@@ -118,9 +118,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   return 'max value 3';
                                 }
                               }
-                              else{
-                                return "please enter Uplift";
-                              }
                               return null;
                             },
                           ),
@@ -167,9 +164,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                     return 'Max value is 100';
                                   }
                                 }
-                              }
-                              else{
-                                return "please enter SC Uplift";
                               }
                               return null;
                             },
@@ -225,9 +219,7 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   }
                                 }
                               }
-                              else{
-                                return "please enter Uplift";
-                              }
+
                               return null;
                             },
                           ),
@@ -273,9 +265,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                     return 'Max value is 50';
                                   }
                                 }
-                              }
-                              else{
-                                return "please enter SC Uplift";
                               }
                               return null;
                             },
@@ -327,9 +316,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   return 'max value 3';
                                 }
                               }
-                              else{
-                                return "please enter Uplift";
-                              }
                               return null;
                             },
                           ),
@@ -375,9 +361,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                     return 'Max value is 100';
                                   }
                                 }
-                              }
-                              else{
-                                return "please enter SC Uplift";
                               }
                               return null;
                             },
@@ -432,9 +415,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                   }
                                 }
                               }
-                              else{
-                                return "please enter Uplift";
-                              }
                               return null;
                             },
                           ),
@@ -480,9 +460,6 @@ class _ViewPriceElecGasGroupState extends State<ViewPriceElecGasGroup> {
                                     return 'Max value is 50';
                                   }
                                 }
-                              }
-                              else{
-                                return "please enter SC Uplift";
                               }
                               return null;
                             },

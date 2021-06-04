@@ -520,22 +520,23 @@ class GroupQuotationViewModel extends BaseModel {
     }
   }
 
-  Future<void>getDataPrevQuotes(BuildContext context,String id) async{
-    User _user = await Prefs.getUser();
-
-
-    htp.Response response = await htp.post(
-        Uri.parse(
-            'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
-        headers: {"Content-Type": "application/json"},
-        // body: (json1.substring(1, lstLength - 1)),
-        body: json.encode({
-          "AccountId": _user.accountId,
-          "GroupId": id ,
-          "type": "group"
-        })
-    );
-    var doota  = jsonDecode(response.body);
+  Future<void>getDataPrevQuotes(BuildContext context,String id,dynamic doota) async{
+    setState(ViewState.BUSY);
+    // User _user = await Prefs.getUser();
+    //
+    //
+    // htp.Response response = await htp.post(
+    //     Uri.parse(
+    //         'https://api.boshposh.com/api/Partner/GetPartnerQuoteGroup_Price'),
+    //     headers: {"Content-Type": "application/json"},
+    //     // body: (json1.substring(1, lstLength - 1)),
+    //     body: json.encode({
+    //       "AccountId": _user.accountId,
+    //       "GroupId": id ,
+    //       "type": "group"
+    //     })
+    // );
+    // var doota  = jsonDecode(response.body);
    // print(response.body);
 
    // print(doota);
@@ -648,6 +649,7 @@ class GroupQuotationViewModel extends BaseModel {
     groupNameController.text = doota['data']['Groupname'];
     companyNameController.text = doota['data']['CompanyName'];
     companyRegNoController.text = doota['data']['CRN'];
+    print(doota['data']['CRN']);
     if (doota['data']['CRN'] != null) {
       companyRegNoEnabled = false;
     } else {
@@ -693,6 +695,7 @@ class GroupQuotationViewModel extends BaseModel {
     }
     preferredEndDateController.text = doota['data']['ContractEndDateGroup']?? "";
 
+    setState(ViewState.IDLE);
 
   }
 
@@ -750,7 +753,7 @@ class GroupQuotationViewModel extends BaseModel {
     }
   }
 
-  void initializeData({BuildContext context,String grpid}) async {
+  void initializeData({BuildContext context,String grpid,dynamic loaddata}) async {
     setState(ViewState.BUSY);
     load = false;
     SiteSharedPrefDataModel sharedPrefDataModel;
@@ -764,7 +767,7 @@ class GroupQuotationViewModel extends BaseModel {
       siteControllerModelList.clear();
       textlist.clear();
       sharedPrefDataModel = null;
-      await getDataPrevQuotes(context,grpid);
+      await getDataPrevQuotes(context,grpid,loaddata);
     }
     else{
       await getDataFromPref();
@@ -785,7 +788,7 @@ class GroupQuotationViewModel extends BaseModel {
     }
   print(grpid);
    // await getDataPrevQuotes(context,grpid);
-    await getCompanyName();
+   // await getCompanyName();
 
     load = true;
     setState(ViewState.IDLE);
