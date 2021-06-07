@@ -56,19 +56,17 @@ TextEditingController affiliateUpliftNight = TextEditingController();
 TextEditingController affiliateUpliftEWE = TextEditingController();
 TextEditingController affiliateUpliftSc = TextEditingController();
 
-
 TextEditingController finalPriceDay = TextEditingController();
 TextEditingController finalPriceNight = TextEditingController();
 TextEditingController finalPriceEWE = TextEditingController();
 TextEditingController finalPriceSc = TextEditingController();
 
-
 //GetIt getIt = GetIt.instance;
- int prevIndex=null;
-Map<int,GenerateQuoteIds> m;
-class finalQuotationpPriceModel extends BaseModel {
- // Database database = getIt<DatabaseImplementation>();
+int prevIndex = null;
+Map<int, GenerateQuoteIds> m;
 
+class finalQuotationpPriceModel extends BaseModel {
+  // Database database = getIt<DatabaseImplementation>();
 
   GroupQuotationPriceElectricityGasModel GroupPriceElectricityGasModel;
   DateTime selectedDate = DateTime.now();
@@ -81,128 +79,216 @@ class finalQuotationpPriceModel extends BaseModel {
   double gasStandingVar;
 
   void initializeData(RequestQuoteViewButtonModel requestQuote, String termType,
-      List<EachyYearList> groupDetailslst ,int index , String type ) async {
+      List<EachyYearList> groupDetailslst, int index, String type) async {
     setState(ViewState.BUSY);
     startDate = requestQuote.contractstartdate.toString();
     GroupPriceElectricityGasModel =
-    await Prefs.getGroupQuotationGasElectricityDetails();
+        await Prefs.getGroupQuotationGasElectricityDetails();
 
-   // print(requiredUpliftDay.text);
-    if(prevIndex != null){
-      if(m[prevIndex] !=null){
-        m.update(prevIndex, (value) => GenerateQuoteIds(
-            QuteId: oneYear[index].QuoteId,
-            IntSubUserId: 0,
-            decupliftEle: requiredUpliftDay.text ?? "0",
-            decupliftEleNight:requiredUpliftNight.text ?? "0",
-            decupliftEleSC: requiredUpliftSc.text ?? "0",
-            decupliftGasSC: requiredUpliftSc.text ?? "0",
-            decupliftGas:requiredUpliftDay.text ?? "0",
-            decupliftEle_UPP: upliftPreminumDay.text ?? "0",
-            decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
-            decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
-            decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
-            decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
-            decupliftGas_UPP: upliftPreminumDay.text ?? "0",
-            decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
-            decupliftEleEWE_Sub:"0.0000",
-            decupliftEleNight_Sub:"0.0000",
-            decupliftEleSC_Sub:"0.0000",
-            decupliftGasSC_Sub:"0.0000",
-            decupliftGas_Sub:"0.0000",
-            intTermType: oneYear[index].tremtype,
-            decChargeDay: oneYear[index].baserateday,
-            decChargeNight: oneYear[index].baseratenight,
-            decChargeEWE: oneYear[index].baserateEwe,
-            decSCPrice: oneYear[index].baserateSC,
-            decUnitPriceGas:"0.0000",
-            decSCPriceGas:"0.0000"
-        )
-        );
-      }
-      else{
-        m.putIfAbsent(prevIndex, () => GenerateQuoteIds(
-            QuteId: oneYear[index].QuoteId,
-            IntSubUserId: 0,
-            decupliftEle: requiredUpliftDay.text ?? "0",
-            decupliftEleNight:requiredUpliftNight.text ?? "0",
-            decupliftEleSC: requiredUpliftSc.text ?? "0",
-            decupliftGasSC: requiredUpliftSc.text ?? "0",
-            decupliftGas:requiredUpliftDay.text ?? "0",
-            decupliftEle_UPP: upliftPreminumDay.text ?? "0",
-            decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
-            decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
-            decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
-            decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
-            decupliftGas_UPP: upliftPreminumDay.text ?? "0",
-            decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
-            decupliftEleEWE_Sub:"0.0000",
-            decupliftEleNight_Sub:"0.0000",
-            decupliftEleSC_Sub:"0.0000",
-            decupliftGasSC_Sub:"0.0000",
-            decupliftGas_Sub:"0.0000",
-            intTermType: oneYear[index].tremtype,
-            decChargeDay: oneYear[index].baserateday,
-            decChargeNight: oneYear[index].baseratenight,
-            decChargeEWE: oneYear[index].baserateEwe,
-            decSCPrice: oneYear[index].baserateSC,
-            decUnitPriceGas:"0.0000",
-            decSCPriceGas:"0.0000"
-        )
-        );
+    // print(requiredUpliftDay.text);
+    if (prevIndex != null) {
+      if (m[prevIndex] != null) {
+        m.update(
+            prevIndex,
+            (value) => GenerateQuoteIds(
+                QuteId: oneYear[index].QuoteId,
+                IntSubUserId: 0,
+                decupliftEle: requiredUpliftDay.text ?? "0",
+                decupliftEleNight: requiredUpliftNight.text ?? "0",
+                decupliftEleSC: requiredUpliftSc.text ?? "0",
+                decupliftGasSC: requiredUpliftSc.text ?? "0",
+                decupliftGas: requiredUpliftDay.text ?? "0",
+                decupliftEle_UPP: upliftPreminumDay.text ?? "0",
+                decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
+                decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
+                decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
+                decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
+                decupliftGas_UPP: upliftPreminumDay.text ?? "0",
+                decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
+                decupliftEleEWE_Sub: "0.0000",
+                decupliftEleNight_Sub: "0.0000",
+                decupliftEleSC_Sub: "0.0000",
+                decupliftGasSC_Sub: "0.0000",
+                decupliftGas_Sub: "0.0000",
+                intTermType: oneYear[index].tremtype,
+                decChargeDay: oneYear[index].baserateday,
+                decChargeNight: oneYear[index].baseratenight,
+                decChargeEWE: oneYear[index].baserateEwe,
+                decSCPrice: oneYear[index].baserateSC,
+                decUnitPriceGas: "0.0000",
+                decSCPriceGas: "0.0000"));
+      } else {
+        m.putIfAbsent(
+            prevIndex,
+            () => GenerateQuoteIds(
+                QuteId: oneYear[index].QuoteId,
+                IntSubUserId: 0,
+                decupliftEle: requiredUpliftDay.text ?? "0",
+                decupliftEleNight: requiredUpliftNight.text ?? "0",
+                decupliftEleSC: requiredUpliftSc.text ?? "0",
+                decupliftGasSC: requiredUpliftSc.text ?? "0",
+                decupliftGas: requiredUpliftDay.text ?? "0",
+                decupliftEle_UPP: upliftPreminumDay.text ?? "0",
+                decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
+                decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
+                decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
+                decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
+                decupliftGas_UPP: upliftPreminumDay.text ?? "0",
+                decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
+                decupliftEleEWE_Sub: "0.0000",
+                decupliftEleNight_Sub: "0.0000",
+                decupliftEleSC_Sub: "0.0000",
+                decupliftGasSC_Sub: "0.0000",
+                decupliftGas_Sub: "0.0000",
+                intTermType: oneYear[index].tremtype,
+                decChargeDay: oneYear[index].baserateday,
+                decChargeNight: oneYear[index].baseratenight,
+                decChargeEWE: oneYear[index].baserateEwe,
+                decSCPrice: oneYear[index].baserateSC,
+                decUnitPriceGas: "0.0000",
+                decSCPriceGas: "0.0000"));
         // m = {
         //   prevIndex :
         // };
       }
 
-     prevIndex = index;
-
-    }
-    else{
+      prevIndex = index;
+    } else {
       prevIndex = index;
     }
-   // print(m[index].decupliftEle);
-   if(type == 'MPAN'){
-     commonuplift.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     requiredUpliftDay.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     requiredUpliftNight.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     requiredUpliftEWE.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     requiredUpliftSc.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
+    // print(m[index].decupliftEle);
+    if (type == 'MPAN') {
+      commonuplift.text = GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+      requiredUpliftDay.text =
+          GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+      requiredUpliftNight.text =
+          GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+      requiredUpliftEWE.text =
+          GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
+      requiredUpliftSc.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
 
-     upliftPreminumDay.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     upliftPreminumNight.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     upliftPreminumEWE.text =
-         GroupPriceElectricityGasModel?.elecCommonUnit ?? '';
-     upliftPreminumSc.text = GroupPriceElectricityGasModel?.elecCommonSc ?? '';
-   }
-   else{
-     commonuplift.text = GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     requiredUpliftDay.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     requiredUpliftNight.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     requiredUpliftEWE.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     requiredUpliftSc.text = GroupPriceElectricityGasModel?.gasCommonSc ?? '';
+      if (double.parse(requiredUpliftDay.text) >= 0 &&
+          double.parse(requiredUpliftDay.text) <= 1.5) {
+        upliftPreminumDay.text = "0";
+      } else if (double.parse(requiredUpliftDay.text) > 1.5 &&
+          double.parse(requiredUpliftDay.text) <= 2) {
+        upliftPreminumDay.text = "0.1";
+      } else if (double.parse(requiredUpliftDay.text) > 2 &&
+          double.parse(requiredUpliftDay.text) <= 2.5) {
+        upliftPreminumDay.text = "0.2";
+      } else {
+        upliftPreminumDay.text = "0.3";
+      }
 
-     upliftPreminumDay.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     upliftPreminumNight.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     upliftPreminumEWE.text =
-         GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
-     upliftPreminumSc.text = GroupPriceElectricityGasModel?.gasCommonSc ?? '';
-   }
+      if (double.parse(requiredUpliftNight.text) >= 0 &&
+          double.parse(requiredUpliftNight.text) <= 1.5) {
+        upliftPreminumNight.text = "0";
+      } else if (double.parse(requiredUpliftNight.text) > 1.5 &&
+          double.parse(requiredUpliftNight.text) <= 2) {
+        upliftPreminumNight.text = "0.1";
+      } else if (double.parse(requiredUpliftNight.text) > 2 &&
+          double.parse(requiredUpliftNight.text) <= 2.5) {
+        upliftPreminumNight.text = "0.2";
+      } else {
+        upliftPreminumNight.text = "0.3";
+      }
 
-    finalPriceDay.text = (double.parse(requiredUpliftDay.text) + double.parse(groupDetailslst[index].baserateday)).toString();
-    finalPriceNight.text = (double.parse(requiredUpliftNight.text) + double.parse(groupDetailslst[index].baseratenight)).toString();
-   finalPriceEWE.text = (double.parse(requiredUpliftEWE.text) + double.parse(groupDetailslst[index].baserateEwe == '' ? '0' : groupDetailslst[index].baserateEwe)).toString();
-    finalPriceSc.text = (double.parse(requiredUpliftSc.text) + double.parse(groupDetailslst[index].baserateSC)).toString();
+      if (double.parse(requiredUpliftEWE.text) >= 0 &&
+          double.parse(requiredUpliftEWE.text) <= 1.5) {
+        upliftPreminumEWE.text = "0";
+      } else if (double.parse(requiredUpliftEWE.text) > 1.5 &&
+          double.parse(requiredUpliftEWE.text) <= 2) {
+        upliftPreminumEWE.text = "0.1";
+      } else if (double.parse(requiredUpliftEWE.text) > 2 &&
+          double.parse(requiredUpliftEWE.text) <= 2.5) {
+        upliftPreminumEWE.text = "0.2";
+      } else {
+        upliftPreminumEWE.text = "0.3";
+      }
+
+      if (double.parse(requiredUpliftSc.text) == 0) {
+        upliftPreminumSc.text = "0";
+      } else if (double.parse(requiredUpliftSc.text) > 0 &&
+          double.parse(requiredUpliftSc.text) <= 10) {
+        upliftPreminumSc.text = "1";
+      } else if (double.parse(requiredUpliftSc.text) > 10 &&
+          double.parse(requiredUpliftSc.text) <= 20) {
+        upliftPreminumSc.text = "2";
+      } else if (double.parse(requiredUpliftSc.text) > 20 &&
+          double.parse(requiredUpliftSc.text) <= 30) {
+        upliftPreminumSc.text = "3";
+      } else if (double.parse(requiredUpliftSc.text) > 30 &&
+          double.parse(requiredUpliftSc.text) <= 40) {
+        upliftPreminumSc.text = "4";
+      } else {
+        upliftPreminumSc.text = "5";
+      }
+      finalPriceDay.text = (double.parse(requiredUpliftDay.text) +
+          double.parse(upliftPreminumDay.text) +
+          double.parse(groupDetailslst[index].baserateday))
+          .toString();
+      finalPriceNight.text = (double.parse(requiredUpliftNight.text) +
+          double.parse(upliftPreminumNight.text) +
+          double.parse(groupDetailslst[index].baseratenight))
+          .toString();
+      finalPriceEWE.text = (double.parse(requiredUpliftEWE.text) +
+          double.parse(upliftPreminumEWE.text) +
+          double.parse(groupDetailslst[index].baserateEwe == ''
+              ? '0'
+              : groupDetailslst[index].baserateEwe))
+          .toString();
+      finalPriceSc.text = (double.parse(requiredUpliftSc.text) +
+          double.parse(upliftPreminumSc.text) +
+          double.parse(groupDetailslst[index].baserateSC))
+          .toString();
+    } else {
+      commonuplift.text = GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
+      requiredUpliftDay.text =
+          GroupPriceElectricityGasModel?.gasCommonUnit ?? '';
+      requiredUpliftSc.text = GroupPriceElectricityGasModel?.gasCommonSc ?? '';
+
+      if (double.parse(requiredUpliftDay.text) >= 0 &&
+          double.parse(requiredUpliftDay.text) <= 1.5) {
+        upliftPreminumDay.text = "0";
+      }
+
+      if (double.parse(requiredUpliftSc.text) == 0) {
+        upliftPreminumSc.text = "0";
+      } else if (double.parse(requiredUpliftSc.text) > 0 &&
+          double.parse(requiredUpliftSc.text) <= 10) {
+        upliftPreminumSc.text = "1";
+      } else if (double.parse(requiredUpliftSc.text) > 10 &&
+          double.parse(requiredUpliftSc.text) <= 20) {
+        upliftPreminumSc.text = "2";
+      } else if (double.parse(requiredUpliftSc.text) > 20 &&
+          double.parse(requiredUpliftSc.text) <= 30) {
+        upliftPreminumSc.text = "3";
+      } else if (double.parse(requiredUpliftSc.text) > 30 &&
+          double.parse(requiredUpliftSc.text) <= 40) {
+        upliftPreminumSc.text = "4";
+      } else {
+        upliftPreminumSc.text = "5";
+      }
+
+      if(groupDetailslst[index].baserateday == ""){
+        groupDetailslst[index].baserateday = "0";
+      }
+      if(groupDetailslst[index].baserateSC == ""){
+        groupDetailslst[index].baserateSC = "0";
+      }
+      print(groupDetailslst[index].baserateday);
+      finalPriceDay.text = (double.parse(requiredUpliftDay.text) +
+          double.parse(upliftPreminumDay.text) +
+          double.parse(groupDetailslst[index].baserateday ?? '0')).toString();
+
+      finalPriceSc.text = (double.parse(requiredUpliftSc.text) +
+          double.parse(upliftPreminumSc.text) +
+          double.parse(groupDetailslst[index].baserateSC))
+          .toString();
+
+    }
+
+
 
     setState(ViewState.IDLE);
   }
@@ -222,8 +308,6 @@ class finalQuotationpPriceModel extends BaseModel {
       setState(ViewState.IDLE);
     }
   }
-
-
 
 // void onSaved(
 //   String accountID,
@@ -358,87 +442,85 @@ class finalQuotationpPriceModel extends BaseModel {
 // }
 //}
 }
-Future<void> GenerateSite() async{
+
+Future<void> GenerateSite() async {
   //print(m[0].decupliftEle);
   // if(prevIndex == null){
   //   prevIndex=in
   // }
   print(prevIndex);
- if(m  != null){
-   if(m[prevIndex] !=null){
-     m.update(prevIndex, (value) => GenerateQuoteIds(
-         QuteId: oneYear[prevIndex].QuoteId,
-         IntSubUserId: 0,
-         decupliftEle: requiredUpliftDay.text ?? "0",
-         decupliftEleNight:requiredUpliftNight.text ?? "0",
-         decupliftEleSC: requiredUpliftSc.text ?? "0",
-         decupliftGasSC: requiredUpliftSc.text ?? "0",
-         decupliftGas:requiredUpliftDay.text ?? "0",
-         decupliftEle_UPP: upliftPreminumDay.text ?? "0",
-         decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
-         decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
-         decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
-         decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
-         decupliftGas_UPP: upliftPreminumDay.text ?? "0",
-         decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
-         decupliftEleEWE_Sub:"0.0000",
-         decupliftEleNight_Sub:"0.0000",
-         decupliftEleSC_Sub:"0.0000",
-         decupliftGasSC_Sub:"0.0000",
-         decupliftGas_Sub:"0.0000",
-         intTermType: oneYear[prevIndex].tremtype,
-         decChargeDay: oneYear[prevIndex].baserateday,
-         decChargeNight: oneYear[prevIndex].baseratenight,
-         decChargeEWE: oneYear[prevIndex].baserateEwe,
-         decSCPrice: oneYear[prevIndex].baserateSC,
-         decUnitPriceGas:"0.0000",
-         decSCPriceGas:"0.0000"
-     )
-     );
-   }
-   else{
-     m.addAll({
-       prevIndex : GenerateQuoteIds(
-           QuteId: oneYear[prevIndex].QuoteId,
-           IntSubUserId: 0,
-           decupliftEle: requiredUpliftDay.text ?? "0",
-           decupliftEleNight:requiredUpliftNight.text ?? "0",
-           decupliftEleSC: requiredUpliftSc.text ?? "0",
-           decupliftGasSC: requiredUpliftSc.text ?? "0",
-           decupliftGas:requiredUpliftDay.text ?? "0",
-           decupliftEle_UPP: upliftPreminumDay.text ?? "0",
-           decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
-           decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
-           decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
-           decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
-           decupliftGas_UPP: upliftPreminumDay.text ?? "0",
-           decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
-           decupliftEleEWE_Sub:"0.0000",
-           decupliftEleNight_Sub:"0.0000",
-           decupliftEleSC_Sub:"0.0000",
-           decupliftGasSC_Sub:"0.0000",
-           decupliftGas_Sub:"0.0000",
-           intTermType: oneYear[prevIndex].tremtype,
-           decChargeDay: oneYear[prevIndex].baserateday,
-           decChargeNight: oneYear[prevIndex].baseratenight,
-           decChargeEWE: oneYear[prevIndex].baserateEwe,
-           decSCPrice: oneYear[prevIndex].baserateSC,
-           decUnitPriceGas:"0.0000",
-           decSCPriceGas:"0.0000"
-       )
-     });
-   }
- }
- else{
+  if (m != null) {
+    if (m[prevIndex] != null) {
+      m.update(
+          prevIndex,
+          (value) => GenerateQuoteIds(
+              QuteId: oneYear[prevIndex].QuoteId,
+              IntSubUserId: 0,
+              decupliftEle: requiredUpliftDay.text ?? "0",
+              decupliftEleNight: requiredUpliftNight.text ?? "0",
+              decupliftEleSC: requiredUpliftSc.text ?? "0",
+              decupliftGasSC: requiredUpliftSc.text ?? "0",
+              decupliftGas: requiredUpliftDay.text ?? "0",
+              decupliftEle_UPP: upliftPreminumDay.text ?? "0",
+              decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
+              decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
+              decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
+              decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
+              decupliftGas_UPP: upliftPreminumDay.text ?? "0",
+              decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
+              decupliftEleEWE_Sub: "0.0000",
+              decupliftEleNight_Sub: "0.0000",
+              decupliftEleSC_Sub: "0.0000",
+              decupliftGasSC_Sub: "0.0000",
+              decupliftGas_Sub: "0.0000",
+              intTermType: oneYear[prevIndex].tremtype,
+              decChargeDay: oneYear[prevIndex].baserateday,
+              decChargeNight: oneYear[prevIndex].baseratenight,
+              decChargeEWE: oneYear[prevIndex].baserateEwe,
+              decSCPrice: oneYear[prevIndex].baserateSC,
+              decUnitPriceGas: "0.0000",
+              decSCPriceGas: "0.0000"));
+    } else {
+      m.addAll({
+        prevIndex: GenerateQuoteIds(
+            QuteId: oneYear[prevIndex].QuoteId,
+            IntSubUserId: 0,
+            decupliftEle: requiredUpliftDay.text ?? "0",
+            decupliftEleNight: requiredUpliftNight.text ?? "0",
+            decupliftEleSC: requiredUpliftSc.text ?? "0",
+            decupliftGasSC: requiredUpliftSc.text ?? "0",
+            decupliftGas: requiredUpliftDay.text ?? "0",
+            decupliftEle_UPP: upliftPreminumDay.text ?? "0",
+            decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
+            decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
+            decUpliftEleSC_UPP: upliftPreminumSc.text ?? "0",
+            decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
+            decupliftGas_UPP: upliftPreminumDay.text ?? "0",
+            decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
+            decupliftEleEWE_Sub: "0.0000",
+            decupliftEleNight_Sub: "0.0000",
+            decupliftEleSC_Sub: "0.0000",
+            decupliftGasSC_Sub: "0.0000",
+            decupliftGas_Sub: "0.0000",
+            intTermType: oneYear[prevIndex].tremtype,
+            decChargeDay: oneYear[prevIndex].baserateday,
+            decChargeNight: oneYear[prevIndex].baseratenight,
+            decChargeEWE: oneYear[prevIndex].baserateEwe,
+            decSCPrice: oneYear[prevIndex].baserateSC,
+            decUnitPriceGas: "0.0000",
+            decSCPriceGas: "0.0000")
+      });
+    }
+  } else {
     m = {
-      prevIndex : GenerateQuoteIds(
+      prevIndex: GenerateQuoteIds(
           QuteId: oneYear[prevIndex].QuoteId,
           IntSubUserId: 0,
           decupliftEle: requiredUpliftDay.text ?? "0",
-          decupliftEleNight:requiredUpliftNight.text ?? "0",
+          decupliftEleNight: requiredUpliftNight.text ?? "0",
           decupliftEleSC: requiredUpliftSc.text ?? "0",
           decupliftGasSC: requiredUpliftSc.text ?? "0",
-          decupliftGas:requiredUpliftDay.text ?? "0",
+          decupliftGas: requiredUpliftDay.text ?? "0",
           decupliftEle_UPP: upliftPreminumDay.text ?? "0",
           decupliftEleEWE_UPP: upliftPreminumEWE.text ?? "0",
           decupliftEleNight_UPP: upliftPreminumNight.text ?? '0',
@@ -446,30 +528,30 @@ Future<void> GenerateSite() async{
           decUpliftGasSC_UPP: upliftPreminumSc.text ?? "0",
           decupliftGas_UPP: upliftPreminumDay.text ?? "0",
           decupliftEle_Sub: affiliateUpliftDay.text ?? "0",
-          decupliftEleEWE_Sub:"0.0000",
-          decupliftEleNight_Sub:"0.0000",
-          decupliftEleSC_Sub:"0.0000",
-          decupliftGasSC_Sub:"0.0000",
-          decupliftGas_Sub:"0.0000",
+          decupliftEleEWE_Sub: "0.0000",
+          decupliftEleNight_Sub: "0.0000",
+          decupliftEleSC_Sub: "0.0000",
+          decupliftGasSC_Sub: "0.0000",
+          decupliftGas_Sub: "0.0000",
           intTermType: oneYear[prevIndex].tremtype,
           decChargeDay: oneYear[prevIndex].baserateday,
           decChargeNight: oneYear[prevIndex].baseratenight,
           decChargeEWE: oneYear[prevIndex].baserateEwe,
           decSCPrice: oneYear[prevIndex].baserateSC,
-          decUnitPriceGas:"0.0000",
-          decSCPriceGas:"0.0000"
-      )
+          decUnitPriceGas: "0.0000",
+          decSCPriceGas: "0.0000")
     };
     // m = {
     //   prevIndex :
     // };
   }
- // print(m[prevIndex].decupliftEle);
+  // print(m[prevIndex].decupliftEle);
   List<GenerateQuoteIds> temp = [];
-  for(int i=0;i<m.length;i++){
-    print(m[i].decupliftEle);
-    temp.add(m[i]);
-  }
+  // for(int i=0;i<m.length;i++){
+  //   print(m[i].decupliftEle);
+  //   temp.add(m[i]);
+  // }
+  print(m);
   print(oneYear[prevIndex].visibleGrpName);
   // User _user = await Prefs.getUser();
   //    htp.Response response = await htp.post(
@@ -490,7 +572,7 @@ Future<void> GenerateSite() async{
   // );
   // var res = jsonDecode(response.body);
   // print(response.body);
- // print(requiredUpliftDay.text);
+  // print(requiredUpliftDay.text);
 }
 // Future <void>RemoveSite({String grpId,BuildContext context,String Year}) async{
 //   setState(ViewState.BUSY);

@@ -20,9 +20,11 @@ import 'package:pozitive/providers/quotation_detail_provider.dart';
 class ViewGroupQuotationWidget extends StatefulWidget {
   final String groupId;
   dynamic loaddata;
+  String status;
   ViewGroupQuotationWidget({
     this.groupId,
     this.loaddata,
+    this.status,
   });
 
   @override
@@ -517,7 +519,7 @@ TabController3Provider tabController3Provider;
                     ),
                     //Buttons
 
-                    InkWell(
+                   InkWell(
                       onTap: () {
                         if (_formKey.currentState.validate() &&
                             model.checkTerms() &&
@@ -541,7 +543,7 @@ TabController3Provider tabController3Provider;
                           });
                         }
                       },
-                      child: Container(
+                      child:  widget.status != "Quoted" ? Container(
                         margin: EdgeInsets.only(
                           bottom: MediaQuery.of(context).size.height * 0.03,
                         ),
@@ -562,7 +564,7 @@ TabController3Provider tabController3Provider;
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(155, 119, 217, 1),
                             borderRadius: BorderRadius.circular(30)),
-                      ),
+                      ) : Container() ,
                     ),
                   ],
                 ),

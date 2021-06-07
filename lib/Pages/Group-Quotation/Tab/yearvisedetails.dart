@@ -430,7 +430,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Day,
                           controller: requiredUpliftDay,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -443,13 +443,51 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
-                              finalPriceDay.text = (double.parse(baserateday.text) +
+                              if(double.parse(requiredUpliftDay.text) >=0 && double.parse(requiredUpliftDay.text) <=1.5)
+                                {
+                                 upliftPreminumDay.text ='0' ;
+                                }
+                              else if(double.parse(requiredUpliftDay.text) >1.5 && double.parse(requiredUpliftDay.text) <=2){
+                                upliftPreminumDay.text ='0.1' ;
+                              }
+                              else if(double.parse(requiredUpliftDay.text) >2 && double.parse(requiredUpliftDay.text) <=2.5){
+                                upliftPreminumDay.text ='0.2' ;
+                              }
+                              else{
+                                upliftPreminumDay.text ='0.3' ;
+                              }
+                              finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDay.text)+
                                   double.parse(text))
                                   .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          // onChanged: (text) {
+                          //   setState(() {
+                          //     eleUniVar1 = double.tryParse(text.toString());
+                          //     // if (double.tryParse(text) > 3) {
+                          //     //   //hideKeyboard();
+                          //     //   return 'max value 3';
+                          //     validate1 =true;
+                          //     // }
+                          //   });
+                          // },
+
+                          validator: (value) {
+                            String patttern =
+                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                            RegExp regexp = new RegExp(
+                              r"^|\-|\,|\ ",
+                              caseSensitive: false,
+                              multiLine: false,
+                            );
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.isNotEmpty) {
+                              if (double.tryParse(value) > 3) {
+                                return 'max value 3';
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -464,7 +502,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Night,
                           controller: requiredUpliftNight,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -477,14 +515,41 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
+                              if(double.parse(requiredUpliftNight.text) >=0 && double.parse(requiredUpliftNight.text) <=1.5)
+                              {
+                                upliftPreminumNight.text ='0' ;
+                              }
+                              else if(double.parse(requiredUpliftNight.text) >1.5 && double.parse(requiredUpliftNight.text) <=2){
+                                upliftPreminumNight.text ='0.1' ;
+                              }
+                              else if(double.parse(requiredUpliftNight.text) >2 && double.parse(requiredUpliftNight.text) <=2.5){
+                                upliftPreminumNight.text ='0.2' ;
+                              }
+                              else{
+                                upliftPreminumNight.text ='0.3' ;
+                              }
                               finalPriceNight.text =
-                                  (double.parse(baseratenight.text) +
+                                  (double.parse(baseratenight.text) + double.parse(upliftPreminumNight.text)+
                                       double.parse(text))
                                       .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          validator: (value) {
+                            String patttern =
+                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                            RegExp regexp = new RegExp(
+                              r"^|\-|\,|\ ",
+                              caseSensitive: false,
+                              multiLine: false,
+                            );
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.isNotEmpty) {
+                              if (double.tryParse(value) > 3) {
+                                return 'max value 3';
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -505,7 +570,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.EWE,
                           controller: requiredUpliftEWE,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -518,16 +583,43 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
+                              if(double.parse(requiredUpliftEWE.text) >=0 && double.parse(requiredUpliftEWE.text) <=1.5)
+                              {
+                                upliftPreminumEWE.text ='0' ;
+                              }
+                              else if(double.parse(requiredUpliftEWE.text) >1.5 && double.parse(requiredUpliftEWE.text) <=2){
+                                upliftPreminumEWE.text ='0.1' ;
+                              }
+                              else if(double.parse(requiredUpliftEWE.text) >2 && double.parse(requiredUpliftEWE.text) <=2.5){
+                                upliftPreminumEWE.text ='0.2' ;
+                              }
+                              else{
+                                upliftPreminumEWE.text ='0.3' ;
+                              }
                               finalPriceEWE.text = (double.parse(
                                   baserateEwe.text == null
                                       ? baserateEwe.text
-                                      : '0') +
+                                      : '0') + double.parse(upliftPreminumEWE.text)+
                                   double.parse(text))
                                   .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.EWE),
+                          validator: (value) {
+                            String patttern =
+                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                            RegExp regexp = new RegExp(
+                              r"^|\-|\,|\ ",
+                              caseSensitive: false,
+                              multiLine: false,
+                            );
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.isNotEmpty) {
+                              if (double.tryParse(value) > 3) {
+                                return 'max value 3';
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -542,7 +634,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.SC,
                           controller: requiredUpliftSc,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -555,13 +647,54 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
-                              finalPriceSc.text = (double.parse(baserateSC.text) +
+                              if(double.parse(requiredUpliftSc.text) == 0  ){
+                                upliftPreminumSc.text = "0";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >0 && double.parse(requiredUpliftSc.text) <=10 ){
+                                upliftPreminumSc.text = "1";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >10 && double.parse(requiredUpliftSc.text) <=20 ){
+                                upliftPreminumSc.text = "2";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >20 && double.parse(requiredUpliftSc.text) <=30 ){
+                                upliftPreminumSc.text = "3";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >30 && double.parse(requiredUpliftSc.text) <=40 ){
+                                upliftPreminumSc.text = "4";
+                              }
+                              else{
+                                upliftPreminumSc.text = "5";
+                              }
+                              finalPriceSc.text = (double.parse(baserateSC.text) + double.parse(upliftPreminumSc.text)+
                                   double.parse(text))
                                   .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.SC),
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (requiredUpliftDay.text != null) {
+                                if (double.parse(requiredUpliftDay.text) > 0) {
+                                  if (double.tryParse(value) > 50) {
+                                    return 'Max value is 50';
+                                  } else {}
+                                }
+                                if (double.parse(requiredUpliftDay.text)  == 0) {
+                                  if (double.tryParse(value) > 100) {
+                                    return 'Max value is 100';
+                                  }
+                                }
+                              } else {
+                                if (double.tryParse(value) > 100) {
+                                  return 'Max value is 100';
+                                }
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -582,7 +715,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Day,
                           controller: requiredUpliftDay,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -595,13 +728,35 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
-                              finalPriceDay.text = (double.parse(baserateday.text) +
+                              if(double.parse(requiredUpliftDay.text) >=0 && double.parse(requiredUpliftDay.text) <=1.5)
+                              {
+                                upliftPreminumDay.text ='0' ;
+                              }
+                              finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDay.text)+
                                   double.parse(text))
                                   .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          validator: (value) {
+                            String patttern =
+                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+
+                            RegExp regExp = new RegExp(patttern);
+                            if (value.isNotEmpty) {
+                              // if (value.length > 9) {
+                              //   return 'Enter 0 or 1';
+                              // } else if (!regExp.hasMatch(value)) {
+                              //   return 'Enter 0 or 1';
+                              // }
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 1.5) {
+                                  return 'max value 1.5';
+                                }
+                              }
+                            }
+
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -616,7 +771,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.SC,
                           controller: requiredUpliftSc,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -629,14 +784,55 @@ class _playState extends State<play> {
                           ],
                           onChanged: (text) {
                             setState(() {
-                              finalPriceNight.text =
-                                  (double.parse(baseratenight.text) +
+                              if(double.parse(requiredUpliftSc.text) == 0  ){
+                                upliftPreminumSc.text = "0";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >0 && double.parse(requiredUpliftSc.text) <=10 ){
+                                upliftPreminumSc.text = "1";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >10 && double.parse(requiredUpliftSc.text) <=20 ){
+                                upliftPreminumSc.text = "2";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >20 && double.parse(requiredUpliftSc.text) <=30 ){
+                                upliftPreminumSc.text = "3";
+                              }
+                              else if(double.parse(requiredUpliftSc.text) >30 && double.parse(requiredUpliftSc.text) <=40 ){
+                                upliftPreminumSc.text = "4";
+                              }
+                              else{
+                                upliftPreminumSc.text = "5";
+                              }
+                              finalPriceSc.text =
+                                  (double.parse(baserateSC.text) + double.parse(upliftPreminumSc.text)+
                                       double.parse(text))
                                       .toString();
                             });
                           },
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(requiredUpliftDay.text) != null) {
+                                if (double.parse(requiredUpliftDay.text) > 0) {
+                                  if (double.tryParse(value) > 25) {
+                                    return 'Max value is 25';
+                                  } else {}
+                                }
+                                if (double.parse(requiredUpliftDay.text) == 0) {
+                                  if (double.tryParse(value) > 50) {
+                                    return 'Max value is 50';
+                                  }
+                                }
+                              } else {
+                                if (double.tryParse(value) > 50) {
+                                  return 'Max value is 50';
+                                }
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -682,7 +878,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Day,
                           controller: upliftPreminumDay,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -693,8 +889,45 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          onChanged: (text) {
+                            setState(() {
+                              if(double.parse(upliftPreminumDay.text) == 0){
+                                requiredUpliftDay.text = "1.5";
+                              }
+                              else if(double.parse(upliftPreminumDay.text) == 0.1){
+                                requiredUpliftDay.text = "2";
+                              }
+                              else if(double.parse(upliftPreminumDay.text) == 0.2){
+                                requiredUpliftDay.text = "2.5";
+                              }
+                              else{
+                                requiredUpliftDay.text = "3.0";
+                              }
+                              finalPriceDay.text =
+                                  (double.parse(baserateday.text) + double.parse(requiredUpliftDay.text)+
+                                      double.parse(text))
+                                      .toString();
+                            });
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumDay.text) != null) {
+                                if (double.parse(upliftPreminumDay.text)  != 0 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.1 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.2 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.3) {
+                                  return "value must be 0/0.1/0.2/0.3";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -709,7 +942,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Night,
                           controller: upliftPreminumNight,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -720,8 +953,45 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          onChanged: (text) {
+                            setState(() {
+                              if(double.parse(upliftPreminumNight.text) == 0){
+                                requiredUpliftNight.text = "1.5";
+                              }
+                              else if(double.parse(upliftPreminumNight.text) == 0.1){
+                                requiredUpliftNight.text = "2";
+                              }
+                              else if(double.parse(upliftPreminumNight.text) == 0.2){
+                                requiredUpliftNight.text = "2.5";
+                              }
+                              else{
+                                requiredUpliftNight.text = "3.0";
+                              }
+                              finalPriceNight.text =
+                                  (double.parse(baseratenight.text) + double.parse(requiredUpliftNight.text)+
+                                      double.parse(text))
+                                      .toString();
+                            });
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumNight.text) != null) {
+                                if (double.parse(upliftPreminumNight.text)  != 0 &&
+                                    double.parse(upliftPreminumNight.text)  != 0.1 &&
+                                    double.parse(upliftPreminumNight.text)  != 0.2 &&
+                                    double.parse(upliftPreminumNight.text)  != 0.3) {
+                                  return "value must be 0/0.1/0.2/0.3";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -742,7 +1012,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.EWE,
                           controller: upliftPreminumEWE,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -753,8 +1023,45 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.EWE),
+                          onChanged: (text) {
+                            setState(() {
+                              if(double.parse(upliftPreminumEWE.text) == 0){
+                                requiredUpliftEWE.text = "1.5";
+                              }
+                              else if(double.parse(upliftPreminumEWE.text) == 0.1){
+                                requiredUpliftEWE.text = "2";
+                              }
+                              else if(double.parse(upliftPreminumEWE.text) == 0.2){
+                                requiredUpliftEWE.text = "2.5";
+                              }
+                              else{
+                                requiredUpliftEWE.text = "3.0";
+                              }
+                              finalPriceEWE.text =
+                                  (double.parse(baserateEwe.text) + double.parse(requiredUpliftEWE.text)+
+                                      double.parse(text))
+                                      .toString();
+                            });
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumEWE.text) != null) {
+                                if (double.parse(upliftPreminumEWE.text)  != 0 &&
+                                    double.parse(upliftPreminumEWE.text)  != 0.1 &&
+                                    double.parse(upliftPreminumEWE.text)  != 0.2 &&
+                                    double.parse(upliftPreminumEWE.text)  != 0.3) {
+                                  return "value must be 0/0.1/0.2/0.3";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -769,7 +1076,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.SC,
                           controller: upliftPreminumSc,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -780,8 +1087,51 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.SC),
+                          onChanged: (text){
+                            if(double.parse(upliftPreminumSc.text) == 0){
+                              requiredUpliftSc.text = "0";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 1){
+                              requiredUpliftSc.text = "10";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 2){
+                              requiredUpliftSc.text = "20";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 3){
+                              requiredUpliftSc.text = "30";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 4){
+                              requiredUpliftSc.text = "40";
+                            }
+                            else{
+                              requiredUpliftSc.text = "50";
+                            }
+                            finalPriceSc.text =
+                                (double.parse(baserateSC.text) + double.parse(requiredUpliftSc.text)+
+                                    double.parse(text))
+                                    .toString();
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumSc.text) != null) {
+                                if (double.parse(upliftPreminumSc.text)  != 0 &&
+                                    double.parse(upliftPreminumSc.text)  != 1 &&
+                                    double.parse(upliftPreminumSc.text)  != 2 &&
+                                    double.parse(upliftPreminumSc.text)  != 3 &&
+                                    double.parse(upliftPreminumSc.text)  != 4 &&
+                                    double.parse(upliftPreminumSc.text)  != 5) {
+                                  return "value must be 0/1/2/3/4/5";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -802,7 +1152,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.Day,
                           controller: upliftPreminumDay,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -813,8 +1163,34 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          onChanged: (text){
+                            if(double.parse(upliftPreminumDay.text) == 0){
+                              requiredUpliftDay.text = "1.5";
+                            }
+                            finalPriceDay.text =
+                                (double.parse(baserateday.text) + double.parse(requiredUpliftDay.text)+
+                                    double.parse(text))
+                                    .toString();
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumDay.text) != null) {
+                                if (double.parse(upliftPreminumDay.text)  != 0 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.1 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.2 &&
+                                    double.parse(upliftPreminumDay.text)  != 0.3) {
+                                  return "value must be 0/0.1/0.2/0.3";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       SizedBox(
@@ -829,7 +1205,7 @@ class _playState extends State<play> {
                           enabled: true,
                           title: AppString.SC,
                           controller: upliftPreminumSc,
-                          autoValidation: false,
+                          autoValidation: true,
                           textInputType: TextInputType.number,
                           hintText: '',
                           textInputFormatter: [
@@ -840,8 +1216,49 @@ class _playState extends State<play> {
                               RegExp(r'^\d+.?\d{0,4}'),
                             ),
                           ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          onChanged: (text){
+                            if(double.parse(upliftPreminumSc.text) == 0){
+                              requiredUpliftSc.text = "0";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 1){
+                              requiredUpliftSc.text = "10";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 2){
+                              requiredUpliftSc.text = "20";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 3){
+                              requiredUpliftSc.text = "30";
+                            }
+                            else if(double.parse(upliftPreminumSc.text) == 4){
+                              requiredUpliftSc.text = "40";
+                            }
+                            else{
+                              requiredUpliftSc.text = "50";
+                            }
+                            finalPriceSc.text =
+                                (double.parse(baserateSC.text) + double.parse(requiredUpliftSc.text)+
+                                    double.parse(text))
+                                    .toString();
+                          },
+                          validator: (value) {
+                            // String patttern =
+                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                            //
+                            // RegExp regExp = new RegExp(patttern);
+                            if (value.length != 0) {
+                              if (double.parse(upliftPreminumSc.text) != null) {
+                                if (double.parse(upliftPreminumSc.text)  != 0 &&
+                                    double.parse(upliftPreminumSc.text)  != 1 &&
+                                    double.parse(upliftPreminumSc.text)  != 2 &&
+                                    double.parse(upliftPreminumSc.text)  != 3 ) {
+                                  return "value must be 0/1/2/3";
+                                }
+                                else
+                                  return null;
+                              }
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -1078,7 +1495,113 @@ class _playState extends State<play> {
                 height: 15,
               ),
              widget.type == "MPAN" ? Column(
-               children: [],
+               children: [
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.Day,
+                         controller: finalPriceDay,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                     SizedBox(
+                       width: 10,
+                     ),
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.Night,
+                         controller: finalPriceNight,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                   ],
+                 ),
+                 SizedBox(
+                   height: 15,
+                 ),
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.EWE,
+                         controller: finalPriceEWE,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                     SizedBox(
+                       width: 10,
+                     ),
+                     Container(
+                       width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                       child: AppTextField(
+                         enabled: false,
+                         title: AppString.SC,
+                         controller: finalPriceSc,
+                         textInputType: TextInputType.number,
+                         hintText: '',
+                         textInputFormatter: [
+                           DecimalTextInputFormatter(
+                             decimalRange: 4,
+                           ),
+                           WhitelistingTextInputFormatter(
+                             RegExp(r'^\d+.?\d{0,4}'),
+                           ),
+                         ],
+                       ),
+                     ),
+                   ],
+                 ),
+               ],
              ) : Column(
                children: [
                  Row(

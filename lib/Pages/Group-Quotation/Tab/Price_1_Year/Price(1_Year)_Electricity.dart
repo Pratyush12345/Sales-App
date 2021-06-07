@@ -147,6 +147,7 @@ class _oneYearPageState extends State<oneYearPage> {
                                   index: index,
                                   viewlist: viewlist,
                                   type: "MPAN",
+                                  groupdetailsprice: groupDetailslst,
                                 );
                               }),
                         ),

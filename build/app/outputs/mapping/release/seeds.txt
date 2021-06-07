@@ -1,727 +1,727 @@
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type
-io.flutter.plugin.editing.TextInputPlugin: void setTextInputClient(int,io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
-io.flutter.plugin.editing.ListenableEditingState: int getSelectionStart()
-io.flutter.plugin.editing.TextInputPlugin$1: void clearClient()
-androidx.core.R$id: int action_image
-io.flutter.plugin.editing.TextInputPlugin$1: void requestAutofill()
-androidx.work.impl.WorkManagerInitializer
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$PresentationState state
-io.flutter.embedding.engine.FlutterJNI: void nativeSetAccessibilityFeatures(long,int)
-io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String previousCompletedSplashIsolate
-io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher: void didChangeEditingState(boolean,boolean,boolean)
-androidx.work.impl.WorkDatabase_Impl: WorkDatabase_Impl()
-io.flutter.plugin.editing.TextInputPlugin: boolean mRestartInputPending
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean setSelection(int,int)
-io.flutter.view.AccessibilityBridge$Flag: io.flutter.view.AccessibilityBridge$Flag[] values()
-io.flutter.embedding.engine.FlutterJNI: void nativeRunBundleAndSnapshotFromLibrary(long,java.lang.String,java.lang.String,java.lang.String,android.content.res.AssetManager)
-io.flutter.embedding.engine.FlutterJNI: void prefetchDefaultFontManager()
-io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceCreated(long,android.view.Surface)
-io.flutter.plugin.editing.TextInputPlugin: void updateAutofillConfigurationIfNeeded(io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
-io.flutter.embedding.engine.FlutterOverlaySurface
-io.flutter.plugin.editing.FlutterTextUtils: io.flutter.embedding.engine.FlutterJNI flutterJNI
-io.flutter.embedding.engine.FlutterJNI: void runBundleAndSnapshotFromLibrary(java.lang.String,java.lang.String,java.lang.String,android.content.res.AssetManager)
-io.flutter.embedding.android.FlutterSplashView$SavedState: FlutterSplashView$SavedState(android.os.Parcel)
-io.flutter.embedding.engine.FlutterJNI: void nativeLoadDartDeferredLibrary(long,int,java.lang.String[])
-io.flutter.embedding.engine.FlutterJNI: boolean getIsSoftwareRenderingEnabled()
-io.flutter.embedding.engine.FlutterJNI: void onEndFrame()
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_started
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type[] $VALUES
-androidx.core.R$id: int accessibility_custom_action_17
-androidx.core.R$id: int accessibility_custom_action_11
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: ImeSyncDeferringInsetsCallback(android.view.View,int,int)
-androidx.core.R$id: int forever
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$200(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: boolean released
-androidx.core.R$id: int accessibility_custom_action_19
-androidx.work.impl.workers.DiagnosticsWorker
-io.flutter.view.AccessibilityViewEmbedder: boolean onAccessibilityHoverEvent(int,android.view.MotionEvent)
-io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.plugin.editing.ListenableEditingState mEditable
-vn.hunghd.flutterdownloader.DownloadWorker
-androidx.work.impl.utils.futures.DirectExecutor: androidx.work.impl.utils.futures.DirectExecutor valueOf(java.lang.String)
-androidx.lifecycle.FullLifecycleObserverAdapter
-androidx.core.R$id: int accessibility_custom_action_28
-io.flutter.view.AccessibilityBridge$Flag: io.flutter.view.AccessibilityBridge$Flag valueOf(java.lang.String)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean sendKeyEvent(android.view.KeyEvent)
-io.flutter.plugin.editing.TextInputPlugin$1: void sendAppPrivateCommand(java.lang.String,android.os.Bundle)
-io.flutter.view.FlutterView: io.flutter.embedding.engine.dart.DartExecutor getDartExecutor()
-io.flutter.plugin.editing.FlutterTextUtils: boolean isEmojiModifier(int)
-io.flutter.embedding.engine.FlutterJNI: void nativeInvokePlatformMessageEmptyResponseCallback(long,int)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean performContextMenuAction(int)
-io.flutter.plugin.editing.ListenableEditingState: void setComposingRange(int,int)
-io.flutter.plugin.editing.FlutterTextUtils: int CANCEL_TAG
-io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo getRootNode(android.view.View,int,android.graphics.Rect)
-io.flutter.view.FlutterView
-io.flutter.view.FlutterView: io.flutter.view.FlutterNativeView getFlutterNativeView()
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean performEditorAction(int)
-androidx.core.R$id: int accessibility_custom_action_13
-androidx.core.R$id: int tag_accessibility_pane_title
-androidx.work.impl.workers.ConstraintTrackingWorker
-io.flutter.embedding.engine.FlutterJNI: void addIsDisplayingFlutterUiListener(io.flutter.embedding.engine.renderer.FlutterUiDisplayListener)
-androidx.activity.ComponentActivity$3
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_DESTROY
-io.flutter.plugin.editing.FlutterTextUtils: boolean isEmojiModifierBase(int)
-androidx.core.R$id: int action_divider
-io.flutter.embedding.engine.FlutterJNI: void setPlatformMessageHandler(io.flutter.embedding.engine.dart.PlatformMessageHandler)
-io.flutter.plugin.editing.FlutterTextUtils: FlutterTextUtils(io.flutter.embedding.engine.FlutterJNI)
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI nativeSpawn(long,java.lang.String,java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void setAsyncWaitForVsyncDelegate(io.flutter.embedding.engine.FlutterJNI$AsyncWaitForVsyncDelegate)
-io.flutter.view.FlutterCallbackInformation: io.flutter.view.FlutterCallbackInformation lookupCallbackInformation(long)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$302(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,boolean)
-io.flutter.plugin.editing.TextInputPlugin: void access$500(io.flutter.plugin.editing.TextInputPlugin,int)
-androidx.activity.ImmLeaksCleaner
-io.flutter.embedding.engine.FlutterJNI: void nativeMarkTextureFrameAvailable(long,long)
-io.flutter.embedding.engine.FlutterJNI: void unregisterTexture(long)
-androidx.work.impl.utils.futures.AbstractFuture$Waiter: java.lang.Thread thread
-io.flutter.plugin.editing.ListenableEditingState: int mBatchEditNestDepth
-androidx.work.impl.WorkManagerInitializer: WorkManagerInitializer()
-io.flutter.plugin.editing.TextInputPlugin: int inputTypeFromTextInputType(io.flutter.embedding.engine.systemchannels.TextInputChannel$InputType,boolean,boolean,boolean,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization)
-io.flutter.embedding.engine.FlutterJNI: io.flutter.plugin.localization.LocalizationPlugin localizationPlugin
-io.flutter.plugin.editing.ListenableEditingState$1: android.text.Editable val$self
-androidx.core.R$id: int accessibility_custom_action_3
-io.flutter.view.FlutterCallbackInformation: FlutterCallbackInformation(java.lang.String,java.lang.String,java.lang.String)
-io.flutter.plugin.editing.FlutterTextUtils: boolean isTagSpecChar(int)
-io.flutter.embedding.engine.FlutterJNI: void onFirstFrame()
-io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode: io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode valueOf(java.lang.String)
-android.support.v4.app.RemoteActionCompatParcelizer
-io.flutter.plugin.editing.TextInputPlugin: void showTextInput(android.view.View)
-io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay: io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay[] values()
-androidx.core.graphics.drawable.IconCompatParcelizer: IconCompatParcelizer()
-io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization valueOf(java.lang.String)
-androidx.savedstate.SavedStateRegistry$1
-androidx.work.impl.utils.futures.AbstractFuture: androidx.work.impl.utils.futures.AbstractFuture$Waiter waiters
-io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType: io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType[] values()
-io.flutter.plugins.GeneratedPluginRegistrant: GeneratedPluginRegistrant()
-io.flutter.plugin.editing.ListenableEditingState: ListenableEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState,android.view.View)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int deferredInsetTypes
-io.flutter.plugin.editing.TextInputPlugin: boolean needsAutofill()
-androidx.core.R$id: int accessibility_custom_action_20
-io.flutter.embedding.engine.FlutterJNI: void nativeInit(android.content.Context,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,long)
-androidx.work.impl.background.systemalarm.SystemAlarmService
-io.flutter.plugin.editing.TextInputPlugin$1: void hide()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets access$402(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,android.view.WindowInsets)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean setComposingRegion(int,int)
-io.flutter.plugins.urllauncher.WebViewActivity
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushClipRRect(int,int,int,int,float[])
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$300(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness: io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness valueOf(java.lang.String)
-io.flutter.plugin.editing.ListenableEditingState: void addEditingStateListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher)
-io.flutter.plugin.editing.TextInputPlugin: android.view.autofill.AutofillManager access$400(io.flutter.plugin.editing.TextInputPlugin)
-io.flutter.view.AccessibilityViewEmbedder: java.util.Map originToFlutterId
-io.flutter.embedding.android.TransparencyMode: io.flutter.embedding.android.TransparencyMode[] values()
-androidx.core.R$id: int tag_window_insets_animation_callback
-androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
-io.flutter.embedding.engine.FlutterJNI: android.os.Looper mainLooper
-androidx.work.impl.workers.ConstraintTrackingWorker: ConstraintTrackingWorker(android.content.Context,androidx.work.WorkerParameters)
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event[] values()
-androidx.lifecycle.SavedStateHandleController$OnRecreation: SavedStateHandleController$OnRecreation()
-androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy: ConstraintProxy$BatteryChargingProxy()
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.android.AndroidKeyProcessor keyProcessor
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_in_progress
-io.flutter.embedding.engine.FlutterJNI: void nativePrefetchDefaultFontManager()
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: android.graphics.SurfaceTexture surfaceTexture()
-io.flutter.embedding.android.FlutterImageView: android.view.Surface getSurface()
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event[] $VALUES
-io.flutter.embedding.engine.FlutterJNI: void onRenderingStopped()
-io.flutter.embedding.engine.FlutterJNI: boolean setRefreshRateFPSCalled
-androidx.core.R$id: int accessibility_custom_action_0
-io.flutter.embedding.engine.FlutterOverlaySurface: android.view.Surface getSurface()
-androidx.core.R$id: int line1
-io.flutter.embedding.engine.FlutterJNI: long performNativeAttach(io.flutter.embedding.engine.FlutterJNI,boolean)
-io.flutter.view.AccessibilityBridge$Action: io.flutter.view.AccessibilityBridge$Action valueOf(java.lang.String)
-androidx.core.R$id: int accessibility_custom_action_8
-androidx.work.impl.diagnostics.DiagnosticsReceiver: DiagnosticsReceiver()
-androidx.core.R$id: int accessibility_custom_action_22
-io.flutter.embedding.engine.FlutterJNI: java.lang.Long nativeShellHolderId
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.EditorInfo mEditorInfo
-com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat[] values()
-io.flutter.embedding.engine.FlutterJNI: boolean initCalled
-io.flutter.view.AccessibilityViewEmbedder: int nextFlutterId
-io.flutter.view.AccessibilityViewEmbedder: java.util.Map embeddedViewToDisplayBounds
-io.flutter.plugin.editing.TextInputPlugin$2: io.flutter.plugin.editing.TextInputPlugin this$0
-androidx.core.R$id: int accessibility_custom_action_16
-io.flutter.embedding.android.FlutterActivity: FlutterActivity()
-androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy
-io.flutter.embedding.android.FlutterSplashView$SavedState
-io.flutter.plugin.editing.TextInputPlugin$InputTarget: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type type
-io.flutter.plugin.editing.ListenableEditingState: int mComposingEndWhenBeginBatchEdit
-io.flutter.embedding.engine.FlutterJNI: void removeIsDisplayingFlutterUiListener(io.flutter.embedding.engine.renderer.FlutterUiDisplayListener)
-io.flutter.embedding.engine.FlutterJNI: void nativeDispatchPointerDataPacket(long,java.nio.ByteBuffer,int)
-androidx.core.R$id: int actions
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_CREATE
-io.flutter.plugin.editing.TextInputPlugin: void access$600(io.flutter.plugin.editing.TextInputPlugin,double,double,double[])
-androidx.core.R$id: int accessibility_custom_action_2
-io.flutter.embedding.engine.FlutterJNI: void asyncWaitForVsync(long)
-io.flutter.plugin.editing.ListenableEditingState: android.text.SpannableStringBuilder replace(int,int,java.lang.CharSequence,int,int)
-androidx.core.graphics.drawable.IconCompat
-io.flutter.embedding.android.FlutterSplashView$SavedState: void writeToParcel(android.os.Parcel,int)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean endBatchEdit()
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean finishComposingText()
-io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmojiModifierBase(int)
-androidx.core.graphics.drawable.IconCompatParcelizer: androidx.core.graphics.drawable.IconCompat read(androidx.versionedparcelable.VersionedParcel)
-io.flutter.embedding.android.RenderMode: io.flutter.embedding.android.RenderMode valueOf(java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void updateJavaAssetManager(android.content.res.AssetManager,java.lang.String)
-androidx.lifecycle.SavedStateHandleController
-androidx.core.R$id: int text
-androidx.core.R$id: int accessibility_custom_action_23
-androidx.core.R$id: int tag_transition_group
-androidx.work.R$bool: int workmanager_test_configuration
-vn.hunghd.flutterdownloader.R$string: int status_bar_notification_info_overflow
-androidx.core.R$id: int accessibility_custom_action_14
-io.flutter.plugin.editing.TextInputPlugin: TextInputPlugin(android.view.View,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.plugin.platform.PlatformViewsController)
-androidx.work.Worker: Worker(android.content.Context,androidx.work.WorkerParameters)
-io.flutter.plugin.editing.ListenableEditingState: android.text.Editable replace(int,int,java.lang.CharSequence,int,int)
-io.flutter.plugin.editing.TextInputPlugin: void destroy()
-io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsRegionalIndicator(int)
-androidx.work.NetworkType: androidx.work.NetworkType valueOf(java.lang.String)
-io.flutter.view.FlutterCallbackInformation
-android.support.v4.graphics.drawable.IconCompatParcelizer: void write(androidx.core.graphics.drawable.IconCompat,androidx.versionedparcelable.VersionedParcel)
-io.flutter.plugin.editing.FlutterTextUtils: int COMBINING_ENCLOSING_KEYCAP
-androidx.core.R$id: int tag_unhandled_key_listeners
-io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int)
-io.flutter.embedding.engine.FlutterJNI: boolean prefetchDefaultFontManagerCalled
-androidx.core.R$id: int accessibility_custom_action_1
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean deleteSurroundingText(int,int)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean handleVerticalMovement(boolean,boolean)
-io.flutter.plugin.editing.TextInputPlugin: android.view.autofill.AutofillManager afm
-io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode: io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode[] values()
-io.flutter.embedding.engine.FlutterJNI: void onBeginFrame()
-com.google.common.util.concurrent.AbstractFuture: com.google.common.util.concurrent.AbstractFuture$Waiter waiters
-androidx.core.R$id: int accessibility_action_clickable_span
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_ANY
-io.flutter.embedding.engine.FlutterJNI: void onSurfaceCreated(android.view.Surface)
-io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness: io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness valueOf(java.lang.String)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean beginBatchEdit()
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_paused
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_PAUSE
-io.flutter.embedding.engine.FlutterJNI: void updateCustomAccessibilityActions(java.nio.ByteBuffer,java.lang.String[])
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List getMutators()
-io.flutter.embedding.engine.FlutterJNI: void onSurfaceDestroyed()
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean isSamsung()
-androidx.work.BackoffPolicy: androidx.work.BackoffPolicy[] values()
-androidx.core.R$id: int accessibility_custom_action_18
-io.flutter.plugin.editing.ListenableEditingState
-androidx.core.R$id: int accessibility_custom_action_21
-androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy: ConstraintProxy$NetworkStateProxy()
-io.flutter.embedding.engine.FlutterJNI: void nativeDeferredComponentInstallFailure(int,java.lang.String,boolean)
-androidx.work.ListenableWorker: ListenableWorker(android.content.Context,androidx.work.WorkerParameters)
-io.flutter.plugin.editing.ListenableEditingState: int getSelectionEnd()
-androidx.lifecycle.LifecycleService: LifecycleService()
-androidx.work.NetworkType: androidx.work.NetworkType[] values()
-com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult: com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult valueOf(java.lang.String)
-io.flutter.plugin.editing.FlutterTextUtils: int LINE_FEED
-androidx.work.WorkInfo$State: androidx.work.WorkInfo$State[] values()
-com.pozitiveenergy.MainActivity: MainActivity()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View access$602(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,android.view.View)
-androidx.work.impl.workers.CombineContinuationsWorker: CombineContinuationsWorker(android.content.Context,androidx.work.WorkerParameters)
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List getFinalClippingPaths()
-io.flutter.embedding.engine.FlutterOverlaySurface: int getId()
-io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation: io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation[] values()
-androidx.activity.OnBackPressedDispatcher$LifecycleOnBackPressedCancellable
-io.flutter.view.AccessibilityViewEmbedder: void addChildrenToFlutterNode(android.view.accessibility.AccessibilityNodeInfo,android.view.View,android.view.accessibility.AccessibilityNodeInfo)
-com.google.common.util.concurrent.AbstractFuture: com.google.common.util.concurrent.AbstractFuture$Listener listeners
-io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceWindowChanged(long,android.view.Surface)
-vn.hunghd.flutterdownloader.DownloadedFileProvider: DownloadedFileProvider()
-io.flutter.embedding.engine.FlutterJNI: void ensureAttachedToNative()
-io.flutter.embedding.android.FlutterSurfaceView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
-io.flutter.plugin.editing.FlutterTextUtils: boolean isRegionalIndicatorSymbol(int)
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_START
-com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult: com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult[] values()
-io.flutter.plugin.editing.ListenableEditingState: int mChangeNotificationDepth
-io.flutter.plugin.editing.TextInputPlugin: android.util.SparseArray mAutofillConfigurations
-androidx.room.RoomDatabase$JournalMode: androidx.room.RoomDatabase$JournalMode valueOf(java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void dispatchPlatformMessage(java.lang.String,java.nio.ByteBuffer,int,int)
-io.flutter.plugin.editing.FlutterTextUtils: int getOffsetAfter(java.lang.CharSequence,int)
-androidx.core.R$id: int accessibility_custom_action_30
-androidx.core.R$id: int tag_screen_reader_focusable
-io.flutter.embedding.engine.FlutterJNI: void nativeSetSemanticsEnabled(long,boolean)
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: android.graphics.Matrix getFinalMatrix()
-io.flutter.plugin.editing.InputConnectionAdaptor
-androidx.work.impl.diagnostics.DiagnosticsReceiver
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean handleHorizontalMovement(boolean,boolean)
-io.flutter.embedding.engine.FlutterJNI: FlutterJNI()
-androidx.work.impl.background.systemalarm.RescheduleReceiver
-io.flutter.embedding.engine.FlutterJNI: boolean loadLibraryCalled
-io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat: io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat[] values()
-io.flutter.embedding.engine.FlutterJNI: void handlePlatformMessage(java.lang.String,byte[],int)
-androidx.core.R$id: int accessibility_custom_action_6
-io.flutter.plugin.editing.TextInputPlugin$InputTarget: int id
-androidx.work.ListenableWorker
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean setComposingText(java.lang.CharSequence,int)
-androidx.work.impl.workers.CombineContinuationsWorker
-androidx.work.ArrayCreatingInputMerger: ArrayCreatingInputMerger()
-androidx.lifecycle.LiveData$LifecycleBoundObserver
-androidx.lifecycle.SingleGeneratedAdapterObserver
-io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmoji(int)
-io.flutter.embedding.engine.FlutterJNI: void setPlatformViewsController(io.flutter.plugin.platform.PlatformViewsController)
-com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType[] values()
-io.flutter.embedding.engine.FlutterJNI: void init(android.content.Context,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,long)
-io.flutter.embedding.engine.FlutterJNI: void onDisplayOverlaySurface(int,int,int,int,int)
-io.flutter.plugin.editing.TextInputPlugin: void access$100(io.flutter.plugin.editing.TextInputPlugin,android.view.View)
-androidx.work.impl.foreground.SystemForegroundService
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean commitText(java.lang.CharSequence,int)
-io.flutter.embedding.engine.FlutterJNI: void attachToNative(boolean)
-androidx.core.R$id: int tag_accessibility_heading
-com.pozitiveenergy.MainActivity
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$1
-io.flutter.embedding.engine.FlutterJNI: void nativeSetViewportMetrics(long,float,int,int,int,int,int,int,int,int,int,int,int,int,int,int)
-io.flutter.embedding.engine.FlutterJNI: void nativeInvokePlatformMessageResponseCallback(long,int,java.nio.ByteBuffer,int)
-io.flutter.view.AccessibilityViewEmbedder: AccessibilityViewEmbedder(android.view.View,int)
-io.flutter.embedding.engine.FlutterJNI: void destroyOverlaySurfaces()
-io.flutter.embedding.android.FlutterTextureView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
-androidx.lifecycle.SavedStateHandleController$OnRecreation
-io.flutter.plugin.editing.TextInputPlugin: boolean isInputConnectionLocked
-android.support.v4.app.RemoteActionCompatParcelizer: RemoteActionCompatParcelizer()
-io.flutter.embedding.android.FlutterView$ZeroSides: io.flutter.embedding.android.FlutterView$ZeroSides valueOf(java.lang.String)
-androidx.versionedparcelable.CustomVersionedParcelable
-androidx.core.R$id: int dialog_button
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI$AccessibilityDelegate accessibilityDelegate
-io.flutter.plugin.editing.FlutterTextUtils: int CARRIAGE_RETURN
-androidx.core.R$id: int line3
-androidx.work.R$bool: int enable_system_job_service_default
-androidx.lifecycle.Lifecycle$State: androidx.lifecycle.Lifecycle$State[] values()
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.platform.PlatformViewsController platformViewsController
-androidx.core.R$id: int accessibility_custom_action_7
-io.flutter.plugin.editing.ListenableEditingState: void notifyListenersIfNeeded(boolean,boolean,boolean)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback
-androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type FRAMEWORK_CLIENT
-io.flutter.view.AccessibilityViewEmbedder: android.view.View rootAccessibilityView
-io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection getLastInputConnection()
-io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType[] values()
-io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceDestroyed(long)
-io.flutter.app.FlutterApplication: FlutterApplication()
-io.flutter.plugin.editing.InputConnectionAdaptor: android.text.Layout mLayout
-android.support.v4.graphics.drawable.IconCompatParcelizer: androidx.core.graphics.drawable.IconCompat read(androidx.versionedparcelable.VersionedParcel)
-io.flutter.plugin.editing.InputConnectionAdaptor: void didChangeEditingState(boolean,boolean,boolean)
-io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.embedding.android.AndroidKeyProcessor keyProcessor
-io.flutter.embedding.android.FlutterTextureView
-io.flutter.embedding.engine.FlutterJNI: void setDeferredComponentManager(io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager)
-io.flutter.embedding.engine.FlutterJNI: void onSurfaceChanged(int,int)
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText getExtractedText(android.view.inputmethod.ExtractedTextRequest,int)
-io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputMethodManager mImm
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI spawn(java.lang.String,java.lang.String)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: ImeSyncDeferringInsetsCallback$InsetsListener(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.plugin.editing.TextInputPlugin$1: void setClient(int,io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.TextInputPlugin$InputTarget inputTarget
-androidx.annotation.Keep
-io.flutter.plugin.platform.SingleViewPresentation: int viewId
-io.flutter.view.AccessibilityBridge$TextDirection: io.flutter.view.AccessibilityBridge$TextDirection[] values()
-io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher
-androidx.core.R$id: int italic
-io.flutter.view.AccessibilityViewEmbedder: java.lang.Integer getRecordFlutterId(android.view.View,android.view.accessibility.AccessibilityRecord)
-io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness: io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness[] values()
-androidx.work.impl.WorkDatabase: WorkDatabase()
-io.flutter.embedding.android.FlutterImageView$SurfaceKind: io.flutter.embedding.android.FlutterImageView$SurfaceKind[] values()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener
-androidx.work.OverwritingInputMerger
-com.mr.flutter.plugin.filepicker.FilePickerPlugin$LifeCycleObserver
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: TextInputPlugin$InputTarget$Type(java.lang.String,int)
-io.flutter.embedding.android.FlutterView: io.flutter.embedding.engine.FlutterEngine getAttachedFlutterEngine()
-androidx.core.R$id: int accessibility_custom_action_29
-androidx.core.R$id: int accessibility_custom_action_31
-androidx.work.Worker
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean animating
-androidx.core.R$id: int notification_main_column_container
-vn.hunghd.flutterdownloader.DownloadWorker: DownloadWorker(android.content.Context,androidx.work.WorkerParameters)
-io.flutter.embedding.engine.FlutterJNI: void nativeDispatchSemanticsAction(long,int,int,java.nio.ByteBuffer,int)
-androidx.core.app.CoreComponentFactory: CoreComponentFactory()
-io.flutter.view.FlutterView: float getDevicePixelRatio()
-io.flutter.view.AccessibilityViewEmbedder: void setFlutterNodeParent(android.view.accessibility.AccessibilityNodeInfo,android.view.View,android.view.accessibility.AccessibilityNodeInfo)
-androidx.work.R$bool: int enable_system_foreground_service_default
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushClipRect(int,int,int,int)
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void release()
-androidx.work.ExistingWorkPolicy: androidx.work.ExistingWorkPolicy valueOf(java.lang.String)
-androidx.core.R$id: int right_side
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List finalClippingPaths
-io.flutter.plugin.editing.ListenableEditingState$1: io.flutter.plugin.editing.ListenableEditingState this$0
-io.flutter.plugin.editing.TextInputPlugin: void didChangeEditingState(boolean,boolean,boolean)
-io.flutter.embedding.engine.FlutterJNI: java.lang.String getObservatoryUri()
-io.flutter.plugin.editing.TextInputPlugin$1: TextInputPlugin$1(io.flutter.plugin.editing.TextInputPlugin)
-io.flutter.plugin.editing.TextInputPlugin: void hideTextInput(android.view.View)
-androidx.work.impl.background.systemalarm.SystemAlarmService: SystemAlarmService()
-io.flutter.embedding.engine.FlutterJNI: void nativeDispatchEmptyPlatformMessage(long,java.lang.String,int)
-io.flutter.embedding.android.RenderMode: io.flutter.embedding.android.RenderMode[] values()
-androidx.core.app.RemoteActionCompat
-io.flutter.embedding.engine.FlutterOverlaySurface: android.view.Surface surface
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: ImeSyncDeferringInsetsCallback$AnimationCallback(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.plugin.editing.FlutterTextUtils: boolean isKeycapBase(int)
-androidx.versionedparcelable.ParcelImpl
-io.flutter.embedding.android.FlutterSplashView$SavedState: FlutterSplashView$SavedState(android.os.Parcelable)
-io.flutter.view.AccessibilityBridge$AccessibilityFeature: io.flutter.view.AccessibilityBridge$AccessibilityFeature valueOf(java.lang.String)
-androidx.core.R$id: int icon_group
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterOverlaySurface createOverlaySurface()
 io.flutter.plugin.editing.TextInputPlugin$2
-io.flutter.view.FlutterView$ZeroSides: io.flutter.view.FlutterView$ZeroSides valueOf(java.lang.String)
-io.flutter.plugin.editing.TextInputPlugin
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: void install()
-androidx.work.ArrayCreatingInputMerger
-io.flutter.view.AccessibilityViewEmbedder
-io.flutter.plugin.editing.TextInputPlugin: void clearTextInputClient()
-io.flutter.embedding.android.TransparencyMode: io.flutter.embedding.android.TransparencyMode valueOf(java.lang.String)
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: FlutterMutatorsStack()
-io.flutter.view.AccessibilityViewEmbedder: void setFlutterNodesTranslateBounds(android.view.accessibility.AccessibilityNodeInfo,android.graphics.Rect,android.view.accessibility.AccessibilityNodeInfo)
-androidx.room.MultiInstanceInvalidationService: MultiInstanceInvalidationService()
-io.flutter.embedding.engine.FlutterJNI: void dispatchEmptyPlatformMessage(java.lang.String,int)
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type[] values()
-androidx.work.impl.foreground.SystemForegroundService: SystemForegroundService()
-androidx.versionedparcelable.ParcelImpl: android.os.Parcelable$Creator CREATOR
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback this$0
-androidx.core.app.RemoteActionCompat: RemoteActionCompat()
-io.flutter.plugin.platform.SingleViewPresentation: boolean startFocused
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView: android.graphics.Matrix getPlatformViewMatrix()
-io.flutter.plugin.platform.SingleViewPresentation
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel textInputChannel
-io.flutter.plugin.editing.TextInputPlugin$1: io.flutter.plugin.editing.TextInputPlugin this$0
-io.flutter.embedding.engine.FlutterJNI: void nativeRegisterTexture(long,long,io.flutter.embedding.engine.renderer.SurfaceTextureWrapper)
-io.flutter.embedding.android.FlutterImageView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
-androidx.work.WorkInfo$State: androidx.work.WorkInfo$State valueOf(java.lang.String)
-android.support.v4.graphics.drawable.IconCompatParcelizer: IconCompatParcelizer()
-io.flutter.embedding.engine.FlutterJNI: float refreshRateFPS
-com.google.i18n.phonenumbers.NumberParseException$ErrorType: com.google.i18n.phonenumbers.NumberParseException$ErrorType[] values()
+androidx.work.impl.utils.futures.AbstractFuture: androidx.work.impl.utils.futures.AbstractFuture$Listener listeners
+io.flutter.view.AccessibilityViewEmbedder: io.flutter.view.AccessibilityViewEmbedder$ReflectionAccessors reflectionAccessors
+io.flutter.embedding.engine.FlutterJNI: void onSurfaceDestroyed()
+io.flutter.embedding.engine.FlutterJNI: java.lang.String getObservatoryUri()
+io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmojiModifierBase(int)
+io.flutter.embedding.android.RenderMode: io.flutter.embedding.android.RenderMode[] values()
 androidx.core.R$id: int text2
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List mutators
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int access$100(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-android.support.v4.app.RemoteActionCompatParcelizer: void write(androidx.core.app.RemoteActionCompat,androidx.versionedparcelable.VersionedParcel)
-io.flutter.embedding.engine.FlutterJNI: void detachFromNativeAndReleaseResources()
-io.flutter.plugin.editing.InputConnectionAdaptor: android.text.Editable getEditable()
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushTransform(float[])
-androidx.work.impl.background.systemalarm.ConstraintProxy: ConstraintProxy()
-androidx.core.R$id: int accessibility_custom_action_24
-io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection createInputConnection(android.view.View,android.view.inputmethod.EditorInfo)
-io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus: io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus valueOf(java.lang.String)
-io.flutter.plugin.platform.SingleViewPresentation: SingleViewPresentation(android.content.Context,android.view.Display,io.flutter.plugin.platform.PlatformViewFactory,io.flutter.plugin.platform.AccessibilityEventsDelegate,int,java.lang.Object,android.view.View$OnFocusChangeListener)
-androidx.core.R$id: int time
-com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource: com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource valueOf(java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: boolean nativeGetIsSoftwareRenderingEnabled()
+io.flutter.plugin.editing.TextInputPlugin: TextInputPlugin(android.view.View,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.plugin.platform.PlatformViewsController)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$300(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
 io.flutter.plugin.platform.SingleViewPresentation: android.widget.FrameLayout container
-androidx.work.impl.background.systemjob.SystemJobService: SystemJobService()
-io.flutter.plugin.editing.ListenableEditingState: java.lang.String TAG
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: void onEnd(android.view.WindowInsetsAnimation)
-io.flutter.plugin.editing.TextInputPlugin: boolean composingChanged(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
-io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection lastInputConnection
-io.flutter.embedding.android.DrawableSplashScreen$DrawableSplashScreenView: void setSplashDrawable(android.graphics.drawable.Drawable)
-androidx.work.ExistingWorkPolicy: androidx.work.ExistingWorkPolicy[] values()
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.View mFlutterView
-androidx.lifecycle.Lifecycling$1
-androidx.activity.ComponentActivity$2
-io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle access$702(io.flutter.embedding.android.FlutterSplashView$SavedState,android.os.Bundle)
-androidx.versionedparcelable.CustomVersionedParcelable: CustomVersionedParcelable()
-io.flutter.embedding.engine.FlutterJNI: java.lang.String observatoryUri
-io.flutter.view.AccessibilityBridge$Action: io.flutter.view.AccessibilityBridge$Action[] values()
-io.flutter.plugin.editing.FlutterTextUtils
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int overlayInsetTypes
-io.flutter.plugin.editing.TextInputPlugin: android.view.View access$000(io.flutter.plugin.editing.TextInputPlugin)
-androidx.core.app.RemoteActionCompatParcelizer: void write(androidx.core.app.RemoteActionCompat,androidx.versionedparcelable.VersionedParcel)
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView
-io.flutter.plugin.editing.TextInputPlugin: void unlockPlatformViewInputConnection()
-io.flutter.plugin.editing.FlutterTextUtils: int ZERO_WIDTH_JOINER
-androidx.core.app.RemoteActionCompatParcelizer: RemoteActionCompatParcelizer()
-io.flutter.view.AccessibilityBridge$TextDirection: io.flutter.view.AccessibilityBridge$TextDirection valueOf(java.lang.String)
-androidx.work.WorkerParameters
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration configuration
-android.support.v4.graphics.drawable.IconCompatParcelizer
-io.flutter.view.AccessibilityViewEmbedder: void cacheVirtualIdMappings(android.view.View,int,int)
-io.flutter.plugin.editing.TextInputPlugin: void lockPlatformViewInputConnection()
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper
-io.flutter.embedding.engine.FlutterJNI: void nativeDestroy(long)
-io.flutter.plugin.editing.TextInputPlugin$1: void setPlatformViewClient(int)
-androidx.core.app.RemoteActionCompatParcelizer
-io.flutter.plugin.editing.TextInputPlugin: void clearPlatformViewClient(int)
-io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputMethodManager getInputMethodManager()
-io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: HiddenLifecycleReference(androidx.lifecycle.Lifecycle)
-io.flutter.plugin.editing.FlutterTextUtils: boolean isEmoji(int)
-androidx.core.R$id: int tag_unhandled_key_event_manager
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText mExtractedText
-androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy: ConstraintProxy$StorageNotLowProxy()
-io.flutter.plugin.editing.FlutterTextUtils: boolean isVariationSelector(int)
-io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo convertToFlutterNode(android.view.accessibility.AccessibilityNodeInfo,int,android.view.View)
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.PlatformView getView()
-io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType valueOf(java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void dispatchPointerDataPacket(java.nio.ByteBuffer,int)
-io.flutter.plugin.editing.ListenableEditingState$1
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$202(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,boolean)
-io.flutter.embedding.engine.FlutterJNI: void setAccessibilityDelegate(io.flutter.embedding.engine.FlutterJNI$AccessibilityDelegate)
-androidx.work.impl.background.systemalarm.RescheduleReceiver: RescheduleReceiver()
-androidx.core.R$id: int tag_on_apply_window_listener
 androidx.core.content.FileProvider: FileProvider()
-io.flutter.plugin.editing.ListenableEditingState: java.lang.String toString()
-io.flutter.plugin.editing.TextInputPlugin: android.text.Editable getEditable()
-io.flutter.view.AccessibilityViewEmbedder: void copyAccessibilityFields(android.view.accessibility.AccessibilityNodeInfo,android.view.accessibility.AccessibilityNodeInfo)
-io.flutter.plugin.editing.TextInputPlugin: void setKeyEventProcessor(io.flutter.embedding.android.AndroidKeyProcessor)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean deleteSurroundingTextInCodePoints(int,int)
-io.flutter.view.AccessibilityBridge$AccessibilityFeature: io.flutter.view.AccessibilityBridge$AccessibilityFeature[] values()
-io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: androidx.lifecycle.Lifecycle getLifecycle()
-io.flutter.plugin.editing.TextInputPlugin: void autofill(android.util.SparseArray)
-io.flutter.embedding.engine.FlutterJNI: android.graphics.Bitmap nativeGetBitmap(long)
-io.flutter.view.AccessibilityViewEmbedder: java.lang.String TAG
-io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference
-io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle access$700(io.flutter.embedding.android.FlutterSplashView$SavedState)
-io.flutter.embedding.engine.FlutterJNI: java.lang.String[] computePlatformResolvedLocale(java.lang.String[])
-io.flutter.plugin.editing.ListenableEditingState: void removeEditingStateListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher)
-io.flutter.plugin.editing.ListenableEditingState: java.lang.String mTextWhenBeginBatchEdit
-io.flutter.embedding.engine.FlutterJNI: java.util.Set flutterUiDisplayListeners
-io.flutter.plugin.editing.TextInputPlugin: android.graphics.Rect lastClientRect
-io.flutter.plugin.editing.TextInputPlugin$InputTarget: TextInputPlugin$InputTarget(io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type,int)
-io.flutter.plugin.editing.ListenableEditingState: int getComposingStart()
-androidx.core.R$id: int accessibility_custom_action_5
-androidx.work.impl.utils.futures.AbstractFuture$Waiter: androidx.work.impl.utils.futures.AbstractFuture$Waiter next
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ListenableEditingState mEditable
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void updateTexImage()
-io.flutter.plugin.editing.TextInputPlugin: void onProvideAutofillVirtualStructure(android.view.ViewStructure,int)
-androidx.core.R$id: int tag_on_receive_content_mime_types
-io.flutter.embedding.engine.FlutterJNI: void setRefreshRateFPS(float)
-androidx.work.InputMerger: InputMerger()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View access$600(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.plugin.editing.TextInputPlugin$1: void finishAutofillContext(boolean)
-androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy
-io.flutter.plugin.editing.TextInputPlugin: void notifyViewEntered()
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_STOP
-androidx.savedstate.Recreator
-io.flutter.view.FlutterCallbackInformation: java.lang.String callbackLibraryPath
-io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType: io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType valueOf(java.lang.String)
-androidx.core.R$id: int normal
-io.flutter.embedding.engine.FlutterJNI: void requestDartDeferredLibrary(int)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean performPrivateCommand(java.lang.String,android.os.Bundle)
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.PlatformViewFactory viewFactory
-io.flutter.plugin.editing.TextInputPlugin$MinMax
-androidx.core.R$id: int chronometer
-androidx.work.OverwritingInputMerger: OverwritingInputMerger()
-io.flutter.view.AccessibilityViewEmbedder: android.view.View platformViewOfNode(int)
-io.flutter.plugin.editing.InputConnectionAdaptor: void closeConnection()
-com.google.common.util.concurrent.AbstractFuture$Waiter: com.google.common.util.concurrent.AbstractFuture$Waiter next
-io.flutter.plugin.platform.SingleViewPresentation: void onCreate(android.os.Bundle)
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: SurfaceTextureWrapper(android.graphics.SurfaceTexture)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View$OnApplyWindowInsetsListener getInsetsListener()
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_channel_description
+io.flutter.plugin.editing.TextInputPlugin: boolean needsAutofill()
+io.flutter.plugin.editing.TextInputPlugin$2: TextInputPlugin$2(io.flutter.plugin.editing.TextInputPlugin,boolean,double[],double[])
+androidx.core.R$id: int action_container
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean performContextMenuAction(int)
+io.flutter.embedding.engine.FlutterJNI: void removeIsDisplayingFlutterUiListener(io.flutter.embedding.engine.renderer.FlutterUiDisplayListener)
+androidx.core.R$id: int accessibility_custom_action_6
+io.flutter.plugin.editing.FlutterTextUtils: int getOffsetAfter(java.lang.CharSequence,int)
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List getMutators()
+androidx.core.R$id: int accessibility_custom_action_3
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean beginBatchEdit()
+androidx.work.R$bool: int enable_system_foreground_service_default
+com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource: com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void onDisplayOverlaySurface(int,int,int,int,int)
 io.flutter.embedding.engine.FlutterJNI: void nativeNotifyLowMemoryWarning(long)
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_RESUME
-io.flutter.plugins.GeneratedPluginRegistrant: void registerWith(io.flutter.embedding.engine.FlutterEngine)
-io.flutter.embedding.engine.FlutterJNI: void onPreEngineRestart()
-androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$AccessibilityDelegatingFrameLayout rootView
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_canceled
-androidx.work.impl.utils.futures.DirectExecutor: androidx.work.impl.utils.futures.DirectExecutor[] values()
-androidx.core.app.CoreComponentFactory
-io.flutter.embedding.engine.FlutterJNI: void setLocalizationPlugin(io.flutter.plugin.localization.LocalizationPlugin)
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager deferredComponentManager
-io.flutter.view.FlutterView: android.graphics.Bitmap getBitmap()
-io.flutter.plugin.editing.FlutterTextUtils: int getOffsetBefore(java.lang.CharSequence,int)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean requestCursorUpdates(int)
-io.flutter.plugin.editing.ListenableEditingState: int mSelectionEndWhenBeginBatchEdit
-io.flutter.plugin.editing.TextInputPlugin: android.view.View mView
-io.flutter.embedding.android.FlutterView: android.view.accessibility.AccessibilityNodeProvider getAccessibilityNodeProvider()
-io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String access$602(io.flutter.embedding.android.FlutterSplashView$SavedState,java.lang.String)
-androidx.room.RoomDatabase$JournalMode: androidx.room.RoomDatabase$JournalMode[] values()
-io.flutter.plugin.editing.InputConnectionAdaptor: int mClient
-io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceChanged(long,int,int)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: void onPrepare(android.view.WindowInsetsAnimation)
-io.flutter.embedding.engine.FlutterOverlaySurface: FlutterOverlaySurface(int,android.view.Surface)
-io.flutter.plugin.editing.ListenableEditingState: android.view.inputmethod.BaseInputConnection mDummyConnection
+androidx.core.graphics.drawable.IconCompatParcelizer
+io.flutter.embedding.engine.FlutterJNI: long nativeAttach(io.flutter.embedding.engine.FlutterJNI,boolean)
+io.flutter.embedding.engine.FlutterJNI: void nativeOnVsync(long,long,long)
+io.flutter.view.FlutterCallbackInformation: io.flutter.view.FlutterCallbackInformation lookupCallbackInformation(long)
+androidx.core.R$id: int forever
+androidx.core.app.RemoteActionCompatParcelizer: void write(androidx.core.app.RemoteActionCompat,androidx.versionedparcelable.VersionedParcel)
 androidx.core.R$id: int tag_accessibility_clickable_spans
-io.flutter.plugin.editing.TextInputPlugin: java.lang.String TAG
-androidx.work.impl.background.systemjob.SystemJobService
-io.flutter.plugin.platform.SingleViewPresentation: android.view.View$OnFocusChangeListener focusChangeListener
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean mMonitorCursorUpdate
-io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.embedding.engine.systemchannels.TextInputChannel textInputChannel
-io.flutter.plugin.editing.TextInputPlugin: void setTextInputEditingState(android.view.View,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener insetsListener
-androidx.core.R$id: int accessibility_custom_action_10
-io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus: io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus[] values()
-io.flutter.plugin.editing.TextInputPlugin$1: void setEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
-io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.plugin.editing.FlutterTextUtils flutterTextUtils
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean doPerformContextMenuAction(int)
-io.flutter.embedding.engine.FlutterJNI: void nativeUpdateJavaAssetManager(long,android.content.res.AssetManager,java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void removeEngineLifecycleListener(io.flutter.embedding.engine.FlutterEngine$EngineLifecycleListener)
-io.flutter.plugin.editing.InputConnectionAdaptor: boolean clearMetaKeyStates(int)
-io.flutter.plugin.editing.TextInputPlugin$1: void show()
-io.flutter.embedding.android.FlutterView
-io.flutter.plugin.editing.ListenableEditingState: void setEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
-io.flutter.view.FlutterView: android.view.accessibility.AccessibilityNodeProvider getAccessibilityNodeProvider()
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.CursorAnchorInfo$Builder mCursorAnchorInfoBuilder
-io.flutter.embedding.engine.FlutterJNI: void loadLibrary()
-androidx.core.R$id: int tag_accessibility_actions
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback this$0
-com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType valueOf(java.lang.String)
-androidx.core.R$id: int accessibility_custom_action_4
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: android.view.WindowInsets onApplyWindowInsets(android.view.View,android.view.WindowInsets)
-io.flutter.embedding.engine.FlutterJNI: void notifyLowMemoryWarning()
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedTextRequest mExtractRequest
-io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle splashScreenState
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback animationCallback
-io.flutter.plugin.editing.TextInputPlugin: void setPlatformViewTextInputClient(int)
-androidx.lifecycle.CompositeGeneratedAdaptersObserver
-io.flutter.embedding.engine.FlutterJNI: io.flutter.view.FlutterCallbackInformation nativeLookupCallbackInformation(long)
-io.flutter.plugin.platform.SingleViewPresentation: java.lang.Object createParams
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType: io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void onRenderingStopped()
 io.flutter.view.FlutterView: void setInitialRoute(java.lang.String)
-io.flutter.plugins.urllauncher.WebViewActivity: WebViewActivity()
-io.flutter.embedding.engine.FlutterJNI: io.flutter.plugin.platform.PlatformViewsController platformViewsController
-io.flutter.embedding.engine.FlutterJNI: void loadDartDeferredLibrary(int,java.lang.String[])
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean needsSave
+io.flutter.embedding.engine.FlutterJNI: void nativeRegisterTexture(long,long,io.flutter.embedding.engine.renderer.SurfaceTextureWrapper)
+androidx.core.R$id: int notification_main_column
+io.flutter.embedding.engine.FlutterJNI: void nativeInvokePlatformMessageResponseCallback(long,int,java.nio.ByteBuffer,int)
+io.flutter.view.AccessibilityViewEmbedder: void addChildrenToFlutterNode(android.view.accessibility.AccessibilityNodeInfo,android.view.View,android.view.accessibility.AccessibilityNodeInfo)
+io.flutter.plugin.editing.TextInputPlugin: void notifyViewEntered()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets lastWindowInsets
+io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,io.flutter.view.AccessibilityBridge$Action)
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_failed
+androidx.lifecycle.ReflectiveGenericLifecycleObserver
+io.flutter.embedding.android.DrawableSplashScreen$DrawableSplashScreenView: void setSplashDrawable(android.graphics.drawable.Drawable)
+io.flutter.plugin.editing.ListenableEditingState: java.util.ArrayList mPendingListeners
+androidx.core.R$id: int icon_group
+io.flutter.embedding.android.FlutterSurfaceView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
+io.flutter.embedding.engine.FlutterOverlaySurface: android.view.Surface getSurface()
+io.flutter.plugin.editing.TextInputPlugin$1: void sendAppPrivateCommand(java.lang.String,android.os.Bundle)
+io.flutter.plugin.editing.InputConnectionAdaptor: void didChangeEditingState(boolean,boolean,boolean)
+io.flutter.embedding.engine.FlutterJNI: void onPreEngineRestart()
+io.flutter.view.AccessibilityBridge$Flag: io.flutter.view.AccessibilityBridge$Flag valueOf(java.lang.String)
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_in_progress
+io.flutter.plugin.editing.ListenableEditingState: ListenableEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState,android.view.View)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback
+io.flutter.embedding.engine.FlutterOverlaySurface
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_ANY
+io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType valueOf(java.lang.String)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean handleVerticalMovement(boolean,boolean)
+androidx.core.R$id: int tag_state_description
+io.flutter.embedding.engine.FlutterJNI: void notifyLowMemoryWarning()
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean commitText(java.lang.CharSequence,int)
+io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle access$702(io.flutter.embedding.android.FlutterSplashView$SavedState,android.os.Bundle)
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void updateTexImage()
+io.flutter.embedding.android.RenderMode: io.flutter.embedding.android.RenderMode valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void requestDartDeferredLibrary(int)
+androidx.core.R$id: int italic
+io.flutter.embedding.engine.FlutterJNI: void nativeLoadDartDeferredLibrary(long,int,java.lang.String[])
+androidx.work.WorkInfo$State: androidx.work.WorkInfo$State[] values()
+androidx.work.OverwritingInputMerger
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.android.AndroidKeyProcessor keyProcessor
+io.flutter.plugin.editing.FlutterTextUtils: boolean isEmojiModifierBase(int)
+vn.hunghd.flutterdownloader.DownloadedFileProvider
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.PlatformViewFactory viewFactory
 io.flutter.plugin.editing.InputConnectionAdaptor: java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness: io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness[] values()
-io.flutter.embedding.android.DrawableSplashScreen$DrawableSplashScreenView
-io.flutter.plugin.editing.ListenableEditingState: int mSelectionStartWhenBeginBatchEdit
-io.flutter.plugin.editing.TextInputPlugin$InputTarget
-vn.hunghd.flutterdownloader.DownloadedFileProvider
-androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event valueOf(java.lang.String)
-androidx.lifecycle.SavedStateHandleController$1
-io.flutter.embedding.engine.FlutterJNI: void handlePlatformMessageResponse(int,byte[])
-io.flutter.plugin.editing.TextInputPlugin: void saveEditableSizeAndTransform(double,double,double[])
-io.flutter.view.FlutterView: io.flutter.app.FlutterPluginRegistry getPluginRegistry()
-androidx.work.impl.workers.DiagnosticsWorker: DiagnosticsWorker(android.content.Context,androidx.work.WorkerParameters)
-io.flutter.view.AccessibilityViewEmbedder: io.flutter.view.AccessibilityViewEmbedder$ReflectionAccessors reflectionAccessors
-androidx.lifecycle.Lifecycle$State: androidx.lifecycle.Lifecycle$State valueOf(java.lang.String)
-io.flutter.plugin.editing.InputConnectionAdaptor: InputConnectionAdaptor(android.view.View,int,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.embedding.android.AndroidKeyProcessor,io.flutter.plugin.editing.ListenableEditingState,android.view.inputmethod.EditorInfo,io.flutter.embedding.engine.FlutterJNI)
-io.flutter.embedding.engine.FlutterJNI: void onDisplayPlatformView(int,int,int,int,int,int,int,io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack)
-androidx.core.R$id: int blocking
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback getImeSyncCallback()
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.dart.PlatformMessageHandler platformMessageHandler
-io.flutter.plugin.editing.ListenableEditingState$1: ListenableEditingState$1(io.flutter.plugin.editing.ListenableEditingState,android.view.View,boolean,android.text.Editable)
-io.flutter.embedding.android.FlutterImageView$SurfaceKind: io.flutter.embedding.android.FlutterImageView$SurfaceKind valueOf(java.lang.String)
-androidx.work.impl.utils.futures.AbstractFuture: java.lang.Object value
-androidx.core.graphics.drawable.IconCompatParcelizer: void write(androidx.core.graphics.drawable.IconCompat,androidx.versionedparcelable.VersionedParcel)
-io.flutter.plugin.editing.ListenableEditingState: int getComposingEnd()
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState mLastKnownFrameworkTextEditingState
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: void remove()
-io.flutter.embedding.engine.FlutterJNI: void ensureRunningOnMainThread()
-androidx.lifecycle.ReflectiveGenericLifecycleObserver
-androidx.core.R$id: int notification_main_column
-io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: androidx.lifecycle.Lifecycle lifecycle
-io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Parcelable$Creator CREATOR
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type NO_TARGET
-io.flutter.view.FlutterCallbackInformation: java.lang.String callbackClassName
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.android.AndroidKeyProcessor getKeyEventProcessor()
-io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation: io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation valueOf(java.lang.String)
-io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType: io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType valueOf(java.lang.String)
-androidx.room.MultiInstanceInvalidationService
-io.flutter.embedding.android.FlutterSurfaceView
-io.flutter.embedding.engine.FlutterJNI: void onSurfaceWindowChanged(android.view.Surface)
-io.flutter.embedding.engine.FlutterJNI: void updateSemantics(java.nio.ByteBuffer,java.lang.String[])
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: android.graphics.SurfaceTexture surfaceTexture
-io.flutter.plugin.editing.TextInputPlugin$2: TextInputPlugin$2(io.flutter.plugin.editing.TextInputPlugin,boolean,double[],double[])
-androidx.core.graphics.drawable.IconCompatParcelizer
-androidx.core.R$id: int accessibility_custom_action_26
-com.google.i18n.phonenumbers.NumberParseException$ErrorType: com.google.i18n.phonenumbers.NumberParseException$ErrorType valueOf(java.lang.String)
-io.flutter.embedding.engine.FlutterJNI: void setViewportMetrics(float,int,int,int,int,int,int,int,int,int,int,int,int,int,int)
-androidx.core.R$id: int info
-io.flutter.plugin.editing.TextInputPlugin$2: void inspect(double,double)
-com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat valueOf(java.lang.String)
-androidx.core.graphics.drawable.IconCompat: IconCompat()
-io.flutter.plugin.editing.TextInputPlugin: void sendTextInputAppPrivateCommand(java.lang.String,android.os.Bundle)
-androidx.room.RoomDatabase: RoomDatabase()
-io.flutter.embedding.engine.FlutterJNI: void nativeDispatchPlatformMessage(long,java.lang.String,java.nio.ByteBuffer,int,int)
-io.flutter.embedding.engine.FlutterJNI: void nativeOnVsync(long,long,long)
-com.google.common.util.concurrent.AbstractFuture$Waiter: java.lang.Thread thread
-io.flutter.plugin.editing.TextInputPlugin: void notifyValueChanged(java.lang.String)
-io.flutter.view.AccessibilityViewEmbedder: boolean requestSendAccessibilityEvent(android.view.View,android.view.View,android.view.accessibility.AccessibilityEvent)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsetsAnimation$Callback getAnimationCallback()
-io.flutter.plugin.editing.ListenableEditingState$1: android.text.Editable getEditable()
-io.flutter.embedding.engine.FlutterJNI: void markTextureFrameAvailable(long)
-io.flutter.plugin.editing.TextInputPlugin$2: boolean val$isAffine
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets lastWindowInsets
-androidx.core.R$id: int accessibility_custom_action_25
-com.google.common.util.concurrent.AbstractFuture: java.lang.Object value
-io.flutter.plugin.editing.TextInputPlugin$2: double[] val$minMax
-io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback imeSyncCallback
 io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void getTransformMatrix(float[])
-io.flutter.view.FlutterView$ZeroSides: io.flutter.view.FlutterView$ZeroSides[] values()
-io.flutter.embedding.engine.FlutterJNI: void ensureNotAttachedToNative()
-io.flutter.embedding.engine.FlutterJNI: long nativeAttach(io.flutter.embedding.engine.FlutterJNI,boolean)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets access$400(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-io.flutter.plugin.editing.TextInputPlugin: void notifyViewExited()
+io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Parcelable$Creator CREATOR
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean deleteSurroundingTextInCodePoints(int,int)
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel textInputChannel
+io.flutter.plugin.editing.TextInputPlugin: android.text.Editable getEditable()
+io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo getRootNode(android.view.View,int,android.graphics.Rect)
+vn.hunghd.flutterdownloader.R$string: int status_bar_notification_info_overflow
+io.flutter.plugin.editing.FlutterTextUtils: int getOffsetBefore(java.lang.CharSequence,int)
 io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void attachToGLContext(int)
-io.flutter.plugin.editing.TextInputPlugin$1
-io.flutter.plugin.platform.SingleViewPresentation: SingleViewPresentation(android.content.Context,android.view.Display,io.flutter.plugin.platform.AccessibilityEventsDelegate,io.flutter.plugin.platform.SingleViewPresentation$PresentationState,android.view.View$OnFocusChangeListener,boolean)
-androidx.core.R$id: int notification_background
-io.flutter.plugin.editing.ListenableEditingState: java.util.ArrayList mListeners
-io.flutter.plugin.editing.ListenableEditingState: void beginBatchEdit()
-io.flutter.plugins.GeneratedPluginRegistrant
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: ImeSyncDeferringInsetsCallback$InsetsListener(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$1)
-androidx.work.BackoffPolicy: androidx.work.BackoffPolicy valueOf(java.lang.String)
-io.flutter.view.FlutterCallbackInformation: java.lang.String callbackName
-io.flutter.view.AccessibilityViewEmbedder: android.util.SparseArray flutterIdToOrigin
-androidx.core.R$id: int title
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.CursorAnchorInfo getCursorAnchorInfo()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: android.view.WindowInsets onProgress(android.view.WindowInsets,java.util.List)
-androidx.work.R$bool: int enable_system_alarm_service_default
-androidx.core.R$id: int icon
-io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void detachFromGLContext()
-androidx.core.R$id: int tag_state_description
-io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String access$600(io.flutter.embedding.android.FlutterSplashView$SavedState)
-androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
-io.flutter.plugin.editing.ListenableEditingState: int mComposingStartWhenBeginBatchEdit
-androidx.core.R$id: int accessibility_custom_action_12
-androidx.work.impl.utils.futures.AbstractFuture: androidx.work.impl.utils.futures.AbstractFuture$Listener listeners
-io.flutter.plugin.editing.ListenableEditingState: void endBatchEdit()
-io.flutter.embedding.engine.FlutterJNI: void nativeUnregisterTexture(long,long)
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean needsSave
-io.flutter.plugin.editing.InputConnectionAdaptor: InputConnectionAdaptor(android.view.View,int,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.embedding.android.AndroidKeyProcessor,io.flutter.plugin.editing.ListenableEditingState,android.view.inputmethod.EditorInfo)
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_channel_name
-androidx.core.R$id: int right_icon
-io.flutter.embedding.engine.FlutterJNI: void addEngineLifecycleListener(io.flutter.embedding.engine.FlutterEngine$EngineLifecycleListener)
-androidx.work.impl.WorkDatabase_Impl
-androidx.core.R$id: int tag_on_receive_content_listener
-io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,io.flutter.view.AccessibilityBridge$Action,java.lang.Object)
-io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization[] values()
-androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver: ForceStopRunnable$BroadcastReceiver()
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_complete
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText getExtractedText(android.view.inputmethod.ExtractedTextRequest)
-com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource: com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource[] values()
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType: io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType[] values()
-android.support.v4.app.RemoteActionCompatParcelizer: androidx.core.app.RemoteActionCompat read(androidx.versionedparcelable.VersionedParcel)
-io.flutter.embedding.android.FlutterImageView
-io.flutter.embedding.engine.FlutterJNI: java.util.Set engineLifecycleListeners
-io.flutter.embedding.engine.FlutterJNI
-io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmojiModifier(int)
-androidx.core.app.RemoteActionCompatParcelizer: androidx.core.app.RemoteActionCompat read(androidx.versionedparcelable.VersionedParcel)
-io.flutter.plugin.platform.SingleViewPresentation: android.content.Context outerContext
-androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver: ConstraintProxyUpdateReceiver()
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View view
-io.flutter.plugin.editing.TextInputPlugin$1: void setEditableSizeAndTransform(double,double,double[])
-io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat: io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat valueOf(java.lang.String)
-androidx.core.R$id: int async
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$PresentationState detachState()
-io.flutter.embedding.engine.FlutterJNI: void invokePlatformMessageResponseCallback(int,java.nio.ByteBuffer,int)
-vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_failed
-io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int access$500(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
-androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy: ConstraintProxy$BatteryNotLowProxy()
-io.flutter.view.AccessibilityViewEmbedder: boolean performAction(int,int,android.os.Bundle)
-io.flutter.plugin.editing.TextInputPlugin: void access$200(io.flutter.plugin.editing.TextInputPlugin,android.view.View)
-io.flutter.plugin.editing.InputConnectionAdaptor: int clampIndexToEditable(int,android.text.Editable)
-io.flutter.embedding.engine.FlutterJNI: android.graphics.Bitmap getBitmap()
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack
-io.flutter.embedding.engine.FlutterJNI: void registerTexture(long,io.flutter.embedding.engine.renderer.SurfaceTextureWrapper)
-androidx.core.R$id: int accessibility_custom_action_15
-androidx.core.R$id: int accessibility_custom_action_9
-io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType: io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType[] values()
-io.flutter.plugin.editing.TextInputPlugin: void access$300(io.flutter.plugin.editing.TextInputPlugin)
-io.flutter.embedding.engine.FlutterJNI: void invokePlatformMessageEmptyResponseCallback(int)
-io.flutter.plugin.editing.ListenableEditingState: java.lang.String mToStringCache
-io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,int,java.nio.ByteBuffer,int)
-androidx.core.R$id: int action_text
-androidx.core.R$id: int action_container
-io.flutter.app.FlutterApplication
-io.flutter.plugin.editing.ListenableEditingState: void notifyListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher,boolean,boolean,boolean)
-io.flutter.embedding.engine.FlutterJNI: void setAccessibilityFeatures(int)
-io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: android.graphics.Matrix finalMatrix
-androidx.fragment.app.Fragment$2
-io.flutter.embedding.engine.FlutterJNI: void setSemanticsEnabled(boolean)
-io.flutter.plugin.editing.TextInputPlugin$2: double[] val$matrix
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type valueOf(java.lang.String)
-io.flutter.plugin.editing.ListenableEditingState: java.util.ArrayList mPendingListeners
-io.flutter.plugin.editing.TextInputPlugin$MinMax: void inspect(double,double)
-androidx.work.impl.WorkDatabase
-io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsVariationSelector(int)
-io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI$AsyncWaitForVsyncDelegate asyncWaitForVsyncDelegate
-io.flutter.embedding.engine.FlutterJNI: void deferredComponentInstallFailure(int,java.lang.String,boolean)
-io.flutter.embedding.engine.FlutterOverlaySurface: int id
-io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.AccessibilityEventsDelegate accessibilityEventsDelegate
-io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay: io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay valueOf(java.lang.String)
+io.flutter.plugin.platform.SingleViewPresentation: void onCreate(android.os.Bundle)
+io.flutter.plugin.editing.ListenableEditingState$1: android.text.Editable val$self
+io.flutter.embedding.android.FlutterSplashView$SavedState: FlutterSplashView$SavedState(android.os.Parcelable)
+io.flutter.plugin.editing.ListenableEditingState: android.text.SpannableStringBuilder replace(int,int,java.lang.CharSequence,int,int)
+androidx.work.impl.background.systemjob.SystemJobService: SystemJobService()
+io.flutter.view.AccessibilityViewEmbedder: AccessibilityViewEmbedder(android.view.View,int)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean setComposingRegion(int,int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: void onPrepare(android.view.WindowInsetsAnimation)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: void install()
 io.flutter.embedding.engine.FlutterJNI: boolean isAttached()
-io.flutter.embedding.engine.FlutterJNI: java.lang.String TAG
-io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.InputMethodManager mImm
-androidx.core.R$id: int accessibility_custom_action_27
-io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,io.flutter.view.AccessibilityBridge$Action)
-io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type PLATFORM_VIEW
+androidx.versionedparcelable.ParcelImpl
+io.flutter.embedding.engine.FlutterJNI: void nativeUnregisterTexture(long,long)
+com.google.common.util.concurrent.AbstractFuture: com.google.common.util.concurrent.AbstractFuture$Waiter waiters
+io.flutter.embedding.engine.FlutterJNI: void handlePlatformMessage(java.lang.String,byte[],int)
+io.flutter.plugins.GeneratedPluginRegistrant: GeneratedPluginRegistrant()
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_complete
+io.flutter.embedding.engine.FlutterJNI: void registerTexture(long,io.flutter.embedding.engine.renderer.SurfaceTextureWrapper)
+io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection createInputConnection(android.view.View,android.view.inputmethod.EditorInfo)
+com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType valueOf(java.lang.String)
+androidx.core.R$id: int notification_background
+io.flutter.view.FlutterCallbackInformation: java.lang.String callbackName
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI nativeSpawn(long,java.lang.String,java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void setLocalizationPlugin(io.flutter.plugin.localization.LocalizationPlugin)
+androidx.fragment.app.Fragment$2
+io.flutter.plugin.editing.ListenableEditingState: int getComposingEnd()
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText mExtractedText
+io.flutter.plugin.editing.TextInputPlugin: void setPlatformViewTextInputClient(int)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean performEditorAction(int)
+io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness: io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsVariationSelector(int)
+io.flutter.embedding.engine.FlutterJNI: void onDisplayPlatformView(int,int,int,int,int,int,int,io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack)
+io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode: io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode[] values()
+io.flutter.plugin.editing.ListenableEditingState: java.lang.String mTextWhenBeginBatchEdit
+io.flutter.view.AccessibilityViewEmbedder: void setFlutterNodesTranslateBounds(android.view.accessibility.AccessibilityNodeInfo,android.graphics.Rect,android.view.accessibility.AccessibilityNodeInfo)
+io.flutter.embedding.engine.FlutterJNI: void nativeDispatchPointerDataPacket(long,java.nio.ByteBuffer,int)
+io.flutter.embedding.android.FlutterImageView
+io.flutter.plugin.editing.TextInputPlugin: android.view.View mView
+io.flutter.plugin.editing.InputConnectionAdaptor: void closeConnection()
+com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat valueOf(java.lang.String)
+androidx.work.impl.WorkDatabase_Impl
+io.flutter.plugin.editing.TextInputPlugin$MinMax
+androidx.work.Worker: Worker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.plugin.editing.TextInputPlugin: void onProvideAutofillVirtualStructure(android.view.ViewStructure,int)
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.TextInputPlugin$InputTarget inputTarget
+io.flutter.embedding.engine.FlutterJNI: void nativeSetViewportMetrics(long,float,int,int,int,int,int,int,int,int,int,int,int,int,int,int)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean clearMetaKeyStates(int)
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_paused
+io.flutter.embedding.engine.FlutterJNI: void nativeMarkTextureFrameAvailable(long,long)
+io.flutter.plugin.editing.TextInputPlugin: void access$500(io.flutter.plugin.editing.TextInputPlugin,int)
+androidx.core.R$id: int actions
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int access$500(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.plugin.editing.TextInputPlugin: void updateAutofillConfigurationIfNeeded(io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.android.AndroidKeyProcessor getKeyEventProcessor()
+androidx.savedstate.Recreator
+androidx.core.R$id: int accessibility_custom_action_30
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_RESUME
+io.flutter.plugin.editing.TextInputPlugin$1: void setEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
+androidx.core.R$id: int accessibility_custom_action_15
+vn.hunghd.flutterdownloader.DownloadedFileProvider: DownloadedFileProvider()
+androidx.room.RoomDatabase$JournalMode: androidx.room.RoomDatabase$JournalMode[] values()
+io.flutter.embedding.engine.FlutterJNI: void runBundleAndSnapshotFromLibrary(java.lang.String,java.lang.String,java.lang.String,android.content.res.AssetManager)
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback getImeSyncCallback()
+io.flutter.embedding.engine.FlutterJNI: io.flutter.plugin.localization.LocalizationPlugin localizationPlugin
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean setComposingText(java.lang.CharSequence,int)
+io.flutter.embedding.engine.FlutterJNI: void addIsDisplayingFlutterUiListener(io.flutter.embedding.engine.renderer.FlutterUiDisplayListener)
+io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: androidx.lifecycle.Lifecycle getLifecycle()
+io.flutter.plugin.editing.TextInputPlugin: int inputTypeFromTextInputType(io.flutter.embedding.engine.systemchannels.TextInputChannel$InputType,boolean,boolean,boolean,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization)
+androidx.core.R$id: int right_icon
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.dart.PlatformMessageHandler platformMessageHandler
+io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization[] values()
+com.google.i18n.phonenumbers.NumberParseException$ErrorType: com.google.i18n.phonenumbers.NumberParseException$ErrorType valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI
+io.flutter.embedding.engine.FlutterJNI: void setAccessibilityFeatures(int)
+io.flutter.embedding.engine.FlutterJNI: void invokePlatformMessageResponseCallback(int,java.nio.ByteBuffer,int)
+io.flutter.embedding.engine.FlutterJNI: void loadDartDeferredLibrary(int,java.lang.String[])
+io.flutter.plugin.editing.FlutterTextUtils: int COMBINING_ENCLOSING_KEYCAP
+vn.hunghd.flutterdownloader.DownloadWorker: DownloadWorker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean handleHorizontalMovement(boolean,boolean)
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: android.graphics.SurfaceTexture surfaceTexture
+androidx.core.R$id: int normal
+io.flutter.plugin.editing.ListenableEditingState: int getSelectionEnd()
+io.flutter.embedding.engine.FlutterJNI: void updateCustomAccessibilityActions(java.nio.ByteBuffer,java.lang.String[])
+androidx.core.R$id: int accessibility_custom_action_24
+io.flutter.view.FlutterCallbackInformation: java.lang.String callbackLibraryPath
+io.flutter.plugin.editing.TextInputPlugin: android.view.autofill.AutofillManager afm
+io.flutter.embedding.engine.FlutterJNI: boolean getIsSoftwareRenderingEnabled()
+androidx.lifecycle.SavedStateHandleController$OnRecreation: SavedStateHandleController$OnRecreation()
+io.flutter.embedding.engine.FlutterJNI: void onSurfaceCreated(android.view.Surface)
+androidx.work.impl.WorkManagerInitializer
+io.flutter.embedding.engine.FlutterJNI: void nativeRunBundleAndSnapshotFromLibrary(long,java.lang.String,java.lang.String,java.lang.String,android.content.res.AssetManager)
+io.flutter.embedding.engine.FlutterJNI: void nativeSetAccessibilityFeatures(long,int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback
+androidx.core.R$id: int tag_unhandled_key_listeners
+io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceWindowChanged(long,android.view.Surface)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$200(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.plugin.editing.TextInputPlugin: void saveEditableSizeAndTransform(double,double,double[])
+androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+androidx.work.impl.foreground.SystemForegroundService
+io.flutter.plugin.editing.FlutterTextUtils: boolean isKeycapBase(int)
+io.flutter.embedding.android.FlutterSplashView$SavedState
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View$OnApplyWindowInsetsListener getInsetsListener()
+io.flutter.view.FlutterView: io.flutter.view.FlutterNativeView getFlutterNativeView()
+io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus: io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus[] values()
+androidx.work.impl.WorkDatabase
+androidx.work.impl.workers.DiagnosticsWorker: DiagnosticsWorker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness: io.flutter.embedding.engine.systemchannels.SettingsChannel$PlatformBrightness valueOf(java.lang.String)
+io.flutter.app.FlutterApplication: FlutterApplication()
+io.flutter.plugin.editing.TextInputPlugin$2: double[] val$minMax
+androidx.work.impl.workers.CombineContinuationsWorker
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type FRAMEWORK_CLIENT
+androidx.work.impl.background.systemalarm.RescheduleReceiver: RescheduleReceiver()
+androidx.core.app.RemoteActionCompatParcelizer
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: ImeSyncDeferringInsetsCallback$AnimationCallback(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.embedding.engine.FlutterJNI: android.graphics.Bitmap nativeGetBitmap(long)
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_canceled
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType: io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType valueOf(java.lang.String)
+androidx.core.R$id: int accessibility_custom_action_9
+androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
+androidx.lifecycle.SavedStateHandleController$1
+androidx.core.R$id: int accessibility_custom_action_23
+io.flutter.plugin.editing.TextInputPlugin: boolean isInputConnectionLocked
+io.flutter.plugin.editing.ListenableEditingState: void removeEditingStateListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher)
+io.flutter.plugin.editing.ListenableEditingState: void setEditingState(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
+androidx.core.R$id: int accessibility_custom_action_13
+io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextInputType[] values()
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_started
+io.flutter.plugin.editing.TextInputPlugin: void lockPlatformViewInputConnection()
+io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceChanged(long,int,int)
+io.flutter.plugin.platform.SingleViewPresentation: SingleViewPresentation(android.content.Context,android.view.Display,io.flutter.plugin.platform.AccessibilityEventsDelegate,io.flutter.plugin.platform.SingleViewPresentation$PresentationState,android.view.View$OnFocusChangeListener,boolean)
+io.flutter.plugin.editing.TextInputPlugin$InputTarget: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type type
+io.flutter.embedding.engine.FlutterJNI: void onEndFrame()
+io.flutter.plugin.editing.ListenableEditingState
+io.flutter.embedding.engine.FlutterJNI: void loadLibrary()
+io.flutter.plugin.editing.ListenableEditingState: void endBatchEdit()
+androidx.activity.ComponentActivity$3
+androidx.versionedparcelable.CustomVersionedParcelable
+androidx.work.R$bool: int workmanager_test_configuration
+io.flutter.view.FlutterView: android.view.accessibility.AccessibilityNodeProvider getAccessibilityNodeProvider()
+io.flutter.embedding.engine.FlutterJNI: void removeEngineLifecycleListener(io.flutter.embedding.engine.FlutterEngine$EngineLifecycleListener)
+io.flutter.embedding.engine.FlutterJNI: void nativeDestroy(long)
+io.flutter.embedding.engine.FlutterJNI: void nativeDeferredComponentInstallFailure(int,java.lang.String,boolean)
+io.flutter.embedding.engine.FlutterJNI: boolean setRefreshRateFPSCalled
+androidx.work.OverwritingInputMerger: OverwritingInputMerger()
+io.flutter.embedding.android.FlutterView$ZeroSides: io.flutter.embedding.android.FlutterView$ZeroSides valueOf(java.lang.String)
+androidx.lifecycle.SavedStateHandleController$OnRecreation
+androidx.work.WorkerParameters
+io.flutter.plugin.editing.TextInputPlugin$1: void setClient(int,io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
+io.flutter.embedding.android.DrawableSplashScreen$DrawableSplashScreenView
+androidx.work.impl.background.systemalarm.SystemAlarmService
+io.flutter.plugin.editing.TextInputPlugin$1: void finishAutofillContext(boolean)
+io.flutter.view.FlutterCallbackInformation: FlutterCallbackInformation(java.lang.String,java.lang.String,java.lang.String)
+io.flutter.plugin.editing.InputConnectionAdaptor: int clampIndexToEditable(int,android.text.Editable)
+io.flutter.plugin.editing.InputConnectionAdaptor: android.text.Editable getEditable()
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.View mFlutterView
+androidx.core.R$id: int action_text
+io.flutter.plugin.editing.InputConnectionAdaptor
+io.flutter.plugin.editing.ListenableEditingState: android.text.Editable replace(int,int,java.lang.CharSequence,int,int)
+io.flutter.embedding.engine.FlutterJNI: void asyncWaitForVsync(long)
+io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference
+androidx.core.R$id: int accessibility_custom_action_26
+io.flutter.embedding.engine.FlutterJNI: void nativeInvokePlatformMessageEmptyResponseCallback(long,int)
+io.flutter.plugin.editing.TextInputPlugin: void destroy()
+io.flutter.plugin.editing.TextInputPlugin$MinMax: void inspect(double,double)
+androidx.lifecycle.SingleGeneratedAdapterObserver
+androidx.work.impl.workers.ConstraintTrackingWorker: ConstraintTrackingWorker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean requestCursorUpdates(int)
+io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceDestroyed(long)
+io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation: io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI$AccessibilityDelegate accessibilityDelegate
+io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle access$700(io.flutter.embedding.android.FlutterSplashView$SavedState)
+io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat: io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat[] values()
+androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.PlatformView getView()
+androidx.work.impl.background.systemalarm.RescheduleReceiver
+io.flutter.plugin.editing.ListenableEditingState: int mComposingStartWhenBeginBatchEdit
+io.flutter.plugin.platform.SingleViewPresentation: android.view.View$OnFocusChangeListener focusChangeListener
+io.flutter.view.AccessibilityViewEmbedder: java.util.Map originToFlutterId
+androidx.core.R$id: int tag_accessibility_pane_title
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: android.graphics.Matrix finalMatrix
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_channel_name
+io.flutter.embedding.android.FlutterSplashView$SavedState: void writeToParcel(android.os.Parcel,int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$1
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: FlutterMutatorsStack()
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type[] $VALUES
+androidx.work.impl.foreground.SystemForegroundService: SystemForegroundService()
+com.google.common.util.concurrent.AbstractFuture: com.google.common.util.concurrent.AbstractFuture$Listener listeners
+io.flutter.plugin.editing.FlutterTextUtils: FlutterTextUtils(io.flutter.embedding.engine.FlutterJNI)
+androidx.work.impl.utils.futures.AbstractFuture: java.lang.Object value
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_START
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback imeSyncCallback
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event valueOf(java.lang.String)
+androidx.work.R$bool: int enable_system_job_service_default
+androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy: ConstraintProxy$BatteryChargingProxy()
+io.flutter.view.AccessibilityBridge$Flag: io.flutter.view.AccessibilityBridge$Flag[] values()
+io.flutter.embedding.engine.FlutterJNI: io.flutter.view.FlutterCallbackInformation nativeLookupCallbackInformation(long)
+io.flutter.plugin.editing.TextInputPlugin: void setTextInputEditingState(android.view.View,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
+io.flutter.embedding.engine.FlutterJNI: void nativeDispatchEmptyPlatformMessage(long,java.lang.String,int)
+android.support.v4.graphics.drawable.IconCompatParcelizer: void write(androidx.core.graphics.drawable.IconCompat,androidx.versionedparcelable.VersionedParcel)
+androidx.core.R$id: int icon
+io.flutter.plugin.platform.SingleViewPresentation: android.content.Context outerContext
+androidx.work.impl.diagnostics.DiagnosticsReceiver: DiagnosticsReceiver()
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushClipRect(int,int,int,int)
+io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection getLastInputConnection()
+io.flutter.embedding.engine.FlutterJNI: void dispatchPlatformMessage(java.lang.String,java.nio.ByteBuffer,int,int)
+androidx.core.R$id: int accessibility_custom_action_19
+androidx.core.app.CoreComponentFactory: CoreComponentFactory()
+io.flutter.plugin.editing.TextInputPlugin: void notifyValueChanged(java.lang.String)
+io.flutter.plugin.editing.FlutterTextUtils: int LINE_FEED
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText getExtractedText(android.view.inputmethod.ExtractedTextRequest,int)
+io.flutter.plugin.editing.TextInputPlugin$1: void setEditableSizeAndTransform(double,double,double[])
+io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.embedding.android.AndroidKeyProcessor keyProcessor
+androidx.core.graphics.drawable.IconCompatParcelizer: IconCompatParcelizer()
+io.flutter.embedding.android.FlutterSplashView$SavedState: android.os.Bundle splashScreenState
+io.flutter.embedding.android.FlutterView
+androidx.work.impl.workers.DiagnosticsWorker
+androidx.annotation.Keep
+io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String access$602(io.flutter.embedding.android.FlutterSplashView$SavedState,java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: java.lang.Long nativeShellHolderId
+io.flutter.plugin.editing.TextInputPlugin: void setTextInputClient(int,io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration)
+io.flutter.plugin.editing.ListenableEditingState$1: io.flutter.plugin.editing.ListenableEditingState this$0
+io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus: io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus valueOf(java.lang.String)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean deleteSurroundingText(int,int)
+com.google.common.util.concurrent.AbstractFuture$Waiter: com.google.common.util.concurrent.AbstractFuture$Waiter next
+androidx.core.R$id: int tag_on_receive_content_mime_types
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int overlayInsetTypes
+androidx.lifecycle.LiveData$LifecycleBoundObserver
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean animating
+androidx.lifecycle.Lifecycle$State: androidx.lifecycle.Lifecycle$State[] values()
+io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat: io.flutter.embedding.engine.systemchannels.PlatformChannel$ClipboardContentFormat valueOf(java.lang.String)
+io.flutter.view.AccessibilityViewEmbedder: boolean requestSendAccessibilityEvent(android.view.View,android.view.View,android.view.accessibility.AccessibilityEvent)
+io.flutter.embedding.engine.FlutterOverlaySurface: int getId()
+io.flutter.view.AccessibilityBridge$Action: io.flutter.view.AccessibilityBridge$Action valueOf(java.lang.String)
+io.flutter.embedding.android.FlutterView: io.flutter.embedding.engine.FlutterEngine getAttachedFlutterEngine()
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event[] values()
+io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType: io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType valueOf(java.lang.String)
+androidx.core.R$id: int right_side
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean doPerformContextMenuAction(int)
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean performPrivateCommand(java.lang.String,android.os.Bundle)
+androidx.savedstate.SavedStateRegistry$1
+androidx.work.impl.utils.futures.AbstractFuture: androidx.work.impl.utils.futures.AbstractFuture$Waiter waiters
+io.flutter.view.FlutterView$ZeroSides: io.flutter.view.FlutterView$ZeroSides[] values()
+io.flutter.embedding.android.FlutterImageView: android.view.Surface getSurface()
+io.flutter.plugin.editing.FlutterTextUtils
+androidx.core.app.RemoteActionCompat
+io.flutter.embedding.engine.FlutterJNI: void deferredComponentInstallFailure(int,java.lang.String,boolean)
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushClipRRect(int,int,int,int,float[])
+io.flutter.plugin.editing.FlutterTextUtils: boolean isRegionalIndicatorSymbol(int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: ImeSyncDeferringInsetsCallback$InsetsListener(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.plugin.editing.ListenableEditingState: int mChangeNotificationDepth
+io.flutter.embedding.engine.FlutterJNI: void onSurfaceChanged(int,int)
+androidx.work.impl.background.systemalarm.SystemAlarmService: SystemAlarmService()
+io.flutter.plugin.editing.FlutterTextUtils: int ZERO_WIDTH_JOINER
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterOverlaySurface createOverlaySurface()
+androidx.lifecycle.Lifecycling$1
+io.flutter.view.AccessibilityViewEmbedder: void setFlutterNodeParent(android.view.accessibility.AccessibilityNodeInfo,android.view.View,android.view.accessibility.AccessibilityNodeInfo)
+androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener
+io.flutter.view.AccessibilityViewEmbedder: void copyAccessibilityFields(android.view.accessibility.AccessibilityNodeInfo,android.view.accessibility.AccessibilityNodeInfo)
+io.flutter.embedding.engine.FlutterJNI: java.util.Set flutterUiDisplayListeners
+io.flutter.embedding.android.FlutterTextureView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
+com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberFormat[] values()
+io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,int,java.nio.ByteBuffer,int)
+android.support.v4.graphics.drawable.IconCompatParcelizer
+android.support.v4.graphics.drawable.IconCompatParcelizer: androidx.core.graphics.drawable.IconCompat read(androidx.versionedparcelable.VersionedParcel)
+androidx.work.impl.utils.futures.DirectExecutor: androidx.work.impl.utils.futures.DirectExecutor[] values()
+androidx.core.R$id: int title
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean finishComposingText()
+androidx.core.R$id: int tag_window_insets_animation_callback
+androidx.core.R$id: int accessibility_custom_action_31
+androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver: ForceStopRunnable$BroadcastReceiver()
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration configuration
+io.flutter.plugins.GeneratedPluginRegistrant: void registerWith(io.flutter.embedding.engine.FlutterEngine)
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper
+androidx.core.R$id: int accessibility_custom_action_8
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback animationCallback
+io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: androidx.lifecycle.Lifecycle lifecycle
+io.flutter.plugin.editing.ListenableEditingState: int mComposingEndWhenBeginBatchEdit
+io.flutter.plugin.editing.ListenableEditingState: int mSelectionStartWhenBeginBatchEdit
+io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType: io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType valueOf(java.lang.String)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets access$402(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,android.view.WindowInsets)
+io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.plugin.editing.FlutterTextUtils flutterTextUtils
+androidx.core.R$id: int accessibility_custom_action_21
+androidx.core.app.RemoteActionCompat: RemoteActionCompat()
+vn.hunghd.flutterdownloader.R$string: int flutter_downloader_notification_channel_description
+androidx.work.impl.utils.futures.AbstractFuture$Waiter: java.lang.Thread thread
+io.flutter.plugin.editing.TextInputPlugin: void notifyViewExited()
+io.flutter.embedding.engine.FlutterJNI: boolean nativeGetIsSoftwareRenderingEnabled()
+androidx.core.R$id: int accessibility_custom_action_18
+io.flutter.plugin.editing.TextInputPlugin$InputTarget: int id
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedText getExtractedText(android.view.inputmethod.ExtractedTextRequest)
+androidx.core.R$id: int tag_transition_group
+io.flutter.embedding.engine.FlutterJNI: void handlePlatformMessageResponse(int,byte[])
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean sendKeyEvent(android.view.KeyEvent)
+io.flutter.plugin.editing.ListenableEditingState: java.lang.String toString()
+androidx.core.R$id: int tag_unhandled_key_event_manager
+com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult: com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult[] values()
+com.mr.flutter.plugin.filepicker.FilePickerPlugin$LifeCycleObserver
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsets access$400(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$PresentationState detachState()
+io.flutter.embedding.engine.FlutterJNI: void markTextureFrameAvailable(long)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.WindowInsetsAnimation$Callback getAnimationCallback()
+androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy
+io.flutter.embedding.engine.FlutterJNI: void detachFromNativeAndReleaseResources()
+io.flutter.plugin.editing.TextInputPlugin$1
+io.flutter.plugin.platform.SingleViewPresentation: java.lang.Object createParams
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: ImeSyncDeferringInsetsCallback(android.view.View,int,int)
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_DESTROY
+androidx.core.R$id: int chronometer
+io.flutter.plugin.editing.ListenableEditingState: int getComposingStart()
+androidx.core.R$id: int accessibility_custom_action_29
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_STOP
+io.flutter.embedding.engine.FlutterJNI: void addEngineLifecycleListener(io.flutter.embedding.engine.FlutterEngine$EngineLifecycleListener)
+io.flutter.embedding.engine.FlutterOverlaySurface: FlutterOverlaySurface(int,android.view.Surface)
+io.flutter.embedding.engine.FlutterJNI: void onSurfaceWindowChanged(android.view.Surface)
+androidx.work.impl.diagnostics.DiagnosticsReceiver
+androidx.core.R$id: int text
+io.flutter.plugin.editing.TextInputPlugin: void access$200(io.flutter.plugin.editing.TextInputPlugin,android.view.View)
+io.flutter.plugin.editing.ListenableEditingState$1: ListenableEditingState$1(io.flutter.plugin.editing.ListenableEditingState,android.view.View,boolean,android.text.Editable)
+androidx.core.R$id: int accessibility_custom_action_28
+io.flutter.view.AccessibilityBridge$AccessibilityFeature: io.flutter.view.AccessibilityBridge$AccessibilityFeature valueOf(java.lang.String)
+io.flutter.view.FlutterView: io.flutter.embedding.engine.dart.DartExecutor getDartExecutor()
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: SurfaceTextureWrapper(android.graphics.SurfaceTexture)
+com.google.common.util.concurrent.AbstractFuture: java.lang.Object value
+androidx.core.R$id: int line3
+androidx.work.WorkInfo$State: androidx.work.WorkInfo$State valueOf(java.lang.String)
+io.flutter.view.FlutterCallbackInformation: java.lang.String callbackClassName
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean setSelection(int,int)
 io.flutter.embedding.android.FlutterView$ZeroSides: io.flutter.embedding.android.FlutterView$ZeroSides[] values()
+io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay: io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay[] values()
+io.flutter.plugin.editing.InputConnectionAdaptor: InputConnectionAdaptor(android.view.View,int,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.embedding.android.AndroidKeyProcessor,io.flutter.plugin.editing.ListenableEditingState,android.view.inputmethod.EditorInfo)
+io.flutter.plugins.urllauncher.WebViewActivity
+io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextCapitalization valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: FlutterJNI()
+io.flutter.view.FlutterView
+io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation: io.flutter.embedding.engine.systemchannels.PlatformChannel$DeviceOrientation[] values()
+io.flutter.plugin.editing.TextInputPlugin: void setKeyEventProcessor(io.flutter.embedding.android.AndroidKeyProcessor)
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack
+androidx.core.R$id: int accessibility_custom_action_7
+androidx.work.ArrayCreatingInputMerger
+io.flutter.embedding.engine.plugins.lifecycle.HiddenLifecycleReference: HiddenLifecycleReference(androidx.lifecycle.Lifecycle)
+io.flutter.embedding.android.FlutterImageView: io.flutter.embedding.engine.renderer.FlutterRenderer getAttachedRenderer()
+androidx.core.R$id: int accessibility_custom_action_11
+io.flutter.plugin.editing.TextInputPlugin$InputTarget
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type PLATFORM_VIEW
+io.flutter.view.AccessibilityViewEmbedder: boolean performAction(int,int,android.os.Bundle)
+io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputMethodManager getInputMethodManager()
+androidx.work.impl.utils.futures.DirectExecutor: androidx.work.impl.utils.futures.DirectExecutor valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: java.lang.String[] computePlatformResolvedLocale(java.lang.String[])
+io.flutter.embedding.engine.FlutterJNI: void setPlatformMessageHandler(io.flutter.embedding.engine.dart.PlatformMessageHandler)
+androidx.work.ArrayCreatingInputMerger: ArrayCreatingInputMerger()
+androidx.core.R$id: int accessibility_action_clickable_span
+androidx.work.impl.utils.futures.AbstractFuture$Waiter: androidx.work.impl.utils.futures.AbstractFuture$Waiter next
+io.flutter.plugins.urllauncher.WebViewActivity: WebViewActivity()
+androidx.work.impl.WorkManagerInitializer: WorkManagerInitializer()
+io.flutter.plugin.editing.TextInputPlugin$InputTarget: TextInputPlugin$InputTarget(io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type,int)
+io.flutter.embedding.engine.FlutterJNI: void unregisterTexture(long)
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.ExtractedTextRequest mExtractRequest
+androidx.work.InputMerger: InputMerger()
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.AccessibilityEventsDelegate accessibilityEventsDelegate
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List mutators
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView
+io.flutter.view.AccessibilityViewEmbedder: boolean onAccessibilityHoverEvent(int,android.view.MotionEvent)
+io.flutter.plugin.editing.TextInputPlugin: android.util.SparseArray mAutofillConfigurations
+io.flutter.view.FlutterView: float getDevicePixelRatio()
+io.flutter.plugin.editing.TextInputPlugin: boolean composingChanged(io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState,io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState)
+io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType: io.flutter.embedding.engine.systemchannels.PlatformChannel$SoundType[] values()
+io.flutter.view.AccessibilityViewEmbedder: android.view.View platformViewOfNode(int)
+io.flutter.plugin.platform.SingleViewPresentation: SingleViewPresentation(android.content.Context,android.view.Display,io.flutter.plugin.platform.PlatformViewFactory,io.flutter.plugin.platform.AccessibilityEventsDelegate,int,java.lang.Object,android.view.View$OnFocusChangeListener)
+io.flutter.embedding.engine.FlutterJNI: void dispatchPointerDataPacket(java.nio.ByteBuffer,int)
+io.flutter.embedding.engine.FlutterJNI: void ensureAttachedToNative()
+io.flutter.embedding.engine.FlutterJNI: void init(android.content.Context,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,long)
+io.flutter.embedding.engine.FlutterJNI: void dispatchSemanticsAction(int,io.flutter.view.AccessibilityBridge$Action,java.lang.Object)
+io.flutter.plugin.editing.TextInputPlugin$2: double[] val$matrix
+io.flutter.view.AccessibilityViewEmbedder: android.util.SparseArray flutterIdToOrigin
+io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode: io.flutter.embedding.android.FlutterActivityLaunchConfigs$BackgroundMode valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: android.graphics.Bitmap getBitmap()
+io.flutter.view.AccessibilityBridge$TextDirection: io.flutter.view.AccessibilityBridge$TextDirection[] values()
+io.flutter.embedding.engine.FlutterJNI: long performNativeAttach(io.flutter.embedding.engine.FlutterJNI,boolean)
+io.flutter.embedding.engine.FlutterJNI: void setSemanticsEnabled(boolean)
+androidx.core.R$id: int blocking
+androidx.core.R$id: int accessibility_custom_action_17
+io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.embedding.engine.systemchannels.TextInputChannel textInputChannel
+io.flutter.plugin.editing.TextInputPlugin: void sendTextInputAppPrivateCommand(java.lang.String,android.os.Bundle)
+io.flutter.embedding.engine.FlutterJNI: java.lang.String observatoryUri
+io.flutter.plugin.editing.TextInputPlugin$1: void requestAutofill()
+android.support.v4.app.RemoteActionCompatParcelizer: void write(androidx.core.app.RemoteActionCompat,androidx.versionedparcelable.VersionedParcel)
+androidx.core.R$id: int accessibility_custom_action_16
+io.flutter.plugin.editing.InputConnectionAdaptor: android.text.Layout mLayout
+io.flutter.embedding.engine.FlutterJNI: void setAsyncWaitForVsyncDelegate(io.flutter.embedding.engine.FlutterJNI$AsyncWaitForVsyncDelegate)
+io.flutter.plugin.editing.FlutterTextUtils: int CANCEL_TAG
+io.flutter.plugin.editing.TextInputPlugin$2: io.flutter.plugin.editing.TextInputPlugin this$0
+io.flutter.view.AccessibilityViewEmbedder: java.lang.String TAG
+androidx.work.Worker
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type valueOf(java.lang.String)
+io.flutter.plugin.platform.SingleViewPresentation
+io.flutter.plugin.editing.TextInputPlugin: void access$100(io.flutter.plugin.editing.TextInputPlugin,android.view.View)
+com.google.i18n.phonenumbers.NumberParseException$ErrorType: com.google.i18n.phonenumbers.NumberParseException$ErrorType[] values()
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type[] values()
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type NO_TARGET
+io.flutter.view.AccessibilityViewEmbedder: void cacheVirtualIdMappings(android.view.View,int,int)
+androidx.core.R$id: int tag_accessibility_heading
+androidx.lifecycle.LifecycleService: LifecycleService()
+androidx.core.R$id: int tag_screen_reader_focusable
+androidx.work.impl.WorkDatabase_Impl: WorkDatabase_Impl()
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.InputMethodManager mImm
+androidx.room.MultiInstanceInvalidationService
+io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int)
+io.flutter.plugin.editing.FlutterTextUtils: io.flutter.embedding.engine.FlutterJNI flutterJNI
+io.flutter.plugin.editing.TextInputPlugin: android.view.autofill.AutofillManager access$400(io.flutter.plugin.editing.TextInputPlugin)
+androidx.core.R$id: int accessibility_custom_action_4
+io.flutter.embedding.engine.FlutterJNI: void dispatchEmptyPlatformMessage(java.lang.String,int)
+io.flutter.plugin.editing.TextInputPlugin$1: TextInputPlugin$1(io.flutter.plugin.editing.TextInputPlugin)
+io.flutter.plugin.platform.SingleViewPresentation: boolean startFocused
+io.flutter.plugin.editing.ListenableEditingState: void beginBatchEdit()
+androidx.core.R$id: int tag_on_apply_window_listener
+io.flutter.plugin.editing.ListenableEditingState$1: android.text.Editable getEditable()
+com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult: com.google.i18n.phonenumbers.PhoneNumberUtil$ValidationResult valueOf(java.lang.String)
+io.flutter.plugin.editing.TextInputPlugin: void didChangeEditingState(boolean,boolean,boolean)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: void onEnd(android.view.WindowInsetsAnimation)
+io.flutter.embedding.engine.FlutterJNI: void updateSemantics(java.nio.ByteBuffer,java.lang.String[])
+io.flutter.embedding.engine.FlutterJNI: boolean prefetchDefaultFontManagerCalled
+androidx.core.R$id: int dialog_button
+io.flutter.plugins.GeneratedPluginRegistrant
+io.flutter.embedding.engine.FlutterJNI: void nativeDispatchSemanticsAction(long,int,int,java.nio.ByteBuffer,int)
+vn.hunghd.flutterdownloader.DownloadWorker
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_CREATE
+androidx.lifecycle.CompositeGeneratedAdaptersObserver
+io.flutter.embedding.android.TransparencyMode: io.flutter.embedding.android.TransparencyMode valueOf(java.lang.String)
+io.flutter.view.AccessibilityViewEmbedder: android.view.accessibility.AccessibilityNodeInfo convertToFlutterNode(android.view.accessibility.AccessibilityNodeInfo,int,android.view.View)
+io.flutter.view.AccessibilityViewEmbedder: java.lang.Integer getRecordFlutterId(android.view.View,android.view.accessibility.AccessibilityRecord)
+androidx.core.graphics.drawable.IconCompatParcelizer: androidx.core.graphics.drawable.IconCompat read(androidx.versionedparcelable.VersionedParcel)
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void release()
+io.flutter.plugin.editing.TextInputPlugin$1: void setPlatformViewClient(int)
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.CursorAnchorInfo getCursorAnchorInfo()
+io.flutter.plugin.editing.ListenableEditingState: void notifyListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher,boolean,boolean,boolean)
+io.flutter.plugin.editing.TextInputPlugin: android.graphics.Rect lastClientRect
+androidx.core.R$id: int notification_main_column_container
+io.flutter.embedding.engine.FlutterOverlaySurface: android.view.Surface surface
+androidx.work.impl.WorkDatabase: WorkDatabase()
+io.flutter.plugin.editing.FlutterTextUtils: boolean isTagSpecChar(int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View access$602(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,android.view.View)
+io.flutter.view.AccessibilityViewEmbedder: android.view.View rootAccessibilityView
+androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver: ConstraintProxyUpdateReceiver()
+io.flutter.embedding.engine.FlutterJNI: boolean initCalled
+io.flutter.embedding.android.FlutterImageView$SurfaceKind: io.flutter.embedding.android.FlutterImageView$SurfaceKind valueOf(java.lang.String)
+androidx.core.R$id: int accessibility_custom_action_2
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$PresentationState state
+io.flutter.plugin.platform.SingleViewPresentation: io.flutter.plugin.platform.SingleViewPresentation$AccessibilityDelegatingFrameLayout rootView
+androidx.work.ListenableWorker: ListenableWorker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List finalClippingPaths
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.editing.ListenableEditingState mEditable
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.CursorAnchorInfo$Builder mCursorAnchorInfoBuilder
+androidx.core.R$id: int accessibility_custom_action_20
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.embedding.engine.systemchannels.TextInputChannel$TextEditState mLastKnownFrameworkTextEditingState
+io.flutter.plugin.editing.FlutterTextUtils: boolean isEmoji(int)
+io.flutter.plugin.editing.TextInputPlugin: java.lang.String TAG
+io.flutter.embedding.engine.FlutterJNI: java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType: io.flutter.embedding.engine.systemchannels.PlatformChannel$HapticFeedbackType[] values()
+androidx.work.impl.background.systemjob.SystemJobService
+io.flutter.plugin.editing.ListenableEditingState: java.util.ArrayList mListeners
+io.flutter.plugin.editing.TextInputPlugin: android.view.View access$000(io.flutter.plugin.editing.TextInputPlugin)
+androidx.room.RoomDatabase$JournalMode: androidx.room.RoomDatabase$JournalMode valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: io.flutter.plugin.platform.PlatformViewsController platformViewsController
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean isSamsung()
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean endBatchEdit()
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorView: android.graphics.Matrix getPlatformViewMatrix()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int deferredInsetTypes
+io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmojiModifier(int)
+io.flutter.plugin.editing.TextInputPlugin: void hideTextInput(android.view.View)
+io.flutter.plugin.editing.InputConnectionAdaptor: InputConnectionAdaptor(android.view.View,int,io.flutter.embedding.engine.systemchannels.TextInputChannel,io.flutter.embedding.android.AndroidKeyProcessor,io.flutter.plugin.editing.ListenableEditingState,android.view.inputmethod.EditorInfo,io.flutter.embedding.engine.FlutterJNI)
+androidx.work.NetworkType: androidx.work.NetworkType valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void prefetchDefaultFontManager()
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: java.util.List getFinalClippingPaths()
+androidx.versionedparcelable.ParcelImpl: android.os.Parcelable$Creator CREATOR
+io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputMethodManager mImm
+androidx.core.R$id: int accessibility_custom_action_25
+io.flutter.embedding.android.FlutterView: android.view.accessibility.AccessibilityNodeProvider getAccessibilityNodeProvider()
+io.flutter.plugin.editing.ListenableEditingState: void notifyListenersIfNeeded(boolean,boolean,boolean)
+androidx.core.R$id: int accessibility_custom_action_12
+androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy: ConstraintProxy$BatteryNotLowProxy()
+androidx.activity.ImmLeaksCleaner
+io.flutter.plugin.editing.TextInputPlugin: android.view.inputmethod.InputConnection lastInputConnection
+io.flutter.plugin.editing.InputConnectionAdaptor: android.view.inputmethod.EditorInfo mEditorInfo
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$202(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,boolean)
+io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsEmoji(int)
+androidx.core.R$id: int tag_on_receive_content_listener
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback this$0
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: android.graphics.SurfaceTexture surfaceTexture()
+io.flutter.plugin.editing.FlutterTextUtils: boolean isVariationSelector(int)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener insetsListener
+io.flutter.plugin.editing.TextInputPlugin$1: void clearClient()
+io.flutter.embedding.engine.FlutterJNI: void nativeSurfaceCreated(long,android.view.Surface)
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: void detachFromGLContext()
+io.flutter.embedding.engine.FlutterJNI: void onFirstFrame()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback this$0
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$AnimationCallback: android.view.WindowInsets onProgress(android.view.WindowInsets,java.util.List)
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View access$600(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.embedding.engine.FlutterJNI: void nativePrefetchDefaultFontManager()
+io.flutter.embedding.engine.FlutterJNI: void nativeSetSemanticsEnabled(long,boolean)
+androidx.work.impl.workers.CombineContinuationsWorker: CombineContinuationsWorker(android.content.Context,androidx.work.WorkerParameters)
+io.flutter.plugin.editing.ListenableEditingState: android.view.inputmethod.BaseInputConnection mDummyConnection
+io.flutter.plugin.editing.TextInputPlugin$2: boolean val$isAffine
+android.support.v4.app.RemoteActionCompatParcelizer
+androidx.lifecycle.SavedStateHandleController
+io.flutter.plugin.editing.TextInputPlugin: void access$600(io.flutter.plugin.editing.TextInputPlugin,double,double,double[])
+io.flutter.plugin.editing.TextInputPlugin: void clearPlatformViewClient(int)
+io.flutter.plugin.editing.ListenableEditingState: int getSelectionStart()
+androidx.room.MultiInstanceInvalidationService: MultiInstanceInvalidationService()
+io.flutter.embedding.engine.FlutterJNI: void ensureNotAttachedToNative()
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type: TextInputPlugin$InputTarget$Type(java.lang.String,int)
+io.flutter.embedding.engine.FlutterJNI: void invokePlatformMessageEmptyResponseCallback(int)
+io.flutter.embedding.engine.FlutterJNI: void updateJavaAssetManager(android.content.res.AssetManager,java.lang.String)
+io.flutter.plugin.editing.TextInputPlugin: void access$300(io.flutter.plugin.editing.TextInputPlugin)
+androidx.room.RoomDatabase: RoomDatabase()
+io.flutter.app.FlutterApplication
+io.flutter.embedding.engine.FlutterOverlaySurface: int id
+io.flutter.plugin.editing.TextInputPlugin
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: android.view.WindowInsets onApplyWindowInsets(android.view.View,android.view.WindowInsets)
+io.flutter.plugin.editing.TextInputPlugin$InputTarget$Type
+io.flutter.embedding.android.TransparencyMode: io.flutter.embedding.android.TransparencyMode[] values()
+androidx.activity.OnBackPressedDispatcher$LifecycleOnBackPressedCancellable
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event[] $VALUES
+androidx.activity.ComponentActivity$2
+io.flutter.embedding.android.FlutterTextureView
+io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher: void didChangeEditingState(boolean,boolean,boolean)
+io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher
+io.flutter.plugin.editing.TextInputPlugin: io.flutter.plugin.platform.PlatformViewsController platformViewsController
+io.flutter.embedding.engine.FlutterJNI: void onBeginFrame()
+io.flutter.view.AccessibilityBridge$Action: io.flutter.view.AccessibilityBridge$Action[] values()
+io.flutter.embedding.android.FlutterActivity: FlutterActivity()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: int access$100(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback)
+io.flutter.embedding.engine.FlutterJNI: android.os.Looper mainLooper
+androidx.work.ListenableWorker
+io.flutter.plugin.editing.ListenableEditingState: int mBatchEditNestDepth
+androidx.core.R$id: int async
+androidx.lifecycle.FullLifecycleObserverAdapter
+androidx.work.impl.workers.ConstraintTrackingWorker
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: android.graphics.Matrix getFinalMatrix()
+io.flutter.embedding.engine.FlutterJNI: void setRefreshRateFPS(float)
+io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay: io.flutter.embedding.engine.systemchannels.PlatformChannel$SystemUiOverlay valueOf(java.lang.String)
+androidx.core.graphics.drawable.IconCompatParcelizer: void write(androidx.core.graphics.drawable.IconCompat,androidx.versionedparcelable.VersionedParcel)
+io.flutter.plugin.editing.ListenableEditingState: void addEditingStateListener(io.flutter.plugin.editing.ListenableEditingState$EditingStateWatcher)
+io.flutter.embedding.engine.FlutterJNI: float refreshRateFPS
+io.flutter.plugin.editing.TextInputPlugin: void showTextInput(android.view.View)
+androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy: ConstraintProxy$StorageNotLowProxy()
+io.flutter.embedding.engine.FlutterJNI: void attachToNative(boolean)
+io.flutter.plugin.editing.TextInputPlugin$1: io.flutter.plugin.editing.TextInputPlugin this$0
+androidx.core.R$id: int accessibility_custom_action_5
+io.flutter.embedding.engine.FlutterJNI: void nativeDispatchPlatformMessage(long,java.lang.String,java.nio.ByteBuffer,int,int)
+io.flutter.view.FlutterCallbackInformation
+io.flutter.plugin.editing.InputConnectionAdaptor: int mClient
+io.flutter.view.FlutterView: io.flutter.app.FlutterPluginRegistry getPluginRegistry()
+androidx.work.NetworkType: androidx.work.NetworkType[] values()
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager deferredComponentManager
+androidx.core.graphics.drawable.IconCompat
+androidx.core.R$id: int line1
+com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource: com.google.i18n.phonenumbers.Phonenumber$PhoneNumber$CountryCodeSource[] values()
+io.flutter.view.AccessibilityViewEmbedder
+io.flutter.embedding.android.FlutterSurfaceView
+androidx.versionedparcelable.CustomVersionedParcelable: CustomVersionedParcelable()
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType: io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutatorType[] values()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: boolean access$302(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,boolean)
+io.flutter.plugin.editing.TextInputPlugin: void clearTextInputClient()
+com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType: com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType[] values()
+io.flutter.embedding.engine.FlutterJNI: void setAccessibilityDelegate(io.flutter.embedding.engine.FlutterJNI$AccessibilityDelegate)
+io.flutter.view.AccessibilityBridge$AccessibilityFeature: io.flutter.view.AccessibilityBridge$AccessibilityFeature[] values()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: android.view.View view
+com.google.common.util.concurrent.AbstractFuture$Waiter: java.lang.Thread thread
+androidx.core.app.RemoteActionCompatParcelizer: RemoteActionCompatParcelizer()
+io.flutter.embedding.engine.FlutterJNI: void setDeferredComponentManager(io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager)
+com.pozitiveenergy.MainActivity: MainActivity()
+io.flutter.plugin.editing.InputConnectionAdaptor: boolean mMonitorCursorUpdate
+io.flutter.view.AccessibilityBridge$TextDirection: io.flutter.view.AccessibilityBridge$TextDirection valueOf(java.lang.String)
+androidx.work.R$bool: int enable_system_alarm_service_default
+androidx.core.R$id: int accessibility_custom_action_1
+androidx.core.R$id: int accessibility_custom_action_14
+androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy: ConstraintProxy$NetworkStateProxy()
+io.flutter.embedding.engine.FlutterJNI: boolean loadLibraryCalled
+androidx.core.R$id: int accessibility_custom_action_27
+androidx.core.R$id: int accessibility_custom_action_22
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback: void remove()
+io.flutter.plugin.editing.ListenableEditingState$1
+io.flutter.plugin.editing.TextInputPlugin: void unlockPlatformViewInputConnection()
+android.support.v4.app.RemoteActionCompatParcelizer: androidx.core.app.RemoteActionCompat read(androidx.versionedparcelable.VersionedParcel)
+io.flutter.embedding.engine.FlutterJNI: void nativeInit(android.content.Context,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,long)
+androidx.work.ExistingWorkPolicy: androidx.work.ExistingWorkPolicy[] values()
+androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy
+io.flutter.plugin.editing.InputConnectionAdaptor: io.flutter.plugin.editing.ListenableEditingState mEditable
+androidx.core.R$id: int accessibility_custom_action_0
+io.flutter.embedding.engine.renderer.SurfaceTextureWrapper: boolean released
+io.flutter.plugin.editing.ListenableEditingState: java.lang.String TAG
+io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack: void pushTransform(float[])
+io.flutter.view.FlutterView$ZeroSides: io.flutter.view.FlutterView$ZeroSides valueOf(java.lang.String)
+androidx.work.ExistingWorkPolicy: androidx.work.ExistingWorkPolicy valueOf(java.lang.String)
+androidx.core.app.CoreComponentFactory
+io.flutter.plugin.editing.ListenableEditingState: void setComposingRange(int,int)
+androidx.core.graphics.drawable.IconCompat: IconCompat()
+io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$InsetsListener: ImeSyncDeferringInsetsCallback$InsetsListener(io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback,io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$1)
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI$AsyncWaitForVsyncDelegate asyncWaitForVsyncDelegate
+io.flutter.plugin.editing.ListenableEditingState: int mSelectionEndWhenBeginBatchEdit
+android.support.v4.app.RemoteActionCompatParcelizer: RemoteActionCompatParcelizer()
+io.flutter.embedding.engine.FlutterJNI: void nativeUpdateJavaAssetManager(long,android.content.res.AssetManager,java.lang.String)
+android.support.v4.graphics.drawable.IconCompatParcelizer: IconCompatParcelizer()
+androidx.work.BackoffPolicy: androidx.work.BackoffPolicy[] values()
+io.flutter.plugin.editing.ListenableEditingState: java.lang.String mToStringCache
+androidx.core.R$id: int tag_accessibility_actions
+io.flutter.embedding.engine.FlutterJNI: void setPlatformViewsController(io.flutter.plugin.platform.PlatformViewsController)
+androidx.core.app.RemoteActionCompatParcelizer: androidx.core.app.RemoteActionCompat read(androidx.versionedparcelable.VersionedParcel)
+androidx.core.R$id: int accessibility_custom_action_10
+com.pozitiveenergy.MainActivity
+io.flutter.view.AccessibilityViewEmbedder: int nextFlutterId
+io.flutter.plugin.platform.SingleViewPresentation: int viewId
+androidx.core.R$id: int time
+androidx.lifecycle.Lifecycle$Event: androidx.lifecycle.Lifecycle$Event ON_PAUSE
+androidx.core.R$id: int info
+io.flutter.plugin.editing.TextInputPlugin: boolean mRestartInputPending
+androidx.core.R$id: int action_image
+io.flutter.plugin.editing.TextInputPlugin$1: void show()
+io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness: io.flutter.embedding.engine.systemchannels.PlatformChannel$Brightness[] values()
+io.flutter.plugin.editing.FlutterTextUtils: int CARRIAGE_RETURN
+io.flutter.plugin.editing.TextInputPlugin$1: void hide()
+io.flutter.embedding.android.FlutterSplashView$SavedState: FlutterSplashView$SavedState(android.os.Parcel)
+io.flutter.plugin.editing.TextInputPlugin: void autofill(android.util.SparseArray)
+androidx.lifecycle.Lifecycle$State: androidx.lifecycle.Lifecycle$State valueOf(java.lang.String)
+io.flutter.plugin.editing.TextInputPlugin$2: void inspect(double,double)
+io.flutter.view.FlutterView: android.graphics.Bitmap getBitmap()
+io.flutter.plugin.editing.FlutterTextUtils: boolean isEmojiModifier(int)
+io.flutter.embedding.engine.FlutterJNI: io.flutter.embedding.engine.FlutterJNI spawn(java.lang.String,java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: void destroyOverlaySurfaces()
+io.flutter.view.AccessibilityViewEmbedder: java.util.Map embeddedViewToDisplayBounds
+io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String previousCompletedSplashIsolate
+androidx.work.impl.background.systemalarm.ConstraintProxy: ConstraintProxy()
+io.flutter.embedding.android.FlutterSplashView$SavedState: java.lang.String access$600(io.flutter.embedding.android.FlutterSplashView$SavedState)
+io.flutter.embedding.engine.FlutterJNI: void setViewportMetrics(float,int,int,int,int,int,int,int,int,int,int,int,int,int,int)
+io.flutter.embedding.android.FlutterImageView$SurfaceKind: io.flutter.embedding.android.FlutterImageView$SurfaceKind[] values()
+io.flutter.embedding.engine.FlutterJNI: boolean nativeFlutterTextUtilsIsRegionalIndicator(int)
+io.flutter.embedding.engine.FlutterJNI: void ensureRunningOnMainThread()
+androidx.core.R$id: int action_divider
+androidx.work.BackoffPolicy: androidx.work.BackoffPolicy valueOf(java.lang.String)
+io.flutter.embedding.engine.FlutterJNI: java.util.Set engineLifecycleListeners

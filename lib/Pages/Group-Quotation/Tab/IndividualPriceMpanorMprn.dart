@@ -19,8 +19,9 @@ class GroupQuotePriceList extends StatefulWidget {
   final List viewlist;
   final List<EachyYearList> groupDetailslst;
   final String type;
+  final List<GroupDetailsSubModel> groupdetailsprice;
   GroupQuotePriceList(
-      {this.index, this.viewlist, @required this.groupDetailslst, this.type});
+      {this.index, this.viewlist, @required this.groupDetailslst, this.type,this.groupdetailsprice});
 
   @override
   _GroupQuotePriceListState createState() => _GroupQuotePriceListState();
@@ -33,64 +34,6 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
       RequestQuoteViewButtonModel();
   bool check = false;
   String title = '';
-  Future<void> Editsite() async {
-    // setState(ViewState.BUSY);
-    var s = widget.groupDetailslst[widget.index].mpan;
-    if(s!=''){
-      mpan1.text='';
-      for(int i=0;i<2;i++){
-        mpan1.text +=  s[i];
-        //print(s[i]);
-      }
-      mpan2.text='';
-      for(int i=2;i<5;i++){
-        mpan2.text += s[i];
-      }
-      mpan3.text='';
-      for(int i=5;i<8;i++){
-        mpan3.text += s[i];
-      }
-      mpan4.text='';
-      for(int i=8;i<10;i++){
-        mpan4.text += s[i];
-      }
-      mpan5.text='';
-      for(int i=10;i<14;i++){
-        mpan5.text += s[i];
-      }
-      mpan6.text='';
-      for(int i=14;i<18;i++){
-        mpan6.text += s[i];
-      }
-      mpan7.text='';
-      for(int i=18;i<=20;i++){
-        mpan7.text += s[i];
-      }
-     // conStartDate.text='';
-
-      // if( widget.groupDetailslst[widget.index].mprn == ''){
-      //   dayEAC.text = "0";
-      //   nightEAC.text = "0";
-      //   strAq.text = '0';
-      // }
-      // else{
-      //   strAq.text = eacvalues[ widget.groupDetailslst[widget.index].mprn].strAq;
-      //   // dayEAC.text = eacvalues[ widget.groupDetailslst[widget.index].mpan].EACDay;
-      //   // nightEAC.text = eacvalues[ widget.groupDetailslst[widget.index].mpan].EACnight;
-      // }
-        // dayEAC.text = eacvalues[""].EACDay ?? "";
-        // nightEAC.text = eacvalues[""].EACnight ?? "";
-
-    }
-    conStartDate.text = widget.groupDetailslst[widget.index].contractStartDate;
-
-    dayEAC.text = '0';
-    nightEAC.text = '0';
-    strAq.text = eacvalues[widget.groupDetailslst[widget.index].mprn].strAq;
-    mprnedit.text = widget.groupDetailslst[widget.index].mprn;
-    print(eacvalues[widget.groupDetailslst[widget.index].mprn].strAq);
-
-  }
 
   String getMpanOrMprn() {
     //print(widget.groupDetailslst[widget.index].mprn);
@@ -249,7 +192,9 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                 SizedBox(
                         width: MediaQuery.of(context).size.width * .33,
                       ) :
-                SizedBox(
+                mpanOrMprn.length == 13 ? SizedBox(
+                  width: MediaQuery.of(context).size.width * .23,
+                ) : SizedBox(
                   width: MediaQuery.of(context).size.width * .06,
                 )
                 ,
@@ -257,13 +202,472 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                   padding: EdgeInsets.only(left: 5),
                   child: CupertinoButton(
                     onPressed: () async {
-                      print(eacvalues[widget.groupDetailslst[widget.index].mprn].strAq);
-                      await Editsite();
+                      print(widget.groupDetailslst[widget.index].mpan);
+                      await Editsite(
+                        groupDetailslst: widget.groupDetailslst,
+                        groupdetailsprice: widget.groupdetailsprice,
+                        index: widget.index,
+
+                      );
                       showDialog(
                           context: context,
                           builder: (ctx) {
                             return Dialog(
-                              child: dialogcontainer(context, ctx, widget.groupDetailslst,widget.index,title),
+                              child: Container(
+                                height: title == "MPAN" ? MediaQuery.of(context).size.height * 0.6 : MediaQuery.of(context).size.height * 0.47,
+                                width: MediaQuery.of(context).size.width ,
+                                child: ListView(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 50,
+                                          color: Color.fromRGBO(128, 189, 40, 1),
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 10, right: 10),
+                                                child: Text(
+                                                  "Edit Site Detail (GROUPID :- ${widget.groupDetailslst[widget.index].grpId})",
+                                                  style: TextStyle(
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                        .020,
+                                                    color: Colors.white,
+                                                    //fontWeight: ,
+                                                  ),
+                                                ),
+                                              ),
+                                              CupertinoButton(
+                                                onPressed: () {
+                                                  Navigator.of(ctx).pop();
+                                                },
+                                                minSize: 16,
+                                                padding: EdgeInsets.zero,
+                                                // color: Colors.green,
+                                                child: Icon(
+                                                  FontAwesomeIcons.times,
+                                                  color: Colors.white,
+                                                  size: 20,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.015,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 20,),
+                                          child: Text(
+                                            title,
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    .015,
+                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.010,
+                                        ),
+                                        title == "MPAN" ? Column(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 20,right: 10),
+                                              child: Container(
+                                                height: MediaQuery.of(context).size.height * .052,
+                                                width: MediaQuery.of(context).size.width *0.7,
+                                                child: Row(
+                                                  children: [
+                                                    Expanded(
+
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child:
+                                                        TextFormField(
+                                                          controller: mpan1,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.2,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child: TextFormField(
+                                                          controller: mpan2,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.25,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child: TextFormField(
+                                                          controller: mpan3,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.2,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    border: Border.all(
+                                                        color: themeApp.textfieldbordercolor, width: 2),
+                                                    borderRadius: BorderRadius.only(
+                                                        bottomLeft: Radius.circular(5),
+                                                        bottomRight: Radius.circular(5))),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 20,right: 10),
+                                              child: Container(
+                                                height: MediaQuery.of(context).size.height * .052,
+                                                width: MediaQuery.of(context).size.width *0.7,
+                                                child: Row(
+                                                  children: [
+                                                    Expanded(
+
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child: TextFormField(
+                                                          controller: mpan4,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.2,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child: TextFormField(
+                                                          controller: mpan5,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.25,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child:
+                                                        TextFormField(
+                                                          controller: mpan6,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.2,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: EdgeInsets.only(left: 10),
+                                                        child: TextFormField(
+                                                          controller: mpan7,
+                                                        ),
+                                                        // width: MediaQuery.of(context).size.width *0.2,
+                                                        decoration: BoxDecoration(
+                                                            border: Border(
+                                                                right: BorderSide(
+                                                                    color: Color.fromRGBO(
+                                                                        128, 189, 40, 1)))),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    border: Border.all(
+                                                        color: themeApp.textfieldbordercolor, width: 2),
+                                                    borderRadius: BorderRadius.only(
+                                                        bottomLeft: Radius.circular(5),
+                                                        bottomRight: Radius.circular(5))),
+                                              ),
+                                            ),
+                                          ],
+                                        ) : Column(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.only(left: 20),
+                                              width: MediaQuery.of(context).size.width *0.7,
+                                              height: MediaQuery.of(context).size.height * .052,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(left: 5),
+                                                child: TextFormField(
+                                                  controller: mprnedit,
+                                                ),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                border: Border.all(
+                                                    color: themeApp.textfieldbordercolor, width: 2),
+                                                // borderRadius: BorderRadius.only(
+                                                //     bottomLeft: Radius.circular(5),
+                                                //     bottomRight: Radius.circular(5))
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.015,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 20,),
+                                          child: Text(
+                                            title == "MPAN" ? "Day EAC" : "AQ",
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    .015,
+                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.010,
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 20),
+                                          width: MediaQuery.of(context).size.width *0.7,
+                                          height: MediaQuery.of(context).size.height * .052,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: 5),
+                                            child: TextFormField(
+                                              controller:   title == "MPAN" ?  dayEAC: strAq,
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            border: Border.all(
+                                                color: themeApp.textfieldbordercolor, width: 2),
+                                            // borderRadius: BorderRadius.only(
+                                            //     bottomLeft: Radius.circular(5),
+                                            //     bottomRight: Radius.circular(5))
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.015,
+                                        ),
+                                        title == "MPAN" ? Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 20,),
+                                              child: Text(
+                                                "Night EAC",
+                                                style: TextStyle(
+                                                    fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                        .015,
+                                                    color: Color.fromRGBO(31, 33, 29, 1)),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                              MediaQuery.of(context).size.height *
+                                                  0.010,
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.only(left: 20),
+                                              width: MediaQuery.of(context).size.width *0.7,
+                                              height: MediaQuery.of(context).size.height * .052,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(left: 5),
+                                                child: TextFormField(
+                                                  controller: nightEAC,
+                                                ),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                border: Border.all(
+                                                    color: themeApp.textfieldbordercolor, width: 2),
+                                                // borderRadius: BorderRadius.only(
+                                                //     bottomLeft: Radius.circular(5),
+                                                //     bottomRight: Radius.circular(5))
+                                              ),
+                                            ),
+                                          ],
+                                        ) : Container(),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.015,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 20,),
+                                          child: Text(
+                                            "Contract Start Date",
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                    .015,
+                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.010,
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 20),
+                                          width: MediaQuery.of(context).size.width *0.7,
+                                          height: MediaQuery.of(context).size.height * .052,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: 5),
+                                            child: TextFormField(
+                                              controller: conStartDate,
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            border: Border.all(
+                                                color: themeApp.textfieldbordercolor, width: 2),
+                                            // borderRadius: BorderRadius.only(
+                                            //     bottomLeft: Radius.circular(5),
+                                            //     bottomRight: Radius.circular(5))
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.035,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          child: Container(
+                                            width: MediaQuery.of(context).size.width,
+                                            height: MediaQuery.of(context).size.height * 0.058,
+                                            child: TextButton(
+                                              child: Text(
+                                                "Update",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.019,
+                                                    fontWeight: FontWeight.bold),
+                                              ),
+                                              onPressed: () async {
+                                                var res = await Editsitecallapi(
+                                                  groupDetailslst1: widget.groupDetailslst,
+                                                  groupdetailsprice: widget.groupdetailsprice,
+                                                  index: widget.index,
+                                                );
+                                                if(res['status'] == "1"){
+                                                  setState(() {
+                                                    widget.groupDetailslst[widget.index].mpan = mpan1.text + mpan2.text + mpan3.text + mpan4.text + mpan5.text + mpan6.text + mpan7.text ;
+                                                    widget.groupDetailslst[widget.index].mprn = mprnedit.text;
+                                                    widget.groupDetailslst[widget.index].contractStartDate = conStartDate.text;
+                                                  });
+                                                  Navigator.of(context).pop();
+                                                  showDialog(
+                                                      context: context,
+                                                      builder: (ctx) {
+                                                        return AlertDialog(
+                                                          title: Text(
+                                                            "Successfully Edited site",
+
+                                                          ),
+
+                                                          actions: <Widget>[
+                                                            FlatButton(
+                                                              child: Text("ok"),
+                                                              onPressed: () {
+                                                                Navigator.of(ctx).pop();
+                                                              },
+                                                            ),
+
+                                                          ],
+                                                        );
+                                                      });
+                                                }
+                                                else{
+                                                   Navigator.of(context).pop();
+                                                  showDialog(
+                                                      context: context,
+                                                      builder: (ctx) {
+                                                        return AlertDialog(
+                                                          title: Text(
+                                                            "Not Edited site Successfully",
+
+                                                          ),
+
+                                                          actions: <Widget>[
+                                                            FlatButton(
+                                                              child: Text("ok"),
+                                                              onPressed: () {
+                                                                Navigator.of(ctx).pop();
+                                                              },
+                                                            ),
+
+                                                          ],
+                                                        );
+                                                      });
+                                                }
+
+                                              },
+                                            ),
+                                            decoration: BoxDecoration(
+                                                color: Color.fromRGBO(155, 119, 217, 1),
+                                                borderRadius: BorderRadius.circular(30)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+
+                                ),
+                              ),
+                              // EditSitewidget(
+                              //   context: context,
+                              //   ctx: ctx,
+                              //   groupDetailslst: widget.groupDetailslst,
+                              //   index: widget.index,
+                              //   type: title,
+                              // ),
+                              //dialogcontainer(context, ctx, widget.groupDetailslst,widget.index,title),
                             );
                           });
                       // setState(() {

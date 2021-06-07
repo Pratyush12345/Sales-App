@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pozitive/Core/AppConstact/appString.dart';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/group_final_Qutation_viewmodel.dart';
 import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/view_group_details_viewmodel.dart';
 import 'package:pozitive/Core/baseview.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/IndividualPriceMpanorMprn.dart';
@@ -30,12 +31,13 @@ class _fourYearPageState extends State<fourYearPage> {
 
   @override
   void initState() {
-    super.initState();
+    prevIndex = null;
     for (int i = 0; i < 20; i++) {
       setState(() {
         viewlist.add({"view": false, "click": false, "checkbox": false});
       });
     }
+    super.initState();
   }
 
   @override
@@ -142,6 +144,7 @@ class _fourYearPageState extends State<fourYearPage> {
                                   index: index,
                                   viewlist: viewlist,
                                     type: "MPAN",
+                                  groupdetailsprice: groupDetailslst,
                                 );
                               }),
                         ),
@@ -150,14 +153,17 @@ class _fourYearPageState extends State<fourYearPage> {
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.058,
-                            child: Center(
+                            child: TextButton(
                               child: Text(
-                                "Generate Contract",
+                                "Generate Site",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: MediaQuery.of(context).size.height * 0.019,
                                     fontWeight: FontWeight.bold),
                               ),
+                              onPressed: (){
+                                GenerateSite();
+                              },
                             ),
                             decoration: BoxDecoration(
                                 color: Color.fromRGBO(155, 119, 217, 1),

@@ -14,7 +14,8 @@ class GroupQuotation extends StatefulWidget {
   String groupId;
   String title;
   dynamic loaddata;
-  GroupQuotation({this.groupId, this.title,this.loaddata});
+  String status;
+  GroupQuotation({this.groupId, this.title,this.loaddata,this.status});
 
   @override
   _GroupQuotationState createState() => _GroupQuotationState();
@@ -35,6 +36,7 @@ class _GroupQuotationState extends State<GroupQuotation> {
           body: ViewGroupQuotationWidget(
             groupId: widget.groupId.toString(),
             loaddata: widget.loaddata,
+            status: widget.status,
           ),
         );
       },

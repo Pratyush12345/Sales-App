@@ -273,12 +273,23 @@ class PreviewPageGroupViewModel extends BaseModel {
             }
             //else if(res['data']['status']=='Quoted'){}
             else {
-              Navigator.of(context).pushAndRemoveUntil(
-                  new MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
-                  (route) => false);
-              return AppConstant.showSuccessToast(context, 'Success');
+              return AppConstant.popUp2(
+                context,
+                AppString.groupQuotePriceAlertMsg,
+                    () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      new MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                          (route) => false);
+                },
+              );
+              // Navigator.of(context).pushAndRemoveUntil(
+              //     new MaterialPageRoute(
+              //       builder: (context) => HomePage(),
+              //     ),
+              //     (route) => false);
+              // return AppConstant.showSuccessToast(context, 'Success');
             }
 
             // tabController3Provider.setTabListProvider = 2;

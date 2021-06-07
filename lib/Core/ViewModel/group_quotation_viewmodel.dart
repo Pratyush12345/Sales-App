@@ -788,7 +788,7 @@ class GroupQuotationViewModel extends BaseModel {
     }
   print(grpid);
    // await getDataPrevQuotes(context,grpid);
-   // await getCompanyName();
+    await getCompanyName();
 
     load = true;
     setState(ViewState.IDLE);

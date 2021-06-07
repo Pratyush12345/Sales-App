@@ -140,136 +140,141 @@ class ViewGroupDetailViewModel extends BaseModel {
             }
           }
           else if(res['data']['lstPriceValues'][i]['intTermType'] == '2'){
-            twoYear.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
-
-                )
-            );
-          }
-          if((res['data']['lstPriceValues'][i]['strMPRN'] != "")){
-            twoYearGas.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
-
-                )
-            );
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != "") && (res['data']['lstPriceValues'][i]['strMPAN'] != null)){
+              twoYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
 
 
+                  )
+              );
+            }
+            if((res['data']['lstPriceValues'][i]['strMPRN'] != "") && (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              twoYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan:  "", //'048111201900049034320',
+                    mprn:  res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+
+                  )
+              );
+            }
           }
           else if(res['data']['lstPriceValues'][i]['intTermType'] == '3'){
-            threeYear.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
-
-                )
-            );
-          }
-          if((res['data']['lstPriceValues'][i]['strMPRN'] != "")){
-            threeYearGas.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
-
-                )
-            );
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != "") && (res['data']['lstPriceValues'][i]['strMPAN'] != null)){
+              threeYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
 
 
+                  )
+              );
+            }
+            if((res['data']['lstPriceValues'][i]['strMPRN'] != "") && (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              threeYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan:  "", //'048111201900049034320',
+                    mprn:  res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+
+                  )
+              );
+            }
           }
           else if(res['data']['lstPriceValues'][i]['intTermType'] == '4'){
-            fourYear.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != "") && (res['data']['lstPriceValues'][i]['strMPAN'] != null)){
+              fourYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
+                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
 
-                )
-            );
+
+                  )
+              );
+            }
+            if((res['data']['lstPriceValues'][i]['strMPRN'] != "") && (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              fourYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan:  "", //'048111201900049034320',
+                    mprn:  res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+
+                  )
+              );
+            }
           }
-          if((res['data']['lstPriceValues'][i]['strMPRN'] != "")){
-            foutYeaGas.add(
-                EachyYearList(
-                  tremtype: res['data']['lstPriceValues'][i]['intTermType'],
-                  mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                  mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
-                  baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
-                  baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
-                  baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
-                  baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
-                  contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
-                  contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
-                  QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
-                  grpId: res['data']['GroupId'] ?? "",
-                  intCompId: res['data']['IntCompanyId'] ?? "",
-                  visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
-                  checkItem: false,
 
-                )
-            );
-
-          }
 
         }
       }
@@ -279,7 +284,7 @@ class ViewGroupDetailViewModel extends BaseModel {
       // print(threeYear.length);
       // print(fourYear.length);
 
-
+     // setState(ViewState.IDLE);
     }
     else {
       setState(ViewState.IDLE);
@@ -292,6 +297,8 @@ class ViewGroupDetailViewModel extends BaseModel {
     if (res['status'] == '1') {
     //  print(groupDetailsTabModel.data.lstGroupMaster.length);
       groupDetailslst.clear();
+      if(eacvalues != null)
+      eacvalues.clear();
       if(res['data']['lstGroupMaster'] != null){
         for (int i = 0;
         i < res['data']['lstGroupMaster'].length;
@@ -320,35 +327,72 @@ class ViewGroupDetailViewModel extends BaseModel {
                 res['data']['lstGroupMaster'][i]['strRelatedMeter'] ?? ""),
           );
           if(eacvalues != null ){
-            eacvalues.addAll(
-                {
-              res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "" :  EACvalues(
+            String tempmpan = res['data']['lstGroupMaster'][i]['Full_Mpan_Number'];
+            if(res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] != null && res['data']['lstGroupMaster'][i]['Full_Mpan_Number']!=""){
+              eacvalues.addAll(
+                  {
+                    tempmpan.substring(8) ?? "" :  EACvalues(
+                      mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "",
+                      EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                      EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                    ),
+                    res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
+                      mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
+                      EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                      EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                      strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
+                    ),
+                  });
+            }
+            else{
+              eacvalues.addAll(
+                  {
+                    res['data']['lstGroupMaster'][i]['Full_Mpan_Number']?? "" :  EACvalues(
+                      mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "",
+                      EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                      EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                    ),
+                    res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
+                      mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
+                      EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                      EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                      strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
+                    ),
+                  });
+            }
+          }
+          else{
+            String tempmpan = res['data']['lstGroupMaster'][i]['Full_Mpan_Number'];
+            if(res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] != null && res['data']['lstGroupMaster'][i]['Full_Mpan_Number']!=""){
+              eacvalues =  {
+                tempmpan.substring(8) ?? "" :  EACvalues(
                   mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "",
                   EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
                   EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
                 ),
-                  res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
-                    mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
-                    EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
-                    EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
-                    strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
-                  ),
-            });
-          }
-          else{
-            eacvalues =  {
-              res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "" :  EACvalues(
-                mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "",
-                EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
-                EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
-              ),
-              res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
-                mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
-                EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
-                EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
-                strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
-              ),
-            };
+                res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
+                  mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
+                  EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                  EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                  strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
+                ),
+              };
+            }else{
+              eacvalues =  {
+                res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] :  EACvalues(
+                  mpan: res['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? "",
+                  EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                  EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                ),
+                res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "" :  EACvalues(
+                  mpan: res['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? "",
+                  EACDay: res['data']['lstGroupMaster'][i]['ElectricityDay_EAC'] ?? "",
+                  EACnight: res['data']['lstGroupMaster'][i]['ElectricityNight_EAC'] ?? "",
+                  strAq: res['data']['lstGroupMaster'][i]['GAS_EAC'] ?? "",
+                ),
+              };
+            }
+
           }
 
         }

@@ -99,6 +99,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
         //groupId: '19781',
         title: widget.title,
         loaddata: res,
+        status: widget.status,
       ),
       ViewGroupDetailsPage(
         // groupId: '19781',
