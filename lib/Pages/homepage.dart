@@ -19,18 +19,21 @@ import 'package:pozitive/Pages/Group-Quotation-addButton/Group_quotation_page.da
 
 class HomePage extends StatelessWidget {
   static const routeName = '/homePage';
-
+  String type;
+  HomePage({this.type});
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: AutService().user,
       initialData: User(),
-      child: HomePageView(),
+      child: HomePageView(type: type,),
     );
   }
 }
 
 class HomePageView extends StatefulWidget {
+  String type;
+  HomePageView({this.type});
   @override
   _HomePageViewState createState() => _HomePageViewState();
 }
@@ -40,7 +43,7 @@ class _HomePageViewState extends State<HomePageView> {
 
   Map _source = {ConnectivityResult.none: false};
   MyConnectivity _connectivity = MyConnectivity.instance;
-
+  bool individual;
   @override
   void initState() {
     super.initState();
@@ -48,13 +51,21 @@ class _HomePageViewState extends State<HomePageView> {
     _connectivity.myStream.listen((source) {
       setState(() => _source = source);
       print(_source.keys.toList()[0]);
+      setState(() {
+        if(widget.type == "group"){
+          individual = false;
+        }
+        else{
+          individual = true;
+        }
+      });
       if (_source.keys.toList()[0] == ConnectivityResult.none) {
         AppConstant.showFialureDialogue('No internet contection', context);
       }
     });
   }
 
-  bool individual = true;
+
 
   @override
   Widget build(BuildContext context) {

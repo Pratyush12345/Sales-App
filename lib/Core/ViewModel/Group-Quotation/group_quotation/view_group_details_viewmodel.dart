@@ -22,12 +22,15 @@ List<EachyYearList> oneYear = [];
 List<EachyYearList> twoYear = [];
 List<EachyYearList> threeYear = [];
 List<EachyYearList> fourYear = [];
+List<EachyYearList> fiveYear = [];
+List<EachyYearList> otherYear = [];
 List<EachyYearList> oneYearGas = [];
 List<EachyYearList> twoYearGas = [];
 List<EachyYearList> threeYearGas = [];
 List<EachyYearList> foutYeaGas = [];
 finalQuotationpPriceModel tempmodel ;
 Map<String,EACvalues> eacvalues ;
+List<Skippedmapn> skippedmapnlist = [];
 class ViewGroupDetailViewModel extends BaseModel {
 
   void initializeData({BuildContext context, String groupId,bool check,dynamic loaddata}) async {
@@ -51,7 +54,7 @@ class ViewGroupDetailViewModel extends BaseModel {
 
   void goToNext() {
     setState(ViewState.BUSY);
-    //
+    globals.tabController8.animateTo(2);
     setState(ViewState.IDLE);
   }
 
@@ -85,6 +88,8 @@ class ViewGroupDetailViewModel extends BaseModel {
       twoYear.clear();
       threeYear.clear();
       fourYear.clear();
+      fiveYear.clear();
+      otherYear.clear();
       oneYearGas.clear();
       twoYearGas.clear();
       threeYearGas.clear();
@@ -100,7 +105,7 @@ class ViewGroupDetailViewModel extends BaseModel {
                   EachyYearList(
                     tremtype: res['data']['lstPriceValues'][i]['intTermType'],
                     mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    mprn: "",//'987412563',
                     baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
                     baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
                     baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
@@ -112,6 +117,24 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
 
                   )
@@ -134,6 +157,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
                   )
               );
@@ -145,7 +185,7 @@ class ViewGroupDetailViewModel extends BaseModel {
                   EachyYearList(
                     tremtype: res['data']['lstPriceValues'][i]['intTermType'],
                     mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    mprn: "",//'987412563',
                     baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
                     baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
                     baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
@@ -157,6 +197,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
 
                   )
@@ -179,6 +236,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
                   )
               );
@@ -190,7 +264,7 @@ class ViewGroupDetailViewModel extends BaseModel {
                   EachyYearList(
                     tremtype: res['data']['lstPriceValues'][i]['intTermType'],
                     mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    mprn:  "",//'987412563',
                     baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
                     baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
                     baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
@@ -202,7 +276,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
-
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
                   )
               );
@@ -224,7 +314,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
-
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
                   )
               );
             }
@@ -235,7 +341,7 @@ class ViewGroupDetailViewModel extends BaseModel {
                   EachyYearList(
                     tremtype: res['data']['lstPriceValues'][i]['intTermType'],
                     mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
-                    mprn: res['data']['lstPriceValues'][i]['strMPRN'] ?? "",//'987412563',
+                    mprn:  "",//'987412563',
                     baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
                     baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
                     baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
@@ -247,6 +353,23 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
 
 
                   )
@@ -269,7 +392,181 @@ class ViewGroupDetailViewModel extends BaseModel {
                     intCompId: res['data']['IntCompanyId'] ?? "",
                     visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
                     checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
+                  )
+              );
+            }
+          }
+          else  if(res['data']['lstPriceValues'][i]['intTermType'] == '5'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != "") && (res['data']['lstPriceValues'][i]['strMPAN'] != null)){
+              fiveYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
+                    mprn: "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
 
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
+
+
+                  )
+              );
+            }
+            if((res['data']['lstPriceValues'][i]['strMPRN'] != "") && (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              fiveYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan:  "", //'048111201900049034320',
+                    mprn:  res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
+
+                  )
+              );
+            }
+          }
+          else  if(res['data']['lstPriceValues'][i]['intTermType'] == '0'){
+            if((res['data']['lstPriceValues'][i]['strMPAN'] != "") && (res['data']['lstPriceValues'][i]['strMPAN'] != null)){
+              otherYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan: res['data']['lstPriceValues'][i]['strMPAN'] ?? "", //'048111201900049034320',
+                    mprn: "",//'987412563',
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
+
+                  )
+              );
+            }
+            if((res['data']['lstPriceValues'][i]['strMPRN'] != "") && (res['data']['lstPriceValues'][i]['strMPRN'] != null)){
+              otherYear.add(
+                  EachyYearList(
+                    tremtype: res['data']['lstPriceValues'][i]['intTermType'],
+                    mpan:  "", //'048111201900049034320',
+                    mprn:  res['data']['lstPriceValues'][i]['strMPRN'] ?? "",
+                    baserateday: res['data']['lstPriceValues'][i]['decChargeDay'] ?? "",
+                    baseratenight: res['data']['lstPriceValues'][i]['decChargeNight'] ?? "",
+                    baserateEwe: res['data']['lstPriceValues'][i]['decChargeEWE'] ?? "",
+                    baserateSC: res['data']['lstPriceValues'][i]['decSCPrice'] ?? "",
+                    contractStartDate: res['data']['lstPriceValues'][i]['strContractStartDate'] ?? "",
+                    contractEndDate: res['data']['lstPriceValues'][i]['strContractEndDate'] ?? "",
+                    QuoteId: res['data']['lstPriceValues'][i]['QuteId'] ?? "",
+                    grpId: res['data']['GroupId'] ?? "",
+                    intCompId: res['data']['IntCompanyId'] ?? "",
+                    visibleGrpName: res['data']['VisibilityGroupname'] ?? "",
+                    checkItem: false,
+                    visited:  false,
+                    requiredUpliftDay: "",
+                    requiredUpliftNight: "",
+                    requiredUpliftEWE: "",
+                    requiredUpliftSc: "",
+                    upliftPreminumDay: "",
+                    upliftPreminumNight: "",
+                    upliftPreminumEWE: "",
+                    upliftPreminumSc: "",
+                    affiliateUpliftDay: "",
+                    affiliateUpliftNight: "",
+                    affiliateUpliftEWE: "",
+                    affiliateUpliftSc: "",
+                    requiredUpliftDayGas: "",
+                    requiredUpliftScGas: "",
+                    upliftPreminumDayGas: "",
+                    upliftPreminumScGas: "",
                   )
               );
             }
@@ -399,12 +696,43 @@ class ViewGroupDetailViewModel extends BaseModel {
       }
 
 
-      setState(ViewState.IDLE);
+     // setState(ViewState.IDLE);
 
     } else {
       setState(ViewState.IDLE);
       return AppConstant.showFailToast(
           context, groupDetailsTabModel.error ?? 'Failed');
+    }
+
+
+    htp.Response response2 = await htp.get(
+        Uri.parse(
+            'https://api.boshposh.com/api/Partner/GetSkipMPANList?intGroupId=${groupId}&intAccountId=${_user.accountId}'),
+        headers: {"Content-Type": "application/json"},
+        // body: (json1.substring(1, lstLength - 1)),
+
+    );
+    print(response2.body);
+    var res2 = jsonDecode(response2.body);
+    skippedmapnlist = [];
+    if(res2['status'] == '1'){
+      print(res2['data']);
+      List skips = res2['data'];
+      if(skips.isNotEmpty){
+        for(int i=0;i<res2['data'].length;i++){
+          skippedmapnlist.add(
+              Skippedmapn(
+                mapncore: res2['data'][i]['strMPANCore'],
+                Reason: res2['data'][i]['strReason'],
+              )
+          );
+        }
+        print(skippedmapnlist[0].mapncore);
+      }
+      setState(ViewState.IDLE);
+    }
+    else{
+      setState(ViewState.IDLE);
     }
 
 
@@ -440,6 +768,13 @@ Future <void>RemoveSite({String grpId,BuildContext context,String Year}) async{
     else if(Year == '4'){
       TempListEle = fourYear;
     }
+    else if(Year == '5'){
+      TempListEle = fiveYear;
+    }
+    else if(Year == '0'){
+      TempListEle = fiveYear;
+    }
+    print(TempListEle[0].checkItem);
     List<int> deleids = [];
     List<CollectionQuoteIds> ids = [];
     for(int i=0;i<TempListEle.length;i++){
@@ -492,6 +827,12 @@ Future <void>RemoveSite({String grpId,BuildContext context,String Year}) async{
       else if(Year == '4'){
          fourYear=temp2;
       }
+      else if(Year == '5'){
+        fiveYear=temp2;
+      }
+      else if(Year == '0'){
+        otherYear=temp2;
+      }
       if(oneYear!=null){
         for(int i=0;i<ids.length;i++){
           for(int j=0;j<oneYear.length;j++){
@@ -524,6 +865,24 @@ Future <void>RemoveSite({String grpId,BuildContext context,String Year}) async{
           for(int j=0;j<fourYear.length;j++){
             if(ids[i].QuoteId ==fourYear[j].QuoteId ){
               fourYear.removeAt(j);
+            }
+          }
+        }
+      }
+      if(fiveYear!=null){
+        for(int i=0;i<ids.length;i++){
+          for(int j=0;j<fiveYear.length;j++){
+            if(ids[i].QuoteId ==fiveYear[j].QuoteId ){
+              fiveYear.removeAt(j);
+            }
+          }
+        }
+      }
+      if(otherYear!=null){
+        for(int i=0;i<ids.length;i++){
+          for(int j=0;j<otherYear.length;j++){
+            if(ids[i].QuoteId ==otherYear[j].QuoteId ){
+              otherYear.removeAt(j);
             }
           }
         }

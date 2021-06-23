@@ -1,5 +1,5 @@
 class QuotationPopupMenu {
-  QuotationPopupMenu({this.history, this.validMsg});
-  String validMsg;
+  QuotationPopupMenu({this.history});
+  //String validMsg;
   String history;
 }

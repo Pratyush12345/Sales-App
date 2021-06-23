@@ -4,6 +4,7 @@ com.google.common.collect.FluentIterable$2
 kotlin.jvm.functions.Function0
 com.google.common.collect.Cut$1
 com.mathrawk.libphonenumber.R$attr
+androidx.activity.result.ActivityResultRegistryOwner
 com.google.common.collect.Maps$AsMapView
 androidx.core.view.accessibility.AccessibilityEventCompat$ContentChangeType
 com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler
@@ -16,6 +17,7 @@ com.google.common.collect.MultimapBuilder$SortedSetMultimapBuilder
 com.google.common.collect.ImmutableMultimap$KeysSerializedForm
 com.google.common.collect.Maps$AsMapView$1EntrySetImpl
 com.google.common.base.Suppliers$SupplierFunctionImpl
+androidx.activity.result.contract.ActivityResultContracts
 com.google.common.collect.ForwardingImmutableMap
 com.google.common.reflect.Types$TypeVariableInvocationHandler
 kotlin.jvm.JvmField
@@ -39,11 +41,11 @@ androidx.work.impl.model.WorkSpec:
     public static final long SCHEDULE_NOT_REQUESTED_YET
 androidx.core.view.accessibility.AccessibilityViewCommand$MoveHtmlArguments
 kotlin.coroutines.jvm.internal.CoroutineStackFrame
-androidx.core.provider.FontsContractCompat$4$2
 androidx.fragment.R$styleable
 kotlin.coroutines.jvm.internal.RestrictedContinuationImpl
 org.checkerframework.checker.nullness.compatqual.MonotonicNonNullType
 com.google.common.hash.Murmur3_128HashFunction$Murmur3_128Hasher
+androidx.fragment.app.DialogFragment$5
 com.google.common.reflect.Types$ClassOwnership$1LocalClass
 androidx.work.impl.model.WorkTypeConverters$BackoffPolicyIds
 kotlin.jvm.internal.TypeReference$asString$args$1
@@ -88,19 +90,10 @@ com.google.common.math.LongMath$MillerRabinTester$1
 androidx.core.location.LocationManagerCompat$GnssStatusTransport
 com.google.common.math.DoubleMath$1
 androidx.core.accessibilityservice.AccessibilityServiceInfoCompat
-androidx.core.provider.FontsContractCompat$TypefaceResult
 androidx.core.app.ComponentActivity:
-    public void <init>()
     public void putExtraData(androidx.core.app.ComponentActivity$ExtraData)
-    protected void onCreate(android.os.Bundle)
-    protected void onSaveInstanceState(android.os.Bundle)
     public androidx.core.app.ComponentActivity$ExtraData getExtraData(java.lang.Class)
     public androidx.lifecycle.Lifecycle getLifecycle()
-    public boolean superDispatchKeyEvent(android.view.KeyEvent)
-    public boolean dispatchKeyShortcutEvent(android.view.KeyEvent)
-    public boolean dispatchKeyEvent(android.view.KeyEvent)
-    private androidx.collection.SimpleArrayMap mExtraDataMap
-    private androidx.lifecycle.LifecycleRegistry mLifecycleRegistry
 kotlin.jvm.internal.ArrayIntIterator
 androidx.core.view.ScrollingView
 kotlin.coroutines.CombinedContext$Serialized
@@ -117,16 +110,10 @@ com.google.common.util.concurrent.SequentialExecutor$QueueWorker
 androidx.activity.OnBackPressedCallback:
     public void <init>(boolean)
     public final void setEnabled(boolean)
-    public final boolean isEnabled()
     public final void remove()
-    public abstract void handleOnBackPressed()
-    void addCancellable(androidx.activity.Cancellable)
-    private boolean mEnabled
-    private java.util.concurrent.CopyOnWriteArrayList mCancellables
 com.google.common.base.Suppliers$ExpiringMemoizingSupplier
 kotlin.ranges.IntProgressionIterator
 androidx.savedstate.Recreator:
-    void <init>(androidx.savedstate.SavedStateRegistryOwner)
     static final java.lang.String CLASSES_KEY
     static final java.lang.String COMPONENT_KEY
 com.google.common.hash.PrimitiveSink
@@ -148,6 +135,7 @@ com.google.common.collect.ImmutableSortedMultisetFauxverideShim
 kotlin.io.FileTreeWalk$FileTreeWalkIterator$SingleFileState
 androidx.core.provider.SelfDestructiveThread$ReplyCallback
 kotlin.UShortArrayKt
+androidx.activity.result.ActivityResultRegistry$3
 com.google.common.collect.CompactHashMap$KeySetView
 androidx.customview.R$color
 androidx.work.impl.utils.taskexecutor.TaskExecutor:
@@ -164,11 +152,9 @@ androidx.core.view.NestedScrollingChild
 com.google.common.escape.ArrayBasedEscaperMap
 kotlin.collections.AbstractCollection$toString$1
 com.google.common.collect.ImmutableMapValues$SerializedForm
-androidx.activity.ComponentActivity$1
 com.google.common.collect.AbstractBiMap$BiMapEntry
 kotlin.sequences.DropWhileSequence$iterator$1
 kotlin.UIntKt
-androidx.core.os.HandlerExecutor
 androidx.core.view.animation.PathInterpolatorCompat
 com.google.common.base.Predicates$1
 com.google.common.util.concurrent.ImmediateFuture$ImmediateSuccessfulFuture
@@ -184,9 +170,11 @@ kotlin.collections.ArraysKt___ArraysKt$withIndex$4
 androidx.work.Configuration:
     public boolean isUsingDefaultTaskExecutor()
     public static final int MIN_SCHEDULER_LIMIT
-androidx.savedstate.SavedStateRegistryController
+androidx.core.view.DisplayCompat$Api23Impl
 androidx.work.impl.utils.StatusRunnable$2
 com.google.common.collect.RangeGwtSerializationDependencies
+androidx.fragment.app.DefaultSpecialEffectsController$4
+androidx.fragment.app.FragmentManager$9
 io.flutter.embedding.engine.plugins.service.ServiceAware$OnModeChangeListener
 com.google.common.base.Charsets
 com.google.common.collect.MapMakerInternalMap$WeakValueReferenceImpl
@@ -209,7 +197,6 @@ com.google.common.collect.FilteredEntryMultimap$Keys$1
 com.google.common.reflect.TypeToken$TypeSet
 com.google.common.base.Optional$1$1
 androidx.core.os.ProcessCompat$Api24Impl
-androidx.lifecycle.R
 com.google.common.cache.LocalCache$2
 com.google.common.collect.IndexedImmutableSet
 androidx.core.app.RemoteInput$Builder
@@ -228,8 +215,6 @@ com.google.common.base.Converter$IdentityConverter
 com.google.common.collect.Iterators$ConcatenatedIterator
 com.google.common.util.concurrent.CycleDetectingLockFactory$Policies$3
 com.google.common.graph.EndpointPairIterator$Undirected
-androidx.savedstate.SavedStateRegistry$SavedStateProvider:
-    public abstract android.os.Bundle saveState()
 io.flutter.plugins.connectivity.ConnectivityPlugin:
     public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
 com.google.common.eventbus.EventBus$LoggingHandler
@@ -240,6 +225,23 @@ com.google.common.collect.Maps$IteratorBasedAbstractMap
 kotlin.sequences.GeneratorSequence$iterator$1
 kotlin.sequences.SequencesKt___SequencesKt$minus$4
 com.google.common.collect.TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4
+androidx.work.multiprocess.RemoteWorkManager:
+    public static androidx.work.multiprocess.RemoteWorkManager getInstance(android.content.Context)
+    public abstract com.google.common.util.concurrent.ListenableFuture enqueue(androidx.work.WorkRequest)
+    public abstract com.google.common.util.concurrent.ListenableFuture enqueue(java.util.List)
+    public final com.google.common.util.concurrent.ListenableFuture enqueueUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,androidx.work.OneTimeWorkRequest)
+    public abstract com.google.common.util.concurrent.ListenableFuture enqueueUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
+    public abstract com.google.common.util.concurrent.ListenableFuture enqueueUniquePeriodicWork(java.lang.String,androidx.work.ExistingPeriodicWorkPolicy,androidx.work.PeriodicWorkRequest)
+    public final androidx.work.multiprocess.RemoteWorkContinuation beginWith(androidx.work.OneTimeWorkRequest)
+    public abstract androidx.work.multiprocess.RemoteWorkContinuation beginWith(java.util.List)
+    public final androidx.work.multiprocess.RemoteWorkContinuation beginUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,androidx.work.OneTimeWorkRequest)
+    public abstract androidx.work.multiprocess.RemoteWorkContinuation beginUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
+    public abstract com.google.common.util.concurrent.ListenableFuture enqueue(androidx.work.WorkContinuation)
+    public abstract com.google.common.util.concurrent.ListenableFuture cancelWorkById(java.util.UUID)
+    public abstract com.google.common.util.concurrent.ListenableFuture cancelAllWorkByTag(java.lang.String)
+    public abstract com.google.common.util.concurrent.ListenableFuture cancelUniqueWork(java.lang.String)
+    public abstract com.google.common.util.concurrent.ListenableFuture cancelAllWork()
+    public abstract com.google.common.util.concurrent.ListenableFuture getWorkInfos(androidx.work.WorkQuery)
 com.google.i18n.phonenumbers.PhoneNumberUtil$Leniency$3$1
 kotlin.coroutines.experimental.EmptyCoroutineContext
 com.google.common.collect.TreeMultiset$Aggregate
@@ -331,6 +333,7 @@ com.google.common.collect.ImmutableSortedMap
 io.flutter.embedding.engine.systemchannels.NavigationChannel:
     public void setMethodCallHandler(io.flutter.plugin.common.MethodChannel$MethodCallHandler)
     private static final java.lang.String TAG
+androidx.activity.contextaware.ContextAware
 androidx.core.os.ProcessCompat
 kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$1
 androidx.core.widget.TintableCompoundDrawablesView
@@ -385,12 +388,17 @@ androidx.lifecycle.SavedStateHandle:
     public java.lang.Object get(java.lang.String)
     public void set(java.lang.String,java.lang.Object)
     public java.lang.Object remove(java.lang.String)
+    public void setSavedStateProvider(java.lang.String,androidx.savedstate.SavedStateRegistry$SavedStateProvider)
+    public void clearSavedStateProvider(java.lang.String)
     final java.util.Map mRegular
+    final java.util.Map mSavedStateProviders
     private final java.util.Map mLiveDatas
     private final androidx.savedstate.SavedStateRegistry$SavedStateProvider mSavedStateProvider
     private static final java.lang.String VALUES
     private static final java.lang.String KEYS
     private static final java.lang.Class[] ACCEPTABLE_CLASSES
+androidx.work.impl.foreground.SystemForegroundService:
+    public static androidx.work.impl.foreground.SystemForegroundService getInstance()
 kotlin.collections.MapsKt__MapsJVMKt
 kotlin.PreconditionsKt__PreconditionsKt
 com.mathrawk.libphonenumber.R
@@ -398,11 +406,11 @@ com.google.errorprone.annotations.concurrent.UnlockMethod
 androidx.work.impl.WorkManagerImpl:
     public static void setDelegate(androidx.work.impl.WorkManagerImpl)
     public void <init>(android.content.Context,androidx.work.Configuration,androidx.work.impl.utils.taskexecutor.TaskExecutor,androidx.work.impl.WorkDatabase,java.util.List,androidx.work.impl.Processor)
-    private androidx.work.impl.WorkContinuationImpl createWorkContinuationForUniquePeriodicWork(java.lang.String,androidx.work.ExistingPeriodicWorkPolicy,androidx.work.PeriodicWorkRequest)
     public androidx.work.WorkContinuation beginWith(java.util.List)
     public androidx.work.WorkContinuation beginUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
     public androidx.work.Operation enqueueUniqueWork(java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
     public androidx.work.Operation enqueueUniquePeriodicWork(java.lang.String,androidx.work.ExistingPeriodicWorkPolicy,androidx.work.PeriodicWorkRequest)
+    public androidx.work.impl.WorkContinuationImpl createWorkContinuationForUniquePeriodicWork(java.lang.String,androidx.work.ExistingPeriodicWorkPolicy,androidx.work.PeriodicWorkRequest)
     public androidx.work.Operation cancelUniqueWork(java.lang.String)
     public androidx.work.Operation cancelAllWork()
     public android.app.PendingIntent createCancelPendingIntent(java.util.UUID)
@@ -420,6 +428,7 @@ androidx.work.impl.WorkManagerImpl:
     androidx.lifecycle.LiveData getWorkInfosById(java.util.List)
     public static final int MAX_PRE_JOB_SCHEDULER_API_LEVEL
     public static final int MIN_JOB_SCHEDULER_API_LEVEL
+    public static final java.lang.String REMOTE_WORK_MANAGER_CLIENT
 androidx.viewpager.widget.ViewPager$PageTransformer
 com.google.common.collect.Maps$10
 com.google.common.collect.Multisets$1$1
@@ -618,6 +627,9 @@ com.google.common.reflect.TypeVisitor
 com.google.common.collect.ImmutableEnumMap$1
 kotlin.collections.UCollectionsKt
 com.google.common.hash.Funnels$LongFunnel
+androidx.lifecycle.ViewTreeLifecycleOwner:
+    private void <init>()
+    public static androidx.lifecycle.LifecycleOwner get(android.view.View)
 com.google.common.collect.Multiset
 io.flutter.embedding.android.FlutterActivityLaunchConfigs
 com.google.common.base.Predicate
@@ -638,6 +650,7 @@ androidx.core.view.WindowInsetsCompat$Impl30:
     public androidx.core.graphics.Insets getInsets(int)
     public androidx.core.graphics.Insets getInsetsIgnoringVisibility(int)
 androidx.annotation.InterpolatorRes
+androidx.core.provider.RequestExecutor$HandlerExecutor
 com.google.i18n.phonenumbers.ShortNumberInfo$1
 com.google.common.collect.Serialization$1
 com.google.common.collect.SortedLists$KeyPresentBehavior
@@ -682,6 +695,7 @@ androidx.annotation.RestrictTo
 com.google.common.collect.MapMakerInternalMap$ValueIterator
 com.google.common.util.concurrent.ForwardingListenableFuture$SimpleForwardingListenableFuture
 com.mr.flutter.plugin.filepicker.R$styleable
+com.pozitiveenergy.R$animator
 kotlin.time.DurationKt
 javax.annotation.RegEx
 com.google.common.collect.RegularImmutableMultiset$1
@@ -689,6 +703,7 @@ kotlin.text.UStringsKt
 kotlin.jvm.internal.DefaultConstructorMarker:
     private void <init>()
 com.google.common.graph.PredecessorsFunction
+androidx.fragment.app.Fragment$6
 androidx.work.impl.constraints.package-info
 com.google.common.cache.CacheLoader$SupplierToCacheLoader
 com.google.common.reflect.TypeToken$SimpleTypeToken
@@ -704,6 +719,7 @@ androidx.work.impl.model.WorkProgressDao_Impl:
     public void insert(androidx.work.impl.model.WorkProgress)
     public androidx.work.Data getProgressForWorkSpecId(java.lang.String)
     public java.util.List getProgressForWorkSpecIds(java.util.List)
+androidx.activity.result.contract.ActivityResultContracts$TakePicturePreview
 kotlin.TypeAliasesKt
 kotlin.reflect.KProperty$Accessor
 com.google.common.collect.FilteredEntryMultimap$AsMap$1EntrySetImpl$1
@@ -721,7 +737,6 @@ com.google.common.collect.StandardTable$Row$2
 com.google.common.primitives.Shorts
 androidx.core.graphics.PathParser$PathDataNode
 com.google.common.collect.ConcurrentHashMultiset
-androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat
 com.google.common.collect.ImmutableEnumSet$1
 com.google.common.cache.LocalCache$ValueIterator
 androidx.lifecycle.HasDefaultViewModelProviderFactory
@@ -948,6 +963,7 @@ io.flutter.embedding.engine.plugins.contentprovider.ContentProviderPluginBinding
 androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport
 kotlin.coroutines.ContinuationInterceptor$Key
 kotlin.contracts.ContractBuilder
+androidx.work.multiprocess.IWorkManagerImpl$Stub$Proxy
 com.google.common.cache.CacheBuilderSpec$ValueStrengthParser
 com.google.i18n.phonenumbers.internal.RegexCache:
     boolean containsRegex(java.lang.String)
@@ -996,7 +1012,6 @@ com.google.common.util.concurrent.ThreadFactoryBuilder:
     public com.google.common.util.concurrent.ThreadFactoryBuilder setDaemon(boolean)
     public com.google.common.util.concurrent.ThreadFactoryBuilder setUncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)
     public com.google.common.util.concurrent.ThreadFactoryBuilder setThreadFactory(java.util.concurrent.ThreadFactory)
-androidx.activity.OnBackPressedDispatcher$OnBackPressedCancellable
 kotlin.collections.AbstractMutableCollection
 com.google.common.hash.AbstractHashFunction
 com.google.common.collect.ImmutableRangeSet$ComplementRanges
@@ -1026,6 +1041,7 @@ kotlin.sequences.SequencesKt
 kotlin.coroutines.experimental.migration.ExperimentalSuspendFunction1Migration
 kotlin.text.MatcherMatchResult
 com.google.common.cache.LocalCache$EntryFactory$6
+androidx.annotation.experimental.UseExperimental
 androidx.core.R$styleable
 androidx.core.view.ViewCompat$ScrollAxis
 com.google.common.collect.Multimaps$TransformedEntriesMultimap
@@ -1062,7 +1078,6 @@ kotlin.reflect.KCallable
 kotlin.KotlinVersion$Companion
 com.google.common.base.CharMatcher$JavaUpperCase
 com.google.common.base.Enums
-androidx.core.provider.FontsContractCompat$4$3
 androidx.core.app.RemoteActionCompat:
     public void <init>(androidx.core.graphics.drawable.IconCompat,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent)
     public void <init>(androidx.core.app.RemoteActionCompat)
@@ -1130,7 +1145,6 @@ kotlin.collections.ArraysKt___ArraysKt$withIndex$3
 androidx.arch.core.executor.ArchTaskExecutor:
     public static java.util.concurrent.Executor getMainThreadExecutor()
     public void setDelegate(androidx.arch.core.executor.TaskExecutor)
-androidx.activity.ComponentActivity$NonConfigurationInstances
 androidx.annotation.InspectableProperty
 com.google.common.util.concurrent.TimeoutFuture$Fire
 kotlin.io.OnErrorAction
@@ -1194,12 +1208,13 @@ androidx.room.InvalidationTracker:
     private static final java.lang.String CREATE_TRACKING_TABLE_SQL
     static final java.lang.String RESET_UPDATED_TABLES_SQL
     static final java.lang.String SELECT_UPDATED_TABLES_SQL
-androidx.work.impl.utils.WorkForegroundUpdater$1
 androidx.fragment.app.FragmentTabHost$SavedState
+androidx.work.impl.utils.WorkForegroundUpdater$1
 androidx.core.app.ActivityRecreator$1
 io.flutter.embedding.android.FlutterFragment$1
 com.google.common.base.CharMatcher$JavaIsoControl
 com.google.common.collect.FilteredKeySetMultimap
+androidx.work.multiprocess.IWorkManagerImplCallback$Stub
 com.google.common.io.BaseEncoding$3
 androidx.core.content.pm.ShortcutManagerCompat$1
 kotlin.text.StringsKt___StringsKt$windowedSequence$1
@@ -1309,7 +1324,7 @@ javax.annotation.concurrent.NotThreadSafe
 com.google.common.collect.FilteredKeyMultimap
 androidx.core.R$color
 androidx.activity.ComponentActivity$2:
-    void <init>(androidx.activity.ComponentActivity)
+    public void onLaunch(int,androidx.activity.result.contract.ActivityResultContract,java.lang.Object,androidx.core.app.ActivityOptionsCompat)
 com.google.common.cache.RemovalCause$1
 androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase$GestureHandler
 kotlin.collections.IndexedValue
@@ -1322,6 +1337,7 @@ kotlin.collections.ArraysKt___ArraysJvmKt$asList$6
 androidx.work.impl.utils.StatusRunnable$1
 com.google.common.util.concurrent.SimpleTimeLimiter$1$1
 kotlin.collections.SetsKt__SetsKt
+androidx.fragment.app.DefaultSpecialEffectsController$5
 androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat
 com.google.common.base.Functions$ToStringFunction
 kotlin.UInt
@@ -1375,6 +1391,7 @@ com.google.common.collect.ImmutableSortedMap$SerializedForm
 androidx.core.app.AppLaunchChecker
 kotlin.comparisons.ReversedComparator
 com.google.common.collect.ImmutableList$Itr
+androidx.lifecycle.viewmodel.savedstate.R$id
 com.google.common.collect.ImmutableList$Builder
 kotlin.UShort
 com.google.common.util.concurrent.AbstractService$6
@@ -1388,6 +1405,7 @@ androidx.work.impl.model.WorkSpecDao_Impl:
     public void pruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast()
     public androidx.work.impl.model.WorkSpec[] getWorkSpecs(java.util.List)
     public java.util.List getAllWorkSpecIds()
+    public androidx.lifecycle.LiveData getAllWorkSpecIdsLiveData()
     public androidx.work.impl.model.WorkSpec$WorkInfoPojo getWorkStatusPojoForId(java.lang.String)
     public java.util.List getWorkStatusPojoForIds(java.util.List)
     public androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForIds(java.util.List)
@@ -1395,6 +1413,7 @@ androidx.work.impl.model.WorkSpecDao_Impl:
     public androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForTag(java.lang.String)
     public java.util.List getWorkStatusPojoForName(java.lang.String)
     public androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForName(java.lang.String)
+    public androidx.lifecycle.LiveData getScheduleRequestedAtLiveData(java.lang.String)
 androidx.loader.content.ModernAsyncTask$3
 kotlin.jvm.functions.Function7
 com.google.common.base.StandardSystemProperty
@@ -1414,6 +1433,7 @@ com.google.common.collect.MapMakerInternalMap$Strength
 com.google.common.util.concurrent.SmoothRateLimiter$SmoothWarmingUp
 com.google.common.base.CharMatcher$Negated
 androidx.core.net.UriCompat
+androidx.inspection.work.runtime.ProguardDetection
 com.google.common.collect.MultimapBuilder$MultimapBuilderWithKeys$2
 androidx.core.util.Pools
 androidx.annotation.MenuRes
@@ -1468,13 +1488,12 @@ androidx.room.Fts3
 androidx.core.app.JobIntentService$CommandProcessor
 com.google.common.graph.ConfigurableMutableGraph
 com.google.common.util.concurrent.Striped$WeakSafeLock
-androidx.core.provider.FontsContractCompat$5
 com.google.common.collect.CartesianList
 com.google.common.collect.SortedMultiset
 androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatImpl
 androidx.core.view.accessibility.AccessibilityNodeProviderCompat
-com.google.common.collect.MultimapBuilder$1
 androidx.annotation.AnimatorRes
+com.google.common.collect.MultimapBuilder$1
 androidx.versionedparcelable.ParcelField
 androidx.fragment.app.Fragment$OnStartEnterTransitionListener
 com.google.common.graph.Traverser$GraphTraverser
@@ -1485,6 +1504,7 @@ androidx.room.ColumnInfo$SQLiteTypeAffinity
 com.google.common.math.Quantiles
 com.google.common.collect.Maps$NavigableKeySet
 kotlin.internal.DynamicExtension
+androidx.activity.result.IntentSenderRequest$1
 com.google.common.base.Equivalence
 androidx.core.provider.FontsContractCompat$FontRequestCallback
 kotlin.jvm.internal.FunctionReferenceImpl
@@ -1493,6 +1513,8 @@ com.google.common.collect.ClassToInstanceMap
 com.google.common.util.concurrent.FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator
 com.google.common.hash.AbstractStreamingHasher
 com.google.common.cache.Weigher
+androidx.fragment.app.Fragment$5:
+    void <init>(androidx.fragment.app.Fragment)
 com.google.common.hash.FarmHashFingerprint64
 com.google.common.collect.Maps$UnmodifiableNavigableMap
 com.google.common.graph.MapIteratorCache
@@ -1556,6 +1578,7 @@ com.google.common.base.CaseFormat$2
 androidx.fragment.app.FragmentContainer
 androidx.work.impl.utils.PruneWorkRunnable
 androidx.fragment.app.FragmentManager$2
+androidx.activity.result.contract.ActivityResultContracts$TakePicture
 com.google.common.collect.Maps$EntrySet
 com.google.errorprone.annotations.concurrent.LockMethod
 com.pozitiveenergy.R$styleable
@@ -1565,8 +1588,7 @@ androidx.arch.core.R
 androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 kotlin.coroutines.experimental.jvm.internal.CoroutineIntrinsics
 androidx.lifecycle.LifecycleRegistry:
-    public void markState(androidx.lifecycle.Lifecycle$State)
-    public void setCurrentState(androidx.lifecycle.Lifecycle$State)
+    public static androidx.lifecycle.LifecycleRegistry createUnsafe(androidx.lifecycle.LifecycleOwner)
     public int getObserverCount()
 com.google.common.collect.AbstractMapBasedMultimap$WrappedList$WrappedListIterator
 com.google.common.collect.ImmutableBiMap
@@ -1593,6 +1615,7 @@ androidx.work.Constraints$Builder:
     public androidx.work.Constraints$Builder setTriggerContentUpdateDelay(java.time.Duration)
     public androidx.work.Constraints$Builder setTriggerContentMaxDelay(long,java.util.concurrent.TimeUnit)
     public androidx.work.Constraints$Builder setTriggerContentMaxDelay(java.time.Duration)
+androidx.work.multiprocess.IWorkManagerImpl
 io.flutter.plugins.sharedpreferences.R$id
 kotlin.reflect.KMutableProperty1$Setter
 kotlin.coroutines.experimental.migration.ExperimentalSuspendFunction0Migration
@@ -1624,6 +1647,7 @@ io.flutter.embedding.engine.FlutterEngineConnectionRegistry$FlutterEngineActivit
 com.google.common.base.Splitter
 com.google.common.collect.Ordering$ArbitraryOrdering
 com.google.i18n.phonenumbers.PhoneNumberUtil$MatchType
+androidx.fragment.app.FragmentManager$LaunchedFragmentInfo$1
 androidx.sqlite.db.framework.FrameworkSQLiteProgram:
     public void clearBindings()
 kotlin.io.CloseableKt
@@ -1645,6 +1669,7 @@ kotlin.time.MeasureTimeKt
 com.google.common.io.LittleEndianDataInputStream
 com.google.common.base.CharMatcher$Whitespace
 androidx.core.view.ViewCompat$5
+androidx.fragment.app.LogWriter
 androidx.core.text.ICUCompat
 androidx.work.impl.background.greedy.GreedyScheduler:
     public void <init>(android.content.Context,androidx.work.impl.WorkManagerImpl,androidx.work.impl.constraints.WorkConstraintsTracker)
@@ -1700,7 +1725,199 @@ kotlin.collections.TypeAliasesKt
 androidx.core.content.pm.ShortcutInfoCompat$Builder
 com.jrai.flutter_keyboard_visibility.R$color
 kotlin.collections.ArraysKt___ArraysKt$asIterable$$inlined$Iterable$1
-androidx.fragment.app.FragmentManager
+androidx.work.multiprocess.IWorkManagerImplCallback
+androidx.fragment.app.FragmentManager:
+    public void <init>()
+    public static void enableNewStateManager(boolean)
+    public static void enableDebugLogging(boolean)
+    static boolean isLoggingEnabled(int)
+    private void throwException(java.lang.RuntimeException)
+    private void updateOnBackPressedCallbackEnabled()
+    private boolean popBackStackImmediate(java.lang.String,int,int)
+    public static androidx.fragment.app.Fragment findFragment(android.view.View)
+    private static androidx.fragment.app.Fragment findViewFragment(android.view.View)
+    static androidx.fragment.app.Fragment getViewFragment(android.view.View)
+    static androidx.fragment.app.FragmentManager findFragmentManager(android.view.View)
+    private androidx.fragment.app.FragmentManagerViewModel getChildNonConfig(androidx.fragment.app.Fragment)
+    private void cancelExitAnimation(androidx.fragment.app.Fragment)
+    private void destroyFragmentView(androidx.fragment.app.Fragment)
+    private void completeShowHideFragment(androidx.fragment.app.Fragment)
+    private void startPendingDeferredFragments()
+    private void checkStateLoss()
+    private void ensureExecReady(boolean)
+    private void cleanupExec()
+    private void executePostponedTransaction(java.util.ArrayList,java.util.ArrayList)
+    private void removeRedundantOperationsAndExecute(java.util.ArrayList,java.util.ArrayList)
+    private void executeOpsTogether(java.util.ArrayList,java.util.ArrayList,int,int)
+    private java.util.Set collectChangedControllers(java.util.ArrayList,int,int)
+    private void makeRemovedFragmentsInvisible(androidx.collection.ArraySet)
+    private int postponePostponableTransactions(java.util.ArrayList,java.util.ArrayList,int,int,androidx.collection.ArraySet)
+    private static void executeOps(java.util.ArrayList,java.util.ArrayList,int,int)
+    private void setVisibleRemovingFragment(androidx.fragment.app.Fragment)
+    private android.view.ViewGroup getFragmentContainer(androidx.fragment.app.Fragment)
+    private void addAddedFragments(androidx.collection.ArraySet)
+    private void forcePostponedTransactions()
+    private void endAnimatingAwayFragments()
+    private java.util.Set collectAllSpecialEffectsController()
+    private boolean generateOpsForPendingActions(java.util.ArrayList,java.util.ArrayList)
+    private void doPendingDeferredStart()
+    private void reportBackStackChanged()
+    private void dispatchStateChange(int)
+    private void dispatchParentPrimaryNavigationFragmentChanged(androidx.fragment.app.Fragment)
+    private boolean isMenuAvailable(androidx.fragment.app.Fragment)
+    static int reverseTransit(int)
+    static synthetic androidx.fragment.app.FragmentStore access$200(androidx.fragment.app.FragmentManager)
+    public androidx.fragment.app.FragmentTransaction openTransaction()
+    public androidx.fragment.app.FragmentTransaction beginTransaction()
+    public boolean executePendingTransactions()
+    boolean isPrimaryNavigation(androidx.fragment.app.Fragment)
+    boolean isParentMenuVisible(androidx.fragment.app.Fragment)
+    void handleOnBackPressed()
+    public void popBackStack()
+    public boolean popBackStackImmediate()
+    public void popBackStack(java.lang.String,int)
+    public boolean popBackStackImmediate(java.lang.String,int)
+    public void popBackStack(int,int)
+    public boolean popBackStackImmediate(int,int)
+    public int getBackStackEntryCount()
+    public androidx.fragment.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+    public void addOnBackStackChangedListener(androidx.fragment.app.FragmentManager$OnBackStackChangedListener)
+    public void removeOnBackStackChangedListener(androidx.fragment.app.FragmentManager$OnBackStackChangedListener)
+    void addCancellationSignal(androidx.fragment.app.Fragment,androidx.core.os.CancellationSignal)
+    void removeCancellationSignal(androidx.fragment.app.Fragment,androidx.core.os.CancellationSignal)
+    public final void setFragmentResult(java.lang.String,android.os.Bundle)
+    public final void setFragmentResultListener(java.lang.String,androidx.lifecycle.LifecycleOwner,androidx.fragment.app.FragmentResultListener)
+    public final void clearFragmentResultListener(java.lang.String)
+    public void putFragment(android.os.Bundle,java.lang.String,androidx.fragment.app.Fragment)
+    public androidx.fragment.app.Fragment getFragment(android.os.Bundle,java.lang.String)
+    void onContainerAvailable(androidx.fragment.app.FragmentContainerView)
+    public java.util.List getFragments()
+    androidx.lifecycle.ViewModelStore getViewModelStore(androidx.fragment.app.Fragment)
+    void addRetainedFragment(androidx.fragment.app.Fragment)
+    void removeRetainedFragment(androidx.fragment.app.Fragment)
+    java.util.List getActiveFragments()
+    int getActiveFragmentCount()
+    public androidx.fragment.app.Fragment$SavedState saveFragmentInstanceState(androidx.fragment.app.Fragment)
+    public boolean isDestroyed()
+    public java.lang.String toString()
+    public void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+    void performPendingDeferredStart(androidx.fragment.app.FragmentStateManager)
+    boolean isStateAtLeast(int)
+    void moveToState(androidx.fragment.app.Fragment,int)
+    void setExitAnimationOrder(androidx.fragment.app.Fragment,boolean)
+    void moveToState(androidx.fragment.app.Fragment)
+    void moveFragmentToExpectedState(androidx.fragment.app.Fragment)
+    void moveToState(int,boolean)
+    androidx.fragment.app.FragmentStateManager createOrGetFragmentStateManager(androidx.fragment.app.Fragment)
+    androidx.fragment.app.FragmentStateManager addFragment(androidx.fragment.app.Fragment)
+    void removeFragment(androidx.fragment.app.Fragment)
+    void hideFragment(androidx.fragment.app.Fragment)
+    void showFragment(androidx.fragment.app.Fragment)
+    void detachFragment(androidx.fragment.app.Fragment)
+    void attachFragment(androidx.fragment.app.Fragment)
+    public androidx.fragment.app.Fragment findFragmentById(int)
+    public androidx.fragment.app.Fragment findFragmentByTag(java.lang.String)
+    androidx.fragment.app.Fragment findFragmentByWho(java.lang.String)
+    androidx.fragment.app.Fragment findActiveFragment(java.lang.String)
+    public boolean isStateSaved()
+    void enqueueAction(androidx.fragment.app.FragmentManager$OpGenerator,boolean)
+    void scheduleCommit()
+    int allocBackStackIndex()
+    void execSingleAction(androidx.fragment.app.FragmentManager$OpGenerator,boolean)
+    boolean execPendingActions(boolean)
+    void completeExecute(androidx.fragment.app.BackStackRecord,boolean,boolean,boolean)
+    void addBackStackState(androidx.fragment.app.BackStackRecord)
+    boolean popBackStackState(java.util.ArrayList,java.util.ArrayList,java.lang.String,int,int)
+    androidx.fragment.app.FragmentManagerNonConfig retainNonConfig()
+    android.os.Parcelable saveAllState()
+    void restoreAllState(android.os.Parcelable,androidx.fragment.app.FragmentManagerNonConfig)
+    void restoreSaveState(android.os.Parcelable)
+    androidx.fragment.app.FragmentHostCallback getHost()
+    androidx.fragment.app.Fragment getParent()
+    androidx.fragment.app.FragmentContainer getContainer()
+    androidx.fragment.app.FragmentStore getFragmentStore()
+    void attachController(androidx.fragment.app.FragmentHostCallback,androidx.fragment.app.FragmentContainer,androidx.fragment.app.Fragment)
+    void noteStateNotSaved()
+    void launchStartActivityForResult(androidx.fragment.app.Fragment,android.content.Intent,int,android.os.Bundle)
+    void launchStartIntentSenderForResult(androidx.fragment.app.Fragment,android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)
+    void launchRequestPermissions(androidx.fragment.app.Fragment,java.lang.String[],int)
+    void dispatchAttach()
+    void dispatchCreate()
+    void dispatchViewCreated()
+    void dispatchActivityCreated()
+    void dispatchStart()
+    void dispatchResume()
+    void dispatchPause()
+    void dispatchStop()
+    void dispatchDestroyView()
+    void dispatchDestroy()
+    void dispatchMultiWindowModeChanged(boolean)
+    void dispatchPictureInPictureModeChanged(boolean)
+    void dispatchConfigurationChanged(android.content.res.Configuration)
+    void dispatchLowMemory()
+    boolean dispatchCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
+    boolean dispatchPrepareOptionsMenu(android.view.Menu)
+    boolean dispatchOptionsItemSelected(android.view.MenuItem)
+    boolean dispatchContextItemSelected(android.view.MenuItem)
+    void dispatchOptionsMenuClosed(android.view.Menu)
+    void setPrimaryNavigationFragment(androidx.fragment.app.Fragment)
+    void dispatchPrimaryNavigationFragmentChanged()
+    public androidx.fragment.app.Fragment getPrimaryNavigationFragment()
+    void setMaxLifecycle(androidx.fragment.app.Fragment,androidx.lifecycle.Lifecycle$State)
+    public void setFragmentFactory(androidx.fragment.app.FragmentFactory)
+    public androidx.fragment.app.FragmentFactory getFragmentFactory()
+    void setSpecialEffectsControllerFactory(androidx.fragment.app.SpecialEffectsControllerFactory)
+    androidx.fragment.app.SpecialEffectsControllerFactory getSpecialEffectsControllerFactory()
+    androidx.fragment.app.FragmentLifecycleCallbacksDispatcher getLifecycleCallbacksDispatcher()
+    public void registerFragmentLifecycleCallbacks(androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
+    public void unregisterFragmentLifecycleCallbacks(androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks)
+    public void addFragmentOnAttachListener(androidx.fragment.app.FragmentOnAttachListener)
+    void dispatchOnAttachFragment(androidx.fragment.app.Fragment)
+    public void removeFragmentOnAttachListener(androidx.fragment.app.FragmentOnAttachListener)
+    boolean checkForMenus()
+    void invalidateMenuForFragment(androidx.fragment.app.Fragment)
+    android.view.LayoutInflater$Factory2 getLayoutInflaterFactory()
+    private final java.util.ArrayList mPendingActions
+    private boolean mExecutingActions
+    private final androidx.fragment.app.FragmentStore mFragmentStore
+    java.util.ArrayList mBackStack
+    private java.util.ArrayList mCreatedMenus
+    private final androidx.fragment.app.FragmentLayoutInflaterFactory mLayoutInflaterFactory
+    private androidx.activity.OnBackPressedDispatcher mOnBackPressedDispatcher
+    private final androidx.activity.OnBackPressedCallback mOnBackPressedCallback
+    private final java.util.concurrent.atomic.AtomicInteger mBackStackIndex
+    private java.util.ArrayList mBackStackChangeListeners
+    private java.util.Map mExitAnimationCancellationSignals
+    private final androidx.fragment.app.FragmentTransition$Callback mFragmentTransitionCallback
+    private final androidx.fragment.app.FragmentLifecycleCallbacksDispatcher mLifecycleCallbacksDispatcher
+    private final java.util.concurrent.CopyOnWriteArrayList mOnAttachListeners
+    int mCurState
+    private androidx.fragment.app.FragmentHostCallback mHost
+    private androidx.fragment.app.FragmentContainer mContainer
+    private androidx.fragment.app.Fragment mParent
+    androidx.fragment.app.Fragment mPrimaryNav
+    private androidx.fragment.app.FragmentFactory mFragmentFactory
+    private androidx.fragment.app.FragmentFactory mHostFragmentFactory
+    private androidx.fragment.app.SpecialEffectsControllerFactory mSpecialEffectsControllerFactory
+    private androidx.fragment.app.SpecialEffectsControllerFactory mDefaultSpecialEffectsControllerFactory
+    private androidx.activity.result.ActivityResultLauncher mStartActivityForResult
+    private androidx.activity.result.ActivityResultLauncher mStartIntentSenderForResult
+    private androidx.activity.result.ActivityResultLauncher mRequestPermissions
+    java.util.ArrayDeque mLaunchedFragments
+    private boolean mNeedMenuInvalidate
+    private boolean mStateSaved
+    private boolean mStopped
+    private boolean mDestroyed
+    private boolean mHavePendingDeferredStart
+    private java.util.ArrayList mTmpRecords
+    private java.util.ArrayList mTmpIsPop
+    private java.util.ArrayList mTmpAddedFragments
+    private java.util.ArrayList mPostponedTransactions
+    private androidx.fragment.app.FragmentManagerViewModel mNonConfig
+    private java.lang.Runnable mExecCommit
+    static final java.lang.String TAG
+    public static final int POP_BACK_STACK_INCLUSIVE
+    private static final java.lang.String EXTRA_CREATED_FILLIN_INTENT
 kotlin.collections.ULongIterator
 io.flutter.embedding.engine.FlutterEngineGroup
 com.google.common.collect.ImmutableMap$IteratorBasedImmutableMap
@@ -1795,17 +2012,21 @@ androidx.customview.view.AbsSavedState$1
 kotlin.collections.CollectionsKt___CollectionsKt$withIndex$1
 androidx.room.RoomSQLiteQuery$1
 com.google.common.util.concurrent.MoreExecutors$3
+androidx.activity.result.ActivityResultRegistry$1:
+    void <init>(androidx.activity.result.ActivityResultRegistry,java.lang.String,androidx.activity.result.ActivityResultCallback,androidx.activity.result.contract.ActivityResultContract)
 kotlin.sequences.SequencesKt___SequencesJvmKt
 com.google.common.cache.LocalCache$Strength$3
 kotlin.collections.MapsKt__MapsKt
 kotlin.NotImplementedError
 androidx.work.impl.Scheduler:
     public static final int MAX_SCHEDULER_LIMIT
+    public static final int MAX_GREEDY_SCHEDULER_LIMIT
 kotlin.jvm.JvmName
 com.google.common.cache.CacheBuilderSpec$InitialCapacityParser
 com.google.common.collect.Iterators$10
 kotlin.jvm.functions.Function2
 kotlin.ranges.CharProgression
+androidx.activity.result.contract.ActivityResultContracts$GetMultipleContents
 com.google.common.collect.ConcurrentHashMultiset$FieldSettersHolder
 kotlin.text.StringsKt__RegexExtensionsKt
 org.intellij.lang.annotations.JdkConstants$TabLayoutPolicy
@@ -1824,6 +2045,8 @@ androidx.work.Configuration$Builder:
     public androidx.work.Configuration$Builder setMaxSchedulerLimit(int)
     public androidx.work.Configuration$Builder setMinimumLoggingLevel(int)
     public androidx.work.Configuration$Builder setRunnableScheduler(androidx.work.RunnableScheduler)
+    public androidx.work.Configuration$Builder setInitializationExceptionHandler(androidx.work.InitializationExceptionHandler)
+    public androidx.work.Configuration$Builder setDefaultProcessName(java.lang.String)
 com.google.common.collect.AbstractBiMap$Inverse
 com.google.common.collect.SetMultimap
 io.flutter.embedding.engine.FlutterEngineGroup$1
@@ -1862,6 +2085,7 @@ androidx.core.app.ActivityCompat:
 com.google.common.primitives.Longs$LongArrayAsList
 kotlin.coroutines.CoroutineContext
 com.google.common.collect.Maps$UnmodifiableEntries
+androidx.activity.ComponentActivity$2$1
 androidx.viewpager.widget.PagerTitleStrip$SingleLineAllCapsTransform
 com.google.common.collect.RegularImmutableBiMap
 com.google.common.util.concurrent.CycleDetectingLockFactory$Policies$1
@@ -2259,6 +2483,10 @@ com.google.common.cache.RemovalCause$4
 com.google.common.collect.Synchronized$SynchronizedAsMapValues$1
 com.google.common.hash.AbstractCompositeHashFunction$1
 com.google.common.collect.ImmutableMap
+androidx.activity.result.contract.ActivityResultContract:
+    public void <init>()
+    public abstract android.content.Intent createIntent(android.content.Context,java.lang.Object)
+    public androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.Object)
 kotlin.sequences.IndexingSequence$iterator$1
 androidx.core.app.SharedElementCallback$OnSharedElementsReadyListener
 androidx.core.view.MenuCompat
@@ -2298,6 +2526,7 @@ androidx.lifecycle.LiveData$LifecycleBoundObserver:
 com.google.common.util.concurrent.AbstractScheduledService$ServiceDelegate
 androidx.core.content.res.ResourcesCompat$ThemeCompat
 kotlin.random.KotlinRandom
+androidx.activity.result.contract.ActivityResultContracts$PickContact
 com.google.common.collect.Synchronized$SynchronizedTable$2
 kotlin.collections.SlidingWindowKt
 androidx.core.view.WindowInsetsCompat$TypeImpl30:
@@ -2343,12 +2572,16 @@ androidx.core.view.OnReceiveContentViewBehavior:
 androidx.annotation.RequiresFeature
 com.google.common.collect.AbstractMultimap$Entries
 androidx.work.R$attr
+androidx.lifecycle.ViewTreeViewModelStoreOwner:
+    private void <init>()
+    public static androidx.lifecycle.ViewModelStoreOwner get(android.view.View)
 androidx.core.os.ParcelCompat
 androidx.core.view.ViewPropertyAnimatorUpdateListener
 com.google.common.base.Splitter$Strategy
 kotlin.jvm.internal.MutablePropertyReference2
 androidx.customview.widget.ViewDragHelper$Callback
 com.google.common.collect.EnumMultiset$2
+androidx.fragment.app.DefaultSpecialEffectsController$2
 com.google.common.hash.ChecksumHashFunction
 androidx.core.R$id:
     private void <init>()
@@ -2409,14 +2642,17 @@ com.google.common.graph.DirectedGraphConnections$1
 com.google.j2objc.annotations.ReflectionSupport
 com.google.common.cache.RemovalListeners$1$1
 com.google.common.util.concurrent.ImmediateFuture
+androidx.core.provider.CallbackWithHandler
 kotlin.text.TypeAliasesKt
 com.google.common.cache.ForwardingCache
 com.google.common.collect.AbstractMapBasedMultimap$Itr
 com.google.common.collect.RegularImmutableTable
 kotlin.time.MonoClock
 com.mathrawk.libphonenumber.R$dimen
+androidx.annotation.experimental.Experimental
 com.google.common.collect.BiMap
 com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets$1
+androidx.fragment.app.FragmentManager$10
 kotlin.sequences.SequencesKt__SequencesJVMKt
 androidx.customview.widget.FocusStrategy
 androidx.fragment.app.Fragment$4
@@ -2571,25 +2807,16 @@ com.google.common.collect.Iterables$7
 com.google.common.collect.ForwardingMap$StandardValues
 com.google.common.collect.RangeMap
 androidx.activity.ComponentActivity:
-    public void <init>()
     public void <init>(int)
-    static synthetic void access$001(androidx.activity.ComponentActivity)
-    protected void onCreate(android.os.Bundle)
-    protected void onSaveInstanceState(android.os.Bundle)
-    public final java.lang.Object onRetainNonConfigurationInstance()
-    public java.lang.Object onRetainCustomNonConfigurationInstance()
     public java.lang.Object getLastCustomNonConfigurationInstance()
-    public androidx.lifecycle.Lifecycle getLifecycle()
+    public android.content.Context peekAvailableContext()
+    public final void addOnContextAvailableListener(androidx.activity.contextaware.OnContextAvailableListener)
+    public final void removeOnContextAvailableListener(androidx.activity.contextaware.OnContextAvailableListener)
     public androidx.lifecycle.ViewModelProvider$Factory getDefaultViewModelProviderFactory()
-    public void onBackPressed()
-    public final androidx.activity.OnBackPressedDispatcher getOnBackPressedDispatcher()
-    public final androidx.savedstate.SavedStateRegistry getSavedStateRegistry()
-    private final androidx.lifecycle.LifecycleRegistry mLifecycleRegistry
-    private final androidx.savedstate.SavedStateRegistryController mSavedStateRegistryController
-    private androidx.lifecycle.ViewModelStore mViewModelStore
+    public final androidx.activity.result.ActivityResultLauncher registerForActivityResult(androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultRegistry,androidx.activity.result.ActivityResultCallback)
+    public final androidx.activity.result.ActivityResultLauncher registerForActivityResult(androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultCallback)
+    public final androidx.activity.result.ActivityResultRegistry getActivityResultRegistry()
     private androidx.lifecycle.ViewModelProvider$Factory mDefaultFactory
-    private final androidx.activity.OnBackPressedDispatcher mOnBackPressedDispatcher
-    private int mContentLayoutId
 com.google.j2objc.annotations.LoopTranslation
 com.google.common.primitives.ImmutableDoubleArray$AsList
 com.google.common.primitives.ImmutableLongArray
@@ -2597,7 +2824,6 @@ androidx.annotation.StyleableRes
 com.google.common.base.Throwables$1
 kotlin.UShortKt
 kotlin.collections.CollectionsKt__IterablesKt
-androidx.core.provider.FontsContractCompat$4
 com.mr.flutter.plugin.filepicker.R$integer
 com.google.common.collect.StandardTable$Column$EntrySetIterator$1EntryImpl
 com.google.common.collect.ImmutableEnumMap
@@ -2625,7 +2851,6 @@ androidx.core.view.ContentInfoCompat$Source
 androidx.room.util.FtsTableInfo
 androidx.work.impl.utils.WorkForegroundUpdater:
     public com.google.common.util.concurrent.ListenableFuture setForegroundAsync(android.content.Context,java.util.UUID,androidx.work.ForegroundInfo)
-androidx.core.provider.FontsContractCompat$4$4
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$nullsLast$1
 com.google.common.util.concurrent.AggregateFuture$RunningState
 com.google.common.collect.ImmutableRangeMap$2
@@ -2649,6 +2874,9 @@ com.google.common.graph.AbstractDirectedNetworkConnections
 com.google.common.collect.MutableClassToInstanceMap$2$1
 androidx.core.content.res.ComplexColorCompat
 com.google.common.collect.CompactHashMap$2
+androidx.work.impl.OperationImpl:
+    public com.google.common.util.concurrent.ListenableFuture getResult()
+    public androidx.lifecycle.LiveData getState()
 androidx.work.Data:
     public boolean[] getBooleanArray(java.lang.String)
     public byte getByte(java.lang.String,byte)
@@ -2664,9 +2892,6 @@ androidx.work.Data:
     public byte[] toByteArray()
     public boolean hasKeyWithValueOfType(java.lang.String,java.lang.Class)
     public static final int MAX_DATA_BYTES
-androidx.work.impl.OperationImpl:
-    public com.google.common.util.concurrent.ListenableFuture getResult()
-    public androidx.lifecycle.LiveData getState()
 com.google.common.io.ByteSource$SlicedByteSource
 androidx.fragment.app.FragmentTabHost
 com.google.common.util.concurrent.Partially
@@ -2691,6 +2916,7 @@ com.google.common.collect.Maps$FilteredEntryBiMap$1
 androidx.room.RoomOpenHelper:
     public void <init>(androidx.room.DatabaseConfiguration,androidx.room.RoomOpenHelper$Delegate,java.lang.String)
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
+androidx.activity.ComponentActivity$2$2
 com.google.common.collect.Collections2$PermutationCollection
 com.google.common.collect.FilteredKeyMultimap$AddRejectingSet
 kotlin.ranges.ULongRange$Companion
@@ -2747,9 +2973,11 @@ com.google.errorprone.annotations.Immutable
 androidx.core.view.accessibility.AccessibilityViewCommand$ScrollToPositionArguments
 com.github.yasukotelin.ext_storage.R
 com.google.common.collect.ArrayTable$RowMap
+androidx.fragment.app.FragmentActivity$1
 com.google.common.collect.Lists$TwoPlusArrayList
 com.google.common.cache.LongAddables$2
 kotlin.jvm.internal.EnumCompanionObject
+androidx.activity.result.contract.ActivityResultContracts$CreateDocument
 androidx.work.impl.WorkManagerImpl$2
 com.google.common.hash.Hashing$Sha384Holder
 androidx.core.app.TaskStackBuilder$SupportParentable
@@ -2825,6 +3053,7 @@ com.google.common.cache.CacheBuilder$1
 com.google.common.collect.Synchronized$SynchronizedEntry
 androidx.fragment.app.FragmentPagerAdapter
 androidx.annotation.IntegerRes
+androidx.activity.result.ActivityResultRegistry$2
 com.google.common.io.BaseEncoding$1
 kotlin.ranges.LongProgression$Companion
 androidx.work.impl.model.WorkTagDao:
@@ -2916,6 +3145,7 @@ io.flutter.embedding.engine.FlutterEngine:
     public io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverControlSurface getBroadcastReceiverControlSurface()
     public io.flutter.embedding.engine.plugins.contentprovider.ContentProviderControlSurface getContentProviderControlSurface()
     private static final java.lang.String TAG
+androidx.activity.result.contract.ActivityResultContracts$RequestMultiplePermissions
 com.google.common.collect.Iterables
 com.google.common.reflect.MutableTypeToInstanceMap$1
 kotlin.jvm.internal.markers.KMutableList
@@ -2942,6 +3172,7 @@ androidx.work.impl.utils.StatusRunnable
 kotlin.collections.ArraysKt___ArraysKt$asIterable$$inlined$Iterable$8
 com.google.common.collect.ForwardingSortedMultiset$StandardDescendingMultiset
 androidx.loader.R
+androidx.activity.result.contract.ActivityResultContracts$StartIntentSenderForResult
 com.google.common.base.AbstractIterator
 androidx.viewpager.widget.ViewPager$DecorView
 androidx.core.content.res.ResourcesCompat$FontCallback$1
@@ -2966,6 +3197,7 @@ com.google.common.base.Splitter$2$1
 kotlin.jvm.functions.Function17
 com.google.common.base.Present
 kotlin.collections.CollectionsKt__CollectionsKt
+androidx.fragment.app.DefaultSpecialEffectsController$3
 com.google.common.graph.UndirectedGraphConnections
 io.flutter.plugins.urllauncher.R$style
 com.google.common.primitives.Bytes
@@ -3099,6 +3331,7 @@ kotlin.comparisons.ComparisonsKt__ComparisonsKt$thenBy$1
 com.google.common.collect.Range$RangeLexOrdering
 androidx.core.R$drawable
 com.google.common.util.concurrent.ServiceManager$ServiceManagerState$AwaitHealthGuard
+androidx.fragment.app.SpecialEffectsController
 com.google.common.collect.ImmutableClassToInstanceMap
 com.google.common.collect.Maps$6
 kotlin.SuspendKt
@@ -3113,6 +3346,9 @@ com.google.common.hash.Funnels$SequentialFunnel
 androidx.core.view.accessibility.AccessibilityNodeInfoCompat$TouchDelegateInfoCompat
 androidx.core.provider.FontRequest
 androidx.fragment.app.FragmentAnim$2$1
+androidx.savedstate.ViewTreeSavedStateRegistryOwner:
+    private void <init>()
+    public static androidx.savedstate.SavedStateRegistryOwner get(android.view.View)
 com.google.common.collect.ObjectCountHashMap
 androidx.core.graphics.TypefaceCompatApi28Impl
 kotlin.coroutines.CombinedContext$toString$1
@@ -3131,6 +3367,7 @@ androidx.core.provider.FontsContractCompat$FontRequestCallback$FontRequestFailRe
 com.google.common.cache.CacheBuilderSpec$RefreshDurationParser
 com.google.common.collect.ImmutableMapEntrySet$EntrySetSerializedForm
 androidx.core.util.LogWriter
+androidx.fragment.app.SpecialEffectsController$Operation$LifecycleImpact
 kotlin.internal.LowPriorityInOverloadResolution
 io.flutter.plugins.pathprovider.R$layout
 com.google.common.base.PatternCompiler
@@ -3172,12 +3409,15 @@ io.flutter.embedding.android.FlutterTextureView:
 com.google.common.collect.RegularImmutableMap$EntrySet$1
 com.google.common.collect.CompactHashSet$1
 com.google.common.escape.CharEscaper
+androidx.fragment.R$animator
 androidx.lifecycle.ViewModelProvider$NewInstanceFactory
 androidx.lifecycle.ViewModelProvider
 kotlin.jvm.internal.markers.KMutableIterable
 com.google.common.collect.Sets$5
 com.google.common.collect.ImmutableEnumSet$EnumSerializedForm
 com.google.common.util.concurrent.Service
+androidx.work.impl.utils.ProcessUtils:
+    private void <init>()
 com.google.common.collect.RegularImmutableAsList
 androidx.work.impl.model.WorkNameDao:
     public abstract java.util.List getWorkSpecIdsWithName(java.lang.String)
@@ -3263,6 +3503,8 @@ com.google.common.io.Resources$UrlByteSource
 kotlin.sequences.MergingSequence
 kotlin.internal.ContractsDsl
 androidx.core.view.accessibility.AccessibilityViewCommand$MoveAtGranularityArguments
+androidx.lifecycle.viewmodel.R$id:
+    private void <init>()
 androidx.core.view.inputmethod.InputConnectionCompat$OnCommitContentListener
 kotlin.sequences.TakeSequence$iterator$1
 androidx.customview.view.AbsSavedState
@@ -3287,7 +3529,7 @@ io.flutter.embedding.android.FlutterActivity:
     public void configureFlutterEngine(io.flutter.embedding.engine.FlutterEngine)
     private static final java.lang.String TAG
 androidx.work.impl.WorkContinuationImpl:
-    void <init>(androidx.work.impl.WorkManagerImpl,java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
+    public void <init>(androidx.work.impl.WorkManagerImpl,java.lang.String,androidx.work.ExistingWorkPolicy,java.util.List)
     public java.util.List getAllIds()
     public androidx.work.WorkContinuation then(java.util.List)
     public androidx.lifecycle.LiveData getWorkInfosLiveData()
@@ -3300,10 +3542,12 @@ com.google.common.collect.MultimapBuilder$MultimapBuilderWithKeys$4
 com.google.common.graph.Network
 kotlin.io.FileTreeWalk$DirectoryState
 androidx.core.internal.view.SupportMenuItem
+androidx.core.graphics.TypefaceCompat$ResourcesCallbackAdapter
 com.google.common.base.Absent
 com.google.common.base.Optional
 com.google.common.primitives.ImmutableIntArray$AsList
 com.google.common.collect.ArrayListMultimap
+androidx.core.provider.CallbackWithHandler$2
 kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$4
 kotlin.text.ScreenFloatValueRegEx
 androidx.customview.R$layout
@@ -3372,6 +3616,7 @@ io.flutter.embedding.engine.FlutterShellArgs:
     public static final java.lang.String ARG_OBSERVATORY_PORT
     public static final java.lang.String ARG_KEY_DART_FLAGS
     public static final java.lang.String ARG_DART_FLAGS
+androidx.core.provider.FontRequestWorker
 com.google.common.collect.Iterables$6
 com.google.common.collect.ImmutableMultiset$EntrySetSerializedForm
 com.google.common.primitives.Shorts$ShortArrayAsList
@@ -3473,7 +3718,6 @@ androidx.versionedparcelable.VersionedParcel:
     private static final int TYPE_BINDER
     private static final int TYPE_INTEGER
     private static final int TYPE_FLOAT
-androidx.core.provider.FontsContractCompat$3
 androidx.core.text.TextDirectionHeuristicCompat
 androidx.customview.widget.ExploreByTouchHelper$1
 com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
@@ -3496,6 +3740,7 @@ kotlin.jvm.internal.ArrayLongIterator
 com.google.common.util.concurrent.AbstractService$IsStartableGuard
 com.google.common.collect.Synchronized$SynchronizedAsMapEntries$1
 androidx.fragment.app.Fragment$3
+androidx.fragment.app.FragmentManager$11
 kotlin.UByte$Companion
 kotlin.sequences.TransformingIndexedSequence
 com.google.common.reflect.TypeToken$ClassSet
@@ -3536,18 +3781,17 @@ com.google.common.collect.Iterators$EmptyModifiableIterator
 com.google.common.base.Functions$SupplierFunction
 com.google.common.collect.ImmutableMultimap$Values
 androidx.customview.widget.FocusStrategy$BoundsAdapter
+androidx.fragment.app.SpecialEffectsControllerFactory
 com.google.common.collect.ImmutableMultimap
 kotlin.sequences.FilteringSequence$iterator$1
 androidx.core.view.WindowInsetsCompat$Builder:
     public void <init>(androidx.core.view.WindowInsetsCompat)
-    public androidx.core.view.WindowInsetsCompat$Builder setSystemWindowInsets(androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setSystemGestureInsets(androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setMandatorySystemGestureInsets(androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setTappableElementInsets(androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setInsets(int,androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setInsetsIgnoringVisibility(int,androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setVisible(int,boolean)
-    public androidx.core.view.WindowInsetsCompat$Builder setStableInsets(androidx.core.graphics.Insets)
     public androidx.core.view.WindowInsetsCompat$Builder setDisplayCutout(androidx.core.view.DisplayCutoutCompat)
 kotlin.io.FilePathComponents
 com.google.common.io.Closer
@@ -3582,6 +3826,18 @@ androidx.work.impl.model.WorkSpecDao_Impl$10
 com.google.common.io.ByteSink$AsCharSink
 androidx.core.view.LayoutInflaterCompat
 androidx.core.view.MotionEventCompat
+androidx.tracing.Trace:
+    public static void beginAsyncSection(java.lang.String,int)
+    public static void endAsyncSection(java.lang.String,int)
+    public static void setCounter(java.lang.String,int)
+    private static void beginAsyncSectionFallback(java.lang.String,int)
+    private static void endAsyncSectionFallback(java.lang.String,int)
+    private static void setCounterFallback(java.lang.String,int)
+    private void <init>()
+    static final java.lang.String TAG
+    private static java.lang.reflect.Method sAsyncTraceBeginMethod
+    private static java.lang.reflect.Method sAsyncTraceEndMethod
+    private static java.lang.reflect.Method sTraceCounterMethod
 androidx.core.app.JobIntentService$CompatJobEngine
 androidx.core.view.NestedScrollingChildHelper
 com.google.common.util.concurrent.MoreExecutors$1
@@ -3590,7 +3846,6 @@ com.google.common.hash.BloomFilterStrategies$LockFreeBitArray
 com.google.common.math.Stats
 com.google.common.util.concurrent.AggregateFutureState$1
 androidx.customview.R$dimen
-androidx.core.provider.FontsContractCompat$4$5
 com.google.common.collect.RowSortedTable
 com.google.common.cache.LongAddables$1
 androidx.core.content.ContextCompat$LegacyServiceMapHolder
@@ -3599,6 +3854,7 @@ com.google.common.collect.MapMakerInternalMap$WeakKeyWeakValueEntry$Helper
 com.google.common.collect.Synchronized$SynchronizedSortedMap
 androidx.work.impl.WorkManagerImpl$1
 com.google.common.collect.ObjectArrays
+androidx.tracing.TraceApi29Impl
 com.google.errorprone.annotations.CompatibleWith
 androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$2
 com.google.common.io.FileBackedOutputStream$1
@@ -3618,11 +3874,13 @@ androidx.work.impl.foreground.SystemForegroundDispatcher:
     private static final java.lang.String ACTION_START_FOREGROUND
     private static final java.lang.String ACTION_NOTIFY
     private static final java.lang.String ACTION_CANCEL_WORK
+    private static final java.lang.String ACTION_STOP_FOREGROUND
 androidx.activity.R$attr
 com.google.common.io.BaseEncoding$Base64Encoding
 com.google.common.util.concurrent.ForwardingFuture$SimpleForwardingFuture
 androidx.core.view.OneShotPreDrawListener
 kotlin.io.FileTreeWalk$FileTreeWalkIterator$WhenMappings
+androidx.fragment.app.DefaultSpecialEffectsController$8
 androidx.annotation.Size
 com.google.common.collect.Iterables$UnmodifiableIterable
 com.google.common.collect.RegularImmutableTable$1
@@ -3634,7 +3892,6 @@ com.google.common.graph.AbstractValueGraph$1
 com.google.common.hash.AbstractHasher
 com.google.common.util.concurrent.UncaughtExceptionHandlers
 kotlin.annotation.Target
-androidx.lifecycle.ReportFragment$LifecycleCallbacks
 com.google.common.collect.ComputationException
 kotlin.coroutines.CoroutineContext$Element
 com.google.common.collect.Sets$PowerSet$1
@@ -3645,7 +3902,11 @@ androidx.room.Index
 kotlin.jvm.Transient
 com.google.common.graph.AbstractBaseGraph$IncidentEdgeSet$Directed
 androidx.room.Junction
+androidx.core.provider.FontRequestWorker$2
 com.google.common.reflect.Types$NativeTypeVariableEquals
+androidx.lifecycle.Lifecycle$Event:
+    public static androidx.lifecycle.Lifecycle$Event downTo(androidx.lifecycle.Lifecycle$State)
+    public static androidx.lifecycle.Lifecycle$Event upTo(androidx.lifecycle.Lifecycle$State)
 androidx.core.view.AccessibilityDelegateCompat$AccessibilityDelegateAdapter
 com.google.common.collect.UnmodifiableListIterator
 com.google.common.util.concurrent.InterruptibleTask
@@ -3667,6 +3928,7 @@ com.google.common.io.ByteSink
 com.google.common.collect.Iterators$4
 androidx.loader.app.LoaderManagerImpl$LoaderViewModel$1
 androidx.versionedparcelable.ParcelUtils
+androidx.fragment.app.FragmentActivity$2
 com.google.common.graph.MapRetrievalCache$CacheEntry
 vn.hunghd.flutterdownloader.R$dimen
 kotlin.reflect.KType$DefaultImpls
@@ -3697,8 +3959,10 @@ com.google.common.base.Converter$ReverseConverter
 com.google.common.hash.Funnels$ByteArrayFunnel
 androidx.room.TypeConverter
 com.google.common.math.LinearTransformation$RegularLinearTransformation
+androidx.core.location.LocationManagerCompat$Api28Impl
 androidx.fragment.app.FragmentActivity$HostCallbacks
 com.google.common.collect.Lists$2
+androidx.core.provider.RequestExecutor$ReplyRunnable$1
 androidx.core.hardware.display.DisplayManagerCompat
 org.intellij.lang.annotations.Flow
 androidx.core.app.FrameMetricsAggregator$MetricType
@@ -3744,6 +4008,7 @@ androidx.core.content.PermissionChecker
 androidx.core.content.pm.ShortcutManagerCompat$Api25Impl
 com.google.common.collect.MapMakerInternalMap$InternalEntry
 com.google.common.primitives.UnsignedBytes$LexicographicalComparatorHolder
+androidx.fragment.app.FragmentManager$LifecycleAwareResultListener
 com.google.common.base.Verify
 com.google.common.util.concurrent.Futures$InCompletionOrderState
 kotlin.coroutines.experimental.AbstractCoroutineContextElement
@@ -3798,6 +4063,7 @@ com.google.common.util.concurrent.CycleDetectingLockFactory$1
 kotlin.reflect.KTypeProjection$Companion
 io.flutter.embedding.android.AndroidKeyProcessor:
     private static final java.lang.String TAG
+androidx.core.provider.CallbackWithHandler$1
 androidx.room.util.TableInfo:
     public void <init>(java.lang.String,java.util.Map,java.util.Set)
     public static final int CREATED_FROM_UNKNOWN
@@ -3806,6 +4072,7 @@ androidx.room.util.TableInfo:
 androidx.fragment.app.DialogFragment$1
 com.google.common.util.concurrent.InterruptibleTask$1
 com.google.common.collect.Tables$ImmutableCell
+androidx.tracing.R
 kotlin.sequences.IndexingSequence
 kotlin.collections.unsigned.UArraysKt___UArraysKt$withIndex$4
 io.flutter.embedding.android.FlutterFragment
@@ -3826,6 +4093,7 @@ androidx.loader.app.LoaderManager$LoaderCallbacks
 com.google.common.collect.DenseImmutableTable$ImmutableArrayMap
 com.google.common.cache.CacheLoader$1$1
 androidx.annotation.InspectableProperty$EnumEntry
+androidx.fragment.app.DefaultSpecialEffectsController$4$1
 com.google.errorprone.annotations.concurrent.GuardedBy
 com.google.common.io.FileBackedOutputStream
 androidx.fragment.app.FragmentController
@@ -3890,6 +4158,7 @@ androidx.annotation.MainThread
 com.google.common.annotations.Beta
 io.flutter.app.FlutterActivity
 androidx.core.app.BundleCompat$BundleCompatBaseImpl
+androidx.activity.result.contract.ActivityResultContracts$OpenDocument
 com.google.common.reflect.TypeToken$InterfaceSet
 com.google.common.collect.AbstractMapBasedMultimap$WrappedSet
 kotlin.sequences.EmptySequence
@@ -3933,6 +4202,7 @@ com.google.common.collect.FilteredEntryMultimap
 androidx.annotation.NonNull
 kotlin.properties.Delegates$observable$1
 androidx.core.R$string
+androidx.fragment.app.FragmentResultOwner
 com.google.common.util.concurrent.MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask
 androidx.arch.core.executor.DefaultTaskExecutor$1:
     private static final java.lang.String THREAD_NAME_STEM
@@ -3942,7 +4212,6 @@ androidx.core.text.TextDirectionHeuristicsCompat$TextDirectionHeuristicImpl
 androidx.core.text.util.LinkifyCompat
 com.google.i18n.phonenumbers.Phonenumber
 androidx.lifecycle.livedata.core.R
-androidx.savedstate.Recreator$SavedStateProvider
 com.google.common.collect.ImmutableSortedMapFauxverideShim
 kotlin.jvm.internal.MutablePropertyReference0
 io.flutter.plugins.flutter_plugin_android_lifecycle.R$integer
@@ -3951,6 +4220,7 @@ kotlin.coroutines.CombinedContext$writeReplace$1
 androidx.fragment.app.FragmentManager$5
 com.google.common.util.concurrent.SequentialExecutor$WorkerRunningState
 androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat
+androidx.work.multiprocess.IWorkManagerImpl$Default
 androidx.fragment.app.FragmentAnim
 androidx.core.content.pm.PermissionInfoCompat$Protection
 com.google.common.math.IntMath
@@ -3967,12 +4237,16 @@ kotlin.io.FilesKt__FileReadWriteKt
 androidx.annotation.RequiresPermission
 com.google.common.math.Quantiles$Scale
 androidx.fragment.app.Fragment:
+    private int getMinimumMaxLifecycleState()
     public void <init>()
     public void <init>(int)
     private void initLifecycle()
     public static androidx.fragment.app.Fragment instantiate(android.content.Context,java.lang.String)
     public static androidx.fragment.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle)
+    private void restoreViewState()
     private androidx.fragment.app.Fragment$AnimationInfo ensureAnimationInfo()
+    private androidx.activity.result.ActivityResultLauncher prepareCallInternal(androidx.activity.result.contract.ActivityResultContract,androidx.arch.core.util.Function,androidx.activity.result.ActivityResultCallback)
+    private void registerOnPreAttachListener(androidx.fragment.app.Fragment$OnPreAttachedListener)
     static void <clinit>()
     public androidx.lifecycle.Lifecycle getLifecycle()
     public androidx.lifecycle.LifecycleOwner getViewLifecycleOwner()
@@ -4101,12 +4375,14 @@ androidx.fragment.app.Fragment:
     public void postponeEnterTransition()
     public final void postponeEnterTransition(long,java.util.concurrent.TimeUnit)
     public void startPostponedEnterTransition()
-    void callStartTransitionListener()
+    void callStartTransitionListener(boolean)
     public void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
     androidx.fragment.app.Fragment findFragmentByWho(java.lang.String)
+    androidx.fragment.app.FragmentContainer createFragmentContainer()
     void performAttach()
     void performCreate(android.os.Bundle)
     void performCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+    void performViewCreated()
     void performActivityCreated(android.os.Bundle)
     void performStart()
     void performResume()
@@ -4128,24 +4404,38 @@ androidx.fragment.app.Fragment:
     void performDestroy()
     void performDetach()
     void setOnStartEnterTransitionListener(androidx.fragment.app.Fragment$OnStartEnterTransitionListener)
-    int getNextAnim()
-    void setNextAnim(int)
+    void setAnimations(int,int,int,int)
+    int getEnterAnim()
+    int getExitAnim()
+    int getPopEnterAnim()
+    int getPopExitAnim()
+    boolean getPopDirection()
+    void setPopDirection(boolean)
     int getNextTransition()
     void setNextTransition(int)
+    java.util.ArrayList getSharedElementSourceNames()
+    java.util.ArrayList getSharedElementTargetNames()
+    void setSharedElementNames(java.util.ArrayList,java.util.ArrayList)
     androidx.core.app.SharedElementCallback getEnterTransitionCallback()
     androidx.core.app.SharedElementCallback getExitTransitionCallback()
     android.view.View getAnimatingAway()
     void setAnimatingAway(android.view.View)
     void setAnimator(android.animation.Animator)
     android.animation.Animator getAnimator()
-    int getStateAfterAnimating()
-    void setStateAfterAnimating(int)
+    void setPostOnViewCreatedAlpha(float)
+    float getPostOnViewCreatedAlpha()
+    void setFocusedView(android.view.View)
+    android.view.View getFocusedView()
     boolean isPostponed()
     boolean isHideReplaced()
     void setHideReplaced(boolean)
+    public final androidx.activity.result.ActivityResultLauncher registerForActivityResult(androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultCallback)
+    public final androidx.activity.result.ActivityResultLauncher registerForActivityResult(androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultRegistry,androidx.activity.result.ActivityResultCallback)
+    java.lang.String generateActivityResultKey()
     int mState
     android.os.Bundle mSavedFragmentState
     android.util.SparseArray mSavedViewState
+    android.os.Bundle mSavedViewRegistryState
     java.lang.Boolean mSavedUserVisibleHint
     java.lang.String mWho
     android.os.Bundle mArguments
@@ -4188,15 +4478,20 @@ androidx.fragment.app.Fragment:
     androidx.lifecycle.LifecycleRegistry mLifecycleRegistry
     androidx.fragment.app.FragmentViewLifecycleOwner mViewLifecycleOwner
     androidx.lifecycle.MutableLiveData mViewLifecycleOwnerLiveData
-    private androidx.lifecycle.ViewModelProvider$Factory mDefaultFactory
+    androidx.lifecycle.ViewModelProvider$Factory mDefaultFactory
     androidx.savedstate.SavedStateRegistryController mSavedStateRegistryController
     private int mContentLayoutId
+    private final java.util.concurrent.atomic.AtomicInteger mNextLocalRequestCode
+    private final java.util.ArrayList mOnPreAttachedListeners
     static final java.lang.Object USE_DEFAULT_TRANSITION
     static final int INITIALIZING
     static final int ATTACHED
     static final int CREATED
+    static final int VIEW_CREATED
+    static final int AWAITING_EXIT_EFFECTS
     static final int ACTIVITY_CREATED
     static final int STARTED
+    static final int AWAITING_ENTER_EFFECTS
     static final int RESUMED
 androidx.room.DatabaseView
 kotlin.coroutines.jvm.internal.SuspendFunction
@@ -4231,9 +4526,12 @@ io.flutter.embedding.engine.plugins.shim.ShimRegistrar:
     public io.flutter.plugin.common.PluginRegistry$Registrar addUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
     public io.flutter.plugin.common.PluginRegistry$Registrar addViewDestroyListener(io.flutter.plugin.common.PluginRegistry$ViewDestroyListener)
     private static final java.lang.String TAG
+androidx.fragment.app.DefaultSpecialEffectsController$SpecialEffectsInfo
 androidx.work.impl.utils.ForceStopRunnable:
     static final java.lang.String ACTION_FORCE_STOP_RESCHEDULE
+    static final int MAX_ATTEMPTS
     private static final int ALARM_ID
+    private static final long BACKOFF_DURATION_MS
 com.google.common.collect.MapMakerInternalMap$WriteThroughEntry
 androidx.collection.LruCache
 kotlin.reflect.KMutableProperty2
@@ -4273,7 +4571,10 @@ androidx.lifecycle.viewmodel.R
 bsi.iceman.searchable_dropdown.R$layout
 androidx.work.ListenableWorker$Result:
     public static androidx.work.ListenableWorker$Result failure(androidx.work.Data)
-androidx.lifecycle.ReportFragment
+androidx.lifecycle.ReportFragment:
+    static androidx.lifecycle.ReportFragment get(android.app.Activity)
+    void setProcessListener(androidx.lifecycle.ReportFragment$ActivityInitializationListener)
+    private static final java.lang.String REPORT_FRAGMENT_TAG
 com.google.common.collect.Multimaps$MapMultimap$1$1
 com.google.common.collect.MultimapBuilder$MultimapBuilderWithKeys$5
 com.google.common.collect.MapMakerInternalMap$Segment
@@ -4391,7 +4692,6 @@ vn.hunghd.flutterdownloader.FlutterDownloaderPlugin:
     public static final java.lang.String SHARED_PREFERENCES_KEY
     public static final java.lang.String CALLBACK_DISPATCHER_HANDLE_KEY
     private static vn.hunghd.flutterdownloader.FlutterDownloaderPlugin instance
-androidx.core.provider.FontsContractCompat$4$6
 androidx.activity.R$color
 com.google.common.base.CharMatcher$NegatedFastMatcher
 com.google.common.collect.DenseImmutableTable$RowMap
@@ -4405,13 +4705,7 @@ com.google.common.util.concurrent.AbstractTransformFuture$AsyncTransformFuture
 com.google.common.graph.ValueGraph
 kotlin.jvm.functions.Function20
 androidx.lifecycle.ViewModel:
-    public void <init>()
-    private static void closeWithRuntimeException(java.lang.Object)
-    protected void onCleared()
-    final void clear()
     java.lang.Object setTagIfAbsent(java.lang.String,java.lang.Object)
-    private final java.util.Map mBagOfTags
-    private volatile boolean mCleared
 androidx.annotation.RequiresApi
 androidx.fragment.app.FragmentLayoutInflaterFactory
 com.google.common.io.BaseEncoding
@@ -4427,7 +4721,22 @@ kotlin.jvm.internal.ShortSpreadBuilder
 androidx.core.view.WindowInsetsControllerCompat$Impl20
 com.google.common.hash.Hashing$ChecksumType$2
 androidx.core.view.ViewCompat$2
+androidx.activity.result.ActivityResultRegistry:
+    private int registerKey(java.lang.String)
+    private int generateRandomNumber()
+    public abstract void onLaunch(int,androidx.activity.result.contract.ActivityResultContract,java.lang.Object,androidx.core.app.ActivityOptionsCompat)
+    public final androidx.activity.result.ActivityResultLauncher register(java.lang.String,androidx.lifecycle.LifecycleOwner,androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultCallback)
+    public final androidx.activity.result.ActivityResultLauncher register(java.lang.String,androidx.activity.result.contract.ActivityResultContract,androidx.activity.result.ActivityResultCallback)
+    public final boolean dispatchResult(int,java.lang.Object)
+    private static final java.lang.String KEY_COMPONENT_ACTIVITY_REGISTERED_RCS
+    private static final java.lang.String KEY_COMPONENT_ACTIVITY_REGISTERED_KEYS
+    private static final java.lang.String KEY_COMPONENT_ACTIVITY_LAUNCHED_KEYS
+    private static final java.lang.String KEY_COMPONENT_ACTIVITY_PENDING_RESULTS
+    private static final java.lang.String KEY_COMPONENT_ACTIVITY_RANDOM_OBJECT
+    private static final java.lang.String LOG_TAG
+    private static final int INITIAL_REQUEST_CODE_VALUE
 com.google.common.collect.MapMakerInternalMap$EntrySet
+androidx.activity.result.contract.ActivityResultContracts$TakeVideo
 com.google.common.collect.MultimapBuilder$4
 androidx.loader.content.ModernAsyncTask$AsyncTaskResult
 io.flutter.embedding.engine.deferredcomponents.PlayStoreDeferredComponentManager$FeatureInstallStateUpdatedListener
@@ -4450,8 +4759,7 @@ androidx.core.content.ContextCompat$MainHandlerExecutor
 com.google.common.reflect.TypeToken$TypeFilter
 androidx.lifecycle.ViewModelProvider$KeyedFactory
 androidx.core.view.accessibility.AccessibilityViewCommand$SetTextArguments
-androidx.fragment.app.Fragment$2:
-    void <init>(androidx.fragment.app.Fragment)
+androidx.fragment.app.Fragment$2
 androidx.fragment.app.FragmentTransaction$Op
 androidx.core.view.inputmethod.EditorInfoCompat$Impl30
 com.google.common.escape.Escapers$2
@@ -4497,6 +4805,7 @@ androidx.core.app.NotificationCompat$MessagingStyle
 com.google.errorprone.annotations.CompileTimeConstant
 com.google.common.graph.ConfigurableNetwork
 com.google.common.collect.ForwardingMap$StandardEntrySet
+androidx.activity.result.contract.ActivityResultContract$SynchronousResult
 kotlin.coroutines.experimental.migration.ExperimentalContextMigration
 com.google.common.graph.MutableGraph
 kotlin.native.concurrent.SharedImmutable
@@ -4509,6 +4818,7 @@ com.google.common.collect.Maps$NavigableAsMapView
 com.google.common.collect.AbstractMapBasedMultimap$WrappedNavigableSet
 com.google.common.cache.Striped64$1
 kotlin.io.FileTreeWalk$WalkState
+androidx.activity.result.ActivityResultCaller
 com.google.common.base.Joiner$1
 com.google.common.collect.Maps$1
 com.google.common.cache.LocalCache$WeightedStrongValueReference
@@ -4554,7 +4864,8 @@ com.google.common.primitives.Booleans
 com.google.common.collect.FilteredKeySetMultimap$EntrySet
 com.google.common.collect.ImmutableMultiset$EntrySet
 kotlin.random.AbstractPlatformRandom
-androidx.core.provider.FontsContractCompat$2
+androidx.core.provider.RequestExecutor$DefaultThreadFactory
+androidx.fragment.app.DefaultSpecialEffectsController$AnimationInfo
 com.google.common.collect.Multisets$3
 com.google.common.collect.Iterators$5
 com.google.common.collect.TreeMultiset$1
@@ -4572,6 +4883,7 @@ io.flutter.embedding.engine.mutatorsstack.FlutterMutatorsStack$FlutterMutator:
     public android.graphics.Rect getRect()
     public android.graphics.Path getPath()
     private android.graphics.Path path
+androidx.core.provider.FontRequestWorker$1
 com.google.i18n.phonenumbers.PhoneNumberMatch
 com.mathrawk.libphonenumber.R$layout
 com.google.common.base.Joiner
@@ -4580,6 +4892,7 @@ io.flutter.embedding.android.FlutterImageView:
     public void <init>(android.content.Context,android.util.AttributeSet)
 com.google.common.io.ReaderInputStream
 com.google.common.primitives.Shorts$LexicographicalComparator
+androidx.fragment.app.DefaultSpecialEffectsController$10
 androidx.room.Transaction
 androidx.annotation.RequiresPermission$Read
 androidx.versionedparcelable.CustomVersionedParcelable:
@@ -4594,11 +4907,13 @@ kotlin.time.FormatToDecimalsKt
 androidx.fragment.app.FragmentAnim$AnimationOrAnimator
 com.google.common.collect.package-info
 com.google.common.reflect.Invokable$MethodInvokable
+androidx.activity.result.contract.ActivityResultContracts$OpenMultipleDocuments
 com.google.common.util.concurrent.ExecutionSequencer$2
 com.google.common.util.concurrent.Futures$FutureCombiner$1
 kotlin.jvm.internal.MagicApiIntrinsics
 com.google.common.collect.MapMakerInternalMap$AbstractSerializationProxy
 com.google.common.collect.RegularImmutableMultiset
+androidx.activity.result.contract.ActivityResultContracts$RequestPermission
 kotlin.collections.AbstractList$SubList
 androidx.work.Logger:
     private static final java.lang.String TAG_PREFIX
@@ -4651,6 +4966,7 @@ com.google.common.collect.RegularImmutableMultiset$SerializedForm
 kotlin.jvm.internal.markers.KMutableMap$Entry
 com.google.common.escape.Platform
 androidx.collection.CircularArray
+androidx.work.multiprocess.IWorkManagerImplCallback$Stub$Proxy
 com.google.common.collect.ArrayTable$ArrayMap
 androidx.loader.R$color
 com.google.errorprone.annotations.NoAllocation
@@ -4695,20 +5011,24 @@ com.google.common.collect.HashBiMap$Inverse
 androidx.core.graphics.BlendModeColorFilterCompat
 com.google.common.collect.ImmutableRangeSet$1
 kotlin.sequences.SequencesKt___SequencesKt$groupingBy$1
+androidx.fragment.app.FragmentManager$LaunchedFragmentInfo
 com.google.common.collect.Iterables$9
 io.flutter.embedding.engine.plugins.service.ServiceControlSurface
 kotlin.text.MatchNamedGroupCollection
+androidx.fragment.app.FragmentLayoutInflaterFactory$1
 com.google.common.collect.TopKSelector
 androidx.room.Room:
     public void <init>()
     static final java.lang.String LOG_TAG
     public static final java.lang.String MASTER_TABLE_NAME
     private static final java.lang.String CURSOR_CONV_SUFFIX
+androidx.fragment.app.DefaultSpecialEffectsController$TransitionInfo
 com.google.common.util.concurrent.CollectionFuture$CollectionFutureRunningState
 io.flutter.embedding.engine.loader.FlutterLoader$Settings:
     public void setLogTag(java.lang.String)
 io.flutter.plugins.sharedpreferences.BuildConfig
 androidx.core.util.Pools$SynchronizedPool
+androidx.fragment.app.DefaultSpecialEffectsController$9
 com.google.i18n.phonenumbers.PhoneNumberMatcher$State
 kotlin.jvm.functions.Function15
 com.google.common.collect.StandardTable$Column$EntrySetIterator
@@ -4747,6 +5067,7 @@ androidx.core.app.ComponentActivity$ExtraData
 kotlin.sequences.Sequence
 com.google.common.collect.StandardTable$Column
 androidx.core.location.LocationManagerCompat$GpsStatusTransport
+androidx.core.provider.FontProvider
 io.flutter.embedding.engine.plugins.contentprovider.ContentProviderControlSurface
 androidx.room.ColumnInfo$Collate
 androidx.room.FtsOptions$Order
@@ -4840,6 +5161,7 @@ com.google.common.io.ByteStreams$1
 com.google.common.collect.CompactHashSet
 com.google.common.base.Optional$1
 com.google.common.collect.Ordering$IncomparableValueException
+androidx.annotation.experimental.R
 kotlin.jvm.internal.MutablePropertyReference0Impl
 com.google.common.collect.StandardTable$CellIterator
 androidx.core.view.WindowInsetsAnimationControllerCompat$Impl
@@ -4901,8 +5223,8 @@ vn.hunghd.flutterdownloader.R
 androidx.core.app.NotificationCompat$BubbleMetadata$Api30Impl:
     private void <init>()
     static androidx.core.app.NotificationCompat$BubbleMetadata fromPlatform(android.app.Notification$BubbleMetadata)
-androidx.core.hardware.fingerprint.FingerprintManagerCompat$1
 androidx.viewpager.widget.PagerTitleStrip
+androidx.core.hardware.fingerprint.FingerprintManagerCompat$1
 com.google.common.collect.ForwardingImmutableSet
 com.google.common.annotations.GwtCompatible
 androidx.core.graphics.PathUtils
@@ -4986,6 +5308,8 @@ com.google.common.collect.StandardRowSortedTable
 kotlin.text.CharCategory$Companion$categoryMap$2
 com.google.common.base.Platform$JdkPatternCompiler
 org.intellij.lang.annotations.RegExp
+androidx.fragment.app.FragmentOnAttachListener
+androidx.core.provider.CalleeHandler
 kotlin.native.concurrent.ThreadLocal
 androidx.versionedparcelable.R
 kotlin.text.Regex
@@ -5046,23 +5370,19 @@ androidx.collection.ArraySet:
     private static final int BASE_SIZE
     private static final int CACHE_SIZE
 com.google.common.collect.HashMultiset
+androidx.fragment.app.FragmentManager$6:
+    void <init>(androidx.fragment.app.FragmentManager,java.lang.String,androidx.fragment.app.FragmentResultListener,androidx.lifecycle.Lifecycle)
 com.google.common.reflect.TypeToken
 androidx.core.os.OperationCanceledException
 androidx.work.impl.model.WorkTypeConverters$StateIds
+androidx.work.multiprocess.IWorkManagerImpl$Stub
 com.google.common.hash.Striped64
 com.google.common.eventbus.DeadEvent
+androidx.fragment.app.FragmentManagerViewModel$1
 androidx.savedstate.SavedStateRegistry:
-    void <init>()
     public void unregisterSavedStateProvider(java.lang.String)
     public boolean isRestored()
-    void performRestore(androidx.lifecycle.Lifecycle,android.os.Bundle)
-    void performSave(android.os.Bundle)
-    private androidx.arch.core.internal.SafeIterableMap mComponents
-    private android.os.Bundle mRestoredState
-    private boolean mRestored
-    private androidx.savedstate.Recreator$SavedStateProvider mRecreatorProvider
     private static final java.lang.String SAVED_COMPONENTS_KEY
-androidx.fragment.app.FragmentManagerViewModel$1
 com.google.common.reflect.Types$2
 com.google.common.collect.ImmutableMap$SerializedForm
 com.google.common.collect.Multimaps$UnmodifiableSortedSetMultimap
@@ -5076,6 +5396,9 @@ kotlin.collections.SlidingWindowKt$windowedIterator$1
 kotlin.collections.ArraysKt___ArraysJvmKt$asList$1
 kotlin.text.StringsKt__StringsKt$iterator$1
 androidx.fragment.app.FragmentAnim$1
+androidx.activity.result.ActivityResultRegistry$LifecycleContainer:
+    void <init>(androidx.lifecycle.Lifecycle)
+    void addObserver(androidx.lifecycle.LifecycleEventObserver)
 kotlin.StandardKt
 com.google.common.io.Files$3
 androidx.core.text.TextDirectionHeuristicsCompat$FirstStrong
@@ -5116,6 +5439,7 @@ androidx.core.content.res.ColorStateListInflaterCompat
 kotlin.time.Duration$Companion
 vn.hunghd.flutterdownloader.DownloadStatus:
     public void <init>()
+androidx.activity.result.ActivityResultLauncher
 com.google.common.graph.UndirectedNetworkConnections
 androidx.core.text.TextDirectionHeuristicsCompat$AnyStrong
 kotlin.collections.ShortIterator
@@ -5128,6 +5452,7 @@ kotlin.PreconditionsKt
 com.google.common.reflect.ImmutableTypeToInstanceMap$1
 androidx.work.impl.utils.StatusRunnable$5
 com.google.common.cache.LocalCache$StrongAccessWriteEntry
+androidx.fragment.app.DefaultSpecialEffectsController$1
 androidx.core.graphics.TypefaceCompatBaseImpl$StyleExtractor
 kotlin.coroutines.CombinedContext
 kotlin._Assertions
@@ -5165,9 +5490,7 @@ com.google.common.collect.Tables$TransformedTable$3
 androidx.annotation.XmlRes
 kotlin.jvm.internal.Ref$ShortRef
 androidx.lifecycle.ViewModelStore:
-    public void <init>()
     final void put(java.lang.String,androidx.lifecycle.ViewModel)
-    private final java.util.HashMap mMap
 kotlin.text.Regex$Serialized$Companion
 com.google.common.base.Predicates$ContainsPatternPredicate
 com.google.common.util.concurrent.Striped$CompactStriped
@@ -5181,17 +5504,15 @@ io.flutter.plugins.connectivity.R
 com.google.common.escape.ArrayBasedCharEscaper
 androidx.activity.OnBackPressedDispatcher:
     public void <init>()
-    public void <init>(java.lang.Runnable)
     public void addCallback(androidx.activity.OnBackPressedCallback)
     public void addCallback(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback)
     public boolean hasEnabledCallbacks()
-    private final java.lang.Runnable mFallbackOnBackPressed
-    final java.util.ArrayDeque mOnBackPressedCallbacks
 com.google.common.eventbus.Dispatcher$LegacyAsyncDispatcher
 com.google.common.graph.MutableNetwork
 com.baseflow.permissionhandler.PermissionConstants
 com.baseflow.permissionhandler.PermissionConstants$PermissionStatus
 com.google.common.graph.MapIteratorCache$1$1
+androidx.annotation.experimental.Experimental$Level
 com.google.common.hash.AbstractNonStreamingHashFunction
 androidx.annotation.IntDef
 kotlin.ranges.URangesKt
@@ -5203,10 +5524,11 @@ com.google.common.collect.AbstractMapBasedMultimap$1
 com.google.common.collect.MultimapBuilder$SetMultimapBuilder
 kotlin.annotation.AnnotationRetention
 io.flutter.plugins.pathprovider.R$id
-androidx.core.view.KeyEventDispatcher
+androidx.core.view.KeyEventDispatcher:
+    private void <init>()
 kotlin.collections.MapsKt
-androidx.core.content.res.TypedArrayUtils
 io.flutter.BuildConfig
+androidx.core.content.res.TypedArrayUtils
 javax.annotation.Nonnull$Checker
 com.google.common.hash.SipHashFunction$SipHasher
 kotlin.NumbersKt__BigDecimalsKt
@@ -5235,9 +5557,9 @@ com.google.common.collect.Interners$InternerBuilder
 com.google.common.base.Predicates
 com.google.common.reflect.ClassPath$Scanner
 androidx.core.widget.ScrollerCompat
-androidx.core.provider.FontsContractCompat$4$7
 com.google.common.util.concurrent.WrappingScheduledExecutorService
 kotlin.text.MatchResult$Destructured
+androidx.work.multiprocess.RemoteWorkContinuation
 com.google.common.cache.ForwardingLoadingCache
 androidx.room.R
 androidx.core.view.TintableBackgroundView
@@ -5277,7 +5599,6 @@ com.google.common.collect.AbstractTable$1
 javax.annotation.OverridingMethodsMustInvokeSuper
 kotlin.collections.ArrayAsCollection
 com.google.common.collect.Multimaps$Keys$1$1
-androidx.core.provider.FontsContractCompat$1
 kotlin.properties.Delegates$vetoable$1
 com.google.common.primitives.Ints$IntConverter
 com.google.common.collect.ForwardingListMultimap
@@ -5317,6 +5638,7 @@ kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt
 com.google.common.util.concurrent.Striped$WeakSafeCondition
 androidx.loader.content.Loader
 com.google.common.util.concurrent.AbstractService
+androidx.core.provider.FontRequestWorker$TypefaceResult
 com.google.common.base.Defaults
 com.google.common.util.concurrent.Futures$InCompletionOrderFuture
 kotlin.collections.AbstractList$Companion
@@ -5345,6 +5667,7 @@ com.google.common.base.MoreObjects:
     public static com.google.common.base.MoreObjects$ToStringHelper toStringHelper(java.lang.String)
     private void <init>()
 com.google.common.collect.ForwardingMap$StandardKeySet
+androidx.fragment.app.SpecialEffectsController$1
 com.google.common.collect.SortedLists$KeyAbsentBehavior$2
 kotlin.jvm.internal.Ref$CharRef
 androidx.core.location.LocationManagerCompat$GpsStatusTransport$4
@@ -5402,6 +5725,10 @@ com.google.common.util.concurrent.AbstractIdleService
 androidx.work.impl.model.package-info
 com.google.common.collect.Maps$EntryFunction$1
 kotlin.LazyKt$WhenMappings
+androidx.activity.contextaware.ContextAwareHelper:
+    public android.content.Context peekAvailableContext()
+    public void addOnContextAvailableListener(androidx.activity.contextaware.OnContextAvailableListener)
+    public void removeOnContextAvailableListener(androidx.activity.contextaware.OnContextAvailableListener)
 com.google.common.collect.ImmutableSortedMultiset$SerializedForm
 com.google.common.util.concurrent.ListenableScheduledFuture
 com.google.errorprone.annotations.RequiredModifiers
@@ -5441,7 +5768,9 @@ androidx.work.impl.Processor:
     public boolean hasWork()
     private static final java.lang.String FOREGROUND_WAKELOCK_TAG
 kotlin.collections.FloatIterator
+androidx.activity.result.contract.ActivityResultContracts$OpenDocumentTree
 kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2
+androidx.fragment.app.FragmentManager$FragmentIntentSenderContract
 com.google.common.hash.AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream
 com.google.common.cache.CacheBuilder$NullListener
 kotlin.io.ByteStreamsKt
@@ -5471,6 +5800,8 @@ com.google.j2objc.annotations.WeakOuter
 kotlin.comparisons.ComparisonsKt___ComparisonsKt
 org.intellij.lang.annotations.JdkConstants$TitledBorderTitlePosition
 com.google.common.collect.StandardTable$ColumnKeySet
+androidx.fragment.app.SpecialEffectsController$Operation$State
+androidx.fragment.app.Fragment$OnPreAttachedListener
 androidx.customview.widget.FocusStrategy$CollectionAdapter
 com.google.common.collect.MapMakerInternalMap$1
 androidx.core.view.accessibility.AccessibilityViewCommand
@@ -5478,6 +5809,7 @@ com.google.common.collect.HashBiMap$KeySet
 com.google.common.collect.MapMakerInternalMap$WeakKeyWeakValueSegment
 com.google.common.collect.MapMakerInternalMap$HashIterator
 com.google.common.collect.RegularImmutableMultiset$ElementSet
+androidx.core.provider.FontRequestWorker$4
 org.jetbrains.annotations.Nullable
 com.google.common.reflect.TypeToInstanceMap
 com.google.common.util.concurrent.CycleDetectingLockFactory$Policy
@@ -5504,7 +5836,6 @@ kotlin.ranges.RangesKt___RangesKt
 kotlin.WasExperimental
 androidx.core.view.WindowInsetsCompat$BuilderImpl29:
     void <init>(androidx.core.view.WindowInsetsCompat)
-    void setStableInsets(androidx.core.graphics.Insets)
     void setDisplayCutout(androidx.core.view.DisplayCutoutCompat)
 com.google.common.util.concurrent.ServiceManager$ServiceManagerState$StoppedGuard
 vn.hunghd.flutterdownloader.R$drawable
@@ -5544,6 +5875,7 @@ com.google.common.hash.Funnels$IntegerFunnel
 com.google.common.graph.Traverser$GraphTraverser$DepthFirstIterator
 kotlin.sequences.SequencesKt___SequencesKt$filterIndexed$1
 com.google.common.util.concurrent.SmoothRateLimiter$1
+androidx.fragment.app.DefaultSpecialEffectsController
 com.pozitiveenergy.R$dimen
 com.google.common.util.concurrent.Callables$2
 com.google.common.collect.Interner
@@ -5589,8 +5921,6 @@ kotlin.jvm.internal.ReflectionFactory
 com.google.common.collect.MapMakerInternalMap$StrongKeyStrongValueEntry
 com.google.common.collect.Multisets$2$1
 com.google.common.collect.Sets$FilteredSet
-androidx.activity.ComponentActivity$3:
-    void <init>(androidx.activity.ComponentActivity)
 com.google.common.util.concurrent.AbstractExecutionThreadService$1$1
 androidx.loader.content.ModernAsyncTask$2
 com.google.common.collect.AbstractMapBasedMultimap$AsMap$AsMapEntries
@@ -5619,6 +5949,7 @@ androidx.core.content.FileProvider:
     private static final java.lang.String DISPLAYNAME_FIELD
 kotlin.text.CharDirectionality$Companion
 com.google.common.cache.LongAdder
+androidx.fragment.app.DefaultSpecialEffectsController$6
 kotlin.ranges.CharProgressionIterator
 kotlin.jvm.internal.Ref$IntRef
 androidx.core.app.FrameMetricsAggregator$FrameMetricsApi24Impl$1
@@ -5652,6 +5983,8 @@ androidx.core.content.ContextCompat:
     private static android.util.TypedValue sTempValue
 androidx.annotation.Dimension
 com.google.common.base.Splitter$3
+androidx.savedstate.R$id:
+    private void <init>()
 androidx.core.widget.EdgeEffectCompat
 com.google.common.primitives.Booleans$BooleanComparator
 androidx.core.view.accessibility.AccessibilityViewCommand$SetSelectionArguments
@@ -5668,12 +6001,13 @@ androidx.room.RoomTrackingLiveData$1
 androidx.fragment.app.FragmentTransition$1
 com.google.common.math.LinearTransformation$NaNLinearTransformation
 com.google.common.reflect.TypeToken$Bounds
-androidx.lifecycle.ReportFragment$ActivityInitializationListener
 androidx.core.app.NotificationCompat$Action$Builder
 com.google.common.graph.DirectedGraphConnections$1$1
 io.flutter.view.FlutterMain$Settings
 com.google.common.util.concurrent.ForwardingCondition
+androidx.fragment.app.Fragment$9
 com.google.common.primitives.Shorts$ShortConverter
+androidx.fragment.app.FragmentStateManagerControl
 com.google.common.collect.Table
 com.google.common.collect.Sets$2
 com.google.common.util.concurrent.Striped$2
@@ -5702,8 +6036,8 @@ kotlin.jvm.internal.PropertyReference2Impl
 androidx.customview.widget.ExploreByTouchHelper$MyNodeProvider
 kotlin.text.CharsetsKt
 androidx.core.app.ShareCompat$IntentBuilder
-com.google.common.collect.MultimapBuilder$2
 androidx.fragment.app.FragmentManagerNonConfig
+com.google.common.collect.MultimapBuilder$2
 androidx.fragment.app.FragmentLifecycleCallbacksDispatcher$FragmentLifecycleCallbacksHolder
 com.google.common.graph.AbstractNetwork$3
 javax.annotation.meta.When
@@ -5720,12 +6054,13 @@ kotlin.ranges.IntRange
 com.google.common.collect.EnumMultiset$2$1
 com.google.errorprone.annotations.MustBeClosed
 kotlin.collections.IndexingIterator
-com.google.common.collect.ImmutableSortedMultiset$Builder
 androidx.loader.content.Loader$OnLoadCompleteListener
+com.google.common.collect.ImmutableSortedMultiset$Builder
 com.google.common.util.concurrent.Striped$PowerOfTwoStriped
 com.google.common.base.Predicates$NotPredicate
 androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase
 com.google.common.collect.ImmutableSortedMultiset
+androidx.fragment.app.Fragment$8
 kotlin.coroutines.experimental.RestrictsSuspension
 com.google.j2objc.annotations.J2ObjCIncompatible
 org.intellij.lang.annotations.JdkConstants$BoxLayoutAxis
@@ -5758,7 +6093,6 @@ com.google.common.collect.StandardTable$TableSet
 com.google.common.graph.AbstractBaseGraph
 com.google.common.io.Files$FilePredicate$2
 org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
-androidx.core.view.KeyEventDispatcher$Component
 com.google.common.util.concurrent.AbstractScheduledService$Scheduler$2
 kotlin.NumbersKt
 com.google.common.collect.ConcurrentHashMultiset$3
@@ -5782,19 +6116,20 @@ androidx.work.PeriodicWorkRequest
 com.google.common.base.Platform$1
 androidx.work.impl.utils.StatusRunnable$4
 androidx.core.location.GpsStatusWrapper
+androidx.activity.result.IntentSenderRequest
 androidx.annotation.Px
 com.google.common.collect.Hashing
 com.google.common.base.CharMatcher$Ascii
 androidx.core.net.MailTo
 com.google.i18n.phonenumbers.ShortNumbersRegionCodeSet:
     public void <init>()
+androidx.fragment.app.FragmentManager$7
 androidx.core.view.WindowInsetsCompat$BuilderImpl20:
     void <init>(androidx.core.view.WindowInsetsCompat)
 javax.annotation.Signed
 org.intellij.lang.annotations.JdkConstants$PatternFlags
 androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper:
     synchronized androidx.sqlite.db.SupportSQLiteDatabase getReadableSupportDatabase()
-androidx.core.provider.FontsContractCompat$4$8
 com.google.common.util.concurrent.AbstractFuture$SetFuture:
     void <init>(com.google.common.util.concurrent.AbstractFuture,com.google.common.util.concurrent.ListenableFuture)
 kotlin.collections.EmptyMap
@@ -5838,7 +6173,6 @@ com.google.common.collect.TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2
 com.google.common.io.LineBuffer
 io.flutter.embedding.android.AndroidTouchProcessor$PointerChange
 androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationResult
-androidx.lifecycle.LifecycleRegistryOwner
 kotlin.time.AbstractLongClock$LongClockMark
 androidx.room.InvalidationTracker$ObservedTableTracker:
     static final int NO_OP
@@ -5847,8 +6181,8 @@ androidx.room.InvalidationTracker$ObservedTableTracker:
 kotlin.reflect.KParameter$Kind
 androidx.fragment.app.Fragment$SavedState
 kotlin.text.RegexKt$fromInt$$inlined$apply$lambda$1
-androidx.core.widget.TintableImageSourceView
 androidx.core.app.NotificationCompat$InboxStyle
+androidx.core.widget.TintableImageSourceView
 com.google.common.collect.FluentIterable$FromIterableFunction
 com.google.common.cache.Cache
 kotlin.io.FileTreeWalk$FileTreeWalkIterator$BottomUpDirectoryState
@@ -5901,6 +6235,7 @@ com.google.common.collect.AbstractMapBasedMultiset$Itr
 com.google.common.collect.Platform
 com.google.common.util.concurrent.AggregateFutureState$SynchronizedAtomicHelper
 kotlin.collections.CollectionsKt___CollectionsJvmKt
+androidx.work.impl.model.WorkSpecDao_Impl$13
 com.google.common.collect.Maps$3
 com.pozitiveenergy.BuildConfig
 kotlin.jvm.internal.ArrayIteratorsKt
@@ -5953,6 +6288,9 @@ io.flutter.view.AccessibilityBridge$SemanticsNode:
 kotlin.jvm.functions.Function6
 com.google.common.math.IntMath$1
 com.mr.flutter.plugin.filepicker.R$color
+androidx.work.impl.WorkRequestHolder
+androidx.lifecycle.runtime.R
+androidx.core.os.ExecutorCompat
 com.google.common.collect.RegularImmutableMap$EntrySet
 com.google.common.cache.ForwardingCache$SimpleForwardingCache
 androidx.core.view.animation.PathInterpolatorApi14
@@ -5998,12 +6336,16 @@ androidx.core.view.MenuItemCompat$1
 com.google.common.collect.ImmutableCollection$ArrayBasedBuilder
 androidx.core.content.pm.ShortcutManagerCompat$ShortcutMatchFlags
 com.mr.flutter.plugin.filepicker.R
+androidx.fragment.app.SpecialEffectsController$2
 com.google.common.collect.Ordering
 bsi.iceman.searchable_dropdown.R$attr
 com.google.common.base.CharMatcher
 com.google.common.primitives.ImmutableIntArray$1
 com.google.common.reflect.Element
+androidx.core.provider.RequestExecutor$DefaultThreadFactory$ProcessPriorityThread
 androidx.core.location.LocationManagerCompat$GpsStatusTransport$3
+androidx.work.multiprocess.IWorkManagerImplCallback$Default
+androidx.core.provider.RequestExecutor$ReplyRunnable
 kotlin.sequences.TakeWhileSequence$iterator$1
 kotlin.jvm.internal.CollectionToArray
 kotlin.internal.PureReifiable
@@ -6050,6 +6392,7 @@ kotlin.collections.GroupingKt__GroupingJVMKt
 com.google.common.graph.EndpointPairIterator$1
 androidx.core.view.ContentInfoCompat$Flags
 kotlin.collections.ArraysKt___ArraysKt$asIterable$$inlined$Iterable$4
+androidx.activity.result.contract.ActivityResultContracts$StartActivityForResult
 androidx.work.impl.model.WorkSpec$WorkInfoPojo
 androidx.core.content.LocusIdCompat:
     public void <init>(java.lang.String)
@@ -6085,13 +6428,15 @@ kotlin.collections.RingBuffer$iterator$1
 kotlin.collections.ArraysKt___ArraysKt$withIndex$1
 com.google.common.base.CharMatcher$JavaDigit
 io.flutter.plugins.sharedpreferences.R$color
+androidx.fragment.app.DefaultSpecialEffectsController$7
 kotlin.jvm.functions.Function13
 com.google.common.hash.Hashing$Sha1Holder
+androidx.activity.result.IntentSenderRequest$Builder
 kotlin.jvm.internal.CharCompanionObject
 kotlin.text.DelimitedRangesSequence
+androidx.work.impl.background.package-info
 io.flutter.embedding.engine.systemchannels.RestorationChannel:
     private static final java.lang.String TAG
-androidx.work.impl.background.package-info
 com.google.common.collect.ImmutableEntry
 javax.annotation.Nullable
 kotlin.collections.ArraysKt___ArraysKt$asSequence$$inlined$Sequence$7
@@ -6126,6 +6471,7 @@ androidx.sqlite.db.SupportSQLiteDatabase:
     public abstract boolean isWriteAheadLoggingEnabled()
     public abstract boolean isDatabaseIntegrityOk()
 kotlin.text.CharsKt__CharJVMKt
+androidx.fragment.app.FragmentStateManager$2
 com.google.common.collect.Lists$Partition
 kotlin.coroutines.ContinuationInterceptor
 com.google.common.collect.TreeMultiset$3
@@ -6141,6 +6487,7 @@ kotlin.io.FilesKt__UtilsKt$copyRecursively$1
 com.google.common.util.concurrent.CycleDetectingLockFactory$CycleDetectingLock
 kotlin.jvm.internal.DoubleSpreadBuilder
 com.google.common.collect.Tables$TransformedTable$1
+androidx.core.provider.FontRequestWorker$3
 androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl
 kotlin.math.Constants
 org.intellij.lang.annotations.Language
@@ -6162,6 +6509,8 @@ kotlin.reflect.KMutableProperty$Setter
 com.google.common.io.Closer$Suppressor
 kotlin.sequences.SequencesKt___SequencesKt$zip$1
 androidx.annotation.InspectableProperty$ValueType
+androidx.tracing.TraceApi18Impl:
+    private void <init>()
 com.google.common.math.LinearTransformation
 kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3
 com.google.common.collect.StandardTable$1
@@ -6190,7 +6539,6 @@ kotlin.sequences.SequencesKt__SequencesKt$flatten$1
 androidx.core.view.NestedScrollingParent
 androidx.fragment.app.ListFragment
 kotlin.io.FileAlreadyExistsException
-androidx.core.provider.FontsContractCompat$4$1
 com.google.common.collect.DenseImmutableTable$Column
 com.google.common.graph.ConfigurableMutableValueGraph
 org.checkerframework.checker.nullness.compatqual.NonNullType
@@ -6210,6 +6558,8 @@ org.intellij.lang.annotations.JdkConstants$TitledBorderJustification
 androidx.loader.content.ModernAsyncTask
 com.google.common.base.Predicates$CompositionPredicate
 com.google.common.collect.SortedMultisetBridge
+androidx.core.view.WindowInsetsCompat$Api21ReflectionHolder:
+    private void <init>()
 androidx.core.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListener
 kotlin.jvm.JvmOverloads
 kotlin.ranges.UIntRange
@@ -6231,6 +6581,7 @@ kotlin.contracts.ExperimentalContracts
 com.google.common.collect.TreeRangeSet$SubRangeSet
 kotlin.StandardKt__StandardKt
 androidx.fragment.R$integer
+androidx.core.os.ExecutorCompat$HandlerExecutor
 kotlin.math.MathKt__MathHKt
 kotlin.time.TimedValue
 androidx.sqlite.db.SupportSQLiteOpenHelper$Callback:
@@ -6272,6 +6623,7 @@ kotlin.collections.CollectionsKt__ReversedViewsKt
 com.google.common.reflect.TypeToken$InterfaceSet$1
 com.google.common.io.BaseEncoding$DecodingException
 com.google.common.reflect.TypeResolver$TypeTable
+androidx.fragment.app.DialogFragment$4
 androidx.lifecycle.Transformations$1
 com.google.common.collect.SortedLists$KeyAbsentBehavior
 kotlin.sequences.SequencesKt___SequencesKt$filterIndexed$2
@@ -6324,6 +6676,7 @@ com.google.common.util.concurrent.CycleDetectingLockFactory$PotentialDeadlockExc
 androidx.core.app.ActivityRecreator$3
 com.google.common.cache.LocalCache$Segment
 com.google.common.collect.PeekingIterator
+androidx.core.view.DisplayCompat$Api17Impl
 com.google.common.base.Equivalence$Equals
 com.google.common.io.BaseEncoding$5
 com.google.common.graph.NetworkConnections
@@ -6347,8 +6700,6 @@ com.google.common.collect.Sets$CartesianSet$1
 androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 com.google.i18n.phonenumbers.PhoneNumberUtil$Leniency$3
 com.google.common.collect.Iterators$PeekingImpl
-androidx.savedstate.SavedStateRegistry$1:
-    void <init>(androidx.savedstate.SavedStateRegistry)
 io.flutter.app.FlutterPluginRegistry$FlutterRegistrar
 kotlin.text.DelimitedRangesSequence$iterator$1
 com.google.common.reflect.TypeResolver$TypeMappingIntrospector
@@ -6367,6 +6718,7 @@ com.google.common.util.concurrent.ListenerCallQueue$PerListenerQueue
 kotlin.coroutines.jvm.internal.ModuleNameRetriever
 com.google.common.util.concurrent.ForwardingListeningExecutorService
 androidx.core.app.ShareCompat$Api16Impl
+androidx.core.provider.RequestExecutor
 com.google.common.base.Splitter$4
 androidx.core.view.WindowInsetsCompat:
     static androidx.core.graphics.Insets insetInsets(androidx.core.graphics.Insets,int,int,int,int)
@@ -6398,17 +6750,21 @@ com.google.common.collect.ConcurrentHashMultiset$1
 androidx.fragment.app.FragmentStore
 com.jrai.flutter_keyboard_visibility.R$drawable
 androidx.core.text.TextDirectionHeuristicsCompat$TextDirectionAlgorithm
+androidx.fragment.app.SpecialEffectsController$Operation
 com.google.common.hash.BloomFilter
 com.google.common.io.CharSink
 androidx.work.impl.constraints.WorkConstraintsTracker:
     void <init>(androidx.work.impl.constraints.WorkConstraintsCallback,androidx.work.impl.constraints.controllers.ConstraintController[])
 com.google.common.collect.ImmutableSetMultimap$Builder
 com.google.common.collect.Maps$ViewCachingAbstractMap
+androidx.activity.result.contract.ActivityResultContracts$GetContent
 kotlin.sequences.TransformingSequence$iterator$1
 com.google.common.collect.AbstractTable$CellSet
 com.baseflow.permissionhandler.R
 com.google.common.collect.FilteredEntryMultimap$ValuePredicate
 kotlin.time.DurationUnitKt$WhenMappings
+androidx.lifecycle.runtime.R$id:
+    private void <init>()
 com.google.common.collect.Iterables$2
 androidx.core.text.BidiFormatter
 androidx.core.view.inputmethod.InputConnectionCompat$1
@@ -6438,6 +6794,8 @@ com.google.common.collect.Synchronized$SynchronizedAsMap
 com.google.common.base.CharMatcher$BitSetMatcher
 com.google.common.util.concurrent.Striped$WeakSafeReadWriteLock
 androidx.fragment.app.FragmentTransition$Callback
+androidx.fragment.app.SpecialEffectsController$Operation$1
+androidx.fragment.app.SpecialEffectsController$FragmentStateManagerOperation
 com.google.common.graph.DirectedMultiNetworkConnections$1
 com.google.common.util.concurrent.AtomicLongMap$1
 androidx.core.view.WindowInsetsControllerCompat$OnControllableInsetsChangedListener
@@ -6445,6 +6803,7 @@ com.google.errorprone.annotations.concurrent.LazyInit
 kotlin.jvm.internal.ArrayCharIterator
 androidx.lifecycle.ComputableLiveData$1
 kotlin.sequences.SequencesKt__SequencesKt$generateSequence$1
+androidx.fragment.app.Fragment$7
 com.google.common.collect.HashBiMap$View$1
 com.google.common.collect.TreeRangeMap$1
 kotlin.text.SystemProperties
@@ -6547,6 +6906,7 @@ com.google.common.base.Equivalence$Wrapper
 androidx.work.impl.model.WorkSpecDao:
     public abstract androidx.work.impl.model.WorkSpec[] getWorkSpecs(java.util.List)
     public abstract java.util.List getAllWorkSpecIds()
+    public abstract androidx.lifecycle.LiveData getAllWorkSpecIdsLiveData()
     public abstract androidx.work.impl.model.WorkSpec$WorkInfoPojo getWorkStatusPojoForId(java.lang.String)
     public abstract java.util.List getWorkStatusPojoForIds(java.util.List)
     public abstract androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForIds(java.util.List)
@@ -6554,6 +6914,7 @@ androidx.work.impl.model.WorkSpecDao:
     public abstract androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForTag(java.lang.String)
     public abstract java.util.List getWorkStatusPojoForName(java.lang.String)
     public abstract androidx.lifecycle.LiveData getWorkStatusPojoLiveDataForName(java.lang.String)
+    public abstract androidx.lifecycle.LiveData getScheduleRequestedAtLiveData(java.lang.String)
     public abstract void pruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast()
 com.google.common.base.Predicates$ContainsPatternFromStringPredicate
 io.flutter.embedding.engine.loader.ResourceExtractor$ExtractTask
@@ -6707,7 +7068,6 @@ androidx.core.view.ViewCompat:
     private static void tickleInvalidationFlag(android.view.View)
     public static void setClipBounds(android.view.View,android.graphics.Rect)
     public static android.graphics.Rect getClipBounds(android.view.View)
-    public static boolean isAttachedToWindow(android.view.View)
     public static boolean hasOnClickListeners(android.view.View)
     public static void setScrollIndicators(android.view.View,int)
     public static void setScrollIndicators(android.view.View,int,int)
@@ -6732,8 +7092,6 @@ androidx.core.view.ViewCompat:
     public static void addOnUnhandledKeyEventListener(android.view.View,androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat)
     public static void removeOnUnhandledKeyEventListener(android.view.View,androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat)
     protected void <init>()
-    static boolean dispatchUnhandledKeyEventBeforeHierarchy(android.view.View,android.view.KeyEvent)
-    static boolean dispatchUnhandledKeyEventBeforeCallback(android.view.View,android.view.KeyEvent)
     public static void setScreenReaderFocusable(android.view.View,boolean)
     public static boolean isScreenReaderFocusable(android.view.View)
     private static androidx.core.view.ViewCompat$AccessibilityViewProperty screenReaderFocusableProperty()
@@ -6823,6 +7181,7 @@ com.google.i18n.phonenumbers.Phonemetadata$NumberFormat$Builder
 com.google.common.util.concurrent.ServiceManager$1
 androidx.sqlite.db.SimpleSQLiteQuery:
     public int getArgCount()
+androidx.core.provider.FontProvider$1
 androidx.loader.R$string
 com.google.common.cache.ForwardingLoadingCache$SimpleForwardingLoadingCache
 com.google.common.hash.AbstractCompositeHashFunction
@@ -6833,11 +7192,13 @@ androidx.work.impl.model.WorkProgressDao:
 androidx.core.os.LocaleListCompat
 com.google.common.collect.Multimaps$UnmodifiableMultimap
 com.google.common.collect.AllEqualOrdering
-androidx.core.view.ViewCompat$UnhandledKeyEventManager
+androidx.fragment.app.FragmentManager$8
+androidx.core.view.ViewCompat$UnhandledKeyEventManager:
+    static void registerListeningView(android.view.View)
+    static void unregisterListeningView(android.view.View)
 kotlin.contracts.ReturnsNotNull
 com.baseflow.permissionhandler.R$styleable
 com.google.common.collect.StandardTable$ColumnMap$ColumnMapValues
-androidx.core.provider.FontsContractCompat$4$9
 androidx.annotation.AnyRes
 com.google.common.collect.LinkedHashMultimap$1
 com.google.common.collect.MapMakerInternalMap$KeySet
@@ -6863,6 +7224,7 @@ com.google.common.graph.ImmutableNetwork
 com.google.common.hash.AbstractNonStreamingHashFunction$BufferingHasher
 androidx.loader.content.CursorLoader
 androidx.core.app.NavUtils
+androidx.work.impl.model.WorkSpecDao_Impl$14
 androidx.room.Update
 androidx.core.graphics.ColorUtils
 com.google.common.collect.Multisets$DecreasingCount
@@ -6924,7 +7286,6 @@ io.flutter.embedding.android.FlutterView$RenderMode
 kotlin.collections.ReversedList
 com.google.common.collect.Lists$ReverseList$1
 androidx.core.view.WindowInsetsCompat$BuilderImpl:
-    void setStableInsets(androidx.core.graphics.Insets)
     void setDisplayCutout(androidx.core.view.DisplayCutoutCompat)
     void setInsets(int,androidx.core.graphics.Insets)
     void setInsetsIgnoringVisibility(int,androidx.core.graphics.Insets)
@@ -6936,6 +7297,7 @@ io.flutter.embedding.engine.loader.FlutterLoader$2
 com.google.common.base.Suppliers$ThreadSafeSupplier
 androidx.core.net.TrafficStatsCompat
 com.google.common.base.AbstractIterator$1
+androidx.fragment.app.SpecialEffectsController$3
 io.flutter.embedding.android.AndroidTouchProcessor$PointerSignalKind
 com.google.common.hash.LittleEndianByteArray$UnsafeByteArray$1
 com.google.common.collect.Tables$UnmodifiableTable
@@ -6954,7 +7316,6 @@ kotlin.text.StringsKt
 kotlin.text.StringsKt___StringsKt$withIndex$1
 com.google.common.util.concurrent.SequentialExecutor$1
 androidx.activity.ImmLeaksCleaner:
-    void <init>(android.app.Activity)
     private static final int NOT_INITIALIAZED
     private static final int INIT_SUCCESS
     private static final int INIT_FAILED
@@ -6979,6 +7340,7 @@ com.google.common.io.MultiReader
 com.google.common.collect.ForwardingSortedSetMultimap
 kotlin.reflect.KTypeParameter
 com.google.common.math.Quantiles$ScaleAndIndexes
+vn.hunghd.flutterdownloader.R$animator
 com.google.common.collect.AbstractMapBasedMultimap
 kotlin.jvm.functions.Function5
 kotlin.text.StringsKt__StringsKt
@@ -7013,12 +7375,14 @@ kotlin.text.StringsKt___StringsKt
 com.google.common.collect.Synchronized$SynchronizedTable
 androidx.work.impl.model.WorkSpec:
     public static final androidx.arch.core.util.Function WORK_INFO_MAPPER
+androidx.core.app.ComponentActivity:
+    public androidx.collection.SimpleArrayMap mExtraDataMap
 androidx.work.impl.model.WorkSpecDao_Impl$5:
     public final synthetic androidx.work.impl.model.WorkSpecDao_Impl this$0
 androidx.work.Configuration:
     public final boolean mIsUsingDefaultTaskExecutor
-androidx.savedstate.SavedStateRegistry$SavedStateProvider
-androidx.lifecycle.SavedStateHandle
+androidx.work.impl.foreground.SystemForegroundService:
+    public static androidx.work.impl.foreground.SystemForegroundService sForegroundService
 io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding:
     public final io.flutter.view.TextureRegistry textureRegistry
     public final io.flutter.plugin.platform.PlatformViewRegistry platformViewRegistry
@@ -7039,6 +7403,8 @@ androidx.work.impl.model.WorkNameDao_Impl$1:
     public final synthetic androidx.work.impl.model.WorkNameDao_Impl this$0
 androidx.arch.core.executor.ArchTaskExecutor:
     public static final java.util.concurrent.Executor sMainThreadExecutor
+androidx.activity.ComponentActivity$NonConfigurationInstances:
+    public java.lang.Object custom
 androidx.work.impl.model.WorkSpecDao_Impl$4:
     public final synthetic androidx.work.impl.model.WorkSpecDao_Impl this$0
 androidx.room.InvalidationTracker:
@@ -7048,12 +7414,17 @@ io.flutter.embedding.android.DrawableSplashScreen$1:
     public final synthetic io.flutter.embedding.android.DrawableSplashScreen this$0
 androidx.room.util.StringUtil:
     public static final java.lang.String[] EMPTY_STRING_ARRAY
+androidx.activity.ComponentActivity$2:
+    public final synthetic androidx.activity.ComponentActivity this$0
 androidx.work.impl.model.WorkSpecDao_Impl:
     public final androidx.room.SharedSQLiteStatement __preparedStmtOfPruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast
 androidx.work.impl.model.DependencyDao_Impl$1:
     public final synthetic androidx.work.impl.model.DependencyDao_Impl this$0
 androidx.work.WorkRequest$Builder:
     public java.lang.Class mWorkerClass
+androidx.fragment.app.FragmentManager:
+    public static boolean DEBUG
+    public static boolean USE_STATE_MANAGER
 androidx.room.RoomDatabase:
     public java.util.concurrent.Executor mTransactionExecutor
     public final java.util.Map mBackingFieldMap
@@ -7099,17 +7470,12 @@ com.google.i18n.phonenumbers.PhoneNumberUtil:
     public static final java.util.regex.Pattern NON_DIGITS_PATTERN
 io.flutter.FlutterInjector:
     public static boolean accessed
+androidx.activity.ComponentActivity:
+    public final java.util.concurrent.atomic.AtomicInteger mNextLocalRequestCode
 androidx.work.impl.utils.WorkForegroundUpdater:
     public final androidx.work.impl.utils.taskexecutor.TaskExecutor mTaskExecutor
     public final androidx.work.impl.foreground.ForegroundProcessor mForegroundProcessor
     public final androidx.work.impl.model.WorkSpecDao mWorkSpecDao
-androidx.lifecycle.SavedStateHandleController:
-    public static void attachHandleIfNeeded(androidx.lifecycle.ViewModel,androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle)
-    public static void tryToAddRecreator(androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle)
-    public boolean isAttached()
-    public void attachToLifecycle(androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle)
-    public final java.lang.String mKey
-    public final androidx.lifecycle.SavedStateHandle mHandle
 androidx.work.impl.utils.WorkProgressUpdater:
     public final androidx.work.impl.WorkDatabase mWorkDatabase
     public final androidx.work.impl.utils.taskexecutor.TaskExecutor mTaskExecutor
@@ -7154,7 +7520,7 @@ io.flutter.embedding.engine.plugins.shim.ShimRegistrar:
     public final java.util.Map globalRegistrarMap
     public final java.lang.String pluginId
 androidx.lifecycle.ViewModel:
-    public abstract java.lang.Object getTag(java.lang.String)
+    public volatile boolean mCleared
 com.google.common.util.concurrent.AbstractFuture$Failure:
     public static final com.google.common.util.concurrent.AbstractFuture$Failure FALLBACK_INSTANCE
 androidx.work.impl.model.WorkProgressDao_Impl$2:
@@ -7191,8 +7557,6 @@ io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1:
     public final synthetic io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl this$0
 bsi.iceman.searchable_dropdown.SearchableDropdownPlugin:
     public static final bsi.iceman.searchable_dropdown.SearchableDropdownPlugin$Companion Companion
-androidx.savedstate.SavedStateRegistry:
-    public abstract void registerSavedStateProvider(java.lang.String,androidx.savedstate.SavedStateRegistry$SavedStateProvider)
 androidx.core.view.ViewCompat$1
 vn.hunghd.flutterdownloader.DownloadStatus:
     public static int UNDEFINED
@@ -7208,6 +7572,8 @@ io.flutter.app.FlutterPluginRegistry:
     public final java.util.Map mPluginMap
 androidx.work.impl.model.WorkSpecDao_Impl$7:
     public final synthetic androidx.work.impl.model.WorkSpecDao_Impl this$0
+androidx.activity.contextaware.ContextAwareHelper:
+    public volatile android.content.Context mContext
 androidx.work.impl.model.SystemIdInfoDao_Impl$1:
     public final synthetic androidx.work.impl.model.SystemIdInfoDao_Impl this$0
 androidx.room.MultiInstanceInvalidationClient:
@@ -7220,8 +7586,6 @@ io.flutter.view.AccessibilityBridge$SemanticsNode:
     public io.flutter.view.AccessibilityBridge$TextDirection textDirection
     public float previousScrollExtentMax
     public float previousScrollExtentMin
-androidx.lifecycle.SavedStateHandleController$1:
-    public void <init>(androidx.lifecycle.Lifecycle,androidx.savedstate.SavedStateRegistry)
 androidx.work.impl.model.PreferenceDao_Impl$1:
     public final synthetic androidx.work.impl.model.PreferenceDao_Impl this$0
 androidx.work.impl.model.WorkProgressDao_Impl$1:

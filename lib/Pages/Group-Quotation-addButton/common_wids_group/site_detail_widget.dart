@@ -5,6 +5,8 @@ import 'package:pozitive/Widget/commonWidget/appTextField.dart';
 import 'package:pozitive/Widget/commonWidget/date_text_field_widget.dart';
 import 'package:pozitive/Util/theme.dart';
 import 'package:pozitive/Core/AppConstact/appColors.dart';
+import 'package:pozitive/Pages/Group-Quotation-addButton/Tab/group_quotation_widget.dart';
+import 'package:intl/intl.dart';
 
 class SiteDetailWidget extends StatefulWidget {
   final Function selectDate;
@@ -35,7 +37,10 @@ class SiteDetailWidget extends StatefulWidget {
   @override
   _SiteDetailWidgetState createState() => _SiteDetailWidgetState();
 }
+GroupQuotationWidget groupquataionwidget = GroupQuotationWidget();
 
+
+DateFormat dateRFormat = DateFormat("dd/MM/yyyy");
 class _SiteDetailWidgetState extends State<SiteDetailWidget> {
   final ThemeApp themeApp = ThemeApp();
   @override
@@ -127,6 +132,13 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                   autoValidation: widget.autoValidation,
                   textInputType: TextInputType.text,
                   hintText: AppString.businessName,
+                  validator: (value) {
+                    if (widget.businessNameController.text == '') {
+                      return AppConstant.stringValidator(value,
+                          'business name.');
+                    }
+                    return null;
+                  },
                 ),
               ),
               //Second Row
@@ -139,6 +151,17 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                   autoValidation: widget.autoValidation,
                   textInputType: TextInputType.number,
                   hintText: AppString.mpanCore,
+                  validator: (value) {
+
+                    if (value.length>13) {
+                      return
+                          'valid upto 13 digits';
+                    }
+                    else if(value.length < 13 && value.length>0){
+                      return "must enter 13 digits";
+                    }
+                    return null;
+                  },
                 ),
               ),
               //Third Row
@@ -152,6 +175,19 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                   autoValidation: widget.autoValidation,
                   textInputType: TextInputType.number,
                   hintText: AppString.mprn10Digit,
+                  validator: (value) {
+                    if (value.length>10) {
+                      return
+                        'valid upto 10 digits';
+                    }
+                    if(widget.mprnController.text == "" && widget.mpanCoreController.text == ""){
+                      return "Please enter either MPAN Core or MPRN";
+                    }
+                    else if(value.length < 10 && value.length>0){
+                      return "must enter 10 digits";
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -159,27 +195,44 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      AppString.preferredStartDate,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * .015,
-                        color: Color.fromRGBO(31, 33, 29, 1),
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          AppString.preferredStartDate,
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * .015,
+                            color: Color.fromRGBO(31, 33, 29, 1),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.height * 0.005,
+                        ),
+                        Text(
+                         "*",
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * .015,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
-                    Container(
-                      child: DateTextFieldWidget(
-                          autoValidate: widget.autoValidation,
-                          obscureText: false,
-                          hintText: 'Select Date',
-                          controller: widget.startDateController,
-                          textInputType: TextInputType.text,
-                          validator: (value) => AppConstant.stringValidator(
-                              value, AppString.selectDate),
-                          onTap: widget.selectDate),
-                    ),
+                    DateTextFieldWidget(
+                        autoValidate: true,
+                        obscureText: false,
+                        hintText: dateRFormat.format(DateTime.now()).toString(),
+                        controller: widget.startDateController,
+                        textInputType: TextInputType.text,
+                        validator: (value) {
+                          if (widget.startDateController.text == "") {
+                            return
+                              'valid upto 10 digits';
+                          }
+                          return "please";
+                        },
+                        onTap: widget.selectDate),
                   ],
                 ),
               ),

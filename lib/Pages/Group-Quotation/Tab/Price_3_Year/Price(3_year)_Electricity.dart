@@ -14,10 +14,16 @@ import 'package:pozitive/Core/AppConstact/appConstant.dart';
 import 'package:pozitive/Core/enums/view_state.dart';
 import 'package:pozitive/providers/tabcontroller3_provider.dart';
 import 'package:pozitive/Util/global.dart' as globals;
+import 'dart:isolate';
+import 'dart:ui';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:pozitive/Widget/commonWidget/appTextField.dart';
+import 'package:pozitive/Pages/Group-Quotation/visibility_popup.dart';
 
 class threeYearPage extends StatefulWidget {
   final String groupId;
-  threeYearPage({@required this.groupId});
+  final String status;
+  threeYearPage({@required this.groupId,this.status});
   @override
   _threeYearPageState createState() => _threeYearPageState();
 }
@@ -28,17 +34,46 @@ class _threeYearPageState extends State<threeYearPage> {
   ThemeApp themeApp = ThemeApp();
 
   List viewlist = [];
-
+  TextEditingController visibilityGroupName = TextEditingController();
+  bool load = false;
   @override
   void initState() {
-
+    super.initState();
     prevIndex=null;
+
+    setState(() {
+      load = false;
+    });
     for (int i = 0; i < 20; i++) {
       setState(() {
         viewlist.add({"view": false, "click": false, "checkbox": false});
       });
     }
-    super.initState();
+  }
+  Future<String> checkupliftvalidation() async{
+    //print(oneYear[0].checkItem);
+    int c=0;
+    for(int i=0;i<threeYear.length;i++){
+      if(threeYear[i].checkItem){
+        if(threeYear[i].mpan != "" && threeYear[i].mpan != null ){
+          if(threeYear[i].requiredUpliftDay == '' || threeYear[i].requiredUpliftNight == '' ||threeYear[i].requiredUpliftEWE == '' ||threeYear[i].requiredUpliftSc == ''  ){
+            return "Please fill Required fields at Site ${i+1} ";
+          }
+        }
+        if(threeYear[i].mprn != "" && threeYear[i].mprn != null){
+          if(threeYear[i].requiredUpliftDayGas == '' || threeYear[i].requiredUpliftScGas == ''  ){
+            return "Please fill Required fields at Site ${i+1} ";
+          }
+        }
+      }
+      else{
+        c++;
+      }
+    }
+    if(c == threeYear.length){
+      return "Not Selected any Site!";
+    }
+
   }
 
   @override
@@ -51,8 +86,15 @@ class _threeYearPageState extends State<threeYearPage> {
           check: false,
         ),
         builder: (context, model, child) {
-          if (model.state == ViewState.BUSY) {
-            return AppConstant.circularProgressIndicator();
+          if (model.state == ViewState.BUSY || load == true) {
+            return Container(
+              height: MediaQuery.of(context).size.height,
+              child: Scaffold(
+                body: Center(
+                  child: AppConstant.circularProgressIndicator(),
+                ),
+              ),
+            );
           }
           return Container(
             color: Colors.white,
@@ -146,54 +188,154 @@ class _threeYearPageState extends State<threeYearPage> {
                                   viewlist: viewlist,
                                   type: "MPAN",
                                   groupdetailsprice: groupDetailslst,
+                                  yearType: "3",
                                 );
                               }),
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.058,
-                            child: TextButton(
-                              child: Text(
-                                "Generate Site",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height * 0.019,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              onPressed: (){
-                                GenerateSite();
-                              },
-                            ),
-                            decoration: BoxDecoration(
-                                color: Color.fromRGBO(155, 119, 217, 1),
-                                borderRadius: BorderRadius.circular(30)),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Container(
+                        widget.status != "Accepted"
+                            ? Column(
+                          children: [
+                            Padding(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 10),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height:
+                                MediaQuery.of(context).size.height *
+                                    0.058,
+                                child: TextButton(
+                                  child: Text(
+                                    "Generate Contract",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: MediaQuery.of(context)
+                                            .size
+                                            .height *
+                                            0.019,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  onPressed: () async {
+                                    String s =
+                                    await checkupliftvalidation();
+                                    bool valid = false;
+                                    var response;
+                                    print(s);
+                                    if (s == null) {
+                                      setState(() {
+                                        load = true;
+                                      });
+                                      print(load);
+                                      finalQuotationpPriceModel
+                                      finalprocemodel =
+                                      finalQuotationpPriceModel();
 
+                                      response = await finalprocemodel
+                                          .GenerateSite(
+                                        termType: "3",
+                                        visGroupName:
+                                        visibilityGroupName.text,
+                                      );
+                                      setState(() {
+                                        load = false;
+                                      });
+                                      if (response['status'] != "1") {
+                                        // AppConstant.showFailToast(
+                                        //     context, response['msg'] ?? 'Failed');
+                                        setState(() {
+                                          valid = true;
+                                        });
+                                      }
+                                      print(load);
+                                    }
+
+                                    showDialog(
+                                        context: context,
+                                        builder: (ctx) {
+                                          return customDialog(
+                                            s: s,
+                                            response: response,
+                                            visibilityGroupName:
+                                            visibilityGroupName,
+                                            validation: valid,
+                                            termtype: "3",
+                                          );
+
+                                        });
+
+                                    // GroupQuotePriceList vs = GroupQuotePriceList();
+                                    // vs.checkupliftvalidation();
+                                  },
+                                ),
+                                decoration: BoxDecoration(
+                                    color:
+                                    Color.fromRGBO(155, 119, 217, 1),
+                                    borderRadius:
+                                    BorderRadius.circular(30)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width *
+                                  0.03,
+                            ),
+                            Padding(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 10),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height:
+                                MediaQuery.of(context).size.height *
+                                    0.058,
+                                child: TextButton(
+                                  child: Text(
+                                    "Remove Site",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: MediaQuery.of(context)
+                                            .size
+                                            .height *
+                                            0.019,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  onPressed: () {
+                                    model.RemoveSite(
+                                      grpId: widget.groupId,
+                                      context: context,
+                                      Year: '3',
+                                    );
+                                  },
+                                ),
+                                decoration: BoxDecoration(
+                                    color:
+                                    Color.fromRGBO(155, 119, 217, 1),
+                                    borderRadius:
+                                    BorderRadius.circular(30)),
+                              ),
+                            ),
+                          ],
+                        )
+                            : Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.058,
+                            height: MediaQuery.of(context).size.height *
+                                0.058,
                             child: TextButton(
                               child: Text(
-                                "Remove Site",
+                                "Download Contract",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height * 0.019,
+                                    fontSize: MediaQuery.of(context)
+                                        .size
+                                        .height *
+                                        0.019,
                                     fontWeight: FontWeight.bold),
                               ),
-                              onPressed: (){
-                                model.RemoveSite(
-                                  grpId: widget.groupId,
-                                  context: context,
-                                  Year: '3',
-                                );
+                              onPressed: () {
+                                // model.RemoveSite(
+                                //   grpId: widget.groupId,
+                                //   context: context,
+                                //   Year: '1',
+                                // );
                               },
                             ),
                             decoration: BoxDecoration(

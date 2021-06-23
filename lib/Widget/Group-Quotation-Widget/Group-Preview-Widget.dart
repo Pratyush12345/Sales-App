@@ -192,89 +192,84 @@ class _PreviewListWidgetState extends State<PreviewListWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).size.height * 0.01,
-                          top: MediaQuery.of(context).size.height * 0.01),
-                      child: Row(
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          SizedBox(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 3),
-                              child: Text("Business Name",
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.033,
-                                  )),
-                            ),
-                            width: MediaQuery.of(context).size.width * 0.40,
-                            height: widget.businessNameErr == null
-                                ? MediaQuery.of(context).size.height * 0.055
-                                : MediaQuery.of(context).size.height * 0.065,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .03,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.40,
-                            height: widget.businessNameErr == null
-                                ? MediaQuery.of(context).size.height * 0.055
-                                : MediaQuery.of(context).size.height * 0.065,
-                            child: TextField(
-                              textAlignVertical: TextAlignVertical(y: -1.0),
-                              onChanged: (val) {
-                                siteListProviderData
-                                    .siteListProvider[widget.index]
-                                    .businessName = val;
-                                setState(() {});
-                              },
-                              enabled:
-                                  widget.businessNameErr == null ? false : true,
-                              autocorrect: false,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: new BorderSide(
-                                    color: Colors.red,
-                                  ),
-                                ),
-                                helperText: widget.businessNameErr == null
-                                    ? ''
-                                    : widget.businessNameErr,
-                                helperStyle: TextStyle(
-                                  color: Colors.red,
-                                ),
-                                counterText: '',
-                                border: widget.businessNameErr == null
-                                    ? InputBorder.none
-                                    : OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                              ),
-                              controller: businessName,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.033,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    //*Mpan Core */
+                    // Padding(
+                    //   padding: EdgeInsets.only(
+                    //       bottom: MediaQuery.of(context).size.height * 0.01,
+                    //       top: MediaQuery.of(context).size.height * 0.01),
+                    //   child: Row(
+                    //     // crossAxisAlignment: CrossAxisAlignment.center,
+                    //
+                    //     crossAxisAlignment: CrossAxisAlignment.start,
+                    //     mainAxisAlignment: MainAxisAlignment.start,
+                    //     children: <Widget>[
+                    //       SizedBox(
+                    //         child: Text("Business Name",
+                    //             textAlign: TextAlign.end,
+                    //             style: TextStyle(
+                    //               color: Colors.black,
+                    //               fontWeight: FontWeight.bold,
+                    //               fontSize:
+                    //                   MediaQuery.of(context).size.width *
+                    //                       0.033,
+                    //             )),
+                    //         width: MediaQuery.of(context).size.width * 0.40,
+                    //         // height: widget.businessNameErr == null
+                    //         //     ? MediaQuery.of(context).size.height * 0.055
+                    //         //     : MediaQuery.of(context).size.height * 0.065,
+                    //       ),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * .03,
+                    //       ),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * 0.46,
+                    //         // height: widget.businessNameErr == null
+                    //         //     ? MediaQuery.of(context).size.height * 0.055
+                    //         //     : MediaQuery.of(context).size.height * 0.065,
+                    //         child: TextField(
+                    //           //textAlignVertical: TextAlignVertical(y: -1.0),
+                    //           onChanged: (val) {
+                    //             siteListProviderData
+                    //                 .siteListProvider[widget.index]
+                    //                 .businessName = val;
+                    //             setState(() {});
+                    //           },
+                    //           enabled:
+                    //               widget.businessNameErr == null ? false : true,
+                    //           autocorrect: false,
+                    //           autofocus: false,
+                    //           decoration: InputDecoration(
+                    //             enabledBorder: OutlineInputBorder(
+                    //               borderSide: new BorderSide(
+                    //                 color: Colors.red,
+                    //               ),
+                    //             ),
+                    //             helperText: widget.businessNameErr == null
+                    //                 ? ''
+                    //                 : widget.businessNameErr,
+                    //             helperStyle: TextStyle(
+                    //               color: Colors.red,
+                    //             ),
+                    //             counterText: '',
+                    //             border: widget.businessNameErr == null
+                    //                 ? InputBorder.none
+                    //                 : OutlineInputBorder(
+                    //                     borderSide: new BorderSide(
+                    //                       color: Colors.red,
+                    //                     ),
+                    //                   ),
+                    //           ),
+                    //           controller: businessName,
+                    //           style: TextStyle(
+                    //             color: Colors.grey,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize:
+                    //                 MediaQuery.of(context).size.width * 0.033,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Padding(
                       padding: EdgeInsets.only(
                           bottom: MediaQuery.of(context).size.height * 0.01,
@@ -284,80 +279,34 @@ class _PreviewListWidgetState extends State<PreviewListWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.40,
-                            height: widget.mpanErr == null
-                                ? MediaQuery.of(context).size.height * 0.055
-                                : MediaQuery.of(context).size.height * 0.065,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 7.0),
-                              child: Text(
-                                "MPAN",
+                            child: Text("Business Name",
                                 textAlign: TextAlign.end,
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.033),
-                              ),
-                            ),
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize:
+                                  MediaQuery.of(context).size.width * 0.033,
+                                )),
+                            width: MediaQuery.of(context).size.width * 0.40,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * .03,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.46,
-                            height:
-                                // widget.mpanErr == null
-                                //     ? MediaQuery.of(context).size.height * 0.052
-                                //     :
-                                MediaQuery.of(context).size.height * 0.060,
-                            child: TextField(
-                              keyboardType: TextInputType.number,
-                              onChanged: (val) {
-                                siteListProviderData
-                                    .siteListProvider[widget.index]
-                                    .fullMpanNumber = val;
-                                setState(() {});
-                              },
-                              enabled: widget.mpanErr == null ? false : true,
-                              autocorrect: false,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: new BorderSide(
-                                    color: Colors.red,
-                                  ),
-                                ),
-                                helperText: widget.mpanErr == null
-                                    ? ''
-                                    : widget.mpanErr,
-                                helperStyle: TextStyle(
-                                  color: Colors.red,
-                                ),
-                                counterText: '',
-                                border: widget.mpanErr == null
-                                    ? InputBorder.none
-                                    : OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                              ),
-                              controller: mpan,
+                            child: Text(
+                             businessName.text,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.033,
+                                MediaQuery.of(context).size.width * 0.033,
                               ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
-
-                    //MPRN No
                     Padding(
                       padding: EdgeInsets.only(
                           bottom: MediaQuery.of(context).size.height * 0.01,
@@ -367,77 +316,273 @@ class _PreviewListWidgetState extends State<PreviewListWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.40,
-                              height: widget.mprn == null
-                                  ? MediaQuery.of(context).size.height * 0.055
-                                  : MediaQuery.of(context).size.height * 0.065,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 7.0),
-                                child: Text("MPRN",
-                                    textAlign: TextAlign.end,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.033)),
-                              )),
+                            child: Text( "MPAN",
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize:
+                                  MediaQuery.of(context).size.width * 0.033,
+                                )),
+                            width: MediaQuery.of(context).size.width * 0.40,
+                          ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * .03,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.46,
-                            height:
-                                // widget.mprnErr == null
-                                //     ? MediaQuery.of(context).size.height * 0.055
-                                //     :
-                                MediaQuery.of(context).size.height * 0.060,
-                            child: TextField(
-                              keyboardType: TextInputType.number,
-                              onChanged: (val) {
-                                siteListProviderData
-                                    .siteListProvider[widget.index]
-                                    .gasMprn = val;
-                                setState(() {});
-                              },
-                              enabled: widget.mprnErr == null ? false : true,
-                              autocorrect: false,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: new BorderSide(
-                                    color: Colors.red,
-                                  ),
-                                ),
-                                helperText: widget.mprnErr == null
-                                    ? ''
-                                    : widget.mprnErr,
-                                helperStyle: TextStyle(
-                                  color: Colors.red,
-                                ),
-                                counterText: '',
-                                border: widget.mprnErr == null
-                                    ? InputBorder.none
-                                    : OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                              ),
-                              controller: mprn,
+                            child: Text(
+                              mpan.text == "" ? "-": mpan.text,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.033,
+                                MediaQuery.of(context).size.width * 0.033,
                               ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.01,
+                          top: MediaQuery.of(context).size.height * 0.01),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            child: Text( "MPRN",
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize:
+                                  MediaQuery.of(context).size.width * 0.033,
+                                )),
+                            width: MediaQuery.of(context).size.width * 0.40,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .03,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.46,
+                            child: Text(
+                              mprn.text == "" ? "-": mprn.text,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                MediaQuery.of(context).size.width * 0.033,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    //*Mpan Core */
+                    // Padding(
+                    //   padding: EdgeInsets.only(
+                    //       bottom: MediaQuery.of(context).size.height * 0.01,
+                    //       top: MediaQuery.of(context).size.height * 0.01),
+                    //   child: Row(
+                    //     crossAxisAlignment: CrossAxisAlignment.start,
+                    //     mainAxisAlignment: MainAxisAlignment.start,
+                    //     children: <Widget>[
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * 0.40,
+                    //         height: widget.mpanErr == null
+                    //             ? MediaQuery.of(context).size.height * 0.055
+                    //             : MediaQuery.of(context).size.height * 0.065,
+                    //         child: Padding(
+                    //           padding: const EdgeInsets.only(),
+                    //           child: Text(
+                    //             "MPAN",
+                    //             textAlign: TextAlign.end,
+                    //             style: TextStyle(
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.bold,
+                    //                 fontSize:
+                    //                     MediaQuery.of(context).size.width *
+                    //                         0.033),
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * .03,
+                    //       ),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * 0.46,
+                    //         height:
+                    //             // widget.mpanErr == null
+                    //             //     ? MediaQuery.of(context).size.height * 0.052
+                    //             //     :
+                    //             MediaQuery.of(context).size.height * 0.060,
+                    //         child: TextField(
+                    //           keyboardType: TextInputType.number,
+                    //           onChanged: (val) {
+                    //             siteListProviderData
+                    //                 .siteListProvider[widget.index]
+                    //                 .fullMpanNumber = val;
+                    //             setState(() {});
+                    //           },
+                    //           enabled: widget.mpanErr == null ? false : true,
+                    //           autocorrect: false,
+                    //           autofocus: false,
+                    //           decoration: InputDecoration(
+                    //             enabledBorder: OutlineInputBorder(
+                    //               borderSide: new BorderSide(
+                    //                 color: Colors.red,
+                    //               ),
+                    //             ),
+                    //             helperText: widget.mpanErr == null
+                    //                 ? ''
+                    //                 : widget.mpanErr,
+                    //             helperStyle: TextStyle(
+                    //               color: Colors.red,
+                    //             ),
+                    //             counterText: '',
+                    //             border: widget.mpanErr == null
+                    //                 ? InputBorder.none
+                    //                 : OutlineInputBorder(
+                    //                     borderSide: new BorderSide(
+                    //                       color: Colors.red,
+                    //                     ),
+                    //                   ),
+                    //           ),
+                    //           controller: mpan,
+                    //           style: TextStyle(
+                    //             color: Colors.grey,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize:
+                    //                 MediaQuery.of(context).size.width * 0.033,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+
+                    //MPRN No
+                    // Padding(
+                    //   padding: EdgeInsets.only(
+                    //       bottom: MediaQuery.of(context).size.height * 0.01,
+                    //       top: MediaQuery.of(context).size.height * 0.01),
+                    //   child: Row(
+                    //     crossAxisAlignment: CrossAxisAlignment.start,
+                    //     mainAxisAlignment: MainAxisAlignment.start,
+                    //     children: <Widget>[
+                    //       SizedBox(
+                    //           width: MediaQuery.of(context).size.width * 0.40,
+                    //           height: widget.mprn == null
+                    //               ? MediaQuery.of(context).size.height * 0.055
+                    //               : MediaQuery.of(context).size.height * 0.065,
+                    //           child: Padding(
+                    //             padding: const EdgeInsets.only(top: 7.0),
+                    //             child: Text("MPRN",
+                    //                 textAlign: TextAlign.end,
+                    //                 style: TextStyle(
+                    //                     color: Colors.black,
+                    //                     fontWeight: FontWeight.bold,
+                    //                     fontSize:
+                    //                         MediaQuery.of(context).size.width *
+                    //                             0.033)),
+                    //           )),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * .03,
+                    //       ),
+                    //       SizedBox(
+                    //         width: MediaQuery.of(context).size.width * 0.46,
+                    //         height:
+                    //             // widget.mprnErr == null
+                    //             //     ? MediaQuery.of(context).size.height * 0.055
+                    //             //     :
+                    //             MediaQuery.of(context).size.height * 0.060,
+                    //         child: TextField(
+                    //           keyboardType: TextInputType.number,
+                    //           onChanged: (val) {
+                    //             siteListProviderData
+                    //                 .siteListProvider[widget.index]
+                    //                 .gasMprn = val;
+                    //             setState(() {});
+                    //           },
+                    //           enabled: widget.mprnErr == null ? false : true,
+                    //           autocorrect: false,
+                    //           autofocus: false,
+                    //           decoration: InputDecoration(
+                    //             enabledBorder: OutlineInputBorder(
+                    //               borderSide: new BorderSide(
+                    //                 color: Colors.red,
+                    //               ),
+                    //             ),
+                    //             helperText: widget.mprnErr == null
+                    //                 ? ''
+                    //                 : widget.mprnErr,
+                    //             helperStyle: TextStyle(
+                    //               color: Colors.red,
+                    //             ),
+                    //             counterText: '',
+                    //             border: widget.mprnErr == null
+                    //                 ? InputBorder.none
+                    //                 : OutlineInputBorder(
+                    //                     borderSide: new BorderSide(
+                    //                       color: Colors.red,
+                    //                     ),
+                    //                   ),
+                    //           ),
+                    //           controller: mprn,
+                    //           style: TextStyle(
+                    //             color: Colors.grey,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize:
+                    //                 MediaQuery.of(context).size.width * 0.033,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
 
                     //Preferred Start Date
+                    widget.preferredStartDateErr == null ?  Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.01,
+                          top: MediaQuery.of(context).size.height * 0.01),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            child: Text(
+                                "Preferred Start Date",
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize:
+                                  MediaQuery.of(context).size.width * 0.033,
+                                )),
+                            width: MediaQuery.of(context).size.width * 0.40,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .03,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.46,
+                            child: Text(
+                              preferredStartDate.text,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                MediaQuery.of(context).size.width * 0.033,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ):
                     Padding(
                       padding: EdgeInsets.only(
                           bottom: MediaQuery.of(context).size.height * 0.01,

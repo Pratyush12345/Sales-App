@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.0.88
 # min_api: 21
-# pg_map_id: 526d822
+# pg_map_id: 8694de0
 # common_typos_disable
 android.support.v4.app.INotificationSideChannel -> a.a.a.a.a:
     void cancelAll(java.lang.String) -> a
@@ -17,14 +17,36 @@ android.support.v4.app.INotificationSideChannel$Stub$Proxy -> a.a.a.a.a$a$a:
     void notify(java.lang.String,int,java.lang.String,android.app.Notification) -> e
     void cancel(java.lang.String,int,java.lang.String) -> f
 androidx.activity.Cancellable -> b.a.a:
-androidx.activity.ComponentActivity -> b.a.b:
+androidx.activity.ComponentActivity -> androidx.activity.ComponentActivity:
+    androidx.activity.OnBackPressedDispatcher mOnBackPressedDispatcher -> f
+    androidx.activity.contextaware.ContextAwareHelper mContextAwareHelper -> b
+    androidx.lifecycle.ViewModelStore mViewModelStore -> e
+    androidx.lifecycle.LifecycleRegistry mLifecycleRegistry -> c
+    int mContentLayoutId -> g
+    androidx.activity.result.ActivityResultRegistry mActivityResultRegistry -> h
+    androidx.savedstate.SavedStateRegistryController mSavedStateRegistryController -> d
+    androidx.lifecycle.Lifecycle getLifecycle() -> a
     androidx.lifecycle.ViewModelStore getViewModelStore() -> b
-androidx.activity.ComponentActivity$2 -> androidx.activity.ComponentActivity$2:
+    void access$001(androidx.activity.ComponentActivity) -> d
+    void ensureViewModelStore() -> e
+    void initViewTreeOwners() -> f
+    java.lang.Object onRetainCustomNonConfigurationInstance() -> g
+    androidx.activity.OnBackPressedDispatcher getOnBackPressedDispatcher() -> i
+    androidx.savedstate.SavedStateRegistry getSavedStateRegistry() -> j
+androidx.activity.ComponentActivity$1 -> androidx.activity.ComponentActivity$a:
     androidx.activity.ComponentActivity this$0 -> a
-    void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.activity.ComponentActivity$2 -> androidx.activity.ComponentActivity$b:
 androidx.activity.ComponentActivity$3 -> androidx.activity.ComponentActivity$3:
     androidx.activity.ComponentActivity this$0 -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.activity.ComponentActivity$4 -> androidx.activity.ComponentActivity$4:
+    androidx.activity.ComponentActivity this$0 -> a
+    void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.activity.ComponentActivity$5 -> androidx.activity.ComponentActivity$5:
+    androidx.activity.ComponentActivity this$0 -> a
+    void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.activity.ComponentActivity$NonConfigurationInstances -> androidx.activity.ComponentActivity$c:
+    androidx.lifecycle.ViewModelStore viewModelStore -> a
 androidx.activity.ImmLeaksCleaner -> androidx.activity.ImmLeaksCleaner:
     java.lang.reflect.Field sServedViewField -> d
     java.lang.reflect.Field sNextServedViewField -> e
@@ -33,9 +55,16 @@ androidx.activity.ImmLeaksCleaner -> androidx.activity.ImmLeaksCleaner:
     android.app.Activity mActivity -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
     void initializeReflectiveFields() -> h
-androidx.activity.OnBackPressedCallback -> b.a.c:
-    void removeCancellable(androidx.activity.Cancellable) -> a
+androidx.activity.OnBackPressedCallback -> b.a.b:
+    boolean mEnabled -> a
+    java.util.concurrent.CopyOnWriteArrayList mCancellables -> b
+    void addCancellable(androidx.activity.Cancellable) -> a
+    void handleOnBackPressed() -> b
+    boolean isEnabled() -> c
+    void removeCancellable(androidx.activity.Cancellable) -> d
 androidx.activity.OnBackPressedDispatcher -> androidx.activity.OnBackPressedDispatcher:
+    java.lang.Runnable mFallbackOnBackPressed -> a
+    java.util.ArrayDeque mOnBackPressedCallbacks -> b
     androidx.activity.Cancellable addCancellableCallback(androidx.activity.OnBackPressedCallback) -> a
     void onBackPressed() -> b
 androidx.activity.OnBackPressedDispatcher$LifecycleOnBackPressedCancellable -> androidx.activity.OnBackPressedDispatcher$LifecycleOnBackPressedCancellable:
@@ -44,8 +73,58 @@ androidx.activity.OnBackPressedDispatcher$LifecycleOnBackPressedCancellable -> a
     androidx.activity.OnBackPressedDispatcher this$0 -> d
     androidx.activity.Cancellable mCurrentCancellable -> c
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
-androidx.activity.OnBackPressedDispatcherOwner -> b.a.d:
+androidx.activity.OnBackPressedDispatcher$OnBackPressedCancellable -> androidx.activity.OnBackPressedDispatcher$a:
+    androidx.activity.OnBackPressedCallback mOnBackPressedCallback -> a
+    androidx.activity.OnBackPressedDispatcher this$0 -> b
+androidx.activity.OnBackPressedDispatcherOwner -> b.a.c:
     androidx.activity.OnBackPressedDispatcher getOnBackPressedDispatcher() -> i
+androidx.activity.contextaware.ContextAwareHelper -> b.a.d.a:
+    java.util.Set mListeners -> a
+    void clearAvailableContext() -> a
+    void dispatchOnContextAvailable(android.content.Context) -> b
+androidx.activity.contextaware.OnContextAvailableListener -> b.a.d.b:
+    void onContextAvailable(android.content.Context) -> a
+androidx.activity.result.ActivityResult -> b.a.e.a:
+    android.content.Intent mData -> b
+    int mResultCode -> a
+    android.content.Intent getData() -> a
+    int getResultCode() -> b
+    java.lang.String resultCodeToString(int) -> c
+androidx.activity.result.ActivityResult$1 -> b.a.e.a$a:
+    androidx.activity.result.ActivityResult createFromParcel(android.os.Parcel) -> a
+    androidx.activity.result.ActivityResult[] newArray(int) -> b
+androidx.activity.result.ActivityResultCallback -> b.a.e.b:
+    void onActivityResult(java.lang.Object) -> a
+androidx.activity.result.ActivityResultRegistry -> b.a.e.c:
+    java.util.Map mRcToKey -> b
+    java.util.Map mKeyToRc -> c
+    java.util.Map mKeyToLifecycleContainers -> d
+    java.util.ArrayList mLaunchedKeys -> e
+    java.util.Random mRandom -> a
+    android.os.Bundle mPendingResults -> h
+    java.util.Map mKeyToCallback -> f
+    java.util.Map mParsedPendingResults -> g
+    void bindRcKey(int,java.lang.String) -> a
+    boolean dispatchResult(int,int,android.content.Intent) -> b
+    void doDispatch(java.lang.String,int,android.content.Intent,androidx.activity.result.ActivityResultRegistry$CallbackAndContract) -> c
+    void onRestoreInstanceState(android.os.Bundle) -> d
+    void onSaveInstanceState(android.os.Bundle) -> e
+    void unregister(java.lang.String) -> f
+androidx.activity.result.ActivityResultRegistry$1 -> androidx.activity.result.ActivityResultRegistry$1:
+    androidx.activity.result.ActivityResultCallback val$callback -> b
+    java.lang.String val$key -> a
+    androidx.activity.result.contract.ActivityResultContract val$contract -> c
+    androidx.activity.result.ActivityResultRegistry this$0 -> d
+    void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.activity.result.ActivityResultRegistry$CallbackAndContract -> b.a.e.c$a:
+    androidx.activity.result.ActivityResultCallback mCallback -> a
+    androidx.activity.result.contract.ActivityResultContract mContract -> b
+androidx.activity.result.ActivityResultRegistry$LifecycleContainer -> b.a.e.c$b:
+    androidx.lifecycle.Lifecycle mLifecycle -> a
+    java.util.ArrayList mObservers -> b
+    void clearObservers() -> a
+androidx.activity.result.contract.ActivityResultContract -> b.a.e.d.a:
+    java.lang.Object parseResult(int,android.content.Intent) -> a
 androidx.arch.core.executor.ArchTaskExecutor -> b.b.a.a.a:
     androidx.arch.core.executor.ArchTaskExecutor sInstance -> c
     java.util.concurrent.Executor sIOThreadExecutor -> d
@@ -244,6 +323,8 @@ androidx.core.app.ActivityCompat$PermissionCompatDelegate -> b.d.b.a$c:
 androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator -> b.d.b.a$d:
     void validateRequestPermissionsRequestCode(int) -> a
 androidx.core.app.ComponentActivity -> b.d.b.b:
+    androidx.lifecycle.LifecycleRegistry mLifecycleRegistry -> a
+    boolean superDispatchKeyEvent(android.view.KeyEvent) -> c
 androidx.core.app.CoreComponentFactory -> androidx.core.app.CoreComponentFactory:
     java.lang.Object checkCompatWrapper(java.lang.Object) -> a
 androidx.core.app.CoreComponentFactory$CompatWrapped -> androidx.core.app.CoreComponentFactory$a:
@@ -549,27 +630,43 @@ androidx.core.view.DisplayCutoutCompat -> b.d.h.a:
     int getSafeInsetRight() -> c
     int getSafeInsetTop() -> d
     androidx.core.view.DisplayCutoutCompat wrap(java.lang.Object) -> e
-androidx.core.view.OnApplyWindowInsetsListener -> b.d.h.b:
+androidx.core.view.KeyEventDispatcher -> b.d.h.b:
+    java.lang.reflect.Field sDialogKeyListenerField -> d
+    boolean sActionBarFieldsFetched -> a
+    boolean sDialogFieldsFetched -> c
+    java.lang.reflect.Method sActionBarOnMenuKeyMethod -> b
+    boolean actionBarOnMenuKeyEventPre28(android.app.ActionBar,android.view.KeyEvent) -> a
+    boolean activitySuperDispatchKeyEventPre28(android.app.Activity,android.view.KeyEvent) -> b
+    boolean dialogSuperDispatchKeyEventPre28(android.app.Dialog,android.view.KeyEvent) -> c
+    boolean dispatchBeforeHierarchy(android.view.View,android.view.KeyEvent) -> d
+    boolean dispatchKeyEvent(androidx.core.view.KeyEventDispatcher$Component,android.view.View,android.view.Window$Callback,android.view.KeyEvent) -> e
+    android.content.DialogInterface$OnKeyListener getDialogKeyListenerPre28(android.app.Dialog) -> f
+androidx.core.view.KeyEventDispatcher$Component -> b.d.h.b$a:
+    boolean superDispatchKeyEvent(android.view.KeyEvent) -> c
+androidx.core.view.OnApplyWindowInsetsListener -> b.d.h.c:
     androidx.core.view.WindowInsetsCompat onApplyWindowInsets(android.view.View,androidx.core.view.WindowInsetsCompat) -> a
-androidx.core.view.ViewCompat -> b.d.h.c:
-    int getAccessibilityLiveRegion(android.view.View) -> a
-    java.lang.CharSequence getAccessibilityPaneTitle(android.view.View) -> b
-    int getImportantForAccessibility(android.view.View) -> c
-    androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View) -> d
-    void notifyViewAccessibilityStateChangedIfNeeded(android.view.View,int) -> e
-    androidx.core.view.ViewCompat$AccessibilityViewProperty paneTitleProperty() -> f
-    void requestApplyInsets(android.view.View) -> g
-    void setImportantForAccessibility(android.view.View,int) -> h
-    void setOnApplyWindowInsetsListener(android.view.View,androidx.core.view.OnApplyWindowInsetsListener) -> i
-    void setViewImportanceForAccessibilityIfNeeded(android.view.View) -> j
-androidx.core.view.ViewCompat$3 -> b.d.h.c$a:
+androidx.core.view.ViewCompat -> b.d.h.d:
+    boolean dispatchUnhandledKeyEventBeforeCallback(android.view.View,android.view.KeyEvent) -> a
+    boolean dispatchUnhandledKeyEventBeforeHierarchy(android.view.View,android.view.KeyEvent) -> b
+    int getAccessibilityLiveRegion(android.view.View) -> c
+    java.lang.CharSequence getAccessibilityPaneTitle(android.view.View) -> d
+    int getImportantForAccessibility(android.view.View) -> e
+    androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View) -> f
+    boolean isAttachedToWindow(android.view.View) -> g
+    void notifyViewAccessibilityStateChangedIfNeeded(android.view.View,int) -> h
+    androidx.core.view.ViewCompat$AccessibilityViewProperty paneTitleProperty() -> i
+    void requestApplyInsets(android.view.View) -> j
+    void setImportantForAccessibility(android.view.View,int) -> k
+    void setOnApplyWindowInsetsListener(android.view.View,androidx.core.view.OnApplyWindowInsetsListener) -> l
+    void setViewImportanceForAccessibilityIfNeeded(android.view.View) -> m
+androidx.core.view.ViewCompat$3 -> b.d.h.d$a:
     java.lang.Object frameworkGet(android.view.View) -> c
     java.lang.CharSequence frameworkGet(android.view.View) -> e
-androidx.core.view.ViewCompat$AccessibilityPaneVisibilityManager -> b.d.h.c$b:
+androidx.core.view.ViewCompat$AccessibilityPaneVisibilityManager -> b.d.h.d$b:
     java.util.WeakHashMap mPanesToVisible -> a
     void checkPaneVisibility(android.view.View,boolean) -> a
     void registerForLayoutCallback(android.view.View) -> b
-androidx.core.view.ViewCompat$AccessibilityViewProperty -> b.d.h.c$c:
+androidx.core.view.ViewCompat$AccessibilityViewProperty -> b.d.h.d$c:
     java.lang.Class mType -> b
     int mFrameworkMinimumSdk -> c
     int mTagKey -> a
@@ -577,17 +674,31 @@ androidx.core.view.ViewCompat$AccessibilityViewProperty -> b.d.h.c$c:
     boolean frameworkAvailable() -> b
     java.lang.Object frameworkGet(android.view.View) -> c
     java.lang.Object get(android.view.View) -> d
-androidx.core.view.ViewCompat$Api21Impl -> b.d.h.c$d:
+androidx.core.view.ViewCompat$Api21Impl -> b.d.h.d$d:
     void callCompatInsetAnimationCallback(android.view.WindowInsets,android.view.View) -> a
-    void setOnApplyWindowInsetsListener(android.view.View,androidx.core.view.OnApplyWindowInsetsListener) -> b
-androidx.core.view.ViewCompat$Api21Impl$1 -> b.d.h.c$d$a:
-    androidx.core.view.OnApplyWindowInsetsListener val$listener -> d
-    android.view.WindowInsets mReturnedInsets -> b
-    android.view.View val$v -> c
+    androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View) -> b
+    void setOnApplyWindowInsetsListener(android.view.View,androidx.core.view.OnApplyWindowInsetsListener) -> c
+androidx.core.view.ViewCompat$Api21Impl$1 -> b.d.h.d$d$a:
+    androidx.core.view.OnApplyWindowInsetsListener val$listener -> c
+    android.view.View val$v -> b
     androidx.core.view.WindowInsetsCompat mLastInsets -> a
-androidx.core.view.ViewCompat$Api23Impl -> b.d.h.c$e:
+androidx.core.view.ViewCompat$Api23Impl -> b.d.h.d$e:
     androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View) -> a
-androidx.core.view.WindowInsetsCompat -> b.d.h.d:
+androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat -> b.d.h.d$f:
+    boolean onUnhandledKeyEvent(android.view.View,android.view.KeyEvent) -> a
+androidx.core.view.ViewCompat$UnhandledKeyEventManager -> b.d.h.d$g:
+    android.util.SparseArray mCapturedKeys -> b
+    java.lang.ref.WeakReference mLastDispatchedPreViewKeyEvent -> c
+    java.util.ArrayList sViewsWithListeners -> d
+    java.util.WeakHashMap mViewsContainingListeners -> a
+    androidx.core.view.ViewCompat$UnhandledKeyEventManager at(android.view.View) -> a
+    boolean dispatch(android.view.View,android.view.KeyEvent) -> b
+    android.view.View dispatchInOrder(android.view.View,android.view.KeyEvent) -> c
+    android.util.SparseArray getCapturedKeys() -> d
+    boolean onUnhandledKeyEvent(android.view.View,android.view.KeyEvent) -> e
+    boolean preDispatch(android.view.KeyEvent) -> f
+    void recalcViewsWithUnhandled() -> g
+androidx.core.view.WindowInsetsCompat -> b.d.h.e:
     androidx.core.view.WindowInsetsCompat$Impl mImpl -> a
     androidx.core.view.WindowInsetsCompat consumeDisplayCutout() -> a
     androidx.core.view.WindowInsetsCompat consumeStableInsets() -> b
@@ -596,41 +707,55 @@ androidx.core.view.WindowInsetsCompat -> b.d.h.d:
     androidx.core.view.DisplayCutoutCompat getDisplayCutout() -> e
     androidx.core.graphics.Insets getStableInsets() -> f
     boolean isVisible(int) -> g
-    void setRootViewData(androidx.core.graphics.Insets) -> h
-    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> i
-    android.view.WindowInsets toWindowInsets() -> j
-    androidx.core.view.WindowInsetsCompat toWindowInsetsCompat(android.view.WindowInsets) -> k
-    androidx.core.view.WindowInsetsCompat toWindowInsetsCompat(android.view.WindowInsets,android.view.View) -> l
-androidx.core.view.WindowInsetsCompat$Builder -> b.d.h.d$a:
+    void setOverriddenInsets(androidx.core.graphics.Insets[]) -> h
+    void setRootViewData(androidx.core.graphics.Insets) -> i
+    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> j
+    void setStableInsets(androidx.core.graphics.Insets) -> k
+    android.view.WindowInsets toWindowInsets() -> l
+    androidx.core.view.WindowInsetsCompat toWindowInsetsCompat(android.view.WindowInsets) -> m
+    androidx.core.view.WindowInsetsCompat toWindowInsetsCompat(android.view.WindowInsets,android.view.View) -> n
+androidx.core.view.WindowInsetsCompat$Api21ReflectionHolder -> b.d.h.e$a:
+    java.lang.reflect.Field sStableInsets -> b
+    java.lang.reflect.Field sContentInsets -> c
+    java.lang.reflect.Field sViewAttachInfoField -> a
+    boolean sReflectionSucceeded -> d
+    androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View) -> a
+androidx.core.view.WindowInsetsCompat$Builder -> b.d.h.e$b:
     androidx.core.view.WindowInsetsCompat$BuilderImpl mImpl -> a
     androidx.core.view.WindowInsetsCompat build() -> a
-androidx.core.view.WindowInsetsCompat$BuilderImpl -> b.d.h.d$e:
+    androidx.core.view.WindowInsetsCompat$Builder setStableInsets(androidx.core.graphics.Insets) -> b
+    androidx.core.view.WindowInsetsCompat$Builder setSystemWindowInsets(androidx.core.graphics.Insets) -> c
+androidx.core.view.WindowInsetsCompat$BuilderImpl -> b.d.h.e$f:
     androidx.core.graphics.Insets[] mInsetsTypeMask -> b
     androidx.core.view.WindowInsetsCompat mInsets -> a
     void applyInsetTypes() -> a
     androidx.core.view.WindowInsetsCompat build() -> b
     void setMandatorySystemGestureInsets(androidx.core.graphics.Insets) -> c
-    void setSystemGestureInsets(androidx.core.graphics.Insets) -> d
-    void setSystemWindowInsets(androidx.core.graphics.Insets) -> e
-    void setTappableElementInsets(androidx.core.graphics.Insets) -> f
-androidx.core.view.WindowInsetsCompat$BuilderImpl20 -> b.d.h.d$b:
-    java.lang.reflect.Constructor sConstructor -> f
-    java.lang.reflect.Field sConsumedField -> d
-    boolean sConsumedFieldFetched -> e
-    boolean sConstructorFetched -> g
+    void setStableInsets(androidx.core.graphics.Insets) -> d
+    void setSystemGestureInsets(androidx.core.graphics.Insets) -> e
+    void setSystemWindowInsets(androidx.core.graphics.Insets) -> f
+    void setTappableElementInsets(androidx.core.graphics.Insets) -> g
+androidx.core.view.WindowInsetsCompat$BuilderImpl20 -> b.d.h.e$c:
+    java.lang.reflect.Constructor sConstructor -> g
+    java.lang.reflect.Field sConsumedField -> e
+    boolean sConsumedFieldFetched -> f
     android.view.WindowInsets mInsets -> c
+    boolean sConstructorFetched -> h
+    androidx.core.graphics.Insets mStableInsets -> d
     androidx.core.view.WindowInsetsCompat build() -> b
-    void setSystemWindowInsets(androidx.core.graphics.Insets) -> e
-    android.view.WindowInsets createWindowInsetsInstance() -> g
-androidx.core.view.WindowInsetsCompat$BuilderImpl29 -> b.d.h.d$c:
+    void setStableInsets(androidx.core.graphics.Insets) -> d
+    void setSystemWindowInsets(androidx.core.graphics.Insets) -> f
+    android.view.WindowInsets createWindowInsetsInstance() -> h
+androidx.core.view.WindowInsetsCompat$BuilderImpl29 -> b.d.h.e$d:
     android.view.WindowInsets$Builder mPlatBuilder -> c
     androidx.core.view.WindowInsetsCompat build() -> b
     void setMandatorySystemGestureInsets(androidx.core.graphics.Insets) -> c
-    void setSystemGestureInsets(androidx.core.graphics.Insets) -> d
-    void setSystemWindowInsets(androidx.core.graphics.Insets) -> e
-    void setTappableElementInsets(androidx.core.graphics.Insets) -> f
-androidx.core.view.WindowInsetsCompat$BuilderImpl30 -> b.d.h.d$d:
-androidx.core.view.WindowInsetsCompat$Impl -> b.d.h.d$k:
+    void setStableInsets(androidx.core.graphics.Insets) -> d
+    void setSystemGestureInsets(androidx.core.graphics.Insets) -> e
+    void setSystemWindowInsets(androidx.core.graphics.Insets) -> f
+    void setTappableElementInsets(androidx.core.graphics.Insets) -> g
+androidx.core.view.WindowInsetsCompat$BuilderImpl30 -> b.d.h.e$e:
+androidx.core.view.WindowInsetsCompat$Impl -> b.d.h.e$l:
     androidx.core.view.WindowInsetsCompat CONSUMED -> b
     androidx.core.view.WindowInsetsCompat mHost -> a
     androidx.core.view.WindowInsetsCompat consumeDisplayCutout() -> a
@@ -647,62 +772,81 @@ androidx.core.view.WindowInsetsCompat$Impl -> b.d.h.d$k:
     boolean isConsumed() -> l
     boolean isRound() -> m
     boolean isVisible(int) -> n
-    void setRootViewData(androidx.core.graphics.Insets) -> o
-    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> p
-androidx.core.view.WindowInsetsCompat$Impl20 -> b.d.h.d$f:
-    java.lang.reflect.Field sAttachInfoField -> l
-    java.lang.reflect.Field sVisibleInsetsField -> k
-    java.lang.Class sAttachInfoClass -> j
-    java.lang.reflect.Method sGetViewRootImplMethod -> h
-    java.lang.Class sViewRootImplClass -> i
-    boolean sVisibleRectReflectionFetched -> g
+    void setOverriddenInsets(androidx.core.graphics.Insets[]) -> o
+    void setRootViewData(androidx.core.graphics.Insets) -> p
+    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> q
+    void setStableInsets(androidx.core.graphics.Insets) -> r
+androidx.core.view.WindowInsetsCompat$Impl20 -> b.d.h.e$g:
+    java.lang.reflect.Field sVisibleInsetsField -> l
+    java.lang.reflect.Field sAttachInfoField -> m
+    java.lang.Class sViewRootImplClass -> j
+    java.lang.reflect.Method sGetViewRootImplMethod -> i
+    java.lang.Class sAttachInfoClass -> k
+    androidx.core.view.WindowInsetsCompat mRootWindowInsets -> f
     android.view.WindowInsets mPlatformInsets -> c
-    androidx.core.view.WindowInsetsCompat mRootWindowInsets -> e
-    androidx.core.graphics.Insets mRootViewVisibleInsets -> f
-    androidx.core.graphics.Insets mSystemWindowInsets -> d
+    androidx.core.graphics.Insets[] mOverriddenInsets -> d
+    boolean sVisibleRectReflectionFetched -> h
+    androidx.core.graphics.Insets mRootViewVisibleInsets -> g
+    androidx.core.graphics.Insets mSystemWindowInsets -> e
     void copyRootViewBounds(android.view.View) -> d
     void copyWindowDataInto(androidx.core.view.WindowInsetsCompat) -> e
     androidx.core.graphics.Insets getSystemWindowInsets() -> j
     boolean isRound() -> m
     boolean isVisible(int) -> n
-    void setRootViewData(androidx.core.graphics.Insets) -> o
-    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> p
-    androidx.core.graphics.Insets getInsetsForType(int,boolean) -> q
-    androidx.core.graphics.Insets getRootStableInsets() -> r
-    androidx.core.graphics.Insets getVisibleInsets(android.view.View) -> s
-    boolean isTypeVisible(int) -> t
-    void loadReflectionField() -> u
-    void logReflectionError(java.lang.Exception) -> v
-androidx.core.view.WindowInsetsCompat$Impl21 -> b.d.h.d$g:
-    androidx.core.graphics.Insets mStableInsets -> m
+    void setOverriddenInsets(androidx.core.graphics.Insets[]) -> o
+    void setRootViewData(androidx.core.graphics.Insets) -> p
+    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat) -> q
+    androidx.core.graphics.Insets getInsetsForType(int,boolean) -> s
+    androidx.core.graphics.Insets getRootStableInsets() -> t
+    androidx.core.graphics.Insets getVisibleInsets(android.view.View) -> u
+    boolean isTypeVisible(int) -> v
+    void loadReflectionField() -> w
+androidx.core.view.WindowInsetsCompat$Impl21 -> b.d.h.e$h:
+    androidx.core.graphics.Insets mStableInsets -> n
     androidx.core.view.WindowInsetsCompat consumeStableInsets() -> b
     androidx.core.view.WindowInsetsCompat consumeSystemWindowInsets() -> c
     androidx.core.graphics.Insets getStableInsets() -> h
     boolean isConsumed() -> l
-androidx.core.view.WindowInsetsCompat$Impl28 -> b.d.h.d$h:
+    void setStableInsets(androidx.core.graphics.Insets) -> r
+androidx.core.view.WindowInsetsCompat$Impl28 -> b.d.h.e$i:
     androidx.core.view.WindowInsetsCompat consumeDisplayCutout() -> a
     androidx.core.view.DisplayCutoutCompat getDisplayCutout() -> f
-androidx.core.view.WindowInsetsCompat$Impl29 -> b.d.h.d$i:
-    androidx.core.graphics.Insets mMandatorySystemGestureInsets -> o
-    androidx.core.graphics.Insets mSystemGestureInsets -> n
-    androidx.core.graphics.Insets mTappableElementInsets -> p
+androidx.core.view.WindowInsetsCompat$Impl29 -> b.d.h.e$j:
+    androidx.core.graphics.Insets mSystemGestureInsets -> o
+    androidx.core.graphics.Insets mTappableElementInsets -> q
+    androidx.core.graphics.Insets mMandatorySystemGestureInsets -> p
     androidx.core.graphics.Insets getMandatorySystemGestureInsets() -> g
     androidx.core.graphics.Insets getSystemGestureInsets() -> i
     androidx.core.graphics.Insets getTappableElementInsets() -> k
-androidx.core.view.WindowInsetsCompat$Impl30 -> b.d.h.d$j:
-    androidx.core.view.WindowInsetsCompat CONSUMED -> q
+    void setStableInsets(androidx.core.graphics.Insets) -> r
+androidx.core.view.WindowInsetsCompat$Impl30 -> b.d.h.e$k:
+    androidx.core.view.WindowInsetsCompat CONSUMED -> r
     void copyRootViewBounds(android.view.View) -> d
     boolean isVisible(int) -> n
-androidx.core.view.WindowInsetsCompat$Type -> b.d.h.d$l:
+androidx.core.view.WindowInsetsCompat$Type -> b.d.h.e$m:
     int ime() -> a
     int indexOf(int) -> b
-androidx.core.view.WindowInsetsCompat$TypeImpl30 -> b.d.h.d$m:
+androidx.core.view.WindowInsetsCompat$TypeImpl30 -> b.d.h.e$n:
     int toPlatformType(int) -> a
 androidx.fragment.app.Fragment -> b.e.a.a:
     android.view.View mView -> a
-androidx.fragment.app.Fragment$2 -> androidx.fragment.app.Fragment$2:
+androidx.fragment.app.Fragment$5 -> androidx.fragment.app.Fragment$5:
     androidx.fragment.app.Fragment this$0 -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.fragment.app.FragmentManager -> b.e.a.b:
+    java.util.Map mResults -> a
+    java.util.Map mResultListeners -> b
+    java.util.Map access$000(androidx.fragment.app.FragmentManager) -> a
+    java.util.Map access$100(androidx.fragment.app.FragmentManager) -> b
+    void clearFragmentResult(java.lang.String) -> c
+androidx.fragment.app.FragmentManager$6 -> androidx.fragment.app.FragmentManager$6:
+    androidx.fragment.app.FragmentManager this$0 -> d
+    androidx.fragment.app.FragmentResultListener val$listener -> b
+    java.lang.String val$requestKey -> a
+    androidx.lifecycle.Lifecycle val$lifecycle -> c
+    void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.fragment.app.FragmentResultListener -> b.e.a.c:
+    void onFragmentResult(java.lang.String,android.os.Bundle) -> a
 androidx.lifecycle.ClassesInfoCache -> b.f.a:
     java.util.Map mCallbackMap -> a
     java.util.Map mHasLifecycleMethods -> b
@@ -743,8 +887,14 @@ androidx.lifecycle.Lifecycle -> b.f.d:
     void addObserver(androidx.lifecycle.LifecycleObserver) -> a
     androidx.lifecycle.Lifecycle$State getCurrentState() -> b
     void removeObserver(androidx.lifecycle.LifecycleObserver) -> c
-androidx.lifecycle.Lifecycle$Event -> b.f.d$a:
-androidx.lifecycle.Lifecycle$State -> b.f.d$b:
+androidx.lifecycle.Lifecycle$1 -> b.f.d$a:
+    int[] $SwitchMap$androidx$lifecycle$Lifecycle$Event -> b
+    int[] $SwitchMap$androidx$lifecycle$Lifecycle$State -> a
+androidx.lifecycle.Lifecycle$Event -> b.f.d$b:
+    androidx.lifecycle.Lifecycle$Event downFrom(androidx.lifecycle.Lifecycle$State) -> a
+    androidx.lifecycle.Lifecycle$State getTargetState() -> b
+    androidx.lifecycle.Lifecycle$Event upFrom(androidx.lifecycle.Lifecycle$State) -> c
+androidx.lifecycle.Lifecycle$State -> b.f.d$c:
     androidx.lifecycle.Lifecycle$State INITIALIZED -> b
     androidx.lifecycle.Lifecycle$State DESTROYED -> a
     androidx.lifecycle.Lifecycle$State[] $VALUES -> f
@@ -765,33 +915,33 @@ androidx.lifecycle.LifecycleRegistry -> b.f.h:
     java.lang.ref.WeakReference mLifecycleOwner -> c
     boolean mNewEventOccurred -> f
     int mAddingObserverCounter -> d
+    boolean mEnforceMainThread -> h
     void addObserver(androidx.lifecycle.LifecycleObserver) -> a
     androidx.lifecycle.Lifecycle$State getCurrentState() -> b
     void removeObserver(androidx.lifecycle.LifecycleObserver) -> c
     void backwardPass(androidx.lifecycle.LifecycleOwner) -> d
     androidx.lifecycle.Lifecycle$State calculateTargetState(androidx.lifecycle.LifecycleObserver) -> e
-    androidx.lifecycle.Lifecycle$Event downEvent(androidx.lifecycle.Lifecycle$State) -> f
+    void enforceMainThreadIfNeeded(java.lang.String) -> f
     void forwardPass(androidx.lifecycle.LifecycleOwner) -> g
-    androidx.lifecycle.Lifecycle$State getStateAfter(androidx.lifecycle.Lifecycle$Event) -> h
-    void handleLifecycleEvent(androidx.lifecycle.Lifecycle$Event) -> i
-    boolean isSynced() -> j
+    void handleLifecycleEvent(androidx.lifecycle.Lifecycle$Event) -> h
+    boolean isSynced() -> i
+    void markState(androidx.lifecycle.Lifecycle$State) -> j
     androidx.lifecycle.Lifecycle$State min(androidx.lifecycle.Lifecycle$State,androidx.lifecycle.Lifecycle$State) -> k
     void moveToState(androidx.lifecycle.Lifecycle$State) -> l
     void popParentState() -> m
     void pushParentState(androidx.lifecycle.Lifecycle$State) -> n
-    void sync() -> o
-    androidx.lifecycle.Lifecycle$Event upEvent(androidx.lifecycle.Lifecycle$State) -> p
-androidx.lifecycle.LifecycleRegistry$1 -> b.f.h$a:
-    int[] $SwitchMap$androidx$lifecycle$Lifecycle$State -> b
-    int[] $SwitchMap$androidx$lifecycle$Lifecycle$Event -> a
-androidx.lifecycle.LifecycleRegistry$ObserverWithState -> b.f.h$b:
+    void setCurrentState(androidx.lifecycle.Lifecycle$State) -> o
+    void sync() -> p
+androidx.lifecycle.LifecycleRegistry$ObserverWithState -> b.f.h$a:
     androidx.lifecycle.Lifecycle$State mState -> a
     androidx.lifecycle.LifecycleEventObserver mLifecycleObserver -> b
     void dispatchEvent(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> a
-androidx.lifecycle.LifecycleService -> b.f.i:
+androidx.lifecycle.LifecycleRegistryOwner -> b.f.i:
+    androidx.lifecycle.LifecycleRegistry getLifecycle() -> a
+androidx.lifecycle.LifecycleService -> b.f.j:
     androidx.lifecycle.ServiceLifecycleDispatcher mDispatcher -> a
     androidx.lifecycle.Lifecycle getLifecycle() -> a
-androidx.lifecycle.Lifecycling -> b.f.j:
+androidx.lifecycle.Lifecycling -> b.f.k:
     java.util.Map sCallbackCache -> a
     java.util.Map sClassToAdapters -> b
     androidx.lifecycle.GeneratedAdapter createGeneratedAdapter(java.lang.reflect.Constructor,java.lang.Object) -> a
@@ -805,24 +955,26 @@ androidx.lifecycle.Lifecycling$1 -> androidx.lifecycle.Lifecycling$1:
     androidx.lifecycle.LifecycleEventObserver val$observer -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
 androidx.lifecycle.LiveData -> androidx.lifecycle.LiveData:
-    java.lang.Object NOT_SET -> j
-    java.lang.Runnable mPostValueRunnable -> i
-    java.lang.Object mData -> d
-    java.lang.Object mPendingData -> e
+    java.lang.Object NOT_SET -> k
+    java.lang.Object mPendingData -> f
+    boolean mDispatchInvalidated -> i
+    java.lang.Object mData -> e
     androidx.arch.core.internal.SafeIterableMap mObservers -> b
-    int mVersion -> f
-    boolean mDispatchingValue -> g
+    int mVersion -> g
     java.lang.Object mDataLock -> a
-    boolean mDispatchInvalidated -> h
+    boolean mDispatchingValue -> h
+    java.lang.Runnable mPostValueRunnable -> j
     int mActiveCount -> c
+    boolean mChangingActiveState -> d
     void assertMainThread(java.lang.String) -> a
-    void considerNotify(androidx.lifecycle.LiveData$ObserverWrapper) -> b
-    void dispatchingValue(androidx.lifecycle.LiveData$ObserverWrapper) -> c
-    void onActive() -> d
-    void onInactive() -> e
-    void postValue(java.lang.Object) -> f
-    void removeObserver(androidx.lifecycle.Observer) -> g
-    void setValue(java.lang.Object) -> h
+    void changeActiveCounter(int) -> b
+    void considerNotify(androidx.lifecycle.LiveData$ObserverWrapper) -> c
+    void dispatchingValue(androidx.lifecycle.LiveData$ObserverWrapper) -> d
+    void onActive() -> e
+    void onInactive() -> f
+    void postValue(java.lang.Object) -> g
+    void removeObserver(androidx.lifecycle.Observer) -> h
+    void setValue(java.lang.Object) -> i
 androidx.lifecycle.LiveData$1 -> androidx.lifecycle.LiveData$a:
     androidx.lifecycle.LiveData this$0 -> a
 androidx.lifecycle.LiveData$LifecycleBoundObserver -> androidx.lifecycle.LiveData$LifecycleBoundObserver:
@@ -839,27 +991,48 @@ androidx.lifecycle.LiveData$ObserverWrapper -> androidx.lifecycle.LiveData$b:
     void activeStateChanged(boolean) -> h
     void detachObserver() -> i
     boolean shouldBeActive() -> j
-androidx.lifecycle.MethodCallsLogger -> b.f.k:
-androidx.lifecycle.MutableLiveData -> b.f.l:
-    void postValue(java.lang.Object) -> f
-    void setValue(java.lang.Object) -> h
-androidx.lifecycle.Observer -> b.f.m:
+androidx.lifecycle.MethodCallsLogger -> b.f.l:
+androidx.lifecycle.MutableLiveData -> b.f.m:
+    void postValue(java.lang.Object) -> g
+    void setValue(java.lang.Object) -> i
+androidx.lifecycle.Observer -> b.f.n:
     void onChanged(java.lang.Object) -> a
-androidx.lifecycle.OnLifecycleEvent -> b.f.n:
+androidx.lifecycle.OnLifecycleEvent -> b.f.o:
 androidx.lifecycle.ReflectiveGenericLifecycleObserver -> androidx.lifecycle.ReflectiveGenericLifecycleObserver:
     androidx.lifecycle.ClassesInfoCache$CallbackInfo mInfo -> b
     java.lang.Object mWrapped -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+androidx.lifecycle.ReportFragment -> b.f.p:
+    androidx.lifecycle.ReportFragment$ActivityInitializationListener mProcessListener -> a
+    void dispatch(android.app.Activity,androidx.lifecycle.Lifecycle$Event) -> a
+    void dispatch(androidx.lifecycle.Lifecycle$Event) -> b
+    void dispatchCreate(androidx.lifecycle.ReportFragment$ActivityInitializationListener) -> c
+    void dispatchResume(androidx.lifecycle.ReportFragment$ActivityInitializationListener) -> d
+    void dispatchStart(androidx.lifecycle.ReportFragment$ActivityInitializationListener) -> e
+    void injectIfNeededIn(android.app.Activity) -> f
+androidx.lifecycle.ReportFragment$ActivityInitializationListener -> b.f.p$a:
+    void onCreate() -> a
+    void onResume() -> b
+    void onStart() -> c
+androidx.lifecycle.ReportFragment$LifecycleCallbacks -> b.f.p$b:
+androidx.lifecycle.SavedStateHandle -> b.f.q:
+    androidx.savedstate.SavedStateRegistry$SavedStateProvider savedStateProvider() -> a
 androidx.lifecycle.SavedStateHandleController -> androidx.lifecycle.SavedStateHandleController:
-    boolean mIsAttached -> a
+    androidx.lifecycle.SavedStateHandle mHandle -> c
+    java.lang.String mKey -> a
+    boolean mIsAttached -> b
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
+    void attachHandleIfNeeded(androidx.lifecycle.ViewModel,androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle) -> h
+    void attachToLifecycle(androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle) -> i
+    boolean isAttached() -> j
+    void tryToAddRecreator(androidx.savedstate.SavedStateRegistry,androidx.lifecycle.Lifecycle) -> k
 androidx.lifecycle.SavedStateHandleController$1 -> androidx.lifecycle.SavedStateHandleController$1:
     androidx.lifecycle.Lifecycle val$lifecycle -> a
     androidx.savedstate.SavedStateRegistry val$registry -> b
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
 androidx.lifecycle.SavedStateHandleController$OnRecreation -> androidx.lifecycle.SavedStateHandleController$a:
     void onRecreated(androidx.savedstate.SavedStateRegistryOwner) -> a
-androidx.lifecycle.ServiceLifecycleDispatcher -> b.f.o:
+androidx.lifecycle.ServiceLifecycleDispatcher -> b.f.r:
     androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable mLastDispatchRunnable -> c
     android.os.Handler mHandler -> b
     androidx.lifecycle.LifecycleRegistry mRegistry -> a
@@ -869,20 +1042,32 @@ androidx.lifecycle.ServiceLifecycleDispatcher -> b.f.o:
     void onServicePreSuperOnDestroy() -> d
     void onServicePreSuperOnStart() -> e
     void postDispatchRunnable(androidx.lifecycle.Lifecycle$Event) -> f
-androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable -> b.f.o$a:
+androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable -> b.f.r$a:
     androidx.lifecycle.Lifecycle$Event mEvent -> b
     androidx.lifecycle.LifecycleRegistry mRegistry -> a
     boolean mWasExecuted -> c
 androidx.lifecycle.SingleGeneratedAdapterObserver -> androidx.lifecycle.SingleGeneratedAdapterObserver:
     androidx.lifecycle.GeneratedAdapter mGeneratedAdapter -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
-androidx.lifecycle.ViewModel -> b.f.p:
-androidx.lifecycle.ViewModelStore -> b.f.q:
+androidx.lifecycle.ViewModel -> b.f.s:
+    java.util.Map mBagOfTags -> a
+    void clear() -> a
+    void closeWithRuntimeException(java.lang.Object) -> b
+    java.lang.Object getTag(java.lang.String) -> c
+    void onCleared() -> d
+androidx.lifecycle.ViewModelStore -> b.f.t:
+    java.util.HashMap mMap -> a
     void clear() -> a
     androidx.lifecycle.ViewModel get(java.lang.String) -> b
     java.util.Set keys() -> c
-androidx.lifecycle.ViewModelStoreOwner -> b.f.r:
+androidx.lifecycle.ViewModelStoreOwner -> b.f.u:
     androidx.lifecycle.ViewModelStore getViewModelStore() -> b
+androidx.lifecycle.ViewTreeLifecycleOwner -> b.f.v:
+    void set(android.view.View,androidx.lifecycle.LifecycleOwner) -> a
+androidx.lifecycle.ViewTreeViewModelStoreOwner -> b.f.w:
+    void set(android.view.View,androidx.lifecycle.ViewModelStoreOwner) -> a
+androidx.lifecycle.runtime.R$id -> b.f.x.a:
+androidx.lifecycle.viewmodel.R$id -> b.f.y.a:
 androidx.room.DatabaseConfiguration -> b.g.a:
     androidx.sqlite.db.SupportSQLiteOpenHelper$Factory sqliteOpenHelperFactory -> a
     android.content.Context context -> b
@@ -1124,12 +1309,12 @@ androidx.room.RoomSQLiteQuery -> b.g.l:
     int mCapacity -> g
     java.lang.String mQuery -> a
     java.util.TreeMap sQueryPool -> i
-    java.lang.String getSql() -> c
-    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> h
-    androidx.room.RoomSQLiteQuery acquire(java.lang.String,int) -> j
-    void init(java.lang.String,int) -> k
-    void prunePoolLocked() -> l
-    void release() -> m
+    java.lang.String getSql() -> b
+    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> f
+    androidx.room.RoomSQLiteQuery acquire(java.lang.String,int) -> h
+    void init(java.lang.String,int) -> i
+    void prunePoolLocked() -> j
+    void release() -> k
 androidx.room.SQLiteCopyOpenHelper -> b.g.m:
     android.content.Context mContext -> a
     androidx.room.DatabaseConfiguration mDatabaseConfiguration -> f
@@ -1138,12 +1323,10 @@ androidx.room.SQLiteCopyOpenHelper -> b.g.m:
     boolean mVerified -> g
     androidx.sqlite.db.SupportSQLiteOpenHelper mDelegate -> e
     java.lang.String mCopyFromAssetPath -> b
-    void setWriteAheadLoggingEnabled(boolean) -> b
-    void copyDatabaseFile(java.io.File) -> c
-    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> d
-    java.lang.String getDatabaseName() -> e
-    void setDatabaseConfiguration(androidx.room.DatabaseConfiguration) -> h
-    void verifyDatabaseFile() -> j
+    void copyDatabaseFile(java.io.File) -> b
+    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> c
+    void setDatabaseConfiguration(androidx.room.DatabaseConfiguration) -> f
+    void verifyDatabaseFile() -> h
 androidx.room.SQLiteCopyOpenHelperFactory -> b.g.n:
     java.io.File mCopyFromFile -> b
     androidx.sqlite.db.SupportSQLiteOpenHelper$Factory mDelegate -> c
@@ -1229,37 +1412,58 @@ androidx.room.util.TableInfo$Index -> b.g.r.f$d:
     java.util.List columns -> c
     java.lang.String name -> a
     boolean unique -> b
+androidx.savedstate.R$id -> b.h.a:
 androidx.savedstate.Recreator -> androidx.savedstate.Recreator:
     androidx.savedstate.SavedStateRegistryOwner mOwner -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
     void reflectiveNew(java.lang.String) -> h
-androidx.savedstate.SavedStateRegistry -> b.h.a:
-    boolean mAllowingSavingState -> a
+androidx.savedstate.Recreator$SavedStateProvider -> androidx.savedstate.Recreator$a:
+    java.util.Set mClasses -> a
+    android.os.Bundle saveState() -> a
+    void add(java.lang.String) -> b
+androidx.savedstate.SavedStateRegistry -> androidx.savedstate.SavedStateRegistry:
+    android.os.Bundle mRestoredState -> b
+    androidx.savedstate.Recreator$SavedStateProvider mRecreatorProvider -> d
+    boolean mAllowingSavingState -> e
+    androidx.arch.core.internal.SafeIterableMap mComponents -> a
+    boolean mRestored -> c
     android.os.Bundle consumeRestoredStateForKey(java.lang.String) -> a
-    void runOnNextRecreation(java.lang.Class) -> b
+    void performRestore(androidx.lifecycle.Lifecycle,android.os.Bundle) -> b
+    void performSave(android.os.Bundle) -> c
+    void registerSavedStateProvider(java.lang.String,androidx.savedstate.SavedStateRegistry$SavedStateProvider) -> d
+    void runOnNextRecreation(java.lang.Class) -> e
 androidx.savedstate.SavedStateRegistry$1 -> androidx.savedstate.SavedStateRegistry$1:
     androidx.savedstate.SavedStateRegistry this$0 -> a
     void onStateChanged(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle$Event) -> g
-androidx.savedstate.SavedStateRegistry$AutoRecreated -> b.h.a$a:
+androidx.savedstate.SavedStateRegistry$AutoRecreated -> androidx.savedstate.SavedStateRegistry$a:
     void onRecreated(androidx.savedstate.SavedStateRegistryOwner) -> a
-androidx.savedstate.SavedStateRegistryOwner -> b.h.b:
+androidx.savedstate.SavedStateRegistry$SavedStateProvider -> androidx.savedstate.SavedStateRegistry$b:
+    android.os.Bundle saveState() -> a
+androidx.savedstate.SavedStateRegistryController -> b.h.b:
+    androidx.savedstate.SavedStateRegistryOwner mOwner -> a
+    androidx.savedstate.SavedStateRegistry mRegistry -> b
+    androidx.savedstate.SavedStateRegistryController create(androidx.savedstate.SavedStateRegistryOwner) -> a
+    androidx.savedstate.SavedStateRegistry getSavedStateRegistry() -> b
+    void performRestore(android.os.Bundle) -> c
+    void performSave(android.os.Bundle) -> d
+androidx.savedstate.SavedStateRegistryOwner -> b.h.c:
     androidx.savedstate.SavedStateRegistry getSavedStateRegistry() -> j
+androidx.savedstate.ViewTreeSavedStateRegistryOwner -> b.h.d:
+    void set(android.view.View,androidx.savedstate.SavedStateRegistryOwner) -> a
 androidx.sqlite.db.SimpleSQLiteQuery -> b.i.a.a:
     java.lang.Object[] mBindArgs -> b
     java.lang.String mQuery -> a
     void bind(androidx.sqlite.db.SupportSQLiteProgram,int,java.lang.Object) -> a
-    void bind(androidx.sqlite.db.SupportSQLiteProgram,java.lang.Object[]) -> b
-    java.lang.String getSql() -> c
-    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> h
+    java.lang.String getSql() -> b
+    void bind(androidx.sqlite.db.SupportSQLiteProgram,java.lang.Object[]) -> c
+    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> f
 androidx.sqlite.db.SupportSQLiteDatabase -> b.i.a.b:
     android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery) -> a
-    android.database.Cursor query(java.lang.String) -> f
-    android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery,android.os.CancellationSignal) -> g
-    androidx.sqlite.db.SupportSQLiteStatement compileStatement(java.lang.String) -> i
+    android.database.Cursor query(java.lang.String) -> d
+    android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery,android.os.CancellationSignal) -> e
+    androidx.sqlite.db.SupportSQLiteStatement compileStatement(java.lang.String) -> g
 androidx.sqlite.db.SupportSQLiteOpenHelper -> b.i.a.c:
-    void setWriteAheadLoggingEnabled(boolean) -> b
-    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> d
-    java.lang.String getDatabaseName() -> e
+    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> c
 androidx.sqlite.db.SupportSQLiteOpenHelper$Callback -> b.i.a.c$a:
     int version -> a
     void deleteDatabaseFile(java.lang.String) -> a
@@ -1288,17 +1492,17 @@ androidx.sqlite.db.SupportSQLiteOpenHelper$Factory -> b.i.a.c$c:
     androidx.sqlite.db.SupportSQLiteOpenHelper create(androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration) -> a
 androidx.sqlite.db.SupportSQLiteProgram -> b.i.a.d:
 androidx.sqlite.db.SupportSQLiteQuery -> b.i.a.e:
-    java.lang.String getSql() -> c
-    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> h
+    java.lang.String getSql() -> b
+    void bindTo(androidx.sqlite.db.SupportSQLiteProgram) -> f
 androidx.sqlite.db.SupportSQLiteStatement -> b.i.a.f:
 androidx.sqlite.db.framework.FrameworkSQLiteDatabase -> b.i.a.g.a:
     android.database.sqlite.SQLiteDatabase mDelegate -> a
     java.lang.String[] EMPTY_STRING_ARRAY -> b
     android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery) -> a
-    boolean isDelegate(android.database.sqlite.SQLiteDatabase) -> c
-    android.database.Cursor query(java.lang.String) -> f
-    android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery,android.os.CancellationSignal) -> g
-    androidx.sqlite.db.SupportSQLiteStatement compileStatement(java.lang.String) -> i
+    boolean isDelegate(android.database.sqlite.SQLiteDatabase) -> b
+    android.database.Cursor query(java.lang.String) -> d
+    android.database.Cursor query(androidx.sqlite.db.SupportSQLiteQuery,android.os.CancellationSignal) -> e
+    androidx.sqlite.db.SupportSQLiteStatement compileStatement(java.lang.String) -> g
 androidx.sqlite.db.framework.FrameworkSQLiteDatabase$1 -> b.i.a.g.a$a:
     androidx.sqlite.db.SupportSQLiteQuery val$supportQuery -> a
 androidx.sqlite.db.framework.FrameworkSQLiteDatabase$2 -> b.i.a.g.a$b:
@@ -1311,17 +1515,15 @@ androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper -> b.i.a.g.b:
     boolean mWriteAheadLoggingEnabled -> g
     java.lang.String mName -> b
     boolean mUseNoBackupDirectory -> d
-    void setWriteAheadLoggingEnabled(boolean) -> b
-    androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper getDelegate() -> c
-    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> d
-    java.lang.String getDatabaseName() -> e
+    androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper getDelegate() -> b
+    androidx.sqlite.db.SupportSQLiteDatabase getWritableDatabase() -> c
 androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper -> b.i.a.g.b$a:
     androidx.sqlite.db.SupportSQLiteOpenHelper$Callback mCallback -> b
     androidx.sqlite.db.framework.FrameworkSQLiteDatabase[] mDbRef -> a
     boolean mMigrated -> c
-    androidx.sqlite.db.framework.FrameworkSQLiteDatabase getWrappedDb(android.database.sqlite.SQLiteDatabase) -> a
-    androidx.sqlite.db.framework.FrameworkSQLiteDatabase getWrappedDb(androidx.sqlite.db.framework.FrameworkSQLiteDatabase[],android.database.sqlite.SQLiteDatabase) -> b
-    androidx.sqlite.db.SupportSQLiteDatabase getWritableSupportDatabase() -> c
+    androidx.sqlite.db.framework.FrameworkSQLiteDatabase getWrappedDb(android.database.sqlite.SQLiteDatabase) -> b
+    androidx.sqlite.db.framework.FrameworkSQLiteDatabase getWrappedDb(androidx.sqlite.db.framework.FrameworkSQLiteDatabase[],android.database.sqlite.SQLiteDatabase) -> f
+    androidx.sqlite.db.SupportSQLiteDatabase getWritableSupportDatabase() -> h
 androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper$1 -> b.i.a.g.b$a$a:
     androidx.sqlite.db.framework.FrameworkSQLiteDatabase[] val$dbRef -> b
     androidx.sqlite.db.SupportSQLiteOpenHelper$Callback val$callback -> a
@@ -1331,12 +1533,23 @@ androidx.sqlite.db.framework.FrameworkSQLiteProgram -> b.i.a.g.d:
     android.database.sqlite.SQLiteProgram mDelegate -> a
 androidx.sqlite.db.framework.FrameworkSQLiteStatement -> b.i.a.g.e:
     android.database.sqlite.SQLiteStatement mDelegate -> b
+androidx.tracing.Trace -> b.j.a:
+    long sTraceTagApp -> a
+    java.lang.reflect.Method sIsTagEnabledMethod -> b
+    void beginSection(java.lang.String) -> a
+    void endSection() -> b
+    void handleException(java.lang.String,java.lang.Exception) -> c
+    boolean isEnabled() -> d
+    boolean isEnabledFallback() -> e
+androidx.tracing.TraceApi18Impl -> b.j.b:
+    void beginSection(java.lang.String) -> a
+    void endSection() -> b
 androidx.versionedparcelable.ParcelImpl -> androidx.versionedparcelable.ParcelImpl:
     androidx.versionedparcelable.VersionedParcelable mParcel -> a
 androidx.versionedparcelable.ParcelImpl$1 -> androidx.versionedparcelable.ParcelImpl$a:
     androidx.versionedparcelable.ParcelImpl createFromParcel(android.os.Parcel) -> a
     androidx.versionedparcelable.ParcelImpl[] newArray(int) -> b
-androidx.versionedparcelable.VersionedParcel -> b.j.a:
+androidx.versionedparcelable.VersionedParcel -> b.k.a:
     androidx.collection.ArrayMap mParcelizerCache -> c
     androidx.collection.ArrayMap mReadCache -> a
     androidx.collection.ArrayMap mWriteCache -> b
@@ -1380,7 +1593,7 @@ androidx.versionedparcelable.VersionedParcel -> b.j.a:
     void setSerializationFlags(boolean,boolean) -> x
     void writeBoolean(boolean) -> y
     void writeBoolean(boolean,int) -> z
-androidx.versionedparcelable.VersionedParcelParcel -> b.j.b:
+androidx.versionedparcelable.VersionedParcelParcel -> b.k.b:
     android.util.SparseIntArray mPositionLookup -> d
     java.lang.String mPrefix -> h
     int mNextRead -> j
@@ -1405,51 +1618,57 @@ androidx.versionedparcelable.VersionedParcelParcel -> b.j.b:
     java.lang.String readString() -> s
     void setOutputField(int) -> w
     void writeBoolean(boolean) -> y
-androidx.versionedparcelable.VersionedParcelable -> b.j.c:
+androidx.versionedparcelable.VersionedParcelable -> b.k.c:
 androidx.work.ArrayCreatingInputMerger -> androidx.work.ArrayCreatingInputMerger:
     androidx.work.Data merge(java.util.List) -> b
     java.lang.Object concatenateArrayAndNonArray(java.lang.Object,java.lang.Object) -> c
     java.lang.Object concatenateArrays(java.lang.Object,java.lang.Object) -> d
     java.lang.Object concatenateNonArrays(java.lang.Object,java.lang.Object) -> e
     java.lang.Object createArrayFor(java.lang.Object) -> f
-androidx.work.BackoffPolicy -> b.k.a:
+androidx.work.BackoffPolicy -> b.l.a:
     androidx.work.BackoffPolicy LINEAR -> b
     androidx.work.BackoffPolicy EXPONENTIAL -> a
     androidx.work.BackoffPolicy[] $VALUES -> c
-androidx.work.Configuration -> b.k.b:
+androidx.work.Configuration -> b.l.b:
+    java.lang.String mDefaultProcessName -> g
+    androidx.work.InitializationExceptionHandler mExceptionHandler -> f
+    int mMaxJobSchedulerId -> j
+    int mMaxSchedulerLimit -> k
     java.util.concurrent.Executor mExecutor -> a
     androidx.work.InputMergerFactory mInputMergerFactory -> d
-    int mMaxJobSchedulerId -> h
+    int mLoggingLevel -> h
     java.util.concurrent.Executor mTaskExecutor -> b
-    int mMaxSchedulerLimit -> i
-    int mLoggingLevel -> f
+    int mMinJobSchedulerId -> i
     androidx.work.RunnableScheduler mRunnableScheduler -> e
-    int mMinJobSchedulerId -> g
     androidx.work.WorkerFactory mWorkerFactory -> c
     java.util.concurrent.Executor createDefaultExecutor() -> a
-    java.util.concurrent.Executor getExecutor() -> b
-    androidx.work.InputMergerFactory getInputMergerFactory() -> c
-    int getMaxJobSchedulerId() -> d
-    int getMaxSchedulerLimit() -> e
-    int getMinJobSchedulerId() -> f
-    int getMinimumLoggingLevel() -> g
-    androidx.work.RunnableScheduler getRunnableScheduler() -> h
-    java.util.concurrent.Executor getTaskExecutor() -> i
-    androidx.work.WorkerFactory getWorkerFactory() -> j
-androidx.work.Configuration$Builder -> b.k.b$a:
+    java.lang.String getDefaultProcessName() -> b
+    androidx.work.InitializationExceptionHandler getExceptionHandler() -> c
+    java.util.concurrent.Executor getExecutor() -> d
+    androidx.work.InputMergerFactory getInputMergerFactory() -> e
+    int getMaxJobSchedulerId() -> f
+    int getMaxSchedulerLimit() -> g
+    int getMinJobSchedulerId() -> h
+    int getMinimumLoggingLevel() -> i
+    androidx.work.RunnableScheduler getRunnableScheduler() -> j
+    java.util.concurrent.Executor getTaskExecutor() -> k
+    androidx.work.WorkerFactory getWorkerFactory() -> l
+androidx.work.Configuration$Builder -> b.l.b$a:
+    java.lang.String mDefaultProcessName -> g
+    androidx.work.InitializationExceptionHandler mExceptionHandler -> f
+    int mMaxJobSchedulerId -> j
+    int mMaxSchedulerLimit -> k
     java.util.concurrent.Executor mExecutor -> a
-    int mMaxJobSchedulerId -> h
+    int mLoggingLevel -> h
     androidx.work.InputMergerFactory mInputMergerFactory -> c
-    int mMaxSchedulerLimit -> i
+    int mMinJobSchedulerId -> i
     androidx.work.WorkerFactory mWorkerFactory -> b
-    int mLoggingLevel -> f
     java.util.concurrent.Executor mTaskExecutor -> d
     androidx.work.RunnableScheduler mRunnableScheduler -> e
-    int mMinJobSchedulerId -> g
     androidx.work.Configuration build() -> a
-androidx.work.Configuration$Provider -> b.k.b$b:
+androidx.work.Configuration$Provider -> b.l.b$b:
     androidx.work.Configuration getWorkManagerConfiguration() -> a
-androidx.work.Constraints -> b.k.c:
+androidx.work.Constraints -> b.l.c:
     long mTriggerContentUpdateDelay -> f
     long mTriggerMaxContentDelay -> g
     boolean mRequiresStorageNotLow -> e
@@ -1476,7 +1695,7 @@ androidx.work.Constraints -> b.k.c:
     void setRequiresStorageNotLow(boolean) -> o
     void setTriggerContentUpdateDelay(long) -> p
     void setTriggerMaxContentDelay(long) -> q
-androidx.work.Constraints$Builder -> b.k.c$a:
+androidx.work.Constraints$Builder -> b.l.c$a:
     long mTriggerContentUpdateDelay -> f
     long mTriggerContentMaxDelay -> g
     boolean mRequiresStorageNotLow -> e
@@ -1488,17 +1707,17 @@ androidx.work.Constraints$Builder -> b.k.c$a:
     androidx.work.Constraints build() -> a
     androidx.work.Constraints$Builder setRequiredNetworkType(androidx.work.NetworkType) -> b
     androidx.work.Constraints$Builder setRequiresStorageNotLow(boolean) -> c
-androidx.work.ContentUriTriggers -> b.k.d:
+androidx.work.ContentUriTriggers -> b.l.d:
     java.util.Set mTriggers -> a
     void add(android.net.Uri,boolean) -> a
     java.util.Set getTriggers() -> b
     int size() -> c
-androidx.work.ContentUriTriggers$Trigger -> b.k.d$a:
+androidx.work.ContentUriTriggers$Trigger -> b.l.d$a:
     boolean mTriggerForDescendants -> b
     android.net.Uri mUri -> a
     android.net.Uri getUri() -> a
     boolean shouldTriggerForDescendants() -> b
-androidx.work.Data -> b.k.e:
+androidx.work.Data -> b.l.e:
     java.util.Map mValues -> a
     androidx.work.Data EMPTY -> c
     java.lang.String TAG -> b
@@ -1515,7 +1734,7 @@ androidx.work.Data -> b.k.e:
     java.lang.String getString(java.lang.String) -> k
     int size() -> l
     byte[] toByteArrayInternal(androidx.work.Data) -> m
-androidx.work.Data$Builder -> b.k.e$a:
+androidx.work.Data$Builder -> b.l.e$a:
     java.util.Map mValues -> a
     androidx.work.Data build() -> a
     androidx.work.Data$Builder put(java.lang.String,java.lang.Object) -> b
@@ -1524,29 +1743,31 @@ androidx.work.Data$Builder -> b.k.e$a:
     androidx.work.Data$Builder putBoolean(java.lang.String,boolean) -> e
     androidx.work.Data$Builder putLong(java.lang.String,long) -> f
     androidx.work.Data$Builder putString(java.lang.String,java.lang.String) -> g
-androidx.work.ExistingWorkPolicy -> b.k.f:
+androidx.work.ExistingWorkPolicy -> b.l.f:
     androidx.work.ExistingWorkPolicy APPEND_OR_REPLACE -> d
     androidx.work.ExistingWorkPolicy APPEND -> c
     androidx.work.ExistingWorkPolicy KEEP -> b
     androidx.work.ExistingWorkPolicy REPLACE -> a
     androidx.work.ExistingWorkPolicy[] $VALUES -> e
-androidx.work.ForegroundInfo -> b.k.g:
+androidx.work.ForegroundInfo -> b.l.g:
     android.app.Notification mNotification -> c
     int mForegroundServiceType -> b
     int mNotificationId -> a
     int getForegroundServiceType() -> a
     android.app.Notification getNotification() -> b
     int getNotificationId() -> c
-androidx.work.ForegroundUpdater -> b.k.h:
-androidx.work.InputMerger -> b.k.i:
+androidx.work.ForegroundUpdater -> b.l.h:
+androidx.work.InitializationExceptionHandler -> b.l.i:
+    void handleException(java.lang.Throwable) -> a
+androidx.work.InputMerger -> b.l.j:
     java.lang.String TAG -> a
     androidx.work.InputMerger fromClassName(java.lang.String) -> a
     androidx.work.Data merge(java.util.List) -> b
-androidx.work.InputMergerFactory -> b.k.j:
+androidx.work.InputMergerFactory -> b.l.k:
     androidx.work.InputMerger createInputMerger(java.lang.String) -> a
     androidx.work.InputMerger createInputMergerWithDefaultFallback(java.lang.String) -> b
     androidx.work.InputMergerFactory getDefaultInputMergerFactory() -> c
-androidx.work.InputMergerFactory$1 -> b.k.j$a:
+androidx.work.InputMergerFactory$1 -> b.l.k$a:
     androidx.work.InputMerger createInputMerger(java.lang.String) -> a
 androidx.work.ListenableWorker -> androidx.work.ListenableWorker:
     android.content.Context mAppContext -> a
@@ -1578,7 +1799,7 @@ androidx.work.ListenableWorker$Result$Retry -> androidx.work.ListenableWorker$a$
 androidx.work.ListenableWorker$Result$Success -> androidx.work.ListenableWorker$a$c:
     androidx.work.Data mOutputData -> a
     androidx.work.Data getOutputData() -> e
-androidx.work.Logger -> b.k.k:
+androidx.work.Logger -> b.l.l:
     int MAX_PREFIXED_TAG_LENGTH -> b
     androidx.work.Logger sLogger -> a
     void debug(java.lang.String,java.lang.String,java.lang.Throwable[]) -> a
@@ -1589,46 +1810,46 @@ androidx.work.Logger -> b.k.k:
     java.lang.String tagWithPrefix(java.lang.String) -> f
     void verbose(java.lang.String,java.lang.String,java.lang.Throwable[]) -> g
     void warning(java.lang.String,java.lang.String,java.lang.Throwable[]) -> h
-androidx.work.Logger$LogcatLogger -> b.k.k$a:
+androidx.work.Logger$LogcatLogger -> b.l.l$a:
     int mLoggingLevel -> c
     void debug(java.lang.String,java.lang.String,java.lang.Throwable[]) -> a
     void error(java.lang.String,java.lang.String,java.lang.Throwable[]) -> b
     void info(java.lang.String,java.lang.String,java.lang.Throwable[]) -> d
     void verbose(java.lang.String,java.lang.String,java.lang.Throwable[]) -> g
     void warning(java.lang.String,java.lang.String,java.lang.Throwable[]) -> h
-androidx.work.NetworkType -> b.k.l:
+androidx.work.NetworkType -> b.l.m:
     androidx.work.NetworkType METERED -> e
     androidx.work.NetworkType UNMETERED -> c
     androidx.work.NetworkType NOT_ROAMING -> d
     androidx.work.NetworkType[] $VALUES -> f
     androidx.work.NetworkType NOT_REQUIRED -> a
     androidx.work.NetworkType CONNECTED -> b
-androidx.work.OneTimeWorkRequest -> b.k.m:
+androidx.work.OneTimeWorkRequest -> b.l.n:
     androidx.work.OneTimeWorkRequest from(java.lang.Class) -> e
-androidx.work.OneTimeWorkRequest$Builder -> b.k.m$a:
+androidx.work.OneTimeWorkRequest$Builder -> b.l.n$a:
     androidx.work.WorkRequest buildInternal() -> c
     androidx.work.WorkRequest$Builder getThis() -> d
     androidx.work.OneTimeWorkRequest buildInternal() -> h
     androidx.work.OneTimeWorkRequest$Builder getThis() -> i
-androidx.work.Operation -> b.k.n:
+androidx.work.Operation -> b.l.o:
     androidx.work.Operation$State$SUCCESS SUCCESS -> a
     androidx.work.Operation$State$IN_PROGRESS IN_PROGRESS -> b
-androidx.work.Operation$1 -> b.k.n$a:
-androidx.work.Operation$State -> b.k.n$b:
-androidx.work.Operation$State$FAILURE -> b.k.n$b$a:
+androidx.work.Operation$1 -> b.l.o$a:
+androidx.work.Operation$State -> b.l.o$b:
+androidx.work.Operation$State$FAILURE -> b.l.o$b$a:
     java.lang.Throwable mThrowable -> a
     java.lang.Throwable getThrowable() -> a
-androidx.work.Operation$State$IN_PROGRESS -> b.k.n$b$b:
-androidx.work.Operation$State$SUCCESS -> b.k.n$b$c:
+androidx.work.Operation$State$IN_PROGRESS -> b.l.o$b$b:
+androidx.work.Operation$State$SUCCESS -> b.l.o$b$c:
 androidx.work.OverwritingInputMerger -> androidx.work.OverwritingInputMerger:
     androidx.work.Data merge(java.util.List) -> b
-androidx.work.ProgressUpdater -> b.k.o:
-androidx.work.R$bool -> b.k.p:
-androidx.work.RunnableScheduler -> b.k.q:
+androidx.work.ProgressUpdater -> b.l.p:
+androidx.work.R$bool -> b.l.q:
+androidx.work.RunnableScheduler -> b.l.r:
     void cancel(java.lang.Runnable) -> a
     void scheduleWithDelay(long,java.lang.Runnable) -> b
-androidx.work.WorkContinuation -> b.k.r:
-androidx.work.WorkInfo$State -> b.k.s:
+androidx.work.WorkContinuation -> b.l.s:
+androidx.work.WorkInfo$State -> b.l.t:
     androidx.work.WorkInfo$State ENQUEUED -> a
     androidx.work.WorkInfo$State RUNNING -> b
     androidx.work.WorkInfo$State SUCCEEDED -> c
@@ -1637,14 +1858,14 @@ androidx.work.WorkInfo$State -> b.k.s:
     androidx.work.WorkInfo$State BLOCKED -> e
     androidx.work.WorkInfo$State CANCELLED -> f
     boolean isFinished() -> a
-androidx.work.WorkManager -> b.k.t:
+androidx.work.WorkManager -> b.l.u:
     androidx.work.Operation cancelAllWorkByTag(java.lang.String) -> a
     androidx.work.Operation cancelWorkById(java.util.UUID) -> b
     androidx.work.Operation enqueue(androidx.work.WorkRequest) -> c
     androidx.work.Operation enqueue(java.util.List) -> d
     androidx.work.WorkManager getInstance(android.content.Context) -> e
     void initialize(android.content.Context,androidx.work.Configuration) -> f
-androidx.work.WorkRequest -> b.k.u:
+androidx.work.WorkRequest -> b.l.v:
     java.util.Set mTags -> c
     java.util.UUID mId -> a
     androidx.work.impl.model.WorkSpec mWorkSpec -> b
@@ -1652,7 +1873,7 @@ androidx.work.WorkRequest -> b.k.u:
     java.lang.String getStringId() -> b
     java.util.Set getTags() -> c
     androidx.work.impl.model.WorkSpec getWorkSpec() -> d
-androidx.work.WorkRequest$Builder -> b.k.u$a:
+androidx.work.WorkRequest$Builder -> b.l.v$a:
     java.util.Set mTags -> d
     java.util.UUID mId -> b
     boolean mBackoffCriteriaSet -> a
@@ -1670,12 +1891,12 @@ androidx.work.Worker -> androidx.work.Worker:
     androidx.work.ListenableWorker$Result doWork() -> p
 androidx.work.Worker$1 -> androidx.work.Worker$a:
     androidx.work.Worker this$0 -> a
-androidx.work.WorkerFactory -> b.k.v:
+androidx.work.WorkerFactory -> b.l.w:
     java.lang.String TAG -> a
     androidx.work.ListenableWorker createWorker(android.content.Context,java.lang.String,androidx.work.WorkerParameters) -> a
     androidx.work.ListenableWorker createWorkerWithDefaultFallback(android.content.Context,java.lang.String,androidx.work.WorkerParameters) -> b
     androidx.work.WorkerFactory getDefaultWorkerFactory() -> c
-androidx.work.WorkerFactory$1 -> b.k.v$a:
+androidx.work.WorkerFactory$1 -> b.l.w$a:
     androidx.work.ListenableWorker createWorker(android.content.Context,java.lang.String,androidx.work.WorkerParameters) -> a
 androidx.work.WorkerParameters -> androidx.work.WorkerParameters:
     java.util.concurrent.Executor mBackgroundExecutor -> c
@@ -1687,17 +1908,17 @@ androidx.work.WorkerParameters -> androidx.work.WorkerParameters:
     androidx.work.Data getInputData() -> c
     androidx.work.WorkerFactory getWorkerFactory() -> d
 androidx.work.WorkerParameters$RuntimeExtras -> androidx.work.WorkerParameters$a:
-androidx.work.impl.DefaultRunnableScheduler -> b.k.w.a:
+androidx.work.impl.DefaultRunnableScheduler -> b.l.x.a:
     android.os.Handler mHandler -> a
     void cancel(java.lang.Runnable) -> a
     void scheduleWithDelay(long,java.lang.Runnable) -> b
-androidx.work.impl.ExecutionListener -> b.k.w.b:
+androidx.work.impl.ExecutionListener -> b.l.x.b:
     void onExecuted(java.lang.String,boolean) -> b
-androidx.work.impl.OperationImpl -> b.k.w.c:
+androidx.work.impl.OperationImpl -> b.l.x.c:
     androidx.lifecycle.MutableLiveData mOperationState -> c
     androidx.work.impl.utils.futures.SettableFuture mOperationFuture -> d
     void setState(androidx.work.Operation$State) -> a
-androidx.work.impl.Processor -> b.k.w.d:
+androidx.work.impl.Processor -> b.l.x.d:
     android.os.PowerManager$WakeLock mForegroundLock -> a
     java.lang.Object mLock -> k
     java.util.Set mCancelledIds -> i
@@ -1724,20 +1945,20 @@ androidx.work.impl.Processor -> b.k.w.d:
     void stopForegroundService() -> l
     boolean stopForegroundWork(java.lang.String) -> m
     boolean stopWork(java.lang.String) -> n
-androidx.work.impl.Processor$FutureListener -> b.k.w.d$a:
+androidx.work.impl.Processor$FutureListener -> b.l.x.d$a:
     androidx.work.impl.ExecutionListener mExecutionListener -> a
     com.google.common.util.concurrent.ListenableFuture mFuture -> c
     java.lang.String mWorkSpecId -> b
-androidx.work.impl.Scheduler -> b.k.w.e:
+androidx.work.impl.Scheduler -> b.l.x.e:
     void schedule(androidx.work.impl.model.WorkSpec[]) -> a
     void cancel(java.lang.String) -> c
     boolean hasLimitedSchedulingSlots() -> e
-androidx.work.impl.Schedulers -> b.k.w.f:
+androidx.work.impl.Schedulers -> b.l.x.f:
     java.lang.String TAG -> a
     androidx.work.impl.Scheduler createBestAvailableBackgroundScheduler(android.content.Context,androidx.work.impl.WorkManagerImpl) -> a
     void schedule(androidx.work.Configuration,androidx.work.impl.WorkDatabase,java.util.List) -> b
     androidx.work.impl.Scheduler tryCreateGcmBasedScheduler(android.content.Context) -> c
-androidx.work.impl.WorkContinuationImpl -> b.k.w.g:
+androidx.work.impl.WorkContinuationImpl -> b.l.x.g:
     androidx.work.ExistingWorkPolicy mExistingWorkPolicy -> c
     java.util.List mAllIds -> f
     java.lang.String TAG -> j
@@ -1778,32 +1999,32 @@ androidx.work.impl.WorkDatabase$1 -> androidx.work.impl.WorkDatabase$a:
     androidx.sqlite.db.SupportSQLiteOpenHelper create(androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration) -> a
 androidx.work.impl.WorkDatabase$2 -> androidx.work.impl.WorkDatabase$b:
     void onOpen(androidx.sqlite.db.SupportSQLiteDatabase) -> c
-androidx.work.impl.WorkDatabaseMigrations -> b.k.w.h:
+androidx.work.impl.WorkDatabaseMigrations -> b.l.x.h:
     androidx.room.migration.Migration MIGRATION_6_7 -> d
     androidx.room.migration.Migration MIGRATION_4_5 -> c
     androidx.room.migration.Migration MIGRATION_3_4 -> b
     androidx.room.migration.Migration MIGRATION_1_2 -> a
     androidx.room.migration.Migration MIGRATION_8_9 -> f
     androidx.room.migration.Migration MIGRATION_7_8 -> e
-androidx.work.impl.WorkDatabaseMigrations$1 -> b.k.w.h$a:
+androidx.work.impl.WorkDatabaseMigrations$1 -> b.l.x.h$a:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$2 -> b.k.w.h$b:
+androidx.work.impl.WorkDatabaseMigrations$2 -> b.l.x.h$b:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$3 -> b.k.w.h$c:
+androidx.work.impl.WorkDatabaseMigrations$3 -> b.l.x.h$c:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$4 -> b.k.w.h$d:
+androidx.work.impl.WorkDatabaseMigrations$4 -> b.l.x.h$d:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$5 -> b.k.w.h$e:
+androidx.work.impl.WorkDatabaseMigrations$5 -> b.l.x.h$e:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$6 -> b.k.w.h$f:
+androidx.work.impl.WorkDatabaseMigrations$6 -> b.l.x.h$f:
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$RescheduleMigration -> b.k.w.h$g:
+androidx.work.impl.WorkDatabaseMigrations$RescheduleMigration -> b.l.x.h$g:
     android.content.Context mContext -> c
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabaseMigrations$WorkMigration9To10 -> b.k.w.h$h:
+androidx.work.impl.WorkDatabaseMigrations$WorkMigration9To10 -> b.l.x.h$h:
     android.content.Context mContext -> c
     void migrate(androidx.sqlite.db.SupportSQLiteDatabase) -> a
-androidx.work.impl.WorkDatabasePathHelper -> b.k.w.i:
+androidx.work.impl.WorkDatabasePathHelper -> b.l.x.i:
     java.lang.String TAG -> a
     java.lang.String[] DATABASE_EXTRA_FILES -> b
     java.io.File getDatabasePath(android.content.Context) -> a
@@ -1849,19 +2070,21 @@ androidx.work.impl.WorkDatabase_Impl$1 -> androidx.work.impl.WorkDatabase_Impl$a
     void onPostMigrate(androidx.sqlite.db.SupportSQLiteDatabase) -> e
     void onPreMigrate(androidx.sqlite.db.SupportSQLiteDatabase) -> f
     androidx.room.RoomOpenHelper$ValidationResult onValidateSchema(androidx.sqlite.db.SupportSQLiteDatabase) -> g
-androidx.work.impl.WorkManagerImpl -> b.k.w.j:
-    androidx.work.impl.WorkManagerImpl sDelegatedInstance -> j
+androidx.work.impl.WorkManagerImpl -> b.l.x.j:
     android.content.Context mContext -> a
+    androidx.work.multiprocess.RemoteWorkManager mRemoteWorkManager -> j
+    java.lang.String TAG -> k
+    androidx.work.impl.WorkManagerImpl sDefaultInstance -> m
+    androidx.work.impl.WorkManagerImpl sDelegatedInstance -> l
+    androidx.work.impl.Processor mProcessor -> f
+    androidx.work.impl.WorkDatabase mWorkDatabase -> c
+    java.lang.Object sLock -> n
     androidx.work.Configuration mConfiguration -> b
     java.util.List mSchedulers -> e
     androidx.work.impl.utils.PreferenceUtils mPreferenceUtils -> g
-    androidx.work.impl.Processor mProcessor -> f
-    androidx.work.impl.WorkManagerImpl sDefaultInstance -> k
-    androidx.work.impl.WorkDatabase mWorkDatabase -> c
     androidx.work.impl.utils.taskexecutor.TaskExecutor mWorkTaskExecutor -> d
     boolean mForceStopRunnableCompleted -> h
     android.content.BroadcastReceiver$PendingResult mRescheduleReceiverResult -> i
-    java.lang.Object sLock -> l
     androidx.work.Operation cancelAllWorkByTag(java.lang.String) -> a
     androidx.work.Operation cancelWorkById(java.util.UUID) -> b
     androidx.work.Operation enqueue(java.util.List) -> d
@@ -1873,18 +2096,20 @@ androidx.work.impl.WorkManagerImpl -> b.k.w.j:
     androidx.work.impl.WorkManagerImpl getInstance(android.content.Context) -> k
     androidx.work.impl.utils.PreferenceUtils getPreferenceUtils() -> l
     androidx.work.impl.Processor getProcessor() -> m
-    java.util.List getSchedulers() -> n
-    androidx.work.impl.WorkDatabase getWorkDatabase() -> o
-    androidx.work.impl.utils.taskexecutor.TaskExecutor getWorkTaskExecutor() -> p
-    void internalInit(android.content.Context,androidx.work.Configuration,androidx.work.impl.utils.taskexecutor.TaskExecutor,androidx.work.impl.WorkDatabase,java.util.List,androidx.work.impl.Processor) -> q
-    void onForceStopRunnableCompleted() -> r
-    void rescheduleEligibleWork() -> s
-    void setReschedulePendingResult(android.content.BroadcastReceiver$PendingResult) -> t
-    void startWork(java.lang.String) -> u
-    void startWork(java.lang.String,androidx.work.WorkerParameters$RuntimeExtras) -> v
-    void stopForegroundWork(java.lang.String) -> w
-    void stopWork(java.lang.String) -> x
-androidx.work.impl.WorkerWrapper -> b.k.w.k:
+    androidx.work.multiprocess.RemoteWorkManager getRemoteWorkManager() -> n
+    java.util.List getSchedulers() -> o
+    androidx.work.impl.WorkDatabase getWorkDatabase() -> p
+    androidx.work.impl.utils.taskexecutor.TaskExecutor getWorkTaskExecutor() -> q
+    void internalInit(android.content.Context,androidx.work.Configuration,androidx.work.impl.utils.taskexecutor.TaskExecutor,androidx.work.impl.WorkDatabase,java.util.List,androidx.work.impl.Processor) -> r
+    void onForceStopRunnableCompleted() -> s
+    void rescheduleEligibleWork() -> t
+    void setReschedulePendingResult(android.content.BroadcastReceiver$PendingResult) -> u
+    void startWork(java.lang.String) -> v
+    void startWork(java.lang.String,androidx.work.WorkerParameters$RuntimeExtras) -> w
+    void stopForegroundWork(java.lang.String) -> x
+    void stopWork(java.lang.String) -> y
+    void tryInitializeMultiProcessSupport() -> z
+androidx.work.impl.WorkerWrapper -> b.l.x.k:
     android.content.Context mAppContext -> a
     androidx.work.impl.model.WorkTagDao mWorkTagDao -> n
     androidx.work.impl.WorkDatabase mWorkDatabase -> k
@@ -1920,14 +2145,14 @@ androidx.work.impl.WorkerWrapper -> b.k.w.k:
     void setSucceededAndResolve() -> m
     boolean tryCheckForInterruptionAndResolve() -> n
     boolean trySetRunning() -> o
-androidx.work.impl.WorkerWrapper$1 -> b.k.w.k$a:
+androidx.work.impl.WorkerWrapper$1 -> b.l.x.k$a:
     androidx.work.impl.utils.futures.SettableFuture val$future -> a
     androidx.work.impl.WorkerWrapper this$0 -> b
-androidx.work.impl.WorkerWrapper$2 -> b.k.w.k$b:
+androidx.work.impl.WorkerWrapper$2 -> b.l.x.k$b:
     androidx.work.impl.utils.futures.SettableFuture val$future -> a
     androidx.work.impl.WorkerWrapper this$0 -> c
     java.lang.String val$workDescription -> b
-androidx.work.impl.WorkerWrapper$Builder -> b.k.w.k$c:
+androidx.work.impl.WorkerWrapper$Builder -> b.l.x.k$c:
     android.content.Context mAppContext -> a
     java.lang.String mWorkSpecId -> g
     androidx.work.Configuration mConfiguration -> e
@@ -1940,19 +2165,19 @@ androidx.work.impl.WorkerWrapper$Builder -> b.k.w.k$c:
     androidx.work.impl.WorkerWrapper build() -> a
     androidx.work.impl.WorkerWrapper$Builder withRuntimeExtras(androidx.work.WorkerParameters$RuntimeExtras) -> b
     androidx.work.impl.WorkerWrapper$Builder withSchedulers(java.util.List) -> c
-androidx.work.impl.background.greedy.DelayedWorkTracker -> b.k.w.l.a.a:
+androidx.work.impl.background.greedy.DelayedWorkTracker -> b.l.x.l.a.a:
     java.util.Map mRunnables -> c
     androidx.work.impl.background.greedy.GreedyScheduler mGreedyScheduler -> a
     androidx.work.RunnableScheduler mRunnableScheduler -> b
     java.lang.String TAG -> d
     void schedule(androidx.work.impl.model.WorkSpec) -> a
     void unschedule(java.lang.String) -> b
-androidx.work.impl.background.greedy.DelayedWorkTracker$1 -> b.k.w.l.a.a$a:
+androidx.work.impl.background.greedy.DelayedWorkTracker$1 -> b.l.x.l.a.a$a:
     androidx.work.impl.background.greedy.DelayedWorkTracker this$0 -> b
     androidx.work.impl.model.WorkSpec val$workSpec -> a
-androidx.work.impl.background.greedy.GreedyScheduler -> b.k.w.l.a.b:
+androidx.work.impl.background.greedy.GreedyScheduler -> b.l.x.l.a.b:
     android.content.Context mContext -> a
-    java.lang.Boolean mIsMainProcess -> h
+    java.lang.Boolean mInDefaultProcess -> h
     java.lang.String TAG -> i
     androidx.work.impl.background.greedy.DelayedWorkTracker mDelayedWorkTracker -> e
     java.util.Set mConstrainedWorkSpecs -> d
@@ -1966,16 +2191,16 @@ androidx.work.impl.background.greedy.GreedyScheduler -> b.k.w.l.a.b:
     void onAllConstraintsNotMet(java.util.List) -> d
     boolean hasLimitedSchedulingSlots() -> e
     void onAllConstraintsMet(java.util.List) -> f
-    java.lang.String getProcessName() -> g
+    void checkDefaultProcess() -> g
     void registerExecutionListenerIfNeeded() -> h
     void removeConstraintTrackingFor(java.lang.String) -> i
-androidx.work.impl.background.systemalarm.Alarms -> b.k.w.l.b.a:
+androidx.work.impl.background.systemalarm.Alarms -> b.l.x.l.b.a:
     java.lang.String TAG -> a
     void cancelAlarm(android.content.Context,androidx.work.impl.WorkManagerImpl,java.lang.String) -> a
     void cancelExactAlarm(android.content.Context,java.lang.String,int) -> b
     void setAlarm(android.content.Context,androidx.work.impl.WorkManagerImpl,java.lang.String,long) -> c
     void setExactAlarm(android.content.Context,java.lang.String,int,long) -> d
-androidx.work.impl.background.systemalarm.CommandHandler -> b.k.w.l.b.b:
+androidx.work.impl.background.systemalarm.CommandHandler -> b.l.x.l.b.b:
     android.content.Context mContext -> a
     java.util.Map mPendingDelayMet -> b
     java.lang.Object mLock -> c
@@ -2006,14 +2231,14 @@ androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver$1 -> and
     android.content.Context val$context -> b
     android.content.Intent val$intent -> a
     android.content.BroadcastReceiver$PendingResult val$pendingResult -> c
-androidx.work.impl.background.systemalarm.ConstraintsCommandHandler -> b.k.w.l.b.c:
+androidx.work.impl.background.systemalarm.ConstraintsCommandHandler -> b.l.x.l.b.c:
     android.content.Context mContext -> a
     androidx.work.impl.background.systemalarm.SystemAlarmDispatcher mDispatcher -> c
     int mStartId -> b
     java.lang.String TAG -> e
     androidx.work.impl.constraints.WorkConstraintsTracker mWorkConstraintsTracker -> d
     void handleConstraintsChanged() -> a
-androidx.work.impl.background.systemalarm.DelayMetCommandHandler -> b.k.w.l.b.d:
+androidx.work.impl.background.systemalarm.DelayMetCommandHandler -> b.l.x.l.b.d:
     android.content.Context mContext -> a
     java.lang.Object mLock -> f
     boolean mHasConstraints -> i
@@ -2033,7 +2258,7 @@ androidx.work.impl.background.systemalarm.DelayMetCommandHandler -> b.k.w.l.b.d:
     void stopWork() -> g
 androidx.work.impl.background.systemalarm.RescheduleReceiver -> androidx.work.impl.background.systemalarm.RescheduleReceiver:
     java.lang.String TAG -> a
-androidx.work.impl.background.systemalarm.SystemAlarmDispatcher -> b.k.w.l.b.e:
+androidx.work.impl.background.systemalarm.SystemAlarmDispatcher -> b.l.x.l.b.e:
     android.content.Context mContext -> a
     android.os.Handler mMainHandler -> g
     java.lang.String TAG -> k
@@ -2058,17 +2283,17 @@ androidx.work.impl.background.systemalarm.SystemAlarmDispatcher -> b.k.w.l.b.e:
     void postOnMainThread(java.lang.Runnable) -> k
     void processCommand() -> l
     void setCompletedListener(androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$CommandsCompletedListener) -> m
-androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$1 -> b.k.w.l.b.e$a:
+androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$1 -> b.l.x.l.b.e$a:
     androidx.work.impl.background.systemalarm.SystemAlarmDispatcher this$0 -> a
-androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$AddRunnable -> b.k.w.l.b.e$b:
+androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$AddRunnable -> b.l.x.l.b.e$b:
     android.content.Intent mIntent -> b
     androidx.work.impl.background.systemalarm.SystemAlarmDispatcher mDispatcher -> a
     int mStartId -> c
-androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$CommandsCompletedListener -> b.k.w.l.b.e$c:
+androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$CommandsCompletedListener -> b.l.x.l.b.e$c:
     void onAllCommandsCompleted() -> e
-androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$DequeueAndCheckForCompletion -> b.k.w.l.b.e$d:
+androidx.work.impl.background.systemalarm.SystemAlarmDispatcher$DequeueAndCheckForCompletion -> b.l.x.l.b.e$d:
     androidx.work.impl.background.systemalarm.SystemAlarmDispatcher mDispatcher -> a
-androidx.work.impl.background.systemalarm.SystemAlarmScheduler -> b.k.w.l.b.f:
+androidx.work.impl.background.systemalarm.SystemAlarmScheduler -> b.l.x.l.b.f:
     android.content.Context mContext -> a
     java.lang.String TAG -> b
     void schedule(androidx.work.impl.model.WorkSpec[]) -> a
@@ -2081,15 +2306,15 @@ androidx.work.impl.background.systemalarm.SystemAlarmService -> androidx.work.im
     java.lang.String TAG -> d
     void onAllCommandsCompleted() -> e
     void initializeDispatcher() -> g
-androidx.work.impl.background.systemjob.SystemJobInfoConverter -> b.k.w.l.c.a:
+androidx.work.impl.background.systemjob.SystemJobInfoConverter -> b.l.x.l.c.a:
     android.content.ComponentName mWorkServiceComponent -> a
     java.lang.String TAG -> b
     android.app.job.JobInfo convert(androidx.work.impl.model.WorkSpec,int) -> a
     android.app.job.JobInfo$TriggerContentUri convertContentUriTrigger(androidx.work.ContentUriTriggers$Trigger) -> b
     int convertNetworkType(androidx.work.NetworkType) -> c
-androidx.work.impl.background.systemjob.SystemJobInfoConverter$1 -> b.k.w.l.c.a$a:
+androidx.work.impl.background.systemjob.SystemJobInfoConverter$1 -> b.l.x.l.c.a$a:
     int[] $SwitchMap$androidx$work$NetworkType -> a
-androidx.work.impl.background.systemjob.SystemJobScheduler -> b.k.w.l.c.b:
+androidx.work.impl.background.systemjob.SystemJobScheduler -> b.l.x.l.c.b:
     android.content.Context mContext -> a
     android.app.job.JobScheduler mJobScheduler -> b
     androidx.work.impl.background.systemjob.SystemJobInfoConverter mSystemJobInfoConverter -> d
@@ -2098,12 +2323,12 @@ androidx.work.impl.background.systemjob.SystemJobScheduler -> b.k.w.l.c.b:
     void schedule(androidx.work.impl.model.WorkSpec[]) -> a
     void cancelAll(android.content.Context) -> b
     void cancel(java.lang.String) -> c
-    void cancelInvalidJobs(android.content.Context) -> d
+    void cancelJobById(android.app.job.JobScheduler,int) -> d
     boolean hasLimitedSchedulingSlots() -> e
-    void cancelJobById(android.app.job.JobScheduler,int) -> f
-    java.util.List getPendingJobIds(android.content.Context,android.app.job.JobScheduler,java.lang.String) -> g
-    java.util.List getPendingJobs(android.content.Context,android.app.job.JobScheduler) -> h
-    java.lang.String getWorkSpecIdFromJobInfo(android.app.job.JobInfo) -> i
+    java.util.List getPendingJobIds(android.content.Context,android.app.job.JobScheduler,java.lang.String) -> f
+    java.util.List getPendingJobs(android.content.Context,android.app.job.JobScheduler) -> g
+    java.lang.String getWorkSpecIdFromJobInfo(android.app.job.JobInfo) -> h
+    boolean reconcileJobs(android.content.Context,androidx.work.impl.WorkManagerImpl) -> i
     void scheduleInternal(androidx.work.impl.model.WorkSpec,int) -> j
 androidx.work.impl.background.systemjob.SystemJobService -> androidx.work.impl.background.systemjob.SystemJobService:
     java.util.Map mJobParameters -> b
@@ -2111,9 +2336,9 @@ androidx.work.impl.background.systemjob.SystemJobService -> androidx.work.impl.b
     java.lang.String TAG -> c
     java.lang.String getWorkSpecIdFromJobParameters(android.app.job.JobParameters) -> a
     void onExecuted(java.lang.String,boolean) -> b
-androidx.work.impl.constraints.ConstraintListener -> b.k.w.m.a:
+androidx.work.impl.constraints.ConstraintListener -> b.l.x.m.a:
     void onConstraintChanged(java.lang.Object) -> a
-androidx.work.impl.constraints.NetworkState -> b.k.w.m.b:
+androidx.work.impl.constraints.NetworkState -> b.l.x.m.b:
     boolean mIsConnected -> a
     boolean mIsValidated -> b
     boolean mIsMetered -> c
@@ -2122,10 +2347,10 @@ androidx.work.impl.constraints.NetworkState -> b.k.w.m.b:
     boolean isMetered() -> b
     boolean isNotRoaming() -> c
     boolean isValidated() -> d
-androidx.work.impl.constraints.WorkConstraintsCallback -> b.k.w.m.c:
+androidx.work.impl.constraints.WorkConstraintsCallback -> b.l.x.m.c:
     void onAllConstraintsNotMet(java.util.List) -> d
     void onAllConstraintsMet(java.util.List) -> f
-androidx.work.impl.constraints.WorkConstraintsTracker -> b.k.w.m.d:
+androidx.work.impl.constraints.WorkConstraintsTracker -> b.l.x.m.d:
     androidx.work.impl.constraints.controllers.ConstraintController[] mConstraintControllers -> b
     androidx.work.impl.constraints.WorkConstraintsCallback mCallback -> a
     java.lang.Object mLock -> c
@@ -2135,15 +2360,15 @@ androidx.work.impl.constraints.WorkConstraintsTracker -> b.k.w.m.d:
     boolean areAllConstraintsMet(java.lang.String) -> c
     void replace(java.lang.Iterable) -> d
     void reset() -> e
-androidx.work.impl.constraints.controllers.BatteryChargingController -> b.k.w.m.e.a:
+androidx.work.impl.constraints.controllers.BatteryChargingController -> b.l.x.m.e.a:
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(java.lang.Boolean) -> i
-androidx.work.impl.constraints.controllers.BatteryNotLowController -> b.k.w.m.e.b:
+androidx.work.impl.constraints.controllers.BatteryNotLowController -> b.l.x.m.e.b:
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(java.lang.Boolean) -> i
-androidx.work.impl.constraints.controllers.ConstraintController -> b.k.w.m.e.c:
+androidx.work.impl.constraints.controllers.ConstraintController -> b.l.x.m.e.c:
     java.util.List mMatchingWorkSpecIds -> a
     androidx.work.impl.constraints.controllers.ConstraintController$OnConstraintUpdatedCallback mCallback -> d
     java.lang.Object mCurrentValue -> b
@@ -2156,54 +2381,54 @@ androidx.work.impl.constraints.controllers.ConstraintController -> b.k.w.m.e.c:
     void reset() -> f
     void setCallback(androidx.work.impl.constraints.controllers.ConstraintController$OnConstraintUpdatedCallback) -> g
     void updateCallback(androidx.work.impl.constraints.controllers.ConstraintController$OnConstraintUpdatedCallback,java.lang.Object) -> h
-androidx.work.impl.constraints.controllers.ConstraintController$OnConstraintUpdatedCallback -> b.k.w.m.e.c$a:
+androidx.work.impl.constraints.controllers.ConstraintController$OnConstraintUpdatedCallback -> b.l.x.m.e.c$a:
     void onConstraintNotMet(java.util.List) -> a
     void onConstraintMet(java.util.List) -> b
-androidx.work.impl.constraints.controllers.NetworkConnectedController -> b.k.w.m.e.d:
+androidx.work.impl.constraints.controllers.NetworkConnectedController -> b.l.x.m.e.d:
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(androidx.work.impl.constraints.NetworkState) -> i
-androidx.work.impl.constraints.controllers.NetworkMeteredController -> b.k.w.m.e.e:
+androidx.work.impl.constraints.controllers.NetworkMeteredController -> b.l.x.m.e.e:
     java.lang.String TAG -> e
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(androidx.work.impl.constraints.NetworkState) -> i
-androidx.work.impl.constraints.controllers.NetworkNotRoamingController -> b.k.w.m.e.f:
+androidx.work.impl.constraints.controllers.NetworkNotRoamingController -> b.l.x.m.e.f:
     java.lang.String TAG -> e
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(androidx.work.impl.constraints.NetworkState) -> i
-androidx.work.impl.constraints.controllers.NetworkUnmeteredController -> b.k.w.m.e.g:
+androidx.work.impl.constraints.controllers.NetworkUnmeteredController -> b.l.x.m.e.g:
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(androidx.work.impl.constraints.NetworkState) -> i
-androidx.work.impl.constraints.controllers.StorageNotLowController -> b.k.w.m.e.h:
+androidx.work.impl.constraints.controllers.StorageNotLowController -> b.l.x.m.e.h:
     boolean hasConstraint(androidx.work.impl.model.WorkSpec) -> b
     boolean isConstrained(java.lang.Object) -> c
     boolean isConstrained(java.lang.Boolean) -> i
-androidx.work.impl.constraints.trackers.BatteryChargingTracker -> b.k.w.m.f.a:
+androidx.work.impl.constraints.trackers.BatteryChargingTracker -> b.l.x.m.f.a:
     java.lang.String TAG -> i
     java.lang.Object getInitialState() -> b
     android.content.IntentFilter getIntentFilter() -> g
     void onBroadcastReceive(android.content.Context,android.content.Intent) -> h
     java.lang.Boolean getInitialState() -> i
     boolean isBatteryChangedIntentCharging(android.content.Intent) -> j
-androidx.work.impl.constraints.trackers.BatteryNotLowTracker -> b.k.w.m.f.b:
+androidx.work.impl.constraints.trackers.BatteryNotLowTracker -> b.l.x.m.f.b:
     java.lang.String TAG -> i
     java.lang.Object getInitialState() -> b
     android.content.IntentFilter getIntentFilter() -> g
     void onBroadcastReceive(android.content.Context,android.content.Intent) -> h
     java.lang.Boolean getInitialState() -> i
-androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker -> b.k.w.m.f.c:
+androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker -> b.l.x.m.f.c:
     java.lang.String TAG -> h
     android.content.BroadcastReceiver mBroadcastReceiver -> g
     void startTracking() -> e
     void stopTracking() -> f
     android.content.IntentFilter getIntentFilter() -> g
     void onBroadcastReceive(android.content.Context,android.content.Intent) -> h
-androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker$1 -> b.k.w.m.f.c$a:
+androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker$1 -> b.l.x.m.f.c$a:
     androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker this$0 -> a
-androidx.work.impl.constraints.trackers.ConstraintTracker -> b.k.w.m.f.d:
+androidx.work.impl.constraints.trackers.ConstraintTracker -> b.l.x.m.f.d:
     java.lang.String TAG -> f
     android.content.Context mAppContext -> b
     java.util.Set mListeners -> d
@@ -2216,10 +2441,10 @@ androidx.work.impl.constraints.trackers.ConstraintTracker -> b.k.w.m.f.d:
     void setState(java.lang.Object) -> d
     void startTracking() -> e
     void stopTracking() -> f
-androidx.work.impl.constraints.trackers.ConstraintTracker$1 -> b.k.w.m.f.d$a:
+androidx.work.impl.constraints.trackers.ConstraintTracker$1 -> b.l.x.m.f.d$a:
     java.util.List val$listenersList -> a
     androidx.work.impl.constraints.trackers.ConstraintTracker this$0 -> b
-androidx.work.impl.constraints.trackers.NetworkStateTracker -> b.k.w.m.f.e:
+androidx.work.impl.constraints.trackers.NetworkStateTracker -> b.l.x.m.f.e:
     androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateBroadcastReceiver mBroadcastReceiver -> i
     java.lang.String TAG -> j
     android.net.ConnectivityManager mConnectivityManager -> g
@@ -2231,17 +2456,17 @@ androidx.work.impl.constraints.trackers.NetworkStateTracker -> b.k.w.m.f.e:
     androidx.work.impl.constraints.NetworkState getInitialState() -> h
     boolean isActiveNetworkValidated() -> i
     boolean isNetworkCallbackSupported() -> j
-androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateBroadcastReceiver -> b.k.w.m.f.e$a:
+androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateBroadcastReceiver -> b.l.x.m.f.e$a:
     androidx.work.impl.constraints.trackers.NetworkStateTracker this$0 -> a
-androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback -> b.k.w.m.f.e$b:
+androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback -> b.l.x.m.f.e$b:
     androidx.work.impl.constraints.trackers.NetworkStateTracker this$0 -> a
-androidx.work.impl.constraints.trackers.StorageNotLowTracker -> b.k.w.m.f.f:
+androidx.work.impl.constraints.trackers.StorageNotLowTracker -> b.l.x.m.f.f:
     java.lang.String TAG -> i
     java.lang.Object getInitialState() -> b
     android.content.IntentFilter getIntentFilter() -> g
     void onBroadcastReceive(android.content.Context,android.content.Intent) -> h
     java.lang.Boolean getInitialState() -> i
-androidx.work.impl.constraints.trackers.Trackers -> b.k.w.m.f.g:
+androidx.work.impl.constraints.trackers.Trackers -> b.l.x.m.f.g:
     androidx.work.impl.constraints.trackers.Trackers sInstance -> e
     androidx.work.impl.constraints.trackers.NetworkStateTracker mNetworkStateTracker -> c
     androidx.work.impl.constraints.trackers.StorageNotLowTracker mStorageNotLowTracker -> d
@@ -2254,43 +2479,42 @@ androidx.work.impl.constraints.trackers.Trackers -> b.k.w.m.f.g:
     androidx.work.impl.constraints.trackers.StorageNotLowTracker getStorageNotLowTracker() -> e
 androidx.work.impl.diagnostics.DiagnosticsReceiver -> androidx.work.impl.diagnostics.DiagnosticsReceiver:
     java.lang.String TAG -> a
-androidx.work.impl.foreground.ForegroundProcessor -> b.k.w.n.a:
+androidx.work.impl.foreground.ForegroundProcessor -> b.l.x.n.a:
     void stopForeground(java.lang.String) -> a
-androidx.work.impl.foreground.SystemForegroundDispatcher -> b.k.w.n.b:
+androidx.work.impl.foreground.SystemForegroundDispatcher -> b.l.x.n.b:
     android.content.Context mContext -> a
-    androidx.work.impl.foreground.SystemForegroundDispatcher$Callback mCallback -> k
-    java.util.Set mTrackedWorkSpecs -> i
+    java.util.Set mTrackedWorkSpecs -> h
+    androidx.work.impl.foreground.SystemForegroundDispatcher$Callback mCallback -> j
+    java.lang.String TAG -> k
     androidx.work.impl.utils.taskexecutor.TaskExecutor mTaskExecutor -> c
-    androidx.work.impl.constraints.WorkConstraintsTracker mConstraintsTracker -> j
     java.lang.Object mLock -> d
-    java.lang.String TAG -> l
     androidx.work.impl.WorkManagerImpl mWorkManagerImpl -> b
+    androidx.work.impl.constraints.WorkConstraintsTracker mConstraintsTracker -> i
+    java.util.Map mForegroundInfoById -> f
     java.lang.String mCurrentForegroundWorkSpecId -> e
-    java.util.Map mForegroundInfoById -> g
-    androidx.work.ForegroundInfo mLastForegroundInfo -> f
-    java.util.Map mWorkSpecById -> h
-    void handleCancelWork(android.content.Intent) -> a
+    java.util.Map mWorkSpecById -> g
+    android.content.Intent createStopForegroundIntent(android.content.Context) -> a
     void onExecuted(java.lang.String,boolean) -> b
-    void handleNotify(android.content.Intent) -> c
+    void handleCancelWork(android.content.Intent) -> c
     void onAllConstraintsNotMet(java.util.List) -> d
-    void handleStartForeground(android.content.Intent) -> e
+    void handleNotify(android.content.Intent) -> e
     void onAllConstraintsMet(java.util.List) -> f
-    void handleStop() -> g
-    void onDestroy() -> h
-    void onStartCommand(android.content.Intent) -> i
-    void setCallback(androidx.work.impl.foreground.SystemForegroundDispatcher$Callback) -> j
-androidx.work.impl.foreground.SystemForegroundDispatcher$1 -> b.k.w.n.b$a:
+    void handleStartForeground(android.content.Intent) -> g
+    void handleStop(android.content.Intent) -> h
+    void onDestroy() -> i
+    void onStartCommand(android.content.Intent) -> j
+    void setCallback(androidx.work.impl.foreground.SystemForegroundDispatcher$Callback) -> k
+androidx.work.impl.foreground.SystemForegroundDispatcher$1 -> b.l.x.n.b$a:
     androidx.work.impl.WorkDatabase val$database -> a
     androidx.work.impl.foreground.SystemForegroundDispatcher this$0 -> c
     java.lang.String val$workSpecId -> b
-androidx.work.impl.foreground.SystemForegroundDispatcher$Callback -> b.k.w.n.b$b:
+androidx.work.impl.foreground.SystemForegroundDispatcher$Callback -> b.l.x.n.b$b:
     void cancelNotification(int) -> b
     void stop() -> c
     void notify(int,android.app.Notification) -> d
     void startForeground(int,int,android.app.Notification) -> f
 androidx.work.impl.foreground.SystemForegroundService -> androidx.work.impl.foreground.SystemForegroundService:
     java.lang.String TAG -> f
-    androidx.work.impl.foreground.SystemForegroundService sForegroundService -> g
     android.app.NotificationManager mNotificationManager -> e
     android.os.Handler mHandler -> b
     androidx.work.impl.foreground.SystemForegroundDispatcher mDispatcher -> d
@@ -2299,113 +2523,111 @@ androidx.work.impl.foreground.SystemForegroundService -> androidx.work.impl.fore
     void stop() -> c
     void notify(int,android.app.Notification) -> d
     void startForeground(int,int,android.app.Notification) -> f
-    androidx.work.impl.foreground.SystemForegroundService getInstance() -> g
-    void initializeDispatcher() -> h
-    void stopForegroundService() -> k
+    void initializeDispatcher() -> g
 androidx.work.impl.foreground.SystemForegroundService$1 -> androidx.work.impl.foreground.SystemForegroundService$a:
-    androidx.work.impl.foreground.SystemForegroundService this$0 -> a
-androidx.work.impl.foreground.SystemForegroundService$2 -> androidx.work.impl.foreground.SystemForegroundService$b:
     android.app.Notification val$notification -> b
     androidx.work.impl.foreground.SystemForegroundService this$0 -> d
     int val$notificationType -> c
     int val$notificationId -> a
-androidx.work.impl.foreground.SystemForegroundService$3 -> androidx.work.impl.foreground.SystemForegroundService$c:
+androidx.work.impl.foreground.SystemForegroundService$2 -> androidx.work.impl.foreground.SystemForegroundService$b:
     android.app.Notification val$notification -> b
     androidx.work.impl.foreground.SystemForegroundService this$0 -> c
     int val$notificationId -> a
-androidx.work.impl.foreground.SystemForegroundService$4 -> androidx.work.impl.foreground.SystemForegroundService$d:
+androidx.work.impl.foreground.SystemForegroundService$3 -> androidx.work.impl.foreground.SystemForegroundService$c:
     androidx.work.impl.foreground.SystemForegroundService this$0 -> b
     int val$notificationId -> a
-androidx.work.impl.model.Dependency -> b.k.w.o.a:
+androidx.work.impl.model.Dependency -> b.l.x.o.a:
     java.lang.String workSpecId -> a
     java.lang.String prerequisiteId -> b
-androidx.work.impl.model.DependencyDao -> b.k.w.o.b:
+androidx.work.impl.model.DependencyDao -> b.l.x.o.b:
     void insertDependency(androidx.work.impl.model.Dependency) -> a
     boolean hasCompletedAllPrerequisites(java.lang.String) -> b
     boolean hasDependents(java.lang.String) -> c
     java.util.List getDependentWorkIds(java.lang.String) -> d
-androidx.work.impl.model.DependencyDao_Impl -> b.k.w.o.c:
+androidx.work.impl.model.DependencyDao_Impl -> b.l.x.o.c:
     androidx.room.RoomDatabase __db -> a
     androidx.room.EntityInsertionAdapter __insertionAdapterOfDependency -> b
     void insertDependency(androidx.work.impl.model.Dependency) -> a
     boolean hasCompletedAllPrerequisites(java.lang.String) -> b
     boolean hasDependents(java.lang.String) -> c
     java.util.List getDependentWorkIds(java.lang.String) -> d
-androidx.work.impl.model.DependencyDao_Impl$1 -> b.k.w.o.c$a:
+androidx.work.impl.model.DependencyDao_Impl$1 -> b.l.x.o.c$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.Dependency) -> i
-androidx.work.impl.model.Preference -> b.k.w.o.d:
+androidx.work.impl.model.Preference -> b.l.x.o.d:
     java.lang.String mKey -> a
     java.lang.Long mValue -> b
-androidx.work.impl.model.PreferenceDao -> b.k.w.o.e:
+androidx.work.impl.model.PreferenceDao -> b.l.x.o.e:
     java.lang.Long getLongValue(java.lang.String) -> a
     void insertPreference(androidx.work.impl.model.Preference) -> b
-androidx.work.impl.model.PreferenceDao_Impl -> b.k.w.o.f:
+androidx.work.impl.model.PreferenceDao_Impl -> b.l.x.o.f:
     androidx.room.RoomDatabase __db -> a
     androidx.room.EntityInsertionAdapter __insertionAdapterOfPreference -> b
     java.lang.Long getLongValue(java.lang.String) -> a
     void insertPreference(androidx.work.impl.model.Preference) -> b
-androidx.work.impl.model.PreferenceDao_Impl$1 -> b.k.w.o.f$a:
+androidx.work.impl.model.PreferenceDao_Impl$1 -> b.l.x.o.f$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.Preference) -> i
-androidx.work.impl.model.SystemIdInfo -> b.k.w.o.g:
+androidx.work.impl.model.SystemIdInfo -> b.l.x.o.g:
     java.lang.String workSpecId -> a
     int systemId -> b
-androidx.work.impl.model.SystemIdInfoDao -> b.k.w.o.h:
+androidx.work.impl.model.SystemIdInfoDao -> b.l.x.o.h:
     void removeSystemIdInfo(java.lang.String) -> a
     void insertSystemIdInfo(androidx.work.impl.model.SystemIdInfo) -> b
     androidx.work.impl.model.SystemIdInfo getSystemIdInfo(java.lang.String) -> c
-androidx.work.impl.model.SystemIdInfoDao_Impl -> b.k.w.o.i:
+    java.util.List getWorkSpecIds() -> d
+androidx.work.impl.model.SystemIdInfoDao_Impl -> b.l.x.o.i:
     androidx.room.RoomDatabase __db -> a
     androidx.room.SharedSQLiteStatement __preparedStmtOfRemoveSystemIdInfo -> c
     androidx.room.EntityInsertionAdapter __insertionAdapterOfSystemIdInfo -> b
     void removeSystemIdInfo(java.lang.String) -> a
     void insertSystemIdInfo(androidx.work.impl.model.SystemIdInfo) -> b
     androidx.work.impl.model.SystemIdInfo getSystemIdInfo(java.lang.String) -> c
-androidx.work.impl.model.SystemIdInfoDao_Impl$1 -> b.k.w.o.i$a:
+    java.util.List getWorkSpecIds() -> d
+androidx.work.impl.model.SystemIdInfoDao_Impl$1 -> b.l.x.o.i$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.SystemIdInfo) -> i
-androidx.work.impl.model.SystemIdInfoDao_Impl$2 -> b.k.w.o.i$b:
+androidx.work.impl.model.SystemIdInfoDao_Impl$2 -> b.l.x.o.i$b:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkName -> b.k.w.o.j:
+androidx.work.impl.model.WorkName -> b.l.x.o.j:
     java.lang.String name -> a
     java.lang.String workSpecId -> b
-androidx.work.impl.model.WorkNameDao -> b.k.w.o.k:
+androidx.work.impl.model.WorkNameDao -> b.l.x.o.k:
     void insert(androidx.work.impl.model.WorkName) -> a
     java.util.List getNamesForWorkSpecId(java.lang.String) -> b
-androidx.work.impl.model.WorkNameDao_Impl -> b.k.w.o.l:
+androidx.work.impl.model.WorkNameDao_Impl -> b.l.x.o.l:
     androidx.room.RoomDatabase __db -> a
     androidx.room.EntityInsertionAdapter __insertionAdapterOfWorkName -> b
     void insert(androidx.work.impl.model.WorkName) -> a
     java.util.List getNamesForWorkSpecId(java.lang.String) -> b
-androidx.work.impl.model.WorkNameDao_Impl$1 -> b.k.w.o.l$a:
+androidx.work.impl.model.WorkNameDao_Impl$1 -> b.l.x.o.l$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.WorkName) -> i
-androidx.work.impl.model.WorkProgress -> b.k.w.o.m:
+androidx.work.impl.model.WorkProgress -> b.l.x.o.m:
     java.lang.String mWorkSpecId -> a
     androidx.work.Data mProgress -> b
-androidx.work.impl.model.WorkProgressDao -> b.k.w.o.n:
+androidx.work.impl.model.WorkProgressDao -> b.l.x.o.n:
     void delete(java.lang.String) -> a
     void deleteAll() -> b
-androidx.work.impl.model.WorkProgressDao_Impl -> b.k.w.o.o:
+androidx.work.impl.model.WorkProgressDao_Impl -> b.l.x.o.o:
     androidx.room.RoomDatabase __db -> a
     androidx.room.SharedSQLiteStatement __preparedStmtOfDeleteAll -> c
     androidx.room.SharedSQLiteStatement __preparedStmtOfDelete -> b
     void delete(java.lang.String) -> a
     void deleteAll() -> b
-androidx.work.impl.model.WorkProgressDao_Impl$1 -> b.k.w.o.o$a:
+androidx.work.impl.model.WorkProgressDao_Impl$1 -> b.l.x.o.o$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.WorkProgress) -> i
-androidx.work.impl.model.WorkProgressDao_Impl$2 -> b.k.w.o.o$b:
+androidx.work.impl.model.WorkProgressDao_Impl$2 -> b.l.x.o.o$b:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkProgressDao_Impl$3 -> b.k.w.o.o$c:
+androidx.work.impl.model.WorkProgressDao_Impl$3 -> b.l.x.o.o$c:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpec -> b.k.w.o.p:
+androidx.work.impl.model.WorkSpec -> b.l.x.o.p:
     long flexDuration -> i
     androidx.work.Data output -> f
     androidx.work.Data input -> e
@@ -2429,10 +2651,10 @@ androidx.work.impl.model.WorkSpec -> b.k.w.o.p:
     boolean isBackedOff() -> c
     boolean isPeriodic() -> d
     void setBackoffDelayDuration(long) -> e
-androidx.work.impl.model.WorkSpec$IdAndState -> b.k.w.o.p$a:
+androidx.work.impl.model.WorkSpec$IdAndState -> b.l.x.o.p$a:
     androidx.work.WorkInfo$State state -> b
     java.lang.String id -> a
-androidx.work.impl.model.WorkSpecDao -> b.k.w.o.q:
+androidx.work.impl.model.WorkSpecDao -> b.l.x.o.q:
     void delete(java.lang.String) -> a
     androidx.work.WorkInfo$State getState(java.lang.String) -> b
     java.util.List getUnfinishedWorkWithTag(java.lang.String) -> c
@@ -2445,16 +2667,16 @@ androidx.work.impl.model.WorkSpecDao -> b.k.w.o.q:
     int resetWorkSpecRunAttemptCount(java.lang.String) -> j
     int markWorkSpecScheduled(java.lang.String,long) -> k
     java.util.List getScheduledWork() -> l
-    int setState(androidx.work.WorkInfo$State,java.lang.String[]) -> m
-    void setOutput(java.lang.String,androidx.work.Data) -> n
-    java.util.List getUnfinishedWorkWithName(java.lang.String) -> o
-    int resetScheduledState() -> p
-    java.util.List getWorkSpecIdAndStatesForName(java.lang.String) -> q
-    java.util.List getRunningWork() -> r
-    java.util.List getRecentlyCompletedWork(long) -> s
-    void insertWorkSpec(androidx.work.impl.model.WorkSpec) -> t
-    java.util.List getAllEligibleWorkSpecsForScheduling() -> u
-androidx.work.impl.model.WorkSpecDao_Impl -> b.k.w.o.r:
+    java.util.List getAllEligibleWorkSpecsForScheduling(int) -> m
+    int setState(androidx.work.WorkInfo$State,java.lang.String[]) -> n
+    void setOutput(java.lang.String,androidx.work.Data) -> o
+    java.util.List getUnfinishedWorkWithName(java.lang.String) -> p
+    int resetScheduledState() -> q
+    java.util.List getWorkSpecIdAndStatesForName(java.lang.String) -> r
+    java.util.List getRunningWork() -> s
+    java.util.List getRecentlyCompletedWork(long) -> t
+    void insertWorkSpec(androidx.work.impl.model.WorkSpec) -> u
+androidx.work.impl.model.WorkSpecDao_Impl -> b.l.x.o.r:
     androidx.room.SharedSQLiteStatement __preparedStmtOfResetWorkSpecRunAttemptCount -> g
     androidx.room.SharedSQLiteStatement __preparedStmtOfMarkWorkSpecScheduled -> h
     androidx.room.SharedSQLiteStatement __preparedStmtOfSetPeriodStartTime -> e
@@ -2476,51 +2698,51 @@ androidx.work.impl.model.WorkSpecDao_Impl -> b.k.w.o.r:
     int resetWorkSpecRunAttemptCount(java.lang.String) -> j
     int markWorkSpecScheduled(java.lang.String,long) -> k
     java.util.List getScheduledWork() -> l
-    int setState(androidx.work.WorkInfo$State,java.lang.String[]) -> m
-    void setOutput(java.lang.String,androidx.work.Data) -> n
-    java.util.List getUnfinishedWorkWithName(java.lang.String) -> o
-    int resetScheduledState() -> p
-    java.util.List getWorkSpecIdAndStatesForName(java.lang.String) -> q
-    java.util.List getRunningWork() -> r
-    java.util.List getRecentlyCompletedWork(long) -> s
-    void insertWorkSpec(androidx.work.impl.model.WorkSpec) -> t
-    java.util.List getAllEligibleWorkSpecsForScheduling() -> u
-androidx.work.impl.model.WorkSpecDao_Impl$1 -> b.k.w.o.r$a:
+    java.util.List getAllEligibleWorkSpecsForScheduling(int) -> m
+    int setState(androidx.work.WorkInfo$State,java.lang.String[]) -> n
+    void setOutput(java.lang.String,androidx.work.Data) -> o
+    java.util.List getUnfinishedWorkWithName(java.lang.String) -> p
+    int resetScheduledState() -> q
+    java.util.List getWorkSpecIdAndStatesForName(java.lang.String) -> r
+    java.util.List getRunningWork() -> s
+    java.util.List getRecentlyCompletedWork(long) -> t
+    void insertWorkSpec(androidx.work.impl.model.WorkSpec) -> u
+androidx.work.impl.model.WorkSpecDao_Impl$1 -> b.l.x.o.r$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.WorkSpec) -> i
-androidx.work.impl.model.WorkSpecDao_Impl$2 -> b.k.w.o.r$b:
+androidx.work.impl.model.WorkSpecDao_Impl$2 -> b.l.x.o.r$b:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$3 -> b.k.w.o.r$c:
+androidx.work.impl.model.WorkSpecDao_Impl$3 -> b.l.x.o.r$c:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$4 -> b.k.w.o.r$d:
+androidx.work.impl.model.WorkSpecDao_Impl$4 -> b.l.x.o.r$d:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$5 -> b.k.w.o.r$e:
+androidx.work.impl.model.WorkSpecDao_Impl$5 -> b.l.x.o.r$e:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$6 -> b.k.w.o.r$f:
+androidx.work.impl.model.WorkSpecDao_Impl$6 -> b.l.x.o.r$f:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$7 -> b.k.w.o.r$g:
+androidx.work.impl.model.WorkSpecDao_Impl$7 -> b.l.x.o.r$g:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$8 -> b.k.w.o.r$h:
+androidx.work.impl.model.WorkSpecDao_Impl$8 -> b.l.x.o.r$h:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkSpecDao_Impl$9 -> b.k.w.o.r$i:
+androidx.work.impl.model.WorkSpecDao_Impl$9 -> b.l.x.o.r$i:
     java.lang.String createQuery() -> d
-androidx.work.impl.model.WorkTag -> b.k.w.o.s:
+androidx.work.impl.model.WorkTag -> b.l.x.o.s:
     java.lang.String tag -> a
     java.lang.String workSpecId -> b
-androidx.work.impl.model.WorkTagDao -> b.k.w.o.t:
+androidx.work.impl.model.WorkTagDao -> b.l.x.o.t:
     void insert(androidx.work.impl.model.WorkTag) -> a
     java.util.List getTagsForWorkSpecId(java.lang.String) -> b
-androidx.work.impl.model.WorkTagDao_Impl -> b.k.w.o.u:
+androidx.work.impl.model.WorkTagDao_Impl -> b.l.x.o.u:
     androidx.room.RoomDatabase __db -> a
     androidx.room.EntityInsertionAdapter __insertionAdapterOfWorkTag -> b
     void insert(androidx.work.impl.model.WorkTag) -> a
     java.util.List getTagsForWorkSpecId(java.lang.String) -> b
-androidx.work.impl.model.WorkTagDao_Impl$1 -> b.k.w.o.u$a:
+androidx.work.impl.model.WorkTagDao_Impl$1 -> b.l.x.o.u$a:
     java.lang.String createQuery() -> d
     void bind(androidx.sqlite.db.SupportSQLiteStatement,java.lang.Object) -> g
     void bind(androidx.sqlite.db.SupportSQLiteStatement,androidx.work.impl.model.WorkTag) -> i
-androidx.work.impl.model.WorkTypeConverters -> b.k.w.o.v:
+androidx.work.impl.model.WorkTypeConverters -> b.l.x.o.v:
     int backoffPolicyToInt(androidx.work.BackoffPolicy) -> a
     androidx.work.ContentUriTriggers byteArrayToContentUriTriggers(byte[]) -> b
     byte[] contentUriTriggersToByteArray(androidx.work.ContentUriTriggers) -> c
@@ -2529,11 +2751,11 @@ androidx.work.impl.model.WorkTypeConverters -> b.k.w.o.v:
     androidx.work.WorkInfo$State intToState(int) -> f
     int networkTypeToInt(androidx.work.NetworkType) -> g
     int stateToInt(androidx.work.WorkInfo$State) -> h
-androidx.work.impl.model.WorkTypeConverters$1 -> b.k.w.o.v$a:
+androidx.work.impl.model.WorkTypeConverters$1 -> b.l.x.o.v$a:
     int[] $SwitchMap$androidx$work$BackoffPolicy -> b
     int[] $SwitchMap$androidx$work$NetworkType -> c
     int[] $SwitchMap$androidx$work$WorkInfo$State -> a
-androidx.work.impl.utils.CancelWorkRunnable -> b.k.w.p.a:
+androidx.work.impl.utils.CancelWorkRunnable -> b.l.x.p.a:
     androidx.work.impl.OperationImpl mOperation -> a
     void cancel(androidx.work.impl.WorkManagerImpl,java.lang.String) -> a
     androidx.work.impl.utils.CancelWorkRunnable forId(java.util.UUID,androidx.work.impl.WorkManagerImpl) -> b
@@ -2543,20 +2765,20 @@ androidx.work.impl.utils.CancelWorkRunnable -> b.k.w.p.a:
     void iterativelyCancelWorkAndDependents(androidx.work.impl.WorkDatabase,java.lang.String) -> f
     void reschedulePendingWorkers(androidx.work.impl.WorkManagerImpl) -> g
     void runInternal() -> h
-androidx.work.impl.utils.CancelWorkRunnable$1 -> b.k.w.p.a$a:
+androidx.work.impl.utils.CancelWorkRunnable$1 -> b.l.x.p.a$a:
     androidx.work.impl.WorkManagerImpl val$workManagerImpl -> b
     java.util.UUID val$id -> c
     void runInternal() -> h
-androidx.work.impl.utils.CancelWorkRunnable$2 -> b.k.w.p.a$b:
+androidx.work.impl.utils.CancelWorkRunnable$2 -> b.l.x.p.a$b:
     androidx.work.impl.WorkManagerImpl val$workManagerImpl -> b
     java.lang.String val$tag -> c
     void runInternal() -> h
-androidx.work.impl.utils.CancelWorkRunnable$3 -> b.k.w.p.a$c:
+androidx.work.impl.utils.CancelWorkRunnable$3 -> b.l.x.p.a$c:
     androidx.work.impl.WorkManagerImpl val$workManagerImpl -> b
     java.lang.String val$name -> c
     boolean val$allowReschedule -> d
     void runInternal() -> h
-androidx.work.impl.utils.EnqueueRunnable -> b.k.w.p.b:
+androidx.work.impl.utils.EnqueueRunnable -> b.l.x.p.b:
     androidx.work.impl.OperationImpl mOperation -> b
     java.lang.String TAG -> c
     androidx.work.impl.WorkContinuationImpl mWorkContinuation -> a
@@ -2570,59 +2792,67 @@ androidx.work.impl.utils.EnqueueRunnable -> b.k.w.p.b:
     boolean usesScheduler(androidx.work.impl.WorkManagerImpl,java.lang.String) -> h
 androidx.work.impl.utils.ForceStopRunnable -> androidx.work.impl.utils.ForceStopRunnable:
     android.content.Context mContext -> a
+    long TEN_YEARS -> e
     androidx.work.impl.WorkManagerImpl mWorkManager -> b
-    long TEN_YEARS -> d
-    java.lang.String TAG -> c
+    int mRetryCount -> c
+    java.lang.String TAG -> d
     boolean cleanUp() -> a
-    android.content.Intent getIntent(android.content.Context) -> b
-    android.app.PendingIntent getPendingIntent(android.content.Context,int) -> c
-    boolean isForceStopped() -> d
-    void setAlarm(android.content.Context) -> e
-    boolean shouldRescheduleWorkers() -> f
+    void forceStopRunnable() -> b
+    android.content.Intent getIntent(android.content.Context) -> c
+    android.app.PendingIntent getPendingIntent(android.content.Context,int) -> d
+    boolean isForceStopped() -> e
+    boolean multiProcessChecks() -> f
+    void setAlarm(android.content.Context) -> g
+    boolean shouldRescheduleWorkers() -> h
+    void sleep(long) -> i
 androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver -> androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver:
     java.lang.String TAG -> a
-androidx.work.impl.utils.IdGenerator -> b.k.w.p.c:
+androidx.work.impl.utils.IdGenerator -> b.l.x.p.c:
     androidx.work.impl.WorkDatabase mWorkDatabase -> a
     void migrateLegacyIdGenerator(android.content.Context,androidx.sqlite.db.SupportSQLiteDatabase) -> a
     int nextAlarmManagerId() -> b
     int nextId(java.lang.String) -> c
     int nextJobSchedulerIdWithRange(int,int) -> d
     void update(java.lang.String,int) -> e
-androidx.work.impl.utils.PackageManagerHelper -> b.k.w.p.d:
+androidx.work.impl.utils.PackageManagerHelper -> b.l.x.p.d:
     java.lang.String TAG -> a
     void setComponentEnabled(android.content.Context,java.lang.Class,boolean) -> a
-androidx.work.impl.utils.PreferenceUtils -> b.k.w.p.e:
+androidx.work.impl.utils.PreferenceUtils -> b.l.x.p.e:
     androidx.work.impl.WorkDatabase mWorkDatabase -> a
     boolean getNeedsReschedule() -> a
     void migrateLegacyPreferences(android.content.Context,androidx.sqlite.db.SupportSQLiteDatabase) -> b
     void setNeedsReschedule(boolean) -> c
-androidx.work.impl.utils.SerialExecutor -> b.k.w.p.f:
+androidx.work.impl.utils.ProcessUtils -> b.l.x.p.f:
+    java.lang.String TAG -> a
+    java.lang.String getProcessName(android.content.Context) -> a
+    boolean isDefaultProcess(android.content.Context,androidx.work.Configuration) -> b
+androidx.work.impl.utils.SerialExecutor -> b.l.x.p.g:
     java.lang.Runnable mActive -> d
     java.util.concurrent.Executor mExecutor -> b
     java.lang.Object mLock -> c
     java.util.ArrayDeque mTasks -> a
     boolean hasPendingTasks() -> a
     void scheduleNext() -> b
-androidx.work.impl.utils.SerialExecutor$Task -> b.k.w.p.f$a:
+androidx.work.impl.utils.SerialExecutor$Task -> b.l.x.p.g$a:
     java.lang.Runnable mRunnable -> b
     androidx.work.impl.utils.SerialExecutor mSerialExecutor -> a
-androidx.work.impl.utils.StartWorkRunnable -> b.k.w.p.g:
+androidx.work.impl.utils.StartWorkRunnable -> b.l.x.p.h:
     androidx.work.WorkerParameters$RuntimeExtras mRuntimeExtras -> c
     androidx.work.impl.WorkManagerImpl mWorkManagerImpl -> a
     java.lang.String mWorkSpecId -> b
-androidx.work.impl.utils.StopWorkRunnable -> b.k.w.p.h:
+androidx.work.impl.utils.StopWorkRunnable -> b.l.x.p.i:
     androidx.work.impl.WorkManagerImpl mWorkManagerImpl -> a
     java.lang.String mWorkSpecId -> b
     boolean mStopInForeground -> c
     java.lang.String TAG -> d
-androidx.work.impl.utils.WakeLocks -> b.k.w.p.i:
+androidx.work.impl.utils.WakeLocks -> b.l.x.p.j:
     java.lang.String TAG -> a
     java.util.WeakHashMap sWakeLocks -> b
     void checkWakeLocks() -> a
     android.os.PowerManager$WakeLock newWakeLock(android.content.Context,java.lang.String) -> b
-androidx.work.impl.utils.WorkForegroundUpdater -> b.k.w.p.j:
-androidx.work.impl.utils.WorkProgressUpdater -> b.k.w.p.k:
-androidx.work.impl.utils.WorkTimer -> b.k.w.p.l:
+androidx.work.impl.utils.WorkForegroundUpdater -> b.l.x.p.k:
+androidx.work.impl.utils.WorkProgressUpdater -> b.l.x.p.l:
+androidx.work.impl.utils.WorkTimer -> b.l.x.p.m:
     java.lang.String TAG -> f
     java.util.Map mTimerMap -> c
     java.util.Map mListeners -> d
@@ -2632,14 +2862,14 @@ androidx.work.impl.utils.WorkTimer -> b.k.w.p.l:
     void onDestroy() -> a
     void startTimer(java.lang.String,long,androidx.work.impl.utils.WorkTimer$TimeLimitExceededListener) -> b
     void stopTimer(java.lang.String) -> c
-androidx.work.impl.utils.WorkTimer$1 -> b.k.w.p.l$a:
+androidx.work.impl.utils.WorkTimer$1 -> b.l.x.p.m$a:
     int mThreadsCreated -> a
-androidx.work.impl.utils.WorkTimer$TimeLimitExceededListener -> b.k.w.p.l$b:
+androidx.work.impl.utils.WorkTimer$TimeLimitExceededListener -> b.l.x.p.m$b:
     void onTimeLimitExceeded(java.lang.String) -> a
-androidx.work.impl.utils.WorkTimer$WorkTimerRunnable -> b.k.w.p.l$c:
+androidx.work.impl.utils.WorkTimer$WorkTimerRunnable -> b.l.x.p.m$c:
     androidx.work.impl.utils.WorkTimer mWorkTimer -> a
     java.lang.String mWorkSpecId -> b
-androidx.work.impl.utils.futures.AbstractFuture -> b.k.w.p.m.a:
+androidx.work.impl.utils.futures.AbstractFuture -> b.l.x.p.n.a:
     androidx.work.impl.utils.futures.AbstractFuture$AtomicHelper ATOMIC_HELPER -> f
     java.lang.Object NULL -> g
     java.util.logging.Logger log -> e
@@ -2666,28 +2896,28 @@ androidx.work.impl.utils.futures.AbstractFuture -> b.k.w.p.m.a:
     boolean setException(java.lang.Throwable) -> q
     boolean setFuture(com.google.common.util.concurrent.ListenableFuture) -> r
     java.lang.String userObjectToString(java.lang.Object) -> s
-androidx.work.impl.utils.futures.AbstractFuture$1 -> b.k.w.p.m.a$a:
-androidx.work.impl.utils.futures.AbstractFuture$AtomicHelper -> b.k.w.p.m.a$b:
+androidx.work.impl.utils.futures.AbstractFuture$1 -> b.l.x.p.n.a$a:
+androidx.work.impl.utils.futures.AbstractFuture$AtomicHelper -> b.l.x.p.n.a$b:
     boolean casListeners(androidx.work.impl.utils.futures.AbstractFuture,androidx.work.impl.utils.futures.AbstractFuture$Listener,androidx.work.impl.utils.futures.AbstractFuture$Listener) -> a
     boolean casValue(androidx.work.impl.utils.futures.AbstractFuture,java.lang.Object,java.lang.Object) -> b
     boolean casWaiters(androidx.work.impl.utils.futures.AbstractFuture,androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> c
     void putNext(androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> d
     void putThread(androidx.work.impl.utils.futures.AbstractFuture$Waiter,java.lang.Thread) -> e
-androidx.work.impl.utils.futures.AbstractFuture$Cancellation -> b.k.w.p.m.a$c:
+androidx.work.impl.utils.futures.AbstractFuture$Cancellation -> b.l.x.p.n.a$c:
     java.lang.Throwable cause -> b
     androidx.work.impl.utils.futures.AbstractFuture$Cancellation CAUSELESS_INTERRUPTED -> c
     boolean wasInterrupted -> a
     androidx.work.impl.utils.futures.AbstractFuture$Cancellation CAUSELESS_CANCELLED -> d
-androidx.work.impl.utils.futures.AbstractFuture$Failure -> b.k.w.p.m.a$d:
+androidx.work.impl.utils.futures.AbstractFuture$Failure -> b.l.x.p.n.a$d:
     java.lang.Throwable exception -> a
     androidx.work.impl.utils.futures.AbstractFuture$Failure FALLBACK_INSTANCE -> b
-androidx.work.impl.utils.futures.AbstractFuture$Failure$1 -> b.k.w.p.m.a$d$a:
-androidx.work.impl.utils.futures.AbstractFuture$Listener -> b.k.w.p.m.a$e:
+androidx.work.impl.utils.futures.AbstractFuture$Failure$1 -> b.l.x.p.n.a$d$a:
+androidx.work.impl.utils.futures.AbstractFuture$Listener -> b.l.x.p.n.a$e:
     androidx.work.impl.utils.futures.AbstractFuture$Listener next -> c
     androidx.work.impl.utils.futures.AbstractFuture$Listener TOMBSTONE -> d
     java.util.concurrent.Executor executor -> b
     java.lang.Runnable task -> a
-androidx.work.impl.utils.futures.AbstractFuture$SafeAtomicHelper -> b.k.w.p.m.a$f:
+androidx.work.impl.utils.futures.AbstractFuture$SafeAtomicHelper -> b.l.x.p.n.a$f:
     java.util.concurrent.atomic.AtomicReferenceFieldUpdater waiterNextUpdater -> b
     java.util.concurrent.atomic.AtomicReferenceFieldUpdater waitersUpdater -> c
     java.util.concurrent.atomic.AtomicReferenceFieldUpdater waiterThreadUpdater -> a
@@ -2698,34 +2928,34 @@ androidx.work.impl.utils.futures.AbstractFuture$SafeAtomicHelper -> b.k.w.p.m.a$
     boolean casWaiters(androidx.work.impl.utils.futures.AbstractFuture,androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> c
     void putNext(androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> d
     void putThread(androidx.work.impl.utils.futures.AbstractFuture$Waiter,java.lang.Thread) -> e
-androidx.work.impl.utils.futures.AbstractFuture$SetFuture -> b.k.w.p.m.a$g:
+androidx.work.impl.utils.futures.AbstractFuture$SetFuture -> b.l.x.p.n.a$g:
     androidx.work.impl.utils.futures.AbstractFuture owner -> a
     com.google.common.util.concurrent.ListenableFuture future -> b
-androidx.work.impl.utils.futures.AbstractFuture$SynchronizedHelper -> b.k.w.p.m.a$h:
+androidx.work.impl.utils.futures.AbstractFuture$SynchronizedHelper -> b.l.x.p.n.a$h:
     boolean casListeners(androidx.work.impl.utils.futures.AbstractFuture,androidx.work.impl.utils.futures.AbstractFuture$Listener,androidx.work.impl.utils.futures.AbstractFuture$Listener) -> a
     boolean casValue(androidx.work.impl.utils.futures.AbstractFuture,java.lang.Object,java.lang.Object) -> b
     boolean casWaiters(androidx.work.impl.utils.futures.AbstractFuture,androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> c
     void putNext(androidx.work.impl.utils.futures.AbstractFuture$Waiter,androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> d
     void putThread(androidx.work.impl.utils.futures.AbstractFuture$Waiter,java.lang.Thread) -> e
-androidx.work.impl.utils.futures.AbstractFuture$Waiter -> b.k.w.p.m.a$i:
+androidx.work.impl.utils.futures.AbstractFuture$Waiter -> b.l.x.p.n.a$i:
     java.lang.Thread thread -> a
     androidx.work.impl.utils.futures.AbstractFuture$Waiter TOMBSTONE -> c
     androidx.work.impl.utils.futures.AbstractFuture$Waiter next -> b
     void setNext(androidx.work.impl.utils.futures.AbstractFuture$Waiter) -> a
     void unpark() -> b
-androidx.work.impl.utils.futures.DirectExecutor -> b.k.w.p.m.b:
+androidx.work.impl.utils.futures.DirectExecutor -> b.l.x.p.n.b:
     androidx.work.impl.utils.futures.DirectExecutor[] $VALUES -> b
     androidx.work.impl.utils.futures.DirectExecutor INSTANCE -> a
-androidx.work.impl.utils.futures.SettableFuture -> b.k.w.p.m.c:
+androidx.work.impl.utils.futures.SettableFuture -> b.l.x.p.n.c:
     boolean set(java.lang.Object) -> p
     boolean setException(java.lang.Throwable) -> q
     boolean setFuture(com.google.common.util.concurrent.ListenableFuture) -> r
     androidx.work.impl.utils.futures.SettableFuture create() -> t
-androidx.work.impl.utils.taskexecutor.TaskExecutor -> b.k.w.p.n.a:
+androidx.work.impl.utils.taskexecutor.TaskExecutor -> b.l.x.p.o.a:
     java.util.concurrent.Executor getMainThreadExecutor() -> a
     void executeOnBackgroundThread(java.lang.Runnable) -> b
     androidx.work.impl.utils.SerialExecutor getBackgroundExecutor() -> c
-androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor -> b.k.w.p.n.b:
+androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor -> b.l.x.p.o.b:
     android.os.Handler mMainThreadHandler -> b
     java.util.concurrent.Executor mMainThreadExecutor -> c
     androidx.work.impl.utils.SerialExecutor mBackgroundExecutor -> a
@@ -2733,7 +2963,7 @@ androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor -> b.k.w.p.n.b:
     void executeOnBackgroundThread(java.lang.Runnable) -> b
     androidx.work.impl.utils.SerialExecutor getBackgroundExecutor() -> c
     void postToMainThread(java.lang.Runnable) -> d
-androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor$1 -> b.k.w.p.n.b$a:
+androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor$1 -> b.l.x.p.o.b$a:
     androidx.work.impl.utils.taskexecutor.WorkManagerTaskExecutor this$0 -> a
 androidx.work.impl.workers.CombineContinuationsWorker -> androidx.work.impl.workers.CombineContinuationsWorker:
     androidx.work.ListenableWorker$Result doWork() -> p
@@ -2764,6 +2994,7 @@ androidx.work.impl.workers.DiagnosticsWorker -> androidx.work.impl.workers.Diagn
     androidx.work.ListenableWorker$Result doWork() -> p
     java.lang.String workSpecRow(androidx.work.impl.model.WorkSpec,java.lang.String,java.lang.Integer,java.lang.String) -> q
     java.lang.String workSpecRows(androidx.work.impl.model.WorkNameDao,androidx.work.impl.model.WorkTagDao,androidx.work.impl.model.SystemIdInfoDao,java.util.List) -> r
+androidx.work.multiprocess.RemoteWorkManager -> b.l.y.a:
 bsi.iceman.searchable_dropdown.SearchableDropdownPlugin -> c.a.a.a:
     io.flutter.plugin.common.MethodChannel channel -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
@@ -5021,7 +5252,7 @@ io.flutter.plugin.common.StandardMessageCodec -> e.a.e.a.m:
     void writeSize(java.io.ByteArrayOutputStream,int) -> n
     void writeValue(java.io.ByteArrayOutputStream,java.lang.Object) -> o
 io.flutter.plugin.common.StandardMessageCodec$ExposedByteArrayOutputStream -> e.a.e.a.m$a:
-    byte[] buffer() -> c
+    byte[] buffer() -> b
 io.flutter.plugin.common.StandardMethodCodec -> e.a.e.a.n:
     io.flutter.plugin.common.StandardMessageCodec messageCodec -> a
     io.flutter.plugin.common.StandardMethodCodec INSTANCE -> b
@@ -5915,33 +6146,36 @@ vn.hunghd.flutterdownloader.DownloadTask -> g.a.a.b:
     long timeCreated -> m
     java.lang.String url -> e
 vn.hunghd.flutterdownloader.DownloadWorker -> vn.hunghd.flutterdownloader.DownloadWorker:
-    boolean debug -> m
-    int lastProgress -> n
-    java.util.concurrent.atomic.AtomicBoolean isolateStarted -> x
-    int primaryId -> o
-    boolean showNotification -> k
-    boolean clickToOpenDownloadedFile -> l
-    vn.hunghd.flutterdownloader.TaskDbHelper dbHelper -> i
-    java.lang.String msgInProgress -> q
-    java.lang.String msgStarted -> p
-    vn.hunghd.flutterdownloader.TaskDao taskDao -> j
-    java.lang.String msgFailed -> s
-    java.lang.String msgCanceled -> r
-    java.lang.String msgComplete -> u
-    java.lang.String msgPaused -> t
-    java.lang.String TAG -> w
+    boolean showNotification -> m
+    boolean clickToOpenDownloadedFile -> n
+    boolean debug -> o
+    vn.hunghd.flutterdownloader.TaskDbHelper dbHelper -> k
+    java.lang.String msgInProgress -> s
+    java.lang.String msgStarted -> r
+    java.lang.String msgFailed -> u
+    java.util.concurrent.atomic.AtomicBoolean isolateStarted -> z
+    java.lang.String msgCanceled -> t
     java.util.regex.Pattern charsetPattern -> g
-    long lastCallUpdateNotification -> v
-    java.util.ArrayDeque isolateQueue -> y
-    io.flutter.plugin.common.MethodChannel backgroundChannel -> h
-    io.flutter.view.FlutterNativeView backgroundFlutterView -> z
-    void log(java.lang.String) -> A
-    void sendUpdateProcessEvent(int,int) -> B
-    void setupHeaders(java.net.HttpURLConnection,java.lang.String) -> C
-    void setupNotification(android.content.Context) -> D
-    long setupPartialDownloadedDataHeader(java.net.HttpURLConnection,java.lang.String,java.lang.String) -> E
-    void startBackgroundIsolate(android.content.Context) -> F
-    void updateNotification(android.content.Context,java.lang.String,int,int,android.app.PendingIntent,boolean) -> G
+    java.lang.String msgComplete -> w
+    java.lang.String msgPaused -> v
+    java.lang.String TAG -> y
+    java.util.regex.Pattern filenamePattern -> i
+    vn.hunghd.flutterdownloader.TaskDao taskDao -> l
+    java.util.regex.Pattern filenameStarPattern -> h
+    io.flutter.view.FlutterNativeView backgroundFlutterView -> B
+    long lastCallUpdateNotification -> x
+    io.flutter.plugin.common.MethodChannel backgroundChannel -> j
+    java.util.ArrayDeque isolateQueue -> A
+    int lastProgress -> p
+    int primaryId -> q
+    boolean isImageOrVideoFile(java.lang.String) -> A
+    void log(java.lang.String) -> B
+    void sendUpdateProcessEvent(int,int) -> C
+    void setupHeaders(java.net.HttpURLConnection,java.lang.String) -> D
+    void setupNotification(android.content.Context) -> E
+    long setupPartialDownloadedDataHeader(java.net.HttpURLConnection,java.lang.String,java.lang.String) -> F
+    void startBackgroundIsolate(android.content.Context) -> G
+    void updateNotification(android.content.Context,java.lang.String,int,int,android.app.PendingIntent,boolean) -> H
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
     androidx.work.ListenableWorker$Result doWork() -> p
     void access$000(vn.hunghd.flutterdownloader.DownloadWorker,android.content.Context) -> q
@@ -5951,9 +6185,9 @@ vn.hunghd.flutterdownloader.DownloadWorker -> vn.hunghd.flutterdownloader.Downlo
     void downloadFile(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean) -> u
     java.lang.String getCharsetFromContentType(java.lang.String) -> v
     java.lang.String getContentTypeWithoutCharset(java.lang.String) -> w
-    int getNotificationIconRes() -> x
-    boolean isExternalStoragePath(java.lang.String) -> y
-    boolean isImageOrVideoFile(java.lang.String) -> z
+    java.lang.String getFileNameFromContentDisposition(java.lang.String,java.lang.String) -> x
+    int getNotificationIconRes() -> y
+    boolean isExternalStoragePath(java.lang.String) -> z
 vn.hunghd.flutterdownloader.DownloadWorker$1 -> vn.hunghd.flutterdownloader.DownloadWorker$a:
     android.content.Context val$context -> a
     vn.hunghd.flutterdownloader.DownloadWorker this$0 -> b
@@ -6007,4 +6241,4 @@ vn.hunghd.flutterdownloader.TaskDao -> g.a.a.f:
     void updateTask(java.lang.String,boolean) -> j
 vn.hunghd.flutterdownloader.TaskDbHelper -> g.a.a.g:
     vn.hunghd.flutterdownloader.TaskDbHelper instance -> a
-    vn.hunghd.flutterdownloader.TaskDbHelper getInstance(android.content.Context) -> a
+    vn.hunghd.flutterdownloader.TaskDbHelper getInstance(android.content.Context) -> b

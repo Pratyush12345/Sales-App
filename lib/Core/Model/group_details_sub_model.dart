@@ -33,6 +33,15 @@ class EACvalues{
     this.strAq,
   } );
 }
+class Skippedmapn {
+  String mapncore;
+  String Reason;
+
+  Skippedmapn({
+    this.mapncore,
+    this.Reason,
+});
+}
 class EachyYearList {
   String tremtype;
   String mpan;
@@ -51,6 +60,27 @@ class EachyYearList {
   String dayEac;
   String nightEac;
   String gasEac;
+  bool visited;
+
+  String requiredUpliftDayGas ;
+  String requiredUpliftScGas ;
+  String upliftPreminumDayGas ;
+  String upliftPreminumScGas ;
+
+  String requiredUpliftDay ;
+  String requiredUpliftNight ;
+  String requiredUpliftEWE ;
+  String requiredUpliftSc ;
+
+  String upliftPreminumDay ;
+  String upliftPreminumNight ;
+  String upliftPreminumEWE ;
+  String upliftPreminumSc ;
+
+  String affiliateUpliftDay ;
+  String affiliateUpliftNight ;
+  String affiliateUpliftEWE ;
+  String affiliateUpliftSc ;
 
   EachyYearList({
     this.tremtype,
@@ -70,6 +100,28 @@ class EachyYearList {
     this.dayEac,
     this.nightEac,
     this.gasEac,
+    this.visited,
+
+    this.requiredUpliftDayGas,
+    this.requiredUpliftScGas,
+    this.upliftPreminumDayGas,
+    this.upliftPreminumScGas,
+
+    this.requiredUpliftDay ,
+    this.requiredUpliftNight ,
+    this.requiredUpliftEWE ,
+    this.requiredUpliftSc ,
+
+    this.upliftPreminumDay ,
+    this.upliftPreminumNight ,
+    this.upliftPreminumEWE ,
+    this.upliftPreminumSc ,
+
+    this.affiliateUpliftDay ,
+    this.affiliateUpliftNight ,
+    this.affiliateUpliftEWE ,
+    this.affiliateUpliftSc ,
+
   });
 }
 

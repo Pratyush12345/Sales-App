@@ -5,6 +5,7 @@ import 'package:pozitive/Core/AppConstact/appConstant.dart';
 import 'package:pozitive/Core/AppConstact/appString.dart';
 import 'package:pozitive/Core/ViewModel/group_quotation_viewmodel.dart';
 import 'package:pozitive/Pages/Group-Quotation-addButton/common_wids_group/check_box_field_widget.dart';
+import 'package:pozitive/Pages/Group-Quotation-addButton/common_wids_group/site_detail_widget.dart';
 import 'package:pozitive/Pages/Group-Quotation-addButton/common_wids_group/term_widget.dart';
 import 'package:pozitive/Util/theme.dart';
 import 'package:pozitive/Widget/commonWidget/appTextField.dart';
@@ -29,14 +30,22 @@ class GroupQuotationWidget extends StatefulWidget {
 }
 
 class _GroupQuotationWidgetState extends State<GroupQuotationWidget> {
-  bool _autovalidation = false;
+  @override
+  bool datecheck ;
+  void initState() {
+    super.initState();
+    datecheck = false;
+    autovalidation = false;
+  }
+
+  bool autovalidation = false;
   final ThemeApp themeApp = ThemeApp();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
 
   SiteListProvider siteListProviderData;
   GroupQuotaionDetailsProvider quotationDetailsProviderData;
-TabController3Provider tabController3Provider;
+  TabController3Provider tabController3Provider;
   @override
   Widget build(BuildContext context) {
     tabController3Provider = Provider.of<TabController3Provider>(context);
@@ -75,7 +84,7 @@ TabController3Provider tabController3Provider;
                     hintText: AppString.businessBasketName,
                     title: AppString.businessBasketName,
                     controller: model.businessNameController,
-                    autoValidation: _autovalidation,
+                    autoValidation: autovalidation,
                     textInputType: TextInputType.text,
                   ),
                   Row(
@@ -123,14 +132,14 @@ TabController3Provider tabController3Provider;
                   AppTextField(
                     title: AppString.groupName,
                     controller: model.groupNameController,
-                    autoValidation: _autovalidation,
+                    autoValidation: autovalidation,
                     textInputType: TextInputType.text,
                     hintText: AppString.groupName,
                     validator: (value) {
                       if (model.businessNameController.text == '' &&
                           model.groupNameController.text == '') {
                         return AppConstant.stringValidator(value,
-                            'Please enter either business/basket name or group name.');
+                            'either business/basket name or group name.');
                       }
                       return null;
                     },
@@ -186,7 +195,7 @@ TabController3Provider tabController3Provider;
                       FocusScope.of(context).requestFocus(FocusNode());
                       showDialog(
                         context: context,
-                        builder: (context)=> Dialog(
+                        builder: (context) => Dialog(
                           child: Column(
                             children: [
                               TypeAheadField(
@@ -224,6 +233,7 @@ TabController3Provider tabController3Provider;
                                     ),
                                     onTap: () {
                                       setState(() {
+                                        print(data.text);
                                         model.companyNameController.text =
                                             data.text;
 
@@ -254,7 +264,7 @@ TabController3Provider tabController3Provider;
                           enabled: true,
                           title: AppString.companyRegNo,
                           controller: model.companyRegNoController,
-                          autoValidation: _autovalidation,
+                          autoValidation: autovalidation,
                           textInputType: TextInputType.text,
                           hintText: AppString.companyRegNo,
 
@@ -265,7 +275,7 @@ TabController3Provider tabController3Provider;
                           enabled: false,
                           title: AppString.companyRegNo,
                           controller: model.companyRegNoController,
-                          autoValidation: _autovalidation,
+                          autoValidation: autovalidation,
                           textInputType: TextInputType.number,
                           hintText: AppString.companyRegNo,
                         ),
@@ -296,25 +306,45 @@ TabController3Provider tabController3Provider;
                             ShowTerm(
                               yearName: '1 Year',
                               year: model.oneYear,
-                              onTapYear: model.toggleOneYear,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleOneYear();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                             ShowTerm(
                               yearName: '2 Year',
                               year: model.twoYear,
-                              onTapYear: model.toggleTwoYear,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleTwoYear();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                             ShowTerm(
                               yearName: '3 Year',
                               year: model.threeYear,
-                              onTapYear: model.toggleThreeYear,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleThreeYear();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                             ShowTerm(
                               yearName: '4 Year',
                               year: model.fourYear,
-                              onTapYear: model.toggleFourYear,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleFourYear();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                           ],
@@ -325,13 +355,21 @@ TabController3Provider tabController3Provider;
                             ShowTerm(
                               yearName: '5 Year',
                               year: model.fiveYear,
-                              onTapYear: model.toggleFiveYear,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleFiveYear();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                             ShowTerm(
                               yearName: AppString.other,
                               year: model.other,
                               onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
                                 model.toggleOther(context);
                               },
                               yearSelected: model.isTermSelected,
@@ -339,7 +377,12 @@ TabController3Provider tabController3Provider;
                             ShowTerm(
                               yearName: AppString.all,
                               year: model.all,
-                              onTapYear: model.toggleAll,
+                              onTapYear: () {
+                                setState(() {
+                                  model.termError = "";
+                                });
+                                model.toggleAll();
+                              },
                               yearSelected: model.isTermSelected,
                             ),
                             Opacity(
@@ -409,16 +452,25 @@ TabController3Provider tabController3Provider;
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   DateTextFieldWidget(
-                    autoValidate: _autovalidation,
+                    autoValidate: datecheck,
                     obscureText: false,
-
                     hintText: model.dateRFormat.format(DateTime.now()),
                     controller: model.requireByDateController,
                     textInputType: TextInputType.text,
-                    // validator: (value) =>
-                    //     AppConstant.stringValidator(value, AppString.selectDate),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please Select Date";
+                      }
+                      return null;
+                    },
                     onTap: () {
                       FocusScope.of(context).unfocus();
+                      setState(() {
+                        if(datecheck)
+                          datecheck = false;
+                        else
+                        datecheck =true;
+                      });
                       model.selectDate(
                           context: context,
                           controller: model.requireByDateController,
@@ -446,13 +498,17 @@ TabController3Provider tabController3Provider;
                       : Container(),
                   (model.setCommonEndDate && model.other)
                       ? DateTextFieldWidget(
-                          autoValidate: _autovalidation,
+                          autoValidate: autovalidation,
                           obscureText: false,
                           controller: model.preferredEndDateController,
                           hintText: AppString.selectDate,
                           textInputType: TextInputType.text,
-                          validator: (value) => AppConstant.stringValidator(
-                              value, AppString.selectDate),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Please Select Date";
+                            }
+                            return null;
+                          },
                           onTap: () {
                             FocusScope.of(context).unfocus();
                             model.selectDate(
@@ -519,9 +575,9 @@ TabController3Provider tabController3Provider;
                       if (_formKey.currentState.validate() &&
                           model.checkTerms() &&
                           model.validateSiteDetails()) {
-                            print("==========================================");
+                        print("==========================================");
                         model.askForQuote(
-                         tabController3Provider: tabController3Provider,
+                          tabController3Provider: tabController3Provider,
                           quotaionDetailsProvider: quotationDetailsProviderData,
                           siteListProviderData: siteListProviderData,
                           textlist: model.textlist,
@@ -531,11 +587,20 @@ TabController3Provider tabController3Provider;
                               : "Update",
                         );
                       } else {
+                        model.sitevalidate(
+                          context: context,
+                        );
                         AppConstant.showFailToast(
                             context, "Please add required fields");
                         setState(() {
+                          if (model.checkTerms()) {
+                            model.termError = "";
+                          } else {
+                            model.termError = "Please select atleast one Term";
+                          }
                           model.termsSelect = false;
-                          _autovalidation = true;
+                          model.autovalidation = true;
+                          autovalidation = true;
                         });
                       }
                     },

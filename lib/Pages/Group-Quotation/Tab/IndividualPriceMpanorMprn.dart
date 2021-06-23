@@ -13,6 +13,10 @@ import 'dart:convert';
 import 'package:pozitive/Core/Model/user.dart';
 import 'package:pozitive/Util/Pref.dart';
 import 'package:pozitive/Pages/Group-Quotation/EditSite.dart';
+import 'package:pozitive/Widget/commonWidget/date_text_field_widget.dart';
+import 'package:intl/intl.dart';
+import 'package:pozitive/Widget/commonWidget/appTextField.dart';
+import 'package:pozitive/Core/AppConstact/appConstant.dart';
 
 class GroupQuotePriceList extends StatefulWidget {
   final int index;
@@ -20,20 +24,39 @@ class GroupQuotePriceList extends StatefulWidget {
   final List<EachyYearList> groupDetailslst;
   final String type;
   final List<GroupDetailsSubModel> groupdetailsprice;
+  final String yearType;
   GroupQuotePriceList(
-      {this.index, this.viewlist, @required this.groupDetailslst, this.type,this.groupdetailsprice});
+      {this.index,
+      this.viewlist,
+      @required this.groupDetailslst,
+      this.type,
+      this.groupdetailsprice,
+      this.yearType});
 
   @override
   _GroupQuotePriceListState createState() => _GroupQuotePriceListState();
 }
 
 class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
+  final _formKey = GlobalKey<FormState>();
   final ThemeApp themeApp = ThemeApp();
   String mpanOrMprn = '';
   RequestQuoteViewButtonModel requestQuoteViewButtonModel =
       RequestQuoteViewButtonModel();
   bool check = false;
   String title = '';
+  DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+
+  bool load = false;
+  @override
+  void initState() {
+    super.initState();
+    prevIndex = null;
+
+    setState(() {
+      load = false;
+    });
+  }
 
   String getMpanOrMprn() {
     //print(widget.groupDetailslst[widget.index].mprn);
@@ -55,7 +78,14 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
     // else{
     //   mpanOrMprn = widget.groupDetailslst[widget.index].mprn;
     // }
-
+    if (mpanOrMprn.length != 21 && mpanOrMprn.length > 10) {
+      for(int i=0;i<widget.groupdetailsprice.length;i++){
+        if(mpanOrMprn == widget.groupdetailsprice[i].mpan.substring(8)){
+          mpanOrMprn = widget.groupdetailsprice[i].mpan;
+          break;
+        }
+      }
+    }
     return mpanOrMprn; //'MPAN : ' + widget.groupDetailslst[widget.index].mpan;
   }
 
@@ -72,6 +102,20 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
     }
 
     return title + ' : ';
+  }
+
+  void selectDate({
+    @required BuildContext context,
+    @required TextEditingController controller,
+  }) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2101));
+    if (picked != null) {
+      controller.text = dateFormat.format(picked).toString();
+    }
   }
 
   @override
@@ -103,7 +147,7 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                 //     ),
                 //   ),
                 // ),
-                check
+                widget.groupDetailslst[widget.index].checkItem
                     ? InkWell(
                         onTap: () {
                           setState(() {
@@ -123,6 +167,14 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                                     .groupDetailslst[widget.index].tremtype ==
                                 '4') {
                               fourYear[widget.index].checkItem = false;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '5') {
+                              fiveYear[widget.index].checkItem = false;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '0') {
+                              otherYear[widget.index].checkItem = false;
                             }
                             print(check);
                             print(widget.index);
@@ -158,6 +210,14 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                                     .groupDetailslst[widget.index].tremtype ==
                                 '4') {
                               fourYear[widget.index].checkItem = true;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '5') {
+                              fiveYear[widget.index].checkItem = true;
+                            } else if (widget
+                                    .groupDetailslst[widget.index].tremtype ==
+                                '0') {
+                              otherYear[widget.index].checkItem = true;
                             }
                             print(check);
                           });
@@ -188,16 +248,17 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                     ),
                   ),
                 ),
-                title == "MPRN" ?
-                SizedBox(
+                title == "MPRN"
+                    ? SizedBox(
                         width: MediaQuery.of(context).size.width * .33,
-                      ) :
-                mpanOrMprn.length == 13 ? SizedBox(
-                  width: MediaQuery.of(context).size.width * .23,
-                ) : SizedBox(
-                  width: MediaQuery.of(context).size.width * .06,
-                )
-                ,
+                      )
+                    : mpanOrMprn.length == 13
+                        ? SizedBox(
+                            width: MediaQuery.of(context).size.width * .23,
+                          )
+                        : SizedBox(
+                            width: MediaQuery.of(context).size.width * .06,
+                          ),
                 Container(
                   padding: EdgeInsets.only(left: 5),
                   child: CupertinoButton(
@@ -207,23 +268,27 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                         groupDetailslst: widget.groupDetailslst,
                         groupdetailsprice: widget.groupdetailsprice,
                         index: widget.index,
-
                       );
+
                       showDialog(
                           context: context,
                           builder: (ctx) {
                             return Dialog(
                               child: Container(
-                                height: title == "MPAN" ? MediaQuery.of(context).size.height * 0.6 : MediaQuery.of(context).size.height * 0.47,
-                                width: MediaQuery.of(context).size.width ,
+                                height: title == "MPAN"
+                                    ? MediaQuery.of(context).size.height * 0.6
+                                    : MediaQuery.of(context).size.height * 0.47,
+                                width: MediaQuery.of(context).size.width,
                                 child: ListView(
                                   children: [
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Container(
                                           height: 50,
-                                          color: Color.fromRGBO(128, 189, 40, 1),
+                                          color:
+                                              Color.fromRGBO(128, 189, 40, 1),
                                           child: Row(
                                             children: [
                                               Padding(
@@ -232,10 +297,11 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                                                 child: Text(
                                                   "Edit Site Detail (GROUPID :- ${widget.groupDetailslst[widget.index].grpId})",
                                                   style: TextStyle(
-                                                    fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                        .020,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            .020,
                                                     color: Colors.white,
                                                     //fontWeight: ,
                                                   ),
@@ -258,348 +324,592 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                                           ),
                                         ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.015,
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 20,),
+                                          padding: EdgeInsets.only(
+                                            left: 20,
+                                          ),
                                           child: Text(
                                             title,
                                             style: TextStyle(
                                                 fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
+                                                        .size
+                                                        .height *
                                                     .015,
-                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                                color: Color.fromRGBO(
+                                                    31, 33, 29, 1)),
                                           ),
                                         ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.010,
                                         ),
-                                        title == "MPAN" ? Column(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.only(left: 20,right: 10),
-                                              child: Container(
-                                                height: MediaQuery.of(context).size.height * .052,
-                                                width: MediaQuery.of(context).size.width *0.7,
-                                                child: Row(
-                                                  children: [
-                                                    Expanded(
-
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child:
-                                                        TextFormField(
-                                                          controller: mpan1,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.2,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
+                                        title == "MPAN"
+                                            ? Column(
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 20, right: 10),
+                                                    child: Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              .052,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.7,
+                                                      child: Row(
+                                                        children: [
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan1,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.2,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan2,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.25,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan3,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.2,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
+                                                      decoration: BoxDecoration(
+                                                          color: Colors.white,
+                                                          border: Border.all(
+                                                              color: themeApp
+                                                                  .textfieldbordercolor,
+                                                              width: 2),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          5),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          5))),
                                                     ),
-                                                    Expanded(
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 20, right: 10),
+                                                    child: Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              .052,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.7,
+                                                      child: Row(
+                                                        children: [
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan4,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.2,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan5,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.25,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan6,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.2,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 10),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller:
+                                                                    mpan7,
+                                                              ),
+                                                              // width: MediaQuery.of(context).size.width *0.2,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border(
+                                                                      right: BorderSide(
+                                                                          color: Color.fromRGBO(
+                                                                              128,
+                                                                              189,
+                                                                              40,
+                                                                              1)))),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                          color: Colors.white,
+                                                          border: Border.all(
+                                                              color: themeApp
+                                                                  .textfieldbordercolor,
+                                                              width: 2),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          5),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          5))),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            : Column(
+                                                children: [
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 20),
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.7,
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            .052,
+                                                    child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 5),
+                                                      child:
+                                                          // AppTextField(
+                                                          //   enabled: true,
+                                                          //   //title: AppString.Day,
+                                                          //   controller: mprnedit,
+                                                          //   autoValidation: true,
+                                                          //   textInputType: TextInputType.number,
+                                                          //     validator: (value) {
+                                                          //
+                                                          //       if (value.isNotEmpty) {
+                                                          //         if (double.tryParse(mprnedit.text) <=8 && double.tryParse(mprnedit.text) >10 ) {
+                                                          //           return 'value between 8 to 10';
+                                                          //         }
+                                                          //       }
+                                                          //       return null;
+                                                          //     },
+                                                          // ),
+                                                          Form(
+                                                        key: _formKey,
                                                         child: TextFormField(
-                                                          controller: mpan2,
+                                                          controller: mprnedit,
+                                                          autovalidate: true,
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          validator: (value) {
+                                                            if (value
+                                                                .isNotEmpty) {
+                                                              if (value.length <=
+                                                                      8 &&
+                                                                  value.length >
+                                                                      10) {
+                                                                return 'value between 8 to 10';
+                                                              }
+                                                            }
+                                                            return null;
+                                                          },
                                                         ),
-                                                        // width: MediaQuery.of(context).size.width *0.25,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
                                                       ),
                                                     ),
-                                                    Expanded(
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child: TextFormField(
-                                                          controller: mpan3,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.2,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
-                                                      ),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      border: Border.all(
+                                                          color: themeApp
+                                                              .textfieldbordercolor,
+                                                          width: 2),
+                                                      // borderRadius: BorderRadius.only(
+                                                      //     bottomLeft: Radius.circular(5),
+                                                      //     bottomRight: Radius.circular(5))
                                                     ),
-                                                  ],
-                                                ),
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    border: Border.all(
-                                                        color: themeApp.textfieldbordercolor, width: 2),
-                                                    borderRadius: BorderRadius.only(
-                                                        bottomLeft: Radius.circular(5),
-                                                        bottomRight: Radius.circular(5))),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(left: 20,right: 10),
-                                              child: Container(
-                                                height: MediaQuery.of(context).size.height * .052,
-                                                width: MediaQuery.of(context).size.width *0.7,
-                                                child: Row(
-                                                  children: [
-                                                    Expanded(
-
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child: TextFormField(
-                                                          controller: mpan4,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.2,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child: TextFormField(
-                                                          controller: mpan5,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.25,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child:
-                                                        TextFormField(
-                                                          controller: mpan6,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.2,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Container(
-                                                        margin: EdgeInsets.only(left: 10),
-                                                        child: TextFormField(
-                                                          controller: mpan7,
-                                                        ),
-                                                        // width: MediaQuery.of(context).size.width *0.2,
-                                                        decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: Color.fromRGBO(
-                                                                        128, 189, 40, 1)))),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    border: Border.all(
-                                                        color: themeApp.textfieldbordercolor, width: 2),
-                                                    borderRadius: BorderRadius.only(
-                                                        bottomLeft: Radius.circular(5),
-                                                        bottomRight: Radius.circular(5))),
-                                              ),
-                                            ),
-                                          ],
-                                        ) : Column(
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(left: 20),
-                                              width: MediaQuery.of(context).size.width *0.7,
-                                              height: MediaQuery.of(context).size.height * .052,
-                                              child: Padding(
-                                                padding: EdgeInsets.only(left: 5),
-                                                child: TextFormField(
-                                                  controller: mprnedit,
-                                                ),
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                border: Border.all(
-                                                    color: themeApp.textfieldbordercolor, width: 2),
-                                                // borderRadius: BorderRadius.only(
-                                                //     bottomLeft: Radius.circular(5),
-                                                //     bottomRight: Radius.circular(5))
-                                              ),
-                                            ),
-                                          ],
-                                        ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.015,
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 20,),
+                                          padding: EdgeInsets.only(
+                                            left: 20,
+                                          ),
                                           child: Text(
                                             title == "MPAN" ? "Day EAC" : "AQ",
                                             style: TextStyle(
                                                 fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
+                                                        .size
+                                                        .height *
                                                     .015,
-                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                                color: Color.fromRGBO(
+                                                    31, 33, 29, 1)),
                                           ),
                                         ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.010,
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(left: 20),
-                                          width: MediaQuery.of(context).size.width *0.7,
-                                          height: MediaQuery.of(context).size.height * .052,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.7,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .052,
                                           child: Padding(
                                             padding: EdgeInsets.only(left: 5),
                                             child: TextFormField(
-                                              controller:   title == "MPAN" ?  dayEAC: strAq,
+                                              controller: title == "MPAN"
+                                                  ? dayEAC
+                                                  : strAq,
                                             ),
                                           ),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             border: Border.all(
-                                                color: themeApp.textfieldbordercolor, width: 2),
+                                                color: themeApp
+                                                    .textfieldbordercolor,
+                                                width: 2),
                                             // borderRadius: BorderRadius.only(
                                             //     bottomLeft: Radius.circular(5),
                                             //     bottomRight: Radius.circular(5))
                                           ),
                                         ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.015,
                                         ),
-                                        title == "MPAN" ? Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.only(left: 20,),
-                                              child: Text(
-                                                "Night EAC",
-                                                style: TextStyle(
-                                                    fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                        .015,
-                                                    color: Color.fromRGBO(31, 33, 29, 1)),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.010,
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 20),
-                                              width: MediaQuery.of(context).size.width *0.7,
-                                              height: MediaQuery.of(context).size.height * .052,
-                                              child: Padding(
-                                                padding: EdgeInsets.only(left: 5),
-                                                child: TextFormField(
-                                                  controller: nightEAC,
-                                                ),
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                border: Border.all(
-                                                    color: themeApp.textfieldbordercolor, width: 2),
-                                                // borderRadius: BorderRadius.only(
-                                                //     bottomLeft: Radius.circular(5),
-                                                //     bottomRight: Radius.circular(5))
-                                              ),
-                                            ),
-                                          ],
-                                        ) : Container(),
+                                        title == "MPAN"
+                                            ? Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                      left: 20,
+                                                    ),
+                                                    child: Text(
+                                                      "Night EAC",
+                                                      style: TextStyle(
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              .015,
+                                                          color: Color.fromRGBO(
+                                                              31, 33, 29, 1)),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.010,
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 20),
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.7,
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            .052,
+                                                    child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 5),
+                                                      child: TextFormField(
+                                                        controller: nightEAC,
+                                                      ),
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      border: Border.all(
+                                                          color: themeApp
+                                                              .textfieldbordercolor,
+                                                          width: 2),
+                                                      // borderRadius: BorderRadius.only(
+                                                      //     bottomLeft: Radius.circular(5),
+                                                      //     bottomRight: Radius.circular(5))
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            : Container(),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.015,
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 20,),
+                                          padding: EdgeInsets.only(
+                                            left: 20,
+                                          ),
                                           child: Text(
                                             "Contract Start Date",
                                             style: TextStyle(
                                                 fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
+                                                        .size
+                                                        .height *
                                                     .015,
-                                                color: Color.fromRGBO(31, 33, 29, 1)),
+                                                color: Color.fromRGBO(
+                                                    31, 33, 29, 1)),
                                           ),
                                         ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.010,
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.only(left: 20),
-                                          width: MediaQuery.of(context).size.width *0.7,
-                                          height: MediaQuery.of(context).size.height * .052,
-                                          child: Padding(
-                                            padding: EdgeInsets.only(left: 5),
-                                            child: TextFormField(
-                                              controller: conStartDate,
-                                            ),
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            border: Border.all(
-                                                color: themeApp.textfieldbordercolor, width: 2),
-                                            // borderRadius: BorderRadius.only(
-                                            //     bottomLeft: Radius.circular(5),
-                                            //     bottomRight: Radius.circular(5))
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 20, right: 20),
+                                          child: DateTextFieldWidget(
+                                            autoValidate: true,
+                                            obscureText: false,
+
+                                            hintText:
+                                                DateFormat("dd/MM/yyyy hh:mm")
+                                                    .format(DateTime.now()),
+                                            controller: conStartDate,
+                                            textInputType: TextInputType.text,
+                                            // validator: (value) =>
+                                            //     AppConstant.stringValidator(value, AppString.selectDate),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              selectDate(
+                                                context: context,
+                                                controller: conStartDate,
+                                              );
+                                              //controller: conStartDate;
+                                            },
                                           ),
                                         ),
+                                        // Container(
+                                        //   margin: EdgeInsets.only(left: 20),
+                                        //   width: MediaQuery.of(context).size.width *0.7,
+                                        //   height: MediaQuery.of(context).size.height * .052,
+                                        //   child: Padding(
+                                        //     padding: EdgeInsets.only(left: 5),
+                                        //     child: TextFormField(
+                                        //       controller: conStartDate,
+                                        //     ),
+                                        //   ),
+                                        //   decoration: BoxDecoration(
+                                        //     color: Colors.white,
+                                        //     border: Border.all(
+                                        //         color: themeApp.textfieldbordercolor, width: 2),
+                                        //     // borderRadius: BorderRadius.only(
+                                        //     //     bottomLeft: Radius.circular(5),
+                                        //     //     bottomRight: Radius.circular(5))
+                                        //   ),
+                                        // ),
                                         SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               0.035,
                                         ),
+                                        // load == true
+                                        //     ? Container(
+                                        //         child: AppConstant
+                                        //             .circularProgressIndicator(),
+                                        //       )
+                                        //     : Container(),
+
                                         Padding(
-                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 10),
                                           child: Container(
-                                            width: MediaQuery.of(context).size.width,
-                                            height: MediaQuery.of(context).size.height * 0.058,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.058,
                                             child: TextButton(
                                               child: Text(
                                                 "Update",
                                                 style: TextStyle(
                                                     color: Colors.white,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.019,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.019,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               onPressed: () async {
+                                                setState(() {
+                                                  load = true;
+                                                });
+                                                print(load);
                                                 var res = await Editsitecallapi(
-                                                  groupDetailslst1: widget.groupDetailslst,
-                                                  groupdetailsprice: widget.groupdetailsprice,
+                                                  groupDetailslst1:
+                                                      widget.groupDetailslst,
+                                                  groupdetailsprice:
+                                                      widget.groupdetailsprice,
                                                   index: widget.index,
                                                 );
-                                                if(res['status'] == "1"){
+                                                setState(() {
+                                                  load = false;
+                                                });
+                                                print(load);
+                                                if (res['status'] == "1") {
                                                   setState(() {
-                                                    widget.groupDetailslst[widget.index].mpan = mpan1.text + mpan2.text + mpan3.text + mpan4.text + mpan5.text + mpan6.text + mpan7.text ;
-                                                    widget.groupDetailslst[widget.index].mprn = mprnedit.text;
-                                                    widget.groupDetailslst[widget.index].contractStartDate = conStartDate.text;
+                                                    widget
+                                                            .groupDetailslst[
+                                                                widget.index]
+                                                            .mpan =
+                                                        mpan1.text +
+                                                            mpan2.text +
+                                                            mpan3.text +
+                                                            mpan4.text +
+                                                            mpan5.text +
+                                                            mpan6.text +
+                                                            mpan7.text;
+                                                    widget
+                                                        .groupDetailslst[
+                                                            widget.index]
+                                                        .mprn = mprnedit.text;
+                                                    widget
+                                                            .groupDetailslst[
+                                                                widget.index]
+                                                            .contractStartDate =
+                                                        conStartDate.text;
                                                   });
                                                   Navigator.of(context).pop();
                                                   showDialog(
@@ -608,56 +918,53 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
                                                         return AlertDialog(
                                                           title: Text(
                                                             "Successfully Edited site",
-
                                                           ),
-
                                                           actions: <Widget>[
                                                             FlatButton(
                                                               child: Text("ok"),
                                                               onPressed: () {
-                                                                Navigator.of(ctx).pop();
+                                                                Navigator.of(
+                                                                        ctx)
+                                                                    .pop();
                                                               },
                                                             ),
-
                                                           ],
                                                         );
                                                       });
-                                                }
-                                                else{
-                                                   Navigator.of(context).pop();
+                                                } else {
+                                                  Navigator.of(context).pop();
                                                   showDialog(
                                                       context: context,
                                                       builder: (ctx) {
                                                         return AlertDialog(
                                                           title: Text(
                                                             "Not Edited site Successfully",
-
                                                           ),
-
                                                           actions: <Widget>[
                                                             FlatButton(
                                                               child: Text("ok"),
                                                               onPressed: () {
-                                                                Navigator.of(ctx).pop();
+                                                                Navigator.of(
+                                                                        ctx)
+                                                                    .pop();
                                                               },
                                                             ),
-
                                                           ],
                                                         );
                                                       });
                                                 }
-
                                               },
                                             ),
                                             decoration: BoxDecoration(
-                                                color: Color.fromRGBO(155, 119, 217, 1),
-                                                borderRadius: BorderRadius.circular(30)),
+                                                color: Color.fromRGBO(
+                                                    155, 119, 217, 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ],
-
                                 ),
                               ),
                               // EditSitewidget(
@@ -773,28 +1080,25 @@ class _GroupQuotePriceListState extends State<GroupQuotePriceList> {
             ? Container(
                 padding: EdgeInsets.only(bottom: 20),
                 child: Column(
-                      children: [
-                        play(
-                          quoteId: '1',
-                          requestQuote: requestQuoteViewButtonModel,
-                          title: 'Requested Requote',
-                          groupDetailslst: widget.groupDetailslst,
-                          index: widget.index,
-                          type: title,
-                        ),
-                        Padding(padding: EdgeInsets.only(bottom: 10, top: 10)),
-                      ],
+                  children: [
+                    play(
+                      yearType: widget.yearType,
+                      requestQuote: requestQuoteViewButtonModel,
+                      title: 'Requested Requote',
+                      groupDetailslst: widget.groupDetailslst,
+                      index: widget.index,
+                      type: title,
                     ),
-
-
+                    Padding(padding: EdgeInsets.only(bottom: 10, top: 10)),
+                  ],
+                ),
               )
             : Container()
       ],
     );
   }
-
-
 }
+
 // ListView(
 //   shrinkWrap: true,
 //

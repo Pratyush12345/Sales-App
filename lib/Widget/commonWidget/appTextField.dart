@@ -20,6 +20,7 @@ class AppTextField extends StatelessWidget {
   Function onChanged;
   FocusNode focusNode;
   Function onFieldSubmitted;
+  Function onTap;
   AppTextField(
       {this.initialValue,
       this.enabled: true,
@@ -35,7 +36,8 @@ class AppTextField extends StatelessWidget {
       this.textInputFormatter,
       this.maxlength,
       this.focusNode,
-      this.onChanged});
+      this.onChanged,
+      this.onTap});
 
   ThemeApp theme = ThemeApp();
   @override
@@ -61,6 +63,7 @@ class AppTextField extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         TextFormField(
+          onTap: onTap,
           onChanged: onChanged,
           maxLength: maxlength,
           enabled: enabled,

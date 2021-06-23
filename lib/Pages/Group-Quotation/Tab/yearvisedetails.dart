@@ -6,6 +6,7 @@ import 'package:pozitive/Core/AppConstact/appString.dart';
 import 'package:pozitive/Core/Model/request_quote_viewbutton_model.dart';
 import 'package:pozitive/Core/Model/user.dart';
 import 'package:pozitive/Core/Model/view_quotation_page_argument.dart';
+import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/view_group_details_viewmodel.dart';
 import 'package:pozitive/Core/ViewModel/quotation_page/gas_price_one_viewmodel.dart';
 import 'package:pozitive/Core/baseview.dart';
 import 'package:pozitive/Core/enums/view_state.dart';
@@ -21,9 +22,9 @@ import 'package:pozitive/Core/Services/database.dart';
 import 'package:pozitive/Core/Model/Api/ask_for_requote_credential..dart';
 import 'package:pozitive/Core/Model/group_details_sub_model.dart';
 import 'package:pozitive/Core/ViewModel/Group-Quotation/group_quotation/group_final_Qutation_viewmodel.dart';
-
+import 'package:pozitive/Widget/commonWidget/appTextField.dart';
 class play extends StatefulWidget {
-  final String quoteId;
+  final String yearType;
   // final ViewQuotationPageArgument argument;
   final RequestQuoteViewButtonModel requestQuote;
   final String title;
@@ -31,7 +32,7 @@ class play extends StatefulWidget {
   final int index;
   final String type;
   const play(
-      {this.quoteId,
+      {this.yearType,
       this.requestQuote,
       this.title,
       @required this.groupDetailslst,
@@ -64,6 +65,8 @@ class _playState extends State<play> {
   TextEditingController baseratenight = TextEditingController();
   TextEditingController baserateEwe = TextEditingController();
   TextEditingController baserateSC = TextEditingController();
+
+
   @override
   void initState() {
     //onCallApi();
@@ -114,1577 +117,1642 @@ class _playState extends State<play> {
   @override
   Widget build(BuildContext context) {
     return BaseView<finalQuotationpPriceModel>(
-        onModelReady: (model) => model.initializeData(widget.requestQuote, '1',
+        onModelReady: (model) => model.initializeData(widget.requestQuote, widget.yearType,
             widget.groupDetailslst, widget.index, widget.type),
         builder: (context, model, child) {
-          return Padding(
-            padding: EdgeInsets.all(0),
-            child: Column(children: <Widget>[
-              SizedBox(
-                width: 20,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.90,
-                  padding: EdgeInsets.all(10),
-                  color: Color.fromRGBO(18, 122, 69, 1),
-                  child: Text(
-                    "Contract",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  InkWell(
-                    child: Container(
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: new Border(
-                          left: new BorderSide(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                          bottom: new BorderSide(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                        )),
+          return GestureDetector(
+            onTap: () {
+
+              FocusScope.of(context).requestFocus(new FocusNode());
+            },
+            child: Padding(
+              padding: EdgeInsets.all(0),
+              child: Column(children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    padding: EdgeInsets.all(10),
+                    color: Color.fromRGBO(18, 122, 69, 1),
+                    child: Text(
+                      "Contract",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      child: Container(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: new Border(
+                            left: new BorderSide(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                            bottom: new BorderSide(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                          )),
 
 //color: Color.fromRGBO(18, 122, 69, 1),
-                        child: Text(
-                          "Start Date : ${widget.groupDetailslst[widget.index].contractStartDate}",
-                          style: TextStyle(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              fontWeight: FontWeight.w600),
-                        )),
-                  ),
-                  InkWell(
+                          child: Text(
+                            "Start Date : ${widget.groupDetailslst[widget.index].contractStartDate}",
+                            style: TextStyle(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                fontWeight: FontWeight.w600),
+                          )),
+                    ),
+                    InkWell(
 // onTap: () {
 //   model.selectDate(context, 'end');
 // },
-                    child: Container(
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: new Border(
-                          left: new BorderSide(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                          bottom: new BorderSide(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                          right: new BorderSide(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                        )),
+                      child: Container(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: new Border(
+                            left: new BorderSide(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                            bottom: new BorderSide(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                            right: new BorderSide(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                          )),
 //color: Color.fromRGBO(18, 122, 69, 1),
-                        child: Text(
-                          'End Date : ${widget.groupDetailslst[widget.index].contractEndDate}',
+                          child: Text(
+                            'End Date : ${widget.groupDetailslst[widget.index].contractEndDate}',
 
 //  'End Date : ${contractEndDate[2]}/${contractEndDate[1]}/${contractEndDate[0]}',
-                          style: TextStyle(
-                              color: Color.fromRGBO(18, 122, 69, 1),
-                              fontWeight: FontWeight.w600),
-                          maxLines: 1,
-                        )),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.94,
+                            style: TextStyle(
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                fontWeight: FontWeight.w600),
+                            maxLines: 1,
+                          )),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.94,
 //padding: EdgeInsets.only(top :10,bottom: 10),
-                  child: Text(
-                    "Base Rate",
-                    style: TextStyle(
-                        color: Color.fromRGBO(18, 122, 69, 1),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              new Divider(
-                color: Color.fromRGBO(18, 122, 69, 1),
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              widget.type == "MPAN" ? Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                    child: Text(
+                      "Base Rate",
+                      style: TextStyle(
+                          color: Color.fromRGBO(18, 122, 69, 1),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                new Divider(
+                  color: Color.fromRGBO(18, 122, 69, 1),
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                widget.type == "MPAN" ? Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.Day,
-                          controller: baserateday,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.Day,
+                            controller: baserateday,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Day),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.Night,
-                          controller: baseratenight,
-                          autoValidation: _autovalidation,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.Night,
+                            controller: baseratenight,
+                            autoValidation: _autovalidation,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Night),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.EWE,
-                          controller: baserateEwe,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.EWE),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.EWE,
+                            controller: baserateEwe,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.EWE),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.SC,
-                          controller: baserateSC,
-                          autoValidation: _autovalidation,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.SC),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.SC,
+                            controller: baserateSC,
+                            autoValidation: _autovalidation,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.SC),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ) : Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                      ],
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.Day,
-                          controller: baserateday,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.Day,
+                            controller: baserateday,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Day),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: false,
-                          title: AppString.SC,
-                          controller: baserateSC,
-                          autoValidation: _autovalidation,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
+                          child: AppTextField(
+                            enabled: false,
+                            title: AppString.SC,
+                            controller: baserateSC,
+                            autoValidation: _autovalidation,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Night),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
 
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.94,
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.94,
 //padding: EdgeInsets.only(top :10,bottom: 10),
-                  child: Text(
-                    "Required Uplift",
-                    style: TextStyle(
-                        color: Color.fromRGBO(18, 122, 69, 1),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              new Divider(
-                color: Color.fromRGBO(18, 122, 69, 1),
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              widget.type == "MPAN" ? Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                    child: Text(
+                      "Required Uplift",
+                      style: TextStyle(
+                          color: Color.fromRGBO(18, 122, 69, 1),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                new Divider(
+                  color: Color.fromRGBO(18, 122, 69, 1),
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                widget.type == "MPAN" ? Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: requiredUpliftDay,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftDay.text) >=0 && double.parse(requiredUpliftDay.text) <=1.5)
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: requiredUpliftDay,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftDay = requiredUpliftDay.text;
+                                if(double.parse(requiredUpliftDay.text) >=0 && double.parse(requiredUpliftDay.text) <=1.5)
+                                  {
+                                   upliftPreminumDay.text ='0' ;
+                                  }
+                                else if(double.parse(requiredUpliftDay.text) >1.5 && double.parse(requiredUpliftDay.text) <=2){
+                                  upliftPreminumDay.text ='0.1' ;
+                                }
+                                else if(double.parse(requiredUpliftDay.text) >2 && double.parse(requiredUpliftDay.text) <=2.5){
+                                  upliftPreminumDay.text ='0.2' ;
+                                }
+                                else{
+                                  upliftPreminumDay.text ='0.3' ;
+                                }
+                                tempList[widget.index].upliftPreminumDay = upliftPreminumDay.text;
+                                finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDay.text)+
+                                    double.parse(text))
+                                    .toString();
+                              });
+                            },
+                            // onChanged: (text) {
+                            //   setState(() {
+                            //     eleUniVar1 = double.tryParse(text.toString());
+                            //     // if (double.tryParse(text) > 3) {
+                            //     //   //hideKeyboard();
+                            //     //   return 'max value 3';
+                            //     validate1 =true;
+                            //     // }
+                            //   });
+                            // },
+
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                              RegExp regexp = new RegExp(
+                                r"^|\-|\,|\ ",
+                                caseSensitive: false,
+                                multiLine: false,
+                              );
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 3) {
+                                  return 'max value 3';
+                                }
+                              }
+                              else{
+                                return "Required";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Night,
+                            controller: requiredUpliftNight,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftNight = requiredUpliftNight.text;
+                                if(double.parse(requiredUpliftNight.text) >=0 && double.parse(requiredUpliftNight.text) <=1.5)
                                 {
-                                 upliftPreminumDay.text ='0' ;
+                                  upliftPreminumNight.text ='0' ;
                                 }
-                              else if(double.parse(requiredUpliftDay.text) >1.5 && double.parse(requiredUpliftDay.text) <=2){
-                                upliftPreminumDay.text ='0.1' ;
-                              }
-                              else if(double.parse(requiredUpliftDay.text) >2 && double.parse(requiredUpliftDay.text) <=2.5){
-                                upliftPreminumDay.text ='0.2' ;
-                              }
-                              else{
-                                upliftPreminumDay.text ='0.3' ;
-                              }
-                              finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDay.text)+
-                                  double.parse(text))
-                                  .toString();
-                            });
-                          },
-                          // onChanged: (text) {
-                          //   setState(() {
-                          //     eleUniVar1 = double.tryParse(text.toString());
-                          //     // if (double.tryParse(text) > 3) {
-                          //     //   //hideKeyboard();
-                          //     //   return 'max value 3';
-                          //     validate1 =true;
-                          //     // }
-                          //   });
-                          // },
-
-                          validator: (value) {
-                            String patttern =
-                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
-                            RegExp regexp = new RegExp(
-                              r"^|\-|\,|\ ",
-                              caseSensitive: false,
-                              multiLine: false,
-                            );
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.isNotEmpty) {
-                              if (double.tryParse(value) > 3) {
-                                return 'max value 3';
-                              }
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Night,
-                          controller: requiredUpliftNight,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftNight.text) >=0 && double.parse(requiredUpliftNight.text) <=1.5)
-                              {
-                                upliftPreminumNight.text ='0' ;
-                              }
-                              else if(double.parse(requiredUpliftNight.text) >1.5 && double.parse(requiredUpliftNight.text) <=2){
-                                upliftPreminumNight.text ='0.1' ;
-                              }
-                              else if(double.parse(requiredUpliftNight.text) >2 && double.parse(requiredUpliftNight.text) <=2.5){
-                                upliftPreminumNight.text ='0.2' ;
+                                else if(double.parse(requiredUpliftNight.text) >1.5 && double.parse(requiredUpliftNight.text) <=2){
+                                  upliftPreminumNight.text ='0.1' ;
+                                }
+                                else if(double.parse(requiredUpliftNight.text) >2 && double.parse(requiredUpliftNight.text) <=2.5){
+                                  upliftPreminumNight.text ='0.2' ;
+                                }
+                                else{
+                                  upliftPreminumNight.text ='0.3' ;
+                                }
+                                tempList[widget.index].upliftPreminumNight = upliftPreminumNight.text;
+                                finalPriceNight.text =
+                                    (double.parse(baseratenight.text) + double.parse(upliftPreminumNight.text)+
+                                        double.parse(text))
+                                        .toString();
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                              RegExp regexp = new RegExp(
+                                r"^|\-|\,|\ ",
+                                caseSensitive: false,
+                                multiLine: false,
+                              );
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 3) {
+                                  return 'max value 3';
+                                }
                               }
                               else{
-                                upliftPreminumNight.text ='0.3' ;
+                                return "Required";
                               }
-                              finalPriceNight.text =
-                                  (double.parse(baseratenight.text) + double.parse(upliftPreminumNight.text)+
-                                      double.parse(text))
-                                      .toString();
-                            });
-                          },
-                          validator: (value) {
-                            String patttern =
-                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
-                            RegExp regexp = new RegExp(
-                              r"^|\-|\,|\ ",
-                              caseSensitive: false,
-                              multiLine: false,
-                            );
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.isNotEmpty) {
-                              if (double.tryParse(value) > 3) {
-                                return 'max value 3';
-                              }
-                            }
-                            return null;
-                          },
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.EWE,
-                          controller: requiredUpliftEWE,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftEWE.text) >=0 && double.parse(requiredUpliftEWE.text) <=1.5)
-                              {
-                                upliftPreminumEWE.text ='0' ;
-                              }
-                              else if(double.parse(requiredUpliftEWE.text) >1.5 && double.parse(requiredUpliftEWE.text) <=2){
-                                upliftPreminumEWE.text ='0.1' ;
-                              }
-                              else if(double.parse(requiredUpliftEWE.text) >2 && double.parse(requiredUpliftEWE.text) <=2.5){
-                                upliftPreminumEWE.text ='0.2' ;
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.EWE,
+                            controller: requiredUpliftEWE,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftEWE = requiredUpliftEWE.text;
+                                if(double.parse(requiredUpliftEWE.text) >=0 && double.parse(requiredUpliftEWE.text) <=1.5)
+                                {
+                                  upliftPreminumEWE.text ='0' ;
+                                }
+                                else if(double.parse(requiredUpliftEWE.text) >1.5 && double.parse(requiredUpliftEWE.text) <=2){
+                                  upliftPreminumEWE.text ='0.1' ;
+                                }
+                                else if(double.parse(requiredUpliftEWE.text) >2 && double.parse(requiredUpliftEWE.text) <=2.5){
+                                  upliftPreminumEWE.text ='0.2' ;
+                                }
+                                else{
+                                  upliftPreminumEWE.text ='0.3' ;
+                                }
+                                tempList[widget.index].upliftPreminumEWE = upliftPreminumEWE.text;
+                                finalPriceEWE.text = (double.parse(
+                                    baserateEwe.text == null
+                                        ? baserateEwe.text
+                                        : '0') + double.parse(upliftPreminumEWE.text)+
+                                    double.parse(text))
+                                    .toString();
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
+                              RegExp regexp = new RegExp(
+                                r"^|\-|\,|\ ",
+                                caseSensitive: false,
+                                multiLine: false,
+                              );
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                if (double.tryParse(value) > 3) {
+                                  return 'max value 3';
+                                }
                               }
                               else{
-                                upliftPreminumEWE.text ='0.3' ;
+                                return "Required";
                               }
-                              finalPriceEWE.text = (double.parse(
-                                  baserateEwe.text == null
-                                      ? baserateEwe.text
-                                      : '0') + double.parse(upliftPreminumEWE.text)+
-                                  double.parse(text))
-                                  .toString();
-                            });
-                          },
-                          validator: (value) {
-                            String patttern =
-                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
-                            RegExp regexp = new RegExp(
-                              r"^|\-|\,|\ ",
-                              caseSensitive: false,
-                              multiLine: false,
-                            );
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.isNotEmpty) {
-                              if (double.tryParse(value) > 3) {
-                                return 'max value 3';
-                              }
-                            }
-                            return null;
-                          },
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: requiredUpliftSc,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftSc.text) == 0  ){
-                                upliftPreminumSc.text = "0";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >0 && double.parse(requiredUpliftSc.text) <=10 ){
-                                upliftPreminumSc.text = "1";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >10 && double.parse(requiredUpliftSc.text) <=20 ){
-                                upliftPreminumSc.text = "2";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >20 && double.parse(requiredUpliftSc.text) <=30 ){
-                                upliftPreminumSc.text = "3";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >30 && double.parse(requiredUpliftSc.text) <=40 ){
-                                upliftPreminumSc.text = "4";
-                              }
-                              else{
-                                upliftPreminumSc.text = "5";
-                              }
-                              finalPriceSc.text = (double.parse(baserateSC.text) + double.parse(upliftPreminumSc.text)+
-                                  double.parse(text))
-                                  .toString();
-                            });
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (requiredUpliftDay.text != null) {
-                                if (double.parse(requiredUpliftDay.text) > 0) {
-                                  if (double.tryParse(value) > 50) {
-                                    return 'Max value is 50';
-                                  } else {}
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: requiredUpliftSc,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftSc = requiredUpliftSc.text;
+                                if(double.parse(requiredUpliftSc.text) == 0  ){
+                                  upliftPreminumSc.text = "0";
                                 }
-                                if (double.parse(requiredUpliftDay.text)  == 0) {
+                                else if(double.parse(requiredUpliftSc.text) >0 && double.parse(requiredUpliftSc.text) <=10 ){
+                                  upliftPreminumSc.text = "1";
+                                }
+                                else if(double.parse(requiredUpliftSc.text) >10 && double.parse(requiredUpliftSc.text) <=20 ){
+                                  upliftPreminumSc.text = "2";
+                                }
+                                else if(double.parse(requiredUpliftSc.text) >20 && double.parse(requiredUpliftSc.text) <=30 ){
+                                  upliftPreminumSc.text = "3";
+                                }
+                                else if(double.parse(requiredUpliftSc.text) >30 && double.parse(requiredUpliftSc.text) <=40 ){
+                                  upliftPreminumSc.text = "4";
+                                }
+                                else{
+                                  upliftPreminumSc.text = "5";
+                                }
+                                tempList[widget.index].upliftPreminumSc = upliftPreminumSc.text;
+                                finalPriceSc.text = (double.parse(baserateSC.text) + double.parse(upliftPreminumSc.text)+
+                                    double.parse(text))
+                                    .toString();
+                              });
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (requiredUpliftDay.text != null) {
+                                  if (double.parse(requiredUpliftDay.text) > 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    } else {}
+                                  }
+                                  if (double.parse(requiredUpliftDay.text)  == 0) {
+                                    if (double.tryParse(value) > 100) {
+                                      return 'Max value is 100';
+                                    }
+                                  }
+                                } else {
                                   if (double.tryParse(value) > 100) {
                                     return 'Max value is 100';
                                   }
                                 }
-                              } else {
-                                if (double.tryParse(value) > 100) {
-                                  return 'Max value is 100';
-                                }
                               }
-                            }
-                            return null;
-                          },
+                              else{
+                                return "Required";
+                              }
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ) : Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                      ],
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: requiredUpliftDay,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftDay.text) >=0 && double.parse(requiredUpliftDay.text) <=1.5)
-                              {
-                                upliftPreminumDay.text ='0' ;
-                              }
-                              finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDay.text)+
-                                  double.parse(text))
-                                  .toString();
-                            });
-                          },
-                          validator: (value) {
-                            String patttern =
-                                r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
-
-                            RegExp regExp = new RegExp(patttern);
-                            if (value.isNotEmpty) {
-                              // if (value.length > 9) {
-                              //   return 'Enter 0 or 1';
-                              // } else if (!regExp.hasMatch(value)) {
-                              //   return 'Enter 0 or 1';
-                              // }
-                              if (value.isNotEmpty) {
-                                if (double.tryParse(value) > 1.5) {
-                                  return 'max value 1.5';
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: requiredUpliftDayGas,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftDayGas = requiredUpliftDayGas.text;
+                                if(double.parse(requiredUpliftDayGas.text) >=0 && double.parse(requiredUpliftDayGas.text) <=1.5)
+                                {
+                                  upliftPreminumDayGas.text ='0' ;
                                 }
-                              }
-                            }
+                                tempList[widget.index].upliftPreminumDayGas = upliftPreminumDayGas.text;
+                                finalPriceDay.text = (double.parse(baserateday.text) + double.parse(upliftPreminumDayGas.text)+
+                                    double.parse(text))
+                                    .toString();
+                              });
+                            },
+                            validator: (value) {
+                              String patttern =
+                                  r'^([0-1]\d{0})(\.[0-5]\d{0,4})?$';
 
-                            return null;
-                          },
+                              RegExp regExp = new RegExp(patttern);
+                              if (value.isNotEmpty) {
+                                // if (value.length > 9) {
+                                //   return 'Enter 0 or 1';
+                                // } else if (!regExp.hasMatch(value)) {
+                                //   return 'Enter 0 or 1';
+                                // }
+                                if (value.isNotEmpty) {
+                                  if (double.tryParse(value) > 1.5) {
+                                    return 'max value 1.5';
+                                  }
+                                }
+
+                              }
+                              else{
+                                return "Required";
+                              }
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: requiredUpliftSc,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(requiredUpliftSc.text) == 0  ){
-                                upliftPreminumSc.text = "0";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >0 && double.parse(requiredUpliftSc.text) <=10 ){
-                                upliftPreminumSc.text = "1";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >10 && double.parse(requiredUpliftSc.text) <=20 ){
-                                upliftPreminumSc.text = "2";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >20 && double.parse(requiredUpliftSc.text) <=30 ){
-                                upliftPreminumSc.text = "3";
-                              }
-                              else if(double.parse(requiredUpliftSc.text) >30 && double.parse(requiredUpliftSc.text) <=40 ){
-                                upliftPreminumSc.text = "4";
-                              }
-                              else{
-                                upliftPreminumSc.text = "5";
-                              }
-                              finalPriceSc.text =
-                                  (double.parse(baserateSC.text) + double.parse(upliftPreminumSc.text)+
-                                      double.parse(text))
-                                      .toString();
-                            });
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(requiredUpliftDay.text) != null) {
-                                if (double.parse(requiredUpliftDay.text) > 0) {
-                                  if (double.tryParse(value) > 25) {
-                                    return 'Max value is 25';
-                                  } else {}
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: requiredUpliftScGas,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].requiredUpliftScGas = requiredUpliftScGas.text;
+                                if(double.parse(requiredUpliftScGas.text) == 0  ){
+                                  upliftPreminumScGas.text = "0";
                                 }
-                                if (double.parse(requiredUpliftDay.text) == 0) {
+                                else if(double.parse(requiredUpliftScGas.text) >0 && double.parse(requiredUpliftScGas.text) <=10 ){
+                                  upliftPreminumScGas.text = "1";
+                                }
+                                else if(double.parse(requiredUpliftScGas.text) >10 && double.parse(requiredUpliftScGas.text) <=20 ){
+                                  upliftPreminumScGas.text = "2";
+                                }
+                                else if(double.parse(requiredUpliftScGas.text) >20 && double.parse(requiredUpliftScGas.text) <=30 ){
+                                  upliftPreminumScGas.text = "3";
+                                }
+                                else if(double.parse(requiredUpliftScGas.text) >30 && double.parse(requiredUpliftScGas.text) <=40 ){
+                                  upliftPreminumScGas.text = "4";
+                                }
+                                else{
+                                  upliftPreminumScGas.text = "5";
+                                }
+                                tempList[widget.index].upliftPreminumScGas = upliftPreminumScGas.text;
+                                finalPriceSc.text =
+                                    (double.parse(baserateSC.text) + double.parse(upliftPreminumScGas.text)+
+                                        double.parse(text))
+                                        .toString();
+                              });
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(requiredUpliftDayGas.text) != null) {
+                                  if (double.parse(requiredUpliftDayGas.text) > 0) {
+                                    if (double.tryParse(value) > 25) {
+                                      return 'Max value is 25';
+                                    } else {}
+                                  }
+                                  if (double.parse(requiredUpliftDayGas.text) == 0) {
+                                    if (double.tryParse(value) > 50) {
+                                      return 'Max value is 50';
+                                    }
+                                  }
+                                } else {
                                   if (double.tryParse(value) > 50) {
                                     return 'Max value is 50';
                                   }
                                 }
-                              } else {
-                                if (double.tryParse(value) > 50) {
-                                  return 'Max value is 50';
-                                }
                               }
-                            }
-                            return null;
-                          },
+                              else{
+                                return "Required";
+                              }
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
 
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.94,
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.94,
 //padding: EdgeInsets.only(top :10,bottom: 10),
-                  child: Text(
-                    "Uplift Price Premium",
-                    style: TextStyle(
-                        color: Color.fromRGBO(18, 122, 69, 1),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              new Divider(
-                color: Color.fromRGBO(18, 122, 69, 1),
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              widget.type == "MPAN" ? Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                    child: Text(
+                      "Uplift Price Premium",
+                      style: TextStyle(
+                          color: Color.fromRGBO(18, 122, 69, 1),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                new Divider(
+                  color: Color.fromRGBO(18, 122, 69, 1),
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                widget.type == "MPAN" ? Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: upliftPreminumDay,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(upliftPreminumDay.text) == 0){
-                                requiredUpliftDay.text = "1.5";
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: upliftPreminumDay,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].upliftPreminumDay = upliftPreminumDay.text;
+                                if(double.parse(upliftPreminumDay.text) == 0){
+                                  requiredUpliftDay.text = "1.5";
+                                }
+                                else if(double.parse(upliftPreminumDay.text) == 0.1){
+                                  requiredUpliftDay.text = "2";
+                                }
+                                else if(double.parse(upliftPreminumDay.text) == 0.2){
+                                  requiredUpliftDay.text = "2.5";
+                                }
+                                else{
+                                  requiredUpliftDay.text = "3.0";
+                                }
+                                tempList[widget.index].requiredUpliftDay = requiredUpliftDay.text;
+                                finalPriceDay.text =
+                                    (double.parse(baserateday.text) + double.parse(requiredUpliftDay.text)+
+                                        double.parse(text))
+                                        .toString();
+                              });
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumDay.text) != null) {
+                                  if (double.parse(upliftPreminumDay.text)  != 0 &&
+                                      double.parse(upliftPreminumDay.text)  != 0.1 &&
+                                      double.parse(upliftPreminumDay.text)  != 0.2 &&
+                                      double.parse(upliftPreminumDay.text)  != 0.3) {
+                                    return "value must be 0/0.1/0.2/0.3";
+                                  }
+                                  else
+                                    return null;
+                                }
                               }
-                              else if(double.parse(upliftPreminumDay.text) == 0.1){
-                                requiredUpliftDay.text = "2";
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Night,
+                            controller: upliftPreminumNight,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].upliftPreminumNight = upliftPreminumNight.text;
+                                if(double.parse(upliftPreminumNight.text) == 0){
+                                  requiredUpliftNight.text = "1.5";
+                                }
+                                else if(double.parse(upliftPreminumNight.text) == 0.1){
+                                  requiredUpliftNight.text = "2";
+                                }
+                                else if(double.parse(upliftPreminumNight.text) == 0.2){
+                                  requiredUpliftNight.text = "2.5";
+                                }
+                                else{
+                                  requiredUpliftNight.text = "3.0";
+                                }
+                                tempList[widget.index].requiredUpliftNight = requiredUpliftNight.text;
+                                finalPriceNight.text =
+                                    (double.parse(baseratenight.text) + double.parse(requiredUpliftNight.text)+
+                                        double.parse(text))
+                                        .toString();
+                              });
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumNight.text) != null) {
+                                  if (double.parse(upliftPreminumNight.text)  != 0 &&
+                                      double.parse(upliftPreminumNight.text)  != 0.1 &&
+                                      double.parse(upliftPreminumNight.text)  != 0.2 &&
+                                      double.parse(upliftPreminumNight.text)  != 0.3) {
+                                    return "value must be 0/0.1/0.2/0.3";
+                                  }
+                                  else
+                                    return null;
+                                }
                               }
-                              else if(double.parse(upliftPreminumDay.text) == 0.2){
-                                requiredUpliftDay.text = "2.5";
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.EWE,
+                            controller: upliftPreminumEWE,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text) {
+                              setState(() {
+                                tempList[widget.index].upliftPreminumEWE = upliftPreminumEWE.text;
+                                if(double.parse(upliftPreminumEWE.text) == 0){
+                                  requiredUpliftEWE.text = "1.5";
+                                }
+                                else if(double.parse(upliftPreminumEWE.text) == 0.1){
+                                  requiredUpliftEWE.text = "2";
+                                }
+                                else if(double.parse(upliftPreminumEWE.text) == 0.2){
+                                  requiredUpliftEWE.text = "2.5";
+                                }
+                                else{
+                                  requiredUpliftEWE.text = "3.0";
+                                }
+                                tempList[widget.index].requiredUpliftEWE = requiredUpliftEWE.text;
+                                finalPriceEWE.text =
+                                    (double.parse(baserateEwe.text) + double.parse(requiredUpliftEWE.text)+
+                                        double.parse(text))
+                                        .toString();
+                              });
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumEWE.text) != null) {
+                                  if (double.parse(upliftPreminumEWE.text)  != 0 &&
+                                      double.parse(upliftPreminumEWE.text)  != 0.1 &&
+                                      double.parse(upliftPreminumEWE.text)  != 0.2 &&
+                                      double.parse(upliftPreminumEWE.text)  != 0.3) {
+                                    return "value must be 0/0.1/0.2/0.3";
+                                  }
+                                  else
+                                    return null;
+                                }
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: upliftPreminumSc,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].upliftPreminumSc = upliftPreminumSc.text;
+                              if(double.parse(upliftPreminumSc.text) == 0){
+                                requiredUpliftSc.text = "0";
+                              }
+                              else if(double.parse(upliftPreminumSc.text) == 1){
+                                requiredUpliftSc.text = "10";
+                              }
+                              else if(double.parse(upliftPreminumSc.text) == 2){
+                                requiredUpliftSc.text = "20";
+                              }
+                              else if(double.parse(upliftPreminumSc.text) == 3){
+                                requiredUpliftSc.text = "30";
+                              }
+                              else if(double.parse(upliftPreminumSc.text) == 4){
+                                requiredUpliftSc.text = "40";
                               }
                               else{
-                                requiredUpliftDay.text = "3.0";
+                                requiredUpliftSc.text = "50";
                               }
+                              tempList[widget.index].requiredUpliftSc = requiredUpliftSc.text;
+                              finalPriceSc.text =
+                                  (double.parse(baserateSC.text) + double.parse(requiredUpliftSc.text)+
+                                      double.parse(text))
+                                      .toString();
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumSc.text) != null) {
+                                  if (double.parse(upliftPreminumSc.text)  != 0 &&
+                                      double.parse(upliftPreminumSc.text)  != 1 &&
+                                      double.parse(upliftPreminumSc.text)  != 2 &&
+                                      double.parse(upliftPreminumSc.text)  != 3 &&
+                                      double.parse(upliftPreminumSc.text)  != 4 &&
+                                      double.parse(upliftPreminumSc.text)  != 5) {
+                                    return "value must be 0/1/2/3/4/5";
+                                  }
+                                  else
+                                    return null;
+                                }
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: upliftPreminumDayGas,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].upliftPreminumDayGas = upliftPreminumDayGas.text;
+                              if(double.parse(upliftPreminumDayGas.text) == 0){
+                                requiredUpliftDayGas.text = "1.5";
+                              }
+                              tempList[widget.index].requiredUpliftDayGas = requiredUpliftDayGas.text;
                               finalPriceDay.text =
-                                  (double.parse(baserateday.text) + double.parse(requiredUpliftDay.text)+
+                                  (double.parse(baserateday.text) + double.parse(requiredUpliftDayGas.text)+
                                       double.parse(text))
                                       .toString();
-                            });
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumDay.text) != null) {
-                                if (double.parse(upliftPreminumDay.text)  != 0 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.1 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.2 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.3) {
-                                  return "value must be 0/0.1/0.2/0.3";
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumDayGas.text) != null) {
+                                  if (double.parse(upliftPreminumDayGas.text)  != 0 &&
+                                      double.parse(upliftPreminumDayGas.text)  != 0.1 &&
+                                      double.parse(upliftPreminumDayGas.text)  != 0.2 &&
+                                      double.parse(upliftPreminumDayGas.text)  != 0.3) {
+                                    return "value must be 0/0.1/0.2/0.3";
+                                  }
+                                  else
+                                    return null;
                                 }
-                                else
-                                  return null;
                               }
-                            }
-                            return null;
-                          },
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Night,
-                          controller: upliftPreminumNight,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(upliftPreminumNight.text) == 0){
-                                requiredUpliftNight.text = "1.5";
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: upliftPreminumScGas,
+                            autoValidation: true,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].upliftPreminumScGas = upliftPreminumScGas.text;
+                              if(double.parse(upliftPreminumScGas.text) == 0){
+                                requiredUpliftScGas.text = "0";
                               }
-                              else if(double.parse(upliftPreminumNight.text) == 0.1){
-                                requiredUpliftNight.text = "2";
+                              else if(double.parse(upliftPreminumScGas.text) == 1){
+                                requiredUpliftScGas.text = "10";
                               }
-                              else if(double.parse(upliftPreminumNight.text) == 0.2){
-                                requiredUpliftNight.text = "2.5";
+                              else if(double.parse(upliftPreminumScGas.text) == 2){
+                                requiredUpliftScGas.text = "20";
+                              }
+                              else if(double.parse(upliftPreminumScGas.text) == 3){
+                                requiredUpliftScGas.text = "30";
+                              }
+                              else if(double.parse(upliftPreminumScGas.text) == 4){
+                                requiredUpliftScGas.text = "40";
                               }
                               else{
-                                requiredUpliftNight.text = "3.0";
+                                requiredUpliftScGas.text = "50";
                               }
-                              finalPriceNight.text =
-                                  (double.parse(baseratenight.text) + double.parse(requiredUpliftNight.text)+
+                              tempList[widget.index].requiredUpliftScGas = requiredUpliftScGas.text;
+                              finalPriceSc.text =
+                                  (double.parse(baserateSC.text) + double.parse(requiredUpliftScGas.text)+
                                       double.parse(text))
                                       .toString();
-                            });
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumNight.text) != null) {
-                                if (double.parse(upliftPreminumNight.text)  != 0 &&
-                                    double.parse(upliftPreminumNight.text)  != 0.1 &&
-                                    double.parse(upliftPreminumNight.text)  != 0.2 &&
-                                    double.parse(upliftPreminumNight.text)  != 0.3) {
-                                  return "value must be 0/0.1/0.2/0.3";
+                            },
+                            validator: (value) {
+                              // String patttern =
+                              //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
+                              //
+                              // RegExp regExp = new RegExp(patttern);
+                              if (value.length != 0) {
+                                if (double.parse(upliftPreminumScGas.text) != null) {
+                                  if (double.parse(upliftPreminumScGas.text)  != 0 &&
+                                      double.parse(upliftPreminumScGas.text)  != 1 &&
+                                      double.parse(upliftPreminumScGas.text)  != 2 &&
+                                      double.parse(upliftPreminumScGas.text)  != 3 ) {
+                                    return "value must be 0/1/2/3";
+                                  }
+                                  else
+                                    return null;
                                 }
-                                else
-                                  return null;
                               }
-                            }
-                            return null;
-                          },
+                              return null;
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-// padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.EWE,
-                          controller: upliftPreminumEWE,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text) {
-                            setState(() {
-                              if(double.parse(upliftPreminumEWE.text) == 0){
-                                requiredUpliftEWE.text = "1.5";
-                              }
-                              else if(double.parse(upliftPreminumEWE.text) == 0.1){
-                                requiredUpliftEWE.text = "2";
-                              }
-                              else if(double.parse(upliftPreminumEWE.text) == 0.2){
-                                requiredUpliftEWE.text = "2.5";
-                              }
-                              else{
-                                requiredUpliftEWE.text = "3.0";
-                              }
-                              finalPriceEWE.text =
-                                  (double.parse(baserateEwe.text) + double.parse(requiredUpliftEWE.text)+
-                                      double.parse(text))
-                                      .toString();
-                            });
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumEWE.text) != null) {
-                                if (double.parse(upliftPreminumEWE.text)  != 0 &&
-                                    double.parse(upliftPreminumEWE.text)  != 0.1 &&
-                                    double.parse(upliftPreminumEWE.text)  != 0.2 &&
-                                    double.parse(upliftPreminumEWE.text)  != 0.3) {
-                                  return "value must be 0/0.1/0.2/0.3";
-                                }
-                                else
-                                  return null;
-                              }
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: upliftPreminumSc,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text){
-                            if(double.parse(upliftPreminumSc.text) == 0){
-                              requiredUpliftSc.text = "0";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 1){
-                              requiredUpliftSc.text = "10";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 2){
-                              requiredUpliftSc.text = "20";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 3){
-                              requiredUpliftSc.text = "30";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 4){
-                              requiredUpliftSc.text = "40";
-                            }
-                            else{
-                              requiredUpliftSc.text = "50";
-                            }
-                            finalPriceSc.text =
-                                (double.parse(baserateSC.text) + double.parse(requiredUpliftSc.text)+
-                                    double.parse(text))
-                                    .toString();
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumSc.text) != null) {
-                                if (double.parse(upliftPreminumSc.text)  != 0 &&
-                                    double.parse(upliftPreminumSc.text)  != 1 &&
-                                    double.parse(upliftPreminumSc.text)  != 2 &&
-                                    double.parse(upliftPreminumSc.text)  != 3 &&
-                                    double.parse(upliftPreminumSc.text)  != 4 &&
-                                    double.parse(upliftPreminumSc.text)  != 5) {
-                                  return "value must be 0/1/2/3/4/5";
-                                }
-                                else
-                                  return null;
-                              }
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ) : Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-// padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: upliftPreminumDay,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text){
-                            if(double.parse(upliftPreminumDay.text) == 0){
-                              requiredUpliftDay.text = "1.5";
-                            }
-                            finalPriceDay.text =
-                                (double.parse(baserateday.text) + double.parse(requiredUpliftDay.text)+
-                                    double.parse(text))
-                                    .toString();
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumDay.text) != null) {
-                                if (double.parse(upliftPreminumDay.text)  != 0 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.1 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.2 &&
-                                    double.parse(upliftPreminumDay.text)  != 0.3) {
-                                  return "value must be 0/0.1/0.2/0.3";
-                                }
-                                else
-                                  return null;
-                              }
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: upliftPreminumSc,
-                          autoValidation: true,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          onChanged: (text){
-                            if(double.parse(upliftPreminumSc.text) == 0){
-                              requiredUpliftSc.text = "0";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 1){
-                              requiredUpliftSc.text = "10";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 2){
-                              requiredUpliftSc.text = "20";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 3){
-                              requiredUpliftSc.text = "30";
-                            }
-                            else if(double.parse(upliftPreminumSc.text) == 4){
-                              requiredUpliftSc.text = "40";
-                            }
-                            else{
-                              requiredUpliftSc.text = "50";
-                            }
-                            finalPriceSc.text =
-                                (double.parse(baserateSC.text) + double.parse(requiredUpliftSc.text)+
-                                    double.parse(text))
-                                    .toString();
-                          },
-                          validator: (value) {
-                            // String patttern =
-                            //     r'^([0-1]\d{0,1})(\.[0-5]\d{0,4})?$';
-                            //
-                            // RegExp regExp = new RegExp(patttern);
-                            if (value.length != 0) {
-                              if (double.parse(upliftPreminumSc.text) != null) {
-                                if (double.parse(upliftPreminumSc.text)  != 0 &&
-                                    double.parse(upliftPreminumSc.text)  != 1 &&
-                                    double.parse(upliftPreminumSc.text)  != 2 &&
-                                    double.parse(upliftPreminumSc.text)  != 3 ) {
-                                  return "value must be 0/1/2/3";
-                                }
-                                else
-                                  return null;
-                              }
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
 
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.94,
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.94,
 //padding: EdgeInsets.only(top :10,bottom: 10),
-                  child: Text(
-                    "Affiliate Uplift",
-                    style: TextStyle(
-                        color: Color.fromRGBO(18, 122, 69, 1),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              new Divider(
-                color: Color.fromRGBO(18, 122, 69, 1),
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              widget.type == "MPAN" ? Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
+                    child: Text(
+                      "Affiliate Uplift",
+                      style: TextStyle(
+                          color: Color.fromRGBO(18, 122, 69, 1),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                new Divider(
+                  color: Color.fromRGBO(18, 122, 69, 1),
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                widget.type == "MPAN" ? Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: affiliateUpliftDay,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Night,
-                          controller: affiliateUpliftNight,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-// padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.EWE,
-                          controller: affiliateUpliftEWE,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.EWE),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: affiliateUpliftSc,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.SC),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ) : Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-// padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.Day,
-                          controller: affiliateUpliftDay,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Day),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .44,
-//  height: MediaQuery.of(context).size.height*0.062,
-//padding: EdgeInsets.all(10),
-//height: 500,
-                        child: AppTextField(
-                          enabled: true,
-                          title: AppString.SC,
-                          controller: affiliateUpliftSc,
-                          autoValidation: false,
-                          textInputType: TextInputType.number,
-                          hintText: '',
-                          textInputFormatter: [
-                            DecimalTextInputFormatter(
-                              decimalRange: 4,
-                            ),
-                            WhitelistingTextInputFormatter(
-                              RegExp(r'^\d+.?\d{0,4}'),
-                            ),
-                          ],
-                          validator: (value) =>
-                              AppConstant.stringValidator(value, AppString.Night),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: affiliateUpliftDay,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].affiliateUpliftDay = affiliateUpliftDay.text;
 
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.94,
+                            },
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Day),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Night,
+                            controller: affiliateUpliftNight,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].affiliateUpliftNight = affiliateUpliftNight.text;
+
+                            },
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Night),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.EWE,
+                            controller: affiliateUpliftEWE,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].affiliateUpliftEWE = affiliateUpliftEWE.text;
+
+                            },
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.EWE),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: affiliateUpliftSc,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            onChanged: (text){
+                              tempList[widget.index].affiliateUpliftSc = affiliateUpliftSc.text;
+
+                            },
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.SC),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+// padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.Day,
+                            controller: affiliateUpliftDay,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Day),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .44,
+//  height: MediaQuery.of(context).size.height*0.062,
+//padding: EdgeInsets.all(10),
+//height: 500,
+                          child: AppTextField(
+                            enabled: true,
+                            title: AppString.SC,
+                            controller: affiliateUpliftSc,
+                            autoValidation: false,
+                            textInputType: TextInputType.number,
+                            hintText: '',
+                            textInputFormatter: [
+                              DecimalTextInputFormatter(
+                                decimalRange: 4,
+                              ),
+                              WhitelistingTextInputFormatter(
+                                RegExp(r'^\d+.?\d{0,4}'),
+                              ),
+                            ],
+                            validator: (value) =>
+                                AppConstant.stringValidator(value, AppString.Night),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.94,
 //padding: EdgeInsets.only(top :10,bottom: 10),
-                  child: Text(
-                    "Final Price",
-                    style: TextStyle(
-                        color: Color.fromRGBO(18, 122, 69, 1),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  )),
-              new Divider(
-                color: Color.fromRGBO(18, 122, 69, 1),
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-             widget.type == "MPAN" ? Column(
-               children: [
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                    child: Text(
+                      "Final Price",
+                      style: TextStyle(
+                          color: Color.fromRGBO(18, 122, 69, 1),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600),
+                    )),
+                new Divider(
+                  color: Color.fromRGBO(18, 122, 69, 1),
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+               widget.type == "MPAN" ? Column(
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.Day,
-                         controller: finalPriceDay,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.Day,
+                           controller: finalPriceDay,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                     SizedBox(
-                       width: 10,
-                     ),
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                       SizedBox(
+                         width: 10,
+                       ),
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.Night,
-                         controller: finalPriceNight,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.Night,
+                           controller: finalPriceNight,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                   ],
-                 ),
-                 SizedBox(
-                   height: 15,
-                 ),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                     ],
+                   ),
+                   SizedBox(
+                     height: 15,
+                   ),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.EWE,
-                         controller: finalPriceEWE,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.EWE,
+                           controller: finalPriceEWE,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                     SizedBox(
-                       width: 10,
-                     ),
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                       SizedBox(
+                         width: 10,
+                       ),
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.SC,
-                         controller: finalPriceSc,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.SC,
+                           controller: finalPriceSc,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                   ],
-                 ),
-               ],
-             ) : Column(
-               children: [
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                     ],
+                   ),
+                 ],
+               ) : Column(
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 // padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.Day,
-                         controller: finalPriceDay,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.Day,
+                           controller: finalPriceDay,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                     SizedBox(
-                       width: 10,
-                     ),
-                     Container(
-                       width: MediaQuery.of(context).size.width * .44,
+                       SizedBox(
+                         width: 10,
+                       ),
+                       Container(
+                         width: MediaQuery.of(context).size.width * .44,
 //  height: MediaQuery.of(context).size.height*0.062,
 //padding: EdgeInsets.all(10),
 //height: 500,
-                       child: AppTextField(
-                         enabled: false,
-                         title: AppString.SC,
-                         controller: finalPriceSc,
-                         textInputType: TextInputType.number,
-                         hintText: '',
-                         textInputFormatter: [
-                           DecimalTextInputFormatter(
-                             decimalRange: 4,
-                           ),
-                           WhitelistingTextInputFormatter(
-                             RegExp(r'^\d+.?\d{0,4}'),
-                           ),
-                         ],
+                         child: AppTextField(
+                           enabled: false,
+                           title: AppString.SC,
+                           controller: finalPriceSc,
+                           textInputType: TextInputType.number,
+                           hintText: '',
+                           textInputFormatter: [
+                             DecimalTextInputFormatter(
+                               decimalRange: 4,
+                             ),
+                             WhitelistingTextInputFormatter(
+                               RegExp(r'^\d+.?\d{0,4}'),
+                             ),
+                           ],
+                         ),
                        ),
-                     ),
-                   ],
-                 ),
-                 SizedBox(
-                   height: 15,
-                 ),
+                     ],
+                   ),
+                   SizedBox(
+                     height: 15,
+                   ),
 
-               ],
-             ),
-              SizedBox(
-                height: 15,
-              ),
+                 ],
+               ),
+                SizedBox(
+                  height: 15,
+                ),
 
-              // Container(
-              //   width: MediaQuery.of(context).size.width,
-              //   height: MediaQuery.of(context).size.height * 0.058,
-              //   child: Center(
-              //     child: Text(
-              //       "Edit Site",
-              //       style: TextStyle(
-              //           color: Colors.white,
-              //           fontSize: MediaQuery.of(context).size.height * 0.019,
-              //           fontWeight: FontWeight.bold),
-              //     ),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Color.fromRGBO(155, 119, 217, 1),
-              //       borderRadius: BorderRadius.circular(30)),
-              // ),
-              // SizedBox(
-              //   height: 15,
-              // ),
-            ]),
+                // Container(
+                //   width: MediaQuery.of(context).size.width,
+                //   height: MediaQuery.of(context).size.height * 0.058,
+                //   child: Center(
+                //     child: Text(
+                //       "Edit Site",
+                //       style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: MediaQuery.of(context).size.height * 0.019,
+                //           fontWeight: FontWeight.bold),
+                //     ),
+                //   ),
+                //   decoration: BoxDecoration(
+                //       color: Color.fromRGBO(155, 119, 217, 1),
+                //       borderRadius: BorderRadius.circular(30)),
+                // ),
+                // SizedBox(
+                //   height: 15,
+                // ),
+              ]),
+            ),
           );
         });
   }

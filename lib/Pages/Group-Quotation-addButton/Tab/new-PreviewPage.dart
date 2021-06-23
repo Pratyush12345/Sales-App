@@ -50,7 +50,14 @@ class _PreviewpageState extends State<Previewpage> {
       body: BaseView<PreviewPageGroupViewModel>(
         builder: (context, model, child) {
           if (model.state == ViewState.BUSY) {
-            return AppConstant.circularProgressIndicator();
+            return Container(
+              height: MediaQuery.of(context).size.height,
+              child: Scaffold(
+                body: Center(
+                  child: AppConstant.circularProgressIndicator(),
+                ),
+              ),
+            );
           }
           return Container(
             color: Colors.white,

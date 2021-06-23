@@ -4,6 +4,7 @@ import 'package:pozitive/Core/baseview.dart' as bs;
 import 'package:pozitive/Pages/Group-Quotation/Tab/Price_2_Year/Price(2_year)_Electricity.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/Price_3_Year/Price(3_year)_Electricity.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/Price_4_Year/Price(4_year)_Electricity.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Price_5_Year/Price(5_Year)_ELE_Gas.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/group_quotation.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/view_group_details.dart';
 import 'package:pozitive/Pages/Group-Quotation/Tab/view_price_electricity_gas_group.dart';
@@ -25,6 +26,13 @@ import 'package:pozitive/Pages/Group-Quotation/Tab/Price_1_Year/Price(1_Year)_El
 import 'package:pozitive/Core/ViewModel/group_quotation_viewmodel.dart';
 import 'package:http/http.dart' as htp;
 import 'dart:convert';
+import 'dart:isolate';
+import 'dart:ui';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:pozitive/Pages/Group-Quotation/Tab/Other/Price(Other)_ELE_Gas.dart';
+
+
+
 class GroupQuotationPagesTab extends StatefulWidget {
   final String groupID;
   final String quoteId;
@@ -56,19 +64,42 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
     "Price(2_Year)_Electricity or Gas",
     "Price(3_Year)_Electricity or Gas",
     "Price(4_Year)_Electricity or Gas",
+    "Price(5_Year)_Electricity or Gas",
+    "Other"
+
   ];
   List<Widget> tabbarviews = [];
   int number;
   bool check;
+  ReceivePort _port = ReceivePort();
   void initState() {
     setState(() {
       check = false;
     });
      onCallApi();
 
+    IsolateNameServer.registerPortWithName(_port.sendPort, 'downloader_send_port');
+    _port.listen((dynamic data) {
+      String id = data[0];
+      DownloadTaskStatus status = data[1];
+      int progress = data[2];
+      setState((){ });
+    });
+
+    FlutterDownloader.registerCallback(downloadCallback);
     super.initState();
   }
 
+  @override
+  void dispose() {
+    IsolateNameServer.removePortNameMapping('downloader_send_port');
+    super.dispose();
+  }
+
+  static void downloadCallback(String id, DownloadTaskStatus status, int progress) {
+    final SendPort send = IsolateNameServer.lookupPortByName('downloader_send_port');
+    send.send([id, status, progress]);
+  }
   void _handleTabSelection() {
     setState(() {
       globals.tabController8.index;
@@ -105,6 +136,7 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
         // groupId: '19781',
         groupId: widget.groupID,
         loaddata: res,
+        status: widget.status,
       ),
       ViewPriceElecGasGroup(
         // groupId: '19781',
@@ -118,23 +150,55 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
       oneYearPage(
         // groupId: '19781',
         groupId: widget.groupID,
+        status: widget.status,
       ),
       twoYearPage(
         // groupId: '19781',
         groupId: widget.groupID,
+        status: widget.status,
       ),
       threeYearPage(
         // groupId: '19781',
         groupId: widget.groupID,
+        status: widget.status,
       ),
       fourYearPage(
         // groupId: '19781',
         groupId: widget.groupID,
+        status: widget.status,
+      ),
+      fiveYearPage(
+        // groupId: '19781',
+        groupId: widget.groupID,
+        status: widget.status,
+      ),
+      otherYearPage(
+        // groupId: '19781',
+        groupId: widget.groupID,
+        status: widget.status,
       ),
     ];
     number =2;
-    if(widget.status == 'Quoted') {
+    if(widget.status == 'Quoted' || widget.status == 'Accepted') {
       number++;
+
+      for(int i=0;i<number;i++){
+        tabitems.add(
+          new Tab(
+            child: Text(
+              tabtitles[i],
+              style: TextStyle(
+                //color: Colors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+        tabbarviews.add(
+          tabbarviewstemp[i],
+        );
+
+      }
 
       if (res['data']['lstPriceValues'] != null) {
         for (int i = 0; i < res['data']['lstPriceValues'].length; i++) {
@@ -142,28 +206,54 @@ class _GroupQuotationPagesTabState extends State<GroupQuotationPagesTab>
         }
       }
       if (yearlist != null)
-        number += yearlist.length;
+       {
+         number += yearlist.length;
+
+         yearlist.forEach((element) {
+           tabitems.add(
+             new Tab(
+               child: Text(
+                 tabtitles[2+int.parse(element)],
+                 style: TextStyle(
+                   //color: Colors.grey,
+                   fontWeight: FontWeight.bold,
+                 ),
+               ),
+             ),
+           );
+           tabbarviews.add(
+             tabbarviewstemp[2+int.parse(element)],
+           );
+         });
+
+
+       }
+
+
+    }
+    else{
+      for(int i=0;i<number;i++){
+        tabitems.add(
+          new Tab(
+            child: Text(
+              tabtitles[i],
+              style: TextStyle(
+                //color: Colors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+        tabbarviews.add(
+          tabbarviewstemp[i],
+        );
+
+      }
     }
       globals.tabController8 = new TabController(length: number, vsync: this);
       globals.tabController8.addListener(_handleTabSelection);
 
-      for(int i=0;i<number;i++){
-       tabitems.add(
-         new Tab(
-           child: Text(
-             tabtitles[i],
-             style: TextStyle(
-               //color: Colors.grey,
-               fontWeight: FontWeight.bold,
-             ),
-           ),
-         ),
-       );
-       tabbarviews.add(
-         tabbarviewstemp[i],
-       );
 
-      }
 
 
 

@@ -22,6 +22,10 @@ import 'package:pozitive/Pages/quotation_history_group_screen.dart';
 
 import '../customswitch.dart';
 import '../shapePopUp.dart';
+import 'package:flutter/src/cupertino/button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pozitive/Widget/CustomPopUpMenuButton.dart';
+
 
 class DashBoardListItemWidget extends StatefulWidget {
   final int index;
@@ -31,16 +35,18 @@ class DashBoardListItemWidget extends StatefulWidget {
   final String title;
   final List<String> validUpToMsg;
   final String status;
+  final DashBoardDetailDataModel dashBoardDetailDataModel;
 
-  DashBoardListItemWidget(
-      {this.lstDetail,
-      this.index,
-      this.type,
-      this.quoteId,
-      this.title,
-      this.validUpToMsg,
-        this.status,
-      });
+  DashBoardListItemWidget({
+    this.lstDetail,
+    this.index,
+    this.type,
+    this.quoteId,
+    this.title,
+    this.validUpToMsg,
+    this.status,
+    this.dashBoardDetailDataModel,
+  });
 
   @override
   _DashBoardListItemWidgetState createState() =>
@@ -79,7 +85,10 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                               child: Padding(
                                 padding: SizeConfig.innersidepadding,
                                 child: Text(
-                                    widget.lstDetail.intGroupId.toString(),
+                                    widget.type == 'Individual'
+                                        ? widget.lstDetail.intId.toString()
+                                        : widget.lstDetail.intGroupId
+                                            .toString(),
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize:
@@ -91,10 +100,13 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                             flex: 1,
                             child: InkWell(
                               child: Text(
-                                  widget.type == 'Individual' ?
-                              ( widget.lstDetail.businessName==null ? widget.lstDetail.strGroupname : widget.lstDetail.businessName) :
-                              (widget.lstDetail.businessName==null ? widget.lstDetail.businessName : widget.lstDetail.strGroupname ),
-
+                                  widget.type == 'Individual'
+                                      ? (widget.lstDetail.businessName == null
+                                          ? widget.lstDetail.strGroupname
+                                          : widget.lstDetail.businessName)
+                                      : (widget.lstDetail.businessName == null
+                                          ? widget.lstDetail.businessName
+                                          : widget.lstDetail.strGroupname),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize:
@@ -108,10 +120,43 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                               // },
                             ),
                           ),
+                          // Padding(
+                          //   padding: EdgeInsets.only(left: 30),
+                          // ),
+                          widget.lstDetail.bteShowRefreshbutton == 1 &&
+                                  (widget.dashBoardDetailDataModel
+                                              .bIsRestrictRefresh ==
+                                          false ||
+                                      (widget.dashBoardDetailDataModel
+                                                  .bIsRestrictRefresh ==
+                                              true &&
+                                          widget.lstDetail.dteQuotedDate
+                                                  .compareTo(widget
+                                                      .dashBoardDetailDataModel
+                                                      .dteRestrictRefreshDate) ==
+                                              -1))
+                              ? CupertinoButton(
+                                  // onPressed: () {
+                                  //   setState(() {
+                                  //     widget.viewlist[widget.index]["click"] =
+                                  //     !widget.viewlist[widget.index]["click"];
+                                  //   });
+                                  // },
+                                  minSize: 16,
+                                  padding: EdgeInsets.zero,
+                                  // color: Colors.green,
+                                  child: Icon(
+                                    FontAwesomeIcons.syncAlt,
+                                    color: Colors.black,
+                                    size: 18,
+                                  ),
+                                )
+                              : Container(),
+
                           Expanded(
                             flex: 1,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
                                 InkWell(
                                   child: Row(
@@ -161,7 +206,6 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                     }
                                   },
                                 ),
-
                                 Transform.scale(
                                   scale: .8,
                                   child: CustomSwitch(
@@ -196,7 +240,8 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                                 .05,
                                         borderRadius: BorderRadius.circular(15),
                                       ),
-                                      onSelected: (val) {
+                                      onSelected: (val)
+                                      {
                                         if (widget.type.toLowerCase() ==
                                             AppString.indvidual.toLowerCase()) {
                                           if (val.history ==
@@ -323,6 +368,12 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                           }
                                         }
                                       },
+                                      // itemBuilder: (BuildContext context) {
+                                      // //   return Column(
+                                      // //
+                                      // //   );
+                                      // // },
+
                                       itemBuilder: (BuildContext context) {
                                         return model.quotationHistory
                                             .map((quotationHistory) {
@@ -331,19 +382,104 @@ class _DashBoardListItemWidgetState extends State<DashBoardListItemWidget> {
                                             value: quotationHistory,
                                             child: SizedBox(
                                               width: 500,
-                                              child: Text(
-                                                quotationHistory.history ??
-                                                    // // ('${widget.lstDetail.validMsg ?? 'VALID UP TO'.split('-')[0]}' +
-                                                    // //     '\n${widget.lstDetail.validMsg.substring(12)}') ??
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    quotationHistory.history ??
+                                                        // // ('${widget.lstDetail.validMsg ?? 'VALID UP TO'.split('-')[0]}' +
+                                                        // //     '\n${widget.lstDetail.validMsg.substring(12)}') ??
 
+                                                        ('${widget.lstDetail.validMsg.substring(0, 11)}' +
+                                                            '\n${widget.lstDetail.validMsg.substring(12, 31)}') ??
+                                                        '',
+                                                    // ('${widget.lstDetail.validMsg ?? 'Valid Up To'}') ??
+                                                    // 'Valid Up To',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:   MediaQuery.of(context).size.height * 0.005,
+                                                  ),
+                                                  Container(
+                                                    width: 200,
+                                                    height: 1,
+                                                    color: Colors.white,
+                                                  ),
+                                                  SizedBox(
+                                                    height:   MediaQuery.of(context).size.height * 0.002,
+                                                  ),
+                                                  Text(
                                                     ('${widget.lstDetail.validMsg.substring(0, 11)}' +
-                                                        '\n${widget.lstDetail.validMsg.substring(12, 31)}') ??
-                                                    '',
-                                                // ('${widget.lstDetail.validMsg ?? 'Valid Up To'}') ??
-                                                // 'Valid Up To',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                ),
+                                                        '\n${widget.lstDetail.validMsg.substring(12, 31)}'),
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:   MediaQuery.of(context).size.height * 0.005,
+                                                  ),
+                                                  Container(
+                                                    width: 200,
+                                                    height: 1,
+                                                    color: Colors.white,
+                                                  ),
+                                                  SizedBox(
+                                                    height:   MediaQuery.of(context).size.height * 0.004,
+                                                  ),
+                                                  widget.lstDetail.bteShowRefreshbutton == 1 &&
+                                                      (widget.dashBoardDetailDataModel
+                                                          .bIsRestrictRefresh ==
+                                                          false ||
+                                                          (widget.dashBoardDetailDataModel
+                                                              .bIsRestrictRefresh ==
+                                                              true &&
+                                                              widget.lstDetail.dteQuotedDate
+                                                                  .compareTo(widget
+                                                                  .dashBoardDetailDataModel
+                                                                  .dteRestrictRefreshDate) ==
+                                                                  -1)) ?
+                                                  Row(
+                                                    children: [
+                                                      CupertinoButton(
+                                                        onPressed: () async{
+                                                         var res = await model.refreshGroup(
+                                                              accountId: user.accountId,
+                                                              grpId: widget.lstDetail.intGroupId.toString()
+                                                          );
+                                                         if(res['status'] == "1"){
+                                                           AppConstant.showSuccessToast(
+                                                               context, "Refresh "+res['msg']);
+                                                         }
+                                                         else{
+                                                           AppConstant.showFailToast(
+                                                               context, "Refresh "+res['msg']);
+                                                         }
+                                                        },
+                                                        minSize: 16,
+                                                        padding: EdgeInsets.zero,
+                                                        // color: Colors.green,
+                                                        child: Icon(
+                                                          FontAwesomeIcons.syncAlt,
+                                                          color: Colors.white,
+                                                          size: 18,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                        MediaQuery.of(context).size.width * .02,
+                                                      ),
+                                                      Text(
+                                                        "Refresh",
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ) : Container(),
+                                                ],
                                               ),
                                             ),
                                           );

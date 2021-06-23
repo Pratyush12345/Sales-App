@@ -7,8 +7,10 @@ class GroupQuoteDetailList extends StatefulWidget {
   final int index;
   final List viewlist;
   final List<GroupDetailsSubModel> groupDetailslst;
+  final List<Skippedmapn> skippedmpanlist;
+  final bool active;
   GroupQuoteDetailList(
-      {this.index, this.viewlist, @required this.groupDetailslst});
+      {this.index, this.viewlist, @required this.groupDetailslst,this.active,this.skippedmpanlist});
 
   @override
   _GroupQuoteDetailListState createState() => _GroupQuoteDetailListState();
@@ -51,7 +53,8 @@ class _GroupQuoteDetailListState extends State<GroupQuoteDetailList> {
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Text(
-                      widget.groupDetailslst[widget.index].businessName ?? "",
+                      widget.active ? widget.groupDetailslst[widget.index].businessName ?? "" :
+                     widget.skippedmpanlist[widget.index].mapncore,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.grey,
@@ -67,7 +70,8 @@ class _GroupQuoteDetailListState extends State<GroupQuoteDetailList> {
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Text(
-                      getMpanOrMprn(),
+                      widget.active ? getMpanOrMprn():
+                      widget.skippedmpanlist[widget.index].Reason,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.grey,
@@ -78,7 +82,7 @@ class _GroupQuoteDetailListState extends State<GroupQuoteDetailList> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .02,
                 ),
-                InkWell(
+                widget.active ? InkWell(
                   child: Container(
                       //width: MediaQuery.of(context).size.width * .32,
                       child: Row(
@@ -100,7 +104,7 @@ class _GroupQuoteDetailListState extends State<GroupQuoteDetailList> {
                           !widget.viewlist[widget.index]["click"];
                     });
                   },
-                )
+                ) : Container(),
               ],
             ),
           ),

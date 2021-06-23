@@ -16,6 +16,7 @@ import 'package:provider/provider.dart';
 import 'package:pozitive/providers/site_list_provider.dart';
 import 'package:pozitive/providers/tabcontroller3_provider.dart';
 import 'package:pozitive/providers/quotation_detail_provider.dart';
+import 'package:pozitive/Pages/Group-Quotation-addButton/common_wids_group/purple_flat_button.dart';
 
 class ViewGroupQuotationWidget extends StatefulWidget {
   final String groupId;
@@ -135,7 +136,7 @@ TabController3Provider tabController3Provider;
                         if (model.businessNameController.text == '' &&
                             model.groupNameController.text == '') {
                           return AppConstant.stringValidator(value,
-                              'Please enter either business/basket name or group name.');
+                              'either business/basket name or group name.');
                         }
                         return null;
                       },
@@ -543,7 +544,7 @@ TabController3Provider tabController3Provider;
                           });
                         }
                       },
-                      child:  widget.status != "Quoted" ? Container(
+                      child:  widget.status == null ? Container(
                         margin: EdgeInsets.only(
                           bottom: MediaQuery.of(context).size.height * 0.03,
                         ),
@@ -564,7 +565,13 @@ TabController3Provider tabController3Provider;
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(155, 119, 217, 1),
                             borderRadius: BorderRadius.circular(30)),
-                      ) : Container() ,
+                      ) : Container(
+                        padding: EdgeInsets.all(20),
+                        child: PurpleFlatButton(
+                          text: 'Next',
+                          onTap: () => model.goToNext(),
+                        ),
+                      )  ,
                     ),
                   ],
                 ),

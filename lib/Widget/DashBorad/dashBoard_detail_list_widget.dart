@@ -91,6 +91,7 @@ class _DashBoardListWidgetState extends State<DashBoardListWidget> {
                 title: widget.title,
                 validUpToMsg: widget.validUpToMsg,
                 status: widget.dashBoardDetailDataModel.strstatus,
+                dashBoardDetailDataModel: widget.dashBoardDetailDataModel,
               );
             })
       ],

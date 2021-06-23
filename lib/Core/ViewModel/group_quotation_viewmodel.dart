@@ -184,6 +184,11 @@ class GroupQuotationViewModel extends BaseModel {
     setState(ViewState.IDLE);
   }
 
+  void goToNext() {
+    setState(ViewState.BUSY);
+    globals.tabController8.animateTo(1);
+    setState(ViewState.IDLE);
+  }
   Future<void> getCompanyName() async {
     setState(ViewState.BUSY);
 
@@ -546,12 +551,16 @@ class GroupQuotationViewModel extends BaseModel {
     print(doota['data']['lstGroupMaster'] );
       if (doota['data']['lstGroupMaster'] !=null) {
         for (int i = 0; i < doota['data']['lstGroupMaster'].length; i++) {
+          String corempan = '';
+          if((doota['data']['lstGroupMaster'][i]['Full_Mpan_Number']) != "" && (doota['data']['lstGroupMaster'][i]['Full_Mpan_Number']) != null)
+            corempan = doota['data']['lstGroupMaster'][i]['Full_Mpan_Number'].toString().substring(8);
+
           textlist.add(
             TextContollerList(
               businessNameCont: TextEditingController(
                   text: doota['data']['lstGroupMaster'][i]['Business_Name'] ?? ''),
               mpanCoreCont: TextEditingController(
-                  text: doota['data']['lstGroupMaster'][i]['Full_Mpan_Number'] ?? ''),
+                  text: corempan),
               mprnCont: TextEditingController(
                   text: doota['data']['lstGroupMaster'][i]['Gas_Mprn'] ?? ''),
               prefStartDateCont: TextEditingController(
@@ -570,10 +579,10 @@ class GroupQuotationViewModel extends BaseModel {
                 remove: () {
                   removeSiteDetail(context: context, index: textlist[i].index);
                 },
-                addButtonEnable:
-                siteControllerModelList.length == maxSites - 1 ? false : true,
-                removeButtonEnable:
-                siteControllerModelList.length == 0 ? false : true,
+                addButtonEnable: false,
+                //siteControllerModelList.length == maxSites - 1 ? false : true,
+                removeButtonEnable: false,
+               // siteControllerModelList.length == 0 ? false : true,
                 mprnController: textlist[i].mprnCont,
                 mpanCoreController: textlist[i].mpanCoreCont,
                 businessNameController: textlist[i].businessNameCont,
@@ -698,7 +707,39 @@ class GroupQuotationViewModel extends BaseModel {
     setState(ViewState.IDLE);
 
   }
-
+  void sitevalidate({BuildContext context}){
+    siteControllerModelList.clear();
+    for(int i=0;i<textlist.length;i++){
+      siteControllerModelList.add(
+        SiteControllerModel(
+          child: SiteDetailWidget(
+            add: () => addSite(
+              context: context,
+              index: siteControllerModelList.length,
+            ),
+            remove: () {
+              removeSiteDetail(context: context, index: textlist[i].index);
+            },
+            addButtonEnable: siteControllerModelList.length == maxSites - 1 ? false : true,
+            removeButtonEnable: siteControllerModelList.length == 0 ? false : true,
+            mprnController: textlist[i].mprnCont,
+            mpanCoreController: textlist[i].mpanCoreCont,
+            businessNameController: textlist[i].businessNameCont,
+            startDateController: textlist[i].prefStartDateCont,
+            autoValidation: true,
+            selectDate: () {
+              print(textlist[i].prefStartDateCont);
+              FocusScope.of(context).unfocus();
+              dateSelect(
+                  context: context,
+                  controller: textlist[i].prefStartDateCont);
+            },
+            fieldsEnabled: true,
+          ),
+        ),
+      );
+    }
+  }
   Future<void> getSiteBusinessNames(
       {BuildContext context,
       SiteSharedPrefDataModel sharedPrefDataModel}) async {
@@ -782,15 +823,18 @@ class GroupQuotationViewModel extends BaseModel {
       // siteControllerModelList.clear();
       // textlist.clear();
 
-      if (siteControllerModelList.isEmpty) {
-        initializeSite(context: context);
-      }
+     if(grpid ==  null){
+       if (siteControllerModelList.isEmpty) {
+         initializeSite(context: context);
+       }
+     }
     }
   print(grpid);
    // await getDataPrevQuotes(context,grpid);
     await getCompanyName();
 
     load = true;
+   // print(textlist.length);
     setState(ViewState.IDLE);
   }
 
@@ -1071,6 +1115,7 @@ class GroupQuotationViewModel extends BaseModel {
           startDateController: textlist[i].prefStartDateCont,
           autoValidation: autovalidation,
           selectDate: () {
+
             FocusScope.of(context).unfocus();
             dateSelect(
                 context: context, controller: textlist[i].prefStartDateCont);

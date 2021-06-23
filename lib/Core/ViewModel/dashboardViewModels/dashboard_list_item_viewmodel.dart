@@ -24,6 +24,8 @@ import 'package:pozitive/Core/Model/quote_history_dropdown_group_model.dart';
 import 'package:pozitive/Pages/quotation_history_individual_screen.dart';
 import 'dart:convert';
 import '../../getIt.dart';
+import 'package:http/http.dart' as htp;
+import 'dart:convert';
 
 class DashBoardItemViewModel extends BaseModel {
   List<String> showValMsg = [];
@@ -48,7 +50,7 @@ class DashBoardItemViewModel extends BaseModel {
     if (title == 'Quoted') {
       quotationHistory = <QuotationPopupMenu>[
         QuotationPopupMenu(history: 'QUOTED HISTORY'),
-        QuotationPopupMenu(history: null),
+      //  QuotationPopupMenu(history: null),
       ];
     }
     if (title == 'Requested Requote') {
@@ -59,19 +61,19 @@ class DashBoardItemViewModel extends BaseModel {
     if (title == 'Requoted') {
       quotationHistory = <QuotationPopupMenu>[
         QuotationPopupMenu(history: 'QUOTED HISTORY'),
-        QuotationPopupMenu(history: null),
+        //QuotationPopupMenu(history: null),
       ];
     }
     if (title == 'Accepted') {
       quotationHistory = <QuotationPopupMenu>[
         QuotationPopupMenu(history: 'QUOTED HISTORY'),
-        QuotationPopupMenu(history: null),
+       // QuotationPopupMenu(history: null),
       ];
     }
     if (title == 'Contract send but not received') {
       quotationHistory = <QuotationPopupMenu>[
         QuotationPopupMenu(history: 'MOVE TO QUOTED'),
-        QuotationPopupMenu(history: null),
+        //QuotationPopupMenu(history: null),
       ];
     }
   }
@@ -222,7 +224,7 @@ class DashBoardItemViewModel extends BaseModel {
       ),
     );
     setState(ViewState.IDLE);
-    //print('data===${requestQuoteHistoryGroupModel.toJson()}');
+    print('data===${requestQuoteHistoryGroupModel.toJson()}');
     if (requestQuoteHistoryGroupModel != null) {
       AppConstant.showSuccessToast(context, 'Group Data Passed Successfully');
       return requestQuoteHistoryGroupModel;
@@ -301,5 +303,19 @@ class DashBoardItemViewModel extends BaseModel {
       GroupRefreshReQuoteCrential refreshReQuoteCrential) async {
     setState(ViewState.BUSY);
     final response = await database.groupRefreshReQuote(refreshReQuoteCrential);
+  }
+
+  Future<dynamic> refreshGroup ({String grpId,String accountId}) async{
+print(grpId);
+print(accountId);
+    htp.Response response = await htp.get(
+        Uri.parse(
+            'https://api.boshposh.com/api/Partner/GetRefreshGroupQuote?intGroupId=$grpId&intAccountId=$accountId'),
+        headers: {"Content-Type": "application/json"},
+        // body: (json1.substring(1, lstLength - 1)),
+
+    );
+    print(response.body);
+    return jsonDecode(response.body);
   }
 }

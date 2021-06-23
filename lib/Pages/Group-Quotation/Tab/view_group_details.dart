@@ -16,7 +16,8 @@ import 'package:pozitive/Util/global.dart' as globals;
 class ViewGroupDetailsPage extends StatefulWidget {
   final String groupId;
   dynamic loaddata;
-  ViewGroupDetailsPage({@required this.groupId,this.loaddata});
+  final String status;
+  ViewGroupDetailsPage({@required this.groupId,this.loaddata,this.status});
   @override
   _ViewGroupDetailsPageState createState() => _ViewGroupDetailsPageState();
 }
@@ -55,109 +56,274 @@ class _ViewGroupDetailsPageState extends State<ViewGroupDetailsPage> {
           return Container(
             color: Colors.white,
             child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.width * .025,
-                ),
+              children: [
                 Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * .02,
-                        right: MediaQuery.of(context).size.width * .02),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
                     child: Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.060,
-//                  width: MediaQuery.of(context).size.width,
-                          color: Color.fromRGBO(18, 122, 69, 1),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left:
-                                    MediaQuery.of(context).size.height * 0.017,
-                                top: MediaQuery.of(context).size.height * 0.017,
-                                bottom:
-                                    MediaQuery.of(context).size.height * 0.017),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * .02,
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * .36,
-                                  child: Text(
-                                    AppString.businessName,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.022),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * .03,
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * .32,
-                                  child: Text(
-                                    AppString.mpanOrmprn,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.022),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * .15,
-                                  child: Text(
-                                    "   ",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.02),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.width * .025,
                         ),
-                        Expanded(
-                          child: ListView.builder(
-                              padding: EdgeInsets.all(0),
-                              shrinkWrap: true,
-                              itemCount: groupDetailslst.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return GroupQuoteDetailList(
-                                  groupDetailslst: groupDetailslst,
-                                  index: index,
-                                  viewlist: viewlist,
-                                );
-                              }),
-                        )
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * .02,
+                              right: MediaQuery.of(context).size.width * .02),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                height: MediaQuery.of(context).size.height * 0.060,
+//                  width: MediaQuery.of(context).size.width,
+                                color: Color.fromRGBO(18, 122, 69, 1),
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left:
+                                      MediaQuery.of(context).size.height * 0.017,
+                                      top: MediaQuery.of(context).size.height * 0.017,
+                                      bottom:
+                                      MediaQuery.of(context).size.height * 0.017),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      SizedBox(
+                                        width:
+                                        MediaQuery.of(context).size.width * .02,
+                                      ),
+                                      Container(
+                                        width:
+                                        MediaQuery.of(context).size.width * .36,
+                                        child: Text(
+                                          AppString.businessName,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.022),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width:
+                                        MediaQuery.of(context).size.width * .03,
+                                      ),
+                                      Container(
+                                        width:
+                                        MediaQuery.of(context).size.width * .32,
+                                        child: Text(
+                                          AppString.mpanOrmprn,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.022),
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                        MediaQuery.of(context).size.width * .15,
+                                        child: Text(
+                                          "   ",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.02),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              ListView.builder(
+                                  padding: EdgeInsets.all(0),
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: groupDetailslst.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return GroupQuoteDetailList(
+                                      groupDetailslst: groupDetailslst,
+                                      index: index,
+                                      viewlist: viewlist,
+                                      active: true,
+                                    );
+                                  }),
+                            ],
+                          ),
+
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.width * .15,
+                        ),
+                       skippedmapnlist.isNotEmpty ?
+                           Column(
+                             children: [
+                               SizedBox(
+                                 height: MediaQuery.of(context).size.width * .04,
+                               ),
+                               Padding(
+                                 padding: EdgeInsets.only(
+                                     left: MediaQuery.of(context).size.width * .02,
+                                     right: MediaQuery.of(context).size.width * .02),
+                                 child: Container(
+                                   height: MediaQuery.of(context).size.height * 0.060,
+//                  width: MediaQuery.of(context).size.width,
+                                   color: Color.fromRGBO(18, 122, 69, 1),
+                                   child: Padding(
+                                     padding: EdgeInsets.only(
+                                         left:
+                                         MediaQuery.of(context).size.height * 0.017,
+                                         top: MediaQuery.of(context).size.height * 0.017,
+                                         bottom:
+                                         MediaQuery.of(context).size.height * 0.017),
+                                     child: Row(
+                                       mainAxisAlignment: MainAxisAlignment.start,
+                                       children: <Widget>[
+                                         SizedBox(
+                                           width:
+                                           MediaQuery.of(context).size.width * .02,
+                                         ),
+                                         Container(
+                                           width:
+                                           MediaQuery.of(context).size.width * .36,
+                                           child: Text(
+                                             "Skipped MPANs",
+                                             style: TextStyle(
+                                                 color: Colors.white,
+                                                 fontWeight: FontWeight.bold,
+                                                 fontSize:
+                                                 MediaQuery.of(context).size.height *
+                                                     0.022),
+                                           ),
+                                         ),
+
+                                       ],
+                                     ),
+                                   ),
+                                 ),
+                               ),
+                               SizedBox(
+                                 height: MediaQuery.of(context).size.width * .01,
+                               ),
+                               Padding(
+                                 padding: EdgeInsets.only(
+                                     left: MediaQuery.of(context).size.width * .02,
+                                     right: MediaQuery.of(context).size.width * .02),
+                                 child: Column(
+                                   children: <Widget>[
+                                     Container(
+                                       height: MediaQuery.of(context).size.height * 0.050,
+//                  width: MediaQuery.of(context).size.width,
+                                       color: Color.fromRGBO(18, 122, 69, 1),
+                                       child: Padding(
+                                         padding: EdgeInsets.only(
+                                             left:
+                                             MediaQuery.of(context).size.height * 0.010,
+                                             top: MediaQuery.of(context).size.height * 0.010,
+                                             bottom:
+                                             MediaQuery.of(context).size.height * 0.017),
+                                         child: Row(
+                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                           children: <Widget>[
+                                             SizedBox(
+                                               width:
+                                               MediaQuery.of(context).size.width * .02,
+                                             ),
+                                             Container(
+                                               width:
+                                               MediaQuery.of(context).size.width * .36,
+                                               child: Text(
+                                                 "MPAN_Core",
+                                                 style: TextStyle(
+                                                     color: Colors.white,
+                                                     fontWeight: FontWeight.bold,
+                                                     fontSize:
+                                                     MediaQuery.of(context).size.height *
+                                                         0.020),
+                                               ),
+                                             ),
+                                             SizedBox(
+                                               width:
+                                               MediaQuery.of(context).size.width * .02,
+                                             ),
+                                             Container(
+                                               width:
+                                               MediaQuery.of(context).size.width * .32,
+                                               child: Text(
+                                                 "Reason",
+                                                 style: TextStyle(
+                                                     color: Colors.white,
+                                                     fontWeight: FontWeight.bold,
+                                                     fontSize:
+                                                     MediaQuery.of(context).size.height *
+                                                         0.020),
+                                               ),
+                                             ),
+                                             Container(
+                                               width:
+                                               MediaQuery.of(context).size.width * .15,
+                                               child: Text(
+                                                 "   ",
+                                                 style: TextStyle(
+                                                     color: Colors.white,
+                                                     fontWeight: FontWeight.bold,
+                                                     fontSize:
+                                                     MediaQuery.of(context).size.height *
+                                                         0.02),
+                                                 textAlign: TextAlign.center,
+                                               ),
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                     ),
+
+                                     ListView.builder(
+                                         padding: EdgeInsets.all(0),
+                                         shrinkWrap: true,
+                                         physics: NeverScrollableScrollPhysics(),
+                                         itemCount: skippedmapnlist.length,
+                                         itemBuilder: (BuildContext context, int index) {
+                                           return GroupQuoteDetailList(
+                                             groupDetailslst: groupDetailslst,
+                                             index: index,
+                                             viewlist: viewlist,
+                                             active: false,
+                                             skippedmpanlist: skippedmapnlist,
+                                           );
+                                         }),
+                                     SizedBox(
+                                       height:
+                                       MediaQuery.of(context).size.width * .2,
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                             ],
+                           ) : Container(),
                       ],
                     ),
                   ),
                 ),
-                Container(
+                widget.status ==  "Quoted" ? Container(
                   padding: EdgeInsets.all(20),
                   child: PurpleFlatButton(
                     text: 'Next',
                     onTap: () => model.goToNext(),
                   ),
-                ),
+                ) : Container(),
+                widget.status ==  "Accepted" ? Container(
+                  padding: EdgeInsets.all(20),
+                  child: PurpleFlatButton(
+                    text: 'Next',
+                    onTap: () => model.goToNext(),
+                  ),
+                ) : Container(),
               ],
-            ),
+            )
           );
         },
       ),

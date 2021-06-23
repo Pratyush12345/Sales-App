@@ -135,7 +135,7 @@
     },
     {
       "name": "ffi",
-      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -152,6 +152,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "file_utils",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/file_utils-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -159,7 +165,7 @@
     },
     {
       "name": "flutter_downloader",
-      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_downloader-1.6.0",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_downloader-1.6.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -222,6 +228,12 @@
       "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-5.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.1"
+    },
+    {
+      "name": "globbing",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/globbing-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "http",
@@ -549,9 +561,9 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.0.5",
+      "rootUri": "file:///home/jay/Downloads/flutter_linux_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.1.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.13"
     },
     {
       "name": "xdg_directories",
@@ -572,7 +584,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2021-05-29T08:26:28.186898Z",
+  "generated": "2021-06-08T09:13:25.689762Z",
   "generator": "pub",
   "generatorVersion": "2.13.0"
 }

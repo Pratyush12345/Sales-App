@@ -26,7 +26,7 @@ class PreviewPageGroupViewModel extends BaseModel {
 
   List<ListFormSiteListFinal> getAllSites(
       {SiteListProvider siteListProviderData}) {
-    setState(ViewState.BUSY);
+   // setState(ViewState.BUSY);
     allSites.clear();
     for (int i = 0; i < siteListProviderData.siteListProvider.length; i++) {
       print(siteListProviderData.siteListProvider[i].dteContractStartDate);
@@ -43,7 +43,7 @@ class PreviewPageGroupViewModel extends BaseModel {
         ),
       );
     }
-    setState(ViewState.IDLE);
+  //  setState(ViewState.IDLE);
     return allSites;
   }
 
@@ -54,6 +54,7 @@ class PreviewPageGroupViewModel extends BaseModel {
     SiteListProvider siteListProviderData,
   }) async {
     setState(ViewState.BUSY);
+
     User _user = await Prefs.getUser();
     List<GroupAskForQuoteFinalCredentials> list = [];
     list.add(
@@ -256,7 +257,8 @@ class PreviewPageGroupViewModel extends BaseModel {
           siteListProviderData.siteListProvider = siteListReceived;
           if (addDetailsPerfect) {
             setState(ViewState.IDLE);
-            if (res['data']['status'] == 'UnderProcess') {
+            print(res['data']['status'] );
+            if (res['data']['status'] != "Quoted") {
               tabController3Provider.setTabListProvider = 2;
 
               return AppConstant.popUp2(
@@ -265,31 +267,24 @@ class PreviewPageGroupViewModel extends BaseModel {
                 () {
                   Navigator.of(context).pushAndRemoveUntil(
                       new MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => HomePage(
+                          type: "group",
+                        ),
                       ),
                       (route) => false);
                 },
               );
             }
-            //else if(res['data']['status']=='Quoted'){}
             else {
-              return AppConstant.popUp2(
-                context,
-                AppString.groupQuotePriceAlertMsg,
-                    () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      new MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                          (route) => false);
-                },
-              );
-              // Navigator.of(context).pushAndRemoveUntil(
-              //     new MaterialPageRoute(
-              //       builder: (context) => HomePage(),
-              //     ),
-              //     (route) => false);
-              // return AppConstant.showSuccessToast(context, 'Success');
+              setState(ViewState.IDLE);
+              Navigator.of(context).pushAndRemoveUntil(
+                  new MaterialPageRoute(
+                    builder: (context) => HomePage(
+                      type: "group",
+                    ),
+                  ),
+                  (route) => false);
+              return AppConstant.showSuccessToast(context, 'Success');
             }
 
             // tabController3Provider.setTabListProvider = 2;
