@@ -7,6 +7,7 @@ import 'package:pozitive/Util/theme.dart';
 import 'package:pozitive/Core/AppConstact/appColors.dart';
 import 'package:pozitive/Pages/Group-Quotation-addButton/Tab/group_quotation_widget.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/src/services/text_formatter.dart';
 
 class SiteDetailWidget extends StatefulWidget {
   final Function selectDate;
@@ -151,6 +152,10 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                   autoValidation: widget.autoValidation,
                   textInputType: TextInputType.number,
                   hintText: AppString.mpanCore,
+                  textInputFormatter: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+
+                  ],
                   validator: (value) {
 
                     if (value.length>13) {
@@ -175,16 +180,22 @@ class _SiteDetailWidgetState extends State<SiteDetailWidget> {
                   autoValidation: widget.autoValidation,
                   textInputType: TextInputType.number,
                   hintText: AppString.mprn10Digit,
+                  textInputFormatter: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+
+                  ],
+
                   validator: (value) {
                     if (value.length>10) {
                       return
                         'valid upto 10 digits';
                     }
+
                     if(widget.mprnController.text == "" && widget.mpanCoreController.text == ""){
                       return "Please enter either MPAN Core or MPRN";
                     }
-                    else if(value.length < 10 && value.length>0){
-                      return "must enter 10 digits";
+                    else if(value.length < 8 && value.length>0){
+                      return "must enter 8 or 10 digits";
                     }
                     return null;
                   },

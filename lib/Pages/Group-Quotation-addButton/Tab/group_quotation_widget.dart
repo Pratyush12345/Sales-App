@@ -141,6 +141,9 @@ class _GroupQuotationWidgetState extends State<GroupQuotationWidget> {
                         return AppConstant.stringValidator(value,
                             'either business/basket name or group name.');
                       }
+                      if( value.length == 1){
+                        return 'name atleast 2 charcters';
+                      }
                       return null;
                     },
                   ),
@@ -209,10 +212,17 @@ class _GroupQuotationWidgetState extends State<GroupQuotationWidget> {
                                   autofocus: true,
                                   controller: model.typeAheadController,
                                   decoration: InputDecoration(
-                                    suffixIcon: Image.asset(
-                                      "assets/search.png",
-                                      scale: 10,
+                                    suffixIcon: IconButton(
+                                     // iconSize: 10,
+                                      icon: Icon(Icons.search),
+                                      onPressed: (){
+                                        model.getCompanyName();
+                                      },
                                     ),
+                                    // Image.asset(
+                                    //   "assets/search.png",
+                                    //   scale: 10,
+                                    // ),
                                     hintText: "  Select  ",
                                   ),
                                 ),

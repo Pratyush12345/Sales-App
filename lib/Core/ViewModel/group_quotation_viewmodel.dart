@@ -194,6 +194,7 @@ class GroupQuotationViewModel extends BaseModel {
 
     final response = await database.getCompanyNameList();
     model = response;
+    print(response);
     if (model.companyList[0].text == 'Select') {
       model.companyList.removeAt(0);
     }
@@ -834,6 +835,7 @@ class GroupQuotationViewModel extends BaseModel {
     await getCompanyName();
 
     load = true;
+    requireByDateController.text = dateRFormat.format(DateTime.now());
    // print(textlist.length);
     setState(ViewState.IDLE);
   }
@@ -950,7 +952,7 @@ class GroupQuotationViewModel extends BaseModel {
         businessNameCont: TextEditingController(text: ''),
         mpanCoreCont: TextEditingController(text: ''),
         mprnCont: TextEditingController(text: ''),
-        prefStartDateCont: TextEditingController(text: ''),
+        prefStartDateCont: TextEditingController(text: dateFormat.format(DateTime.now())),
         index: 0,
       ),
     );
@@ -1048,7 +1050,7 @@ class GroupQuotationViewModel extends BaseModel {
             businessNameCont: TextEditingController(text: ''),
             mpanCoreCont: TextEditingController(text: ''),
             mprnCont: TextEditingController(text: ''),
-            prefStartDateCont: TextEditingController(text: ''),
+            prefStartDateCont: TextEditingController(text: dateFormat.format(DateTime.now())),
             index: index,
           ),
         );

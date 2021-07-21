@@ -365,6 +365,7 @@ class DatabaseImplementation extends Database {
       ApiPath.getCompanyNameList,
       (r) {
         var res = jsonDecode(r.body);
+        //print(res);
         return CompanyListModel.fromJson(res);
       },
     );
